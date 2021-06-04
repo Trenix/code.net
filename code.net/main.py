@@ -27,7 +27,7 @@ class MainWindow(Screen):
             self.ids.round1sum.text = "At least one hacker is among the following."
 
             # Log Generation
-#TODO: Log generation needs to be fixed, more likely to have hackers than coders.
+#TODO: Log generation needs to be fixed, more likely to have hackers than coders because of the probability. Also should have log generation be it's own script where we provide variables and return information.
             if globals.players == 9:
                 tempamthacker = random.randint(1, 3)
             else:
