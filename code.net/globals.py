@@ -1,0 +1,11 @@
+aiamt = 0
+amtbad = 0
+players = 0
+playerlist = {}
+playercounter = 1
+popupWindow = None
+colortracker = 0
+savedpopup = None
+notai = []
+hackerlist = []
+coderlist = []

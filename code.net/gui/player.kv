@@ -1,0 +1,64 @@
+<PlayerWindow>:
+    name: "player"
+
+    GridLayout:
+        cols: 1
+
+        Label:
+            text: "How many players are playing?"
+
+
+        GridLayout:
+            spacing: 5
+            cols:3
+            size_hint: 1, 0.35
+
+            Button:
+                halign: "center"
+                text: "4 Players\n(1 AI)"
+                on_release:
+                    root.fourp()
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"
+
+            Button:
+                halign: "center"
+                text: "5 Players\n(1 AI)"
+                on_release:
+                    root.fivep()
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "6 Players"
+                on_release:
+                    root.sixp()
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"
+            Button:
+                text: "7 Players"
+                on_release:
+                    root.sevenp()
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"
+            Button
+                text: "8 Players"
+                on_release:
+                    root.eightp()
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"
+            Button
+                text: "9 Players"
+                on_release:
+                    root.ninep()
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"
+
+        BoxLayout:
+            size_hint: 1, 0.3
+
+        Button:
+            text: "Go Back"
+            size_hint: 1, 0.39
+            on_release:
+                app.root.current = "welcome"
+                root.manager.transition.direction = "right"
