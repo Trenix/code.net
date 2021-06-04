@@ -98,7 +98,7 @@ class MainWindow(Screen):
 
     def r2l2(self):
 
-        if self.ids.round2reveal1.disabled == True:
+        if self.ids.round2reveal1.disabled == True: wtf
             self.ids.startround.disabled = False
 
         self.ids.round2reveal2.disabled = True
