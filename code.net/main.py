@@ -104,7 +104,7 @@ class MainWindow(Screen):
 
         self.ids.round2reveal2.disabled = True
 
-        if random.random() < 1:
+        if random.random() < 0.7:
 
             self.ids.round2sum2.text = "At least one hacker is among the following."
 
