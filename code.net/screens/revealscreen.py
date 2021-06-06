@@ -10,8 +10,6 @@ class PlayerReveal(Screen):
         if globals.savedpopup == None:
             globals.savedpopup = RevealPopup()
 
-        #TODO: Maybe group HTML code with each color to make it easier.
-
         if self.ids.whatplayer.text == f"Pass the phone to Player {globals.playercounter}." and globals.playerlist[f"player {globals.playercounter}"]["hacker"] == True and globals.playercounter <= globals.players:
             ally = globals.playerlist[f"player {globals.playercounter}"]["allies"]
             if globals.players <= 8:

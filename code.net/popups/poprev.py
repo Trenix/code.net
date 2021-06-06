@@ -14,5 +14,3 @@ class RevealPopup(Popup):
             self.ids[App.get_running_app().buttonname].disabled = True
             self.ids.exitcolor.disabled = False
             globals.colortracker = 1
-
-    #TODO: Allow players to change their color incase of an accidental click.

@@ -27,7 +27,6 @@ class MainWindow(Screen):
             self.ids.round1sum.text = "At least one hacker is among the following."
 
             # Log Generation
-#TODO: Log generation needs to be fixed, more likely to have hackers than coders because of the probability. Also should have log generation be it's own script where we provide variables and return information.
             if globals.players == 9:
                 tempamthacker = random.randint(1, 3)
             else:
@@ -51,15 +50,10 @@ class MainWindow(Screen):
             strtemplog = '[b]' + ', '.join(str(x) for x in tempcolorlog) + '[/b]'
 
             self.ids.round1sub.text = strtemplog + "."
-#TODO: Temporarily set to show only color text, need to add colors names with their actual color.
-
 
         else:
             self.ids.round1sub.text = "[b]Log Retrieval Failed[/b]"
             self.ids.round1sum.text = "Unfortunately, the log files have been corrupted."
-
-#TODO: Make it so that round 1 will have 4 players always ON LOG, round 2 will have 3 always ON LOG, round 3 will have 2 players always on log.
-
 
     def r2l1(self):
 
