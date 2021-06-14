@@ -2,6 +2,7 @@
 #:include gui\player.kv
 #:include gui\reveal.kv
 #:include gui\revpop.kv
+#:include gui\logpop.kv
 #:import C kivy.utils.get_color_from_hex
 
 WindowManager:
@@ -49,6 +50,7 @@ WindowManager:
                 text: "Use Item"
                 pos_hint: {"center_x":0.5, "top":.9}
                 size_hint: 0.92, 0.25
+                disabled: True
 
         BoxLayout:
             orientation: "vertical"
@@ -187,20 +189,20 @@ WindowManager:
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
-                            Label:
-                                id: round3sub1
-                                text: ""
 
                             Label:
                                 id: round3sum1
-                                text: ""
+                                halign: "center"
+                                text: "The following is exclusively revealed\nto the specified player."
 
                         BoxLayout:
                             Button:
                                 id: round3reveal1
-                                text: "Player's Log"
+                                text: ""
                                 pos_hint: {"center_x":0.5, "center_y":0.5}
                                 disabled: True
+                                on_press:
+                                    root.r3l1()
 
                         BoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -211,17 +213,17 @@ WindowManager:
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
-                            Label:
-                                id: round3sub2
-                                text: ""
 
                             Label:
                                 id: round3sum2
-                                text: ""
+                                halign: "center"
+                                text: "The following is exclusively revealed\nto the specified player."
 
                         BoxLayout:
                             Button:
                                 id: round3reveal2
-                                text: "Player's Log"
+                                text: ""
                                 pos_hint: {"center_x":0.5, "center_y":0.5}
                                 disabled: True
+                                on_press:
+                                    root.r3l2()

@@ -9,3 +9,4 @@ savedpopup = None
 notai = []
 hackerlist = []
 coderlist = []
+playerlogrev = []

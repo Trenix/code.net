@@ -3,10 +3,11 @@ from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
-import systems.generatelog
 from screens.playerselect import *
 from screens.revealscreen import *
 from popups.poprev import *
+from systems.generatelog import *
+from systems.generateplayerlog import *
 from globals import *
 import random
 
@@ -26,7 +27,7 @@ class MainWindow(Screen):
         if random.random() < 0.7:
 
             self.ids.round1sum.text = "At least one hacker is among the following."
-            log = systems.generatelog.createlog(4)
+            log = createlog(4)
             self.ids.round1sub.text = log + "."
 
 # May be used, sets players less on log rather than specific amount.
@@ -48,7 +49,7 @@ class MainWindow(Screen):
         if random.random() < 0.7:
 
             self.ids.round2sum1.text = "At least one hacker is among the following."
-            log = systems.generatelog.createlog(3)
+            log = createlog(3)
             self.ids.round2sub1.text = log + "."
 
         else:
@@ -66,13 +67,30 @@ class MainWindow(Screen):
         if random.random() < 0.7:
 
             self.ids.round2sum2.text = "At least one hacker is among the following."
-            log = systems.generatelog.createlog(3)
+            log = createlog(3)
             self.ids.round2sub2.text = log + "."
 
         else:
             self.ids.round2sub2.text = "[b]Log Retrieval Failed[/b]"
             self.ids.round2sum2.text = "Unfortunately, the log files have been corrupted."
 
+    def r3l1(self):
+        self.ids.round3reveal1.disabled = True
+
+        LogPopup.title = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
+        log = createplayerlog()
+        temppop = LogPopup()
+        temppop.ids.log1sub.text = log + "."
+        temppop.open()
+        print(globals.playerlist)
+
+    def r3l2(self):
+        self.ids.round3reveal2.disabled = True
+        LogPopup.title = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
+        log = createplayerlog()
+        temppop = LogPopup()
+        temppop.ids.log1sub.text = log + "."
+        temppop.open()
 
     def nextround(self):
 
@@ -109,17 +127,16 @@ class MainWindow(Screen):
             self.ids.round3reveal2.disabled = False
             self.ids.round3show.opacity = 1
 
+        if globals.players < 5:
+            globals.playerlogrev = random.sample(list(globals.notai), 2)
+        else:
+            globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
 
-# ----- This has to go to round 3, where logs are not revealed
-#            if globals.players < 5:
-#                revealplayer = random.sample(list(globals.notai), 1)
-#            else:
-#                revealplayer = random.sample(list(globals.playerlist.keys()), 1)
-#
-#            for x in revealplayer:
-#                self.ids.round1player.text = f"{globals.playerlist[x]['color']}'s Log"
-# ------ This has to go to round 3, where logs are not revealed
+        self.ids.round3reveal1.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
+        self.ids.round3reveal2.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
 
+class LogPopup(Popup):
+    pass
 
 class WindowManager(ScreenManager):
     pass
