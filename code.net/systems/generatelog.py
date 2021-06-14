@@ -20,7 +20,6 @@ def createlog(playersonlog):
             amtbadlog = 1
 
         tempamthacker = random.randint(1, amtbadlog)
-    print(amtbadlog)
 
     templog = random.sample(list(globals.coderlist), (playersonlog - tempamthacker)) + random.sample(list(globals.hackerlist), tempamthacker)
 
