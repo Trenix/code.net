@@ -80,7 +80,6 @@ class MainWindow(Screen):
         temppop = LogPopup()
         temppop.ids.log1sub.text = log + "."
         temppop.open()
-        print(globals.playerlist)
 
     def r3l2(self):
         self.ids.round3reveal2.disabled = True
