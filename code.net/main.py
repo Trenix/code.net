@@ -11,8 +11,6 @@ from systems.generateplayerlog import *
 from globals import *
 import random
 
-Window.size = (360, 800)
-
 class WelcomeWindow(Screen):
     pass
 
@@ -141,7 +139,7 @@ class LogPopup(Popup):
 class WindowManager(ScreenManager):
     pass
 
-class CodeNetApp(App):
+class codenetApp(App):
 
 #Global Variables Between KV and PY
 
@@ -152,4 +150,4 @@ class CodeNetApp(App):
         pass
 
 if __name__ == "__main__":
-    CodeNetApp().run()
+    codenetApp().run()
