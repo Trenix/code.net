@@ -138,7 +138,7 @@ class LogPopup(Popup):
 class WindowManager(ScreenManager):
     pass
 
-class codenetapp(App):
+class codenetApp(App):
 
 #Global Variables Between KV and PY
 
@@ -149,4 +149,4 @@ class codenetapp(App):
         pass
 
 if __name__ == "__main__":
-    codenetapp().run()
+    codenetApp().run()
