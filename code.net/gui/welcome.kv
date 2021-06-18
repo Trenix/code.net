@@ -1,37 +1,39 @@
 <WelcomeWindow>:
     name: "welcome"
 
-    FloatLayout:
+    BoxLayout:
         orientation: "vertical"
+        BoxLayout:
+            orientation: "vertical"
+            padding: 30
 
-        Label:
-            bold: True
-            underline: True
-            font_size: 70
-            text: "Code.Net"
-            size_hint: 0.2, 0.2
-            pos_hint: {"center_x":0.5, "top":1}
+            Label:
+                bold: True
+                underline: True
+                font_size: 70
+                text: "Code.Net"
+                pos_hint: {"Center_x":0.5, "center_y":0.5}
 
-        Label:
-            text_size: self.size
-            halign: "center"
-            text: "A social deduction card game that requires an App to play. The App is still in its Alpha phase. Therefore, you may experience lack of features, incomplete features, and bugs."
-            size_hint: 0.8, 0.3
-            pos_hint: {"center_x":0.5, "top":1}
+            Label:
+                text: "Welcome to a social card game that requires an App to play. The App is still in its Alpha phase therefore, you may experience lack of content, incomplete features, and bugs."
+                pos_hint: {"center_x":0.5, "top":1}
+                text_size: self.size
+                halign: "center"
+            BoxLayout:
 
+        BoxLayout:
+            orientation: "vertical"
 
-        Label:
-            text_size: self.size
-            halign: "center"
-            text: "Created by Plague Products. All rights reserved."
-            size_hint: 0.9, .1
-            pos_hint: {"center_x":0.5, "center_y":0.25}
+            Label:
+                text_size: self.size
+                halign: "center"
+                text: "Created by Plague Products. All rights reserved."
+                pos_hint: {"center_x":0.5, "center_y":0.25}
 
-
-        Button:
-            text: "New Game"
-            size_hint: 1, 0.19
-            pos_hint: {"center_x":0.5, "bottom":1}
-            on_release:
-                app.root.current = "player"
-                root.manager.transition.direction = "left"
+            Button:
+                text: "New Game"
+                size_hint: 1, 0.61
+                pos_hint: {"center_x":0.5, "bottom":1}
+                on_release:
+                    app.root.current = "player"
+                    root.manager.transition.direction = "left"
