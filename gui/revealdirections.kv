@@ -1,0 +1,19 @@
+<PlayerReveal>
+    name: "reveal"
+
+    FloatLayout:
+
+        Label:
+            id: whatplayer
+            text: "Pass the phone to Player 1."
+            pos_hint: {"center_x":0.5, "top":1}
+            text_size: self.size
+            halign: "center"
+            size_hint: 0.8, 0.39
+
+        Button:
+            id: endreveal
+            size_hint: 1, 0.19
+            text: "Reveal"
+            on_release:
+                root.reveal()

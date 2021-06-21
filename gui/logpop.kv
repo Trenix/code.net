@@ -1,0 +1,40 @@
+<LogPopup>:
+    title: ""
+    size_hint: 0.9, 0.7
+    pos_hint: {"center_x":0.5, "top":0.94}
+    auto_dismiss: False
+
+    BoxLayout:
+        orientation: "vertical"
+
+        BoxLayout:
+
+        BoxLayout:
+            padding: 20
+            orientation: "vertical"
+            pos_hint: {"center_x":0.5, "y": 0}
+            canvas.before:
+                Color:
+                    rgba: C('#708090')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            Label:
+                id: log1sub
+                halign: "center"
+                text: ""
+                markup: True
+
+            Label:
+                id: log1sum
+                halign: "center"
+                text: "One hacker and one coder is\namong the following."
+
+        BoxLayout:
+
+        Button:
+            size_hint: 1, 0.4
+            text: "OK"
+            on_press:
+                root.dismiss()
