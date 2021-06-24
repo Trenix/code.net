@@ -1,10 +1,11 @@
 <WelcomeWindow>:
     name: "welcome"
-    canvas.before:
-        Rectangle:
-            pos: self.pos
-            size: self.size
-            texture: app.texture
+
+    AnchorLayout
+        Image:
+            size_hint: None, None
+            size: 1644, 3840
+            source: "font/Takeover-01.png"
 
     MDBoxLayout:
         #md_bg_color: C('#000000')
@@ -20,18 +21,18 @@
                 theme_text_color: "Custom"
                 font_style: "H3"
                 halign: "center"
-                underline: True
-                text: "Code.Net"
+                text: "C[color=#FFFFFF]0[/color]de.Net"
+                markup: True
 
             MDLabel:
                 #text_color: C('#03A062')
-                md_bg_color: app.theme_cls.primary_dark
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle2'
-                text: "Welcome to a social deduction card game that relies on an App for its functionality. The App is still under development; therefore, you may experience lack of content, incomplete features, and bugs."
+                text: "[color=#FFFFFF]Welcome[/color] to a [color=#FFFFFF]social deduction[/color] card game that relies on an App for its [color=#FFFFFF]functionality[/color]. The App is still [color=#FFFFFF]under development[/color]; therefore, you may experience lack of [color=#FFFFFF]content[/color], incomplete [color=#FFFFFF]features[/color], and [color=#FFFFFF]bugs[/color]."
                 pos_hint: {"center_x":0.5, "top":1}
                 halign: "center"
+                markup: True
 
             MDBoxLayout:
 
@@ -40,15 +41,16 @@
 
             MDLabel:
                 text_size: self.size
-                #text_color: C('#03A062')
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: "Subtitle2"
                 halign: "center"
-                text: "Created by Plague Products. All rights reserved."
+                text: "Created by [color=#FFFFFF]Plague Products[/color]. All rights reserved."
+                markup: True
                 pos_hint: {"center_x":0.5, "center_y":0.25}
 
-            MDFillRoundFlatButton:
+            MDRoundFlatButton:
+                md_bg_color: app.theme_cls.primary_dark
                 text: "New Game"
                 font_style: "Button"
                 size_hint: 0.99, 0.61

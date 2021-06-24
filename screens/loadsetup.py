@@ -3,21 +3,15 @@ from kivy.core.text import LabelBase
 from kivy.clock import Clock
 from kivymd.font_definitions import theme_font_styles
 from kivymd.app import MDApp
-from kivy.uix.image import Image
 
 class LoadingScreen(Screen):
 
     def on_enter(self):
         #Timer to allow load for initial startup.
-        Clock.schedule_once(self.nextscreen, 1)
-
-        #Repeating background image
-        MDApp.get_running_app().texture = Image(source='font/Takeover-01.png').texture
-        MDApp.get_running_app().texture.wrap = 'repeat'
-        MDApp.get_running_app().texture.uvsize = (8, 8)
+        Clock.schedule_once(self.nextscreen, 2)
 
         #Set colors to use throughout app
-        MDApp.get_running_app().theme_cls.set_colors("Green", "600", "50", "900", "Teal", "600", "100", "800")
+        MDApp.get_running_app().theme_cls.set_colors("Green", "700", "50", "900", "Teal", "600", "100", "800")
 
         #Set Fonts
         LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Light.ttf")
