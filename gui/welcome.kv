@@ -1,27 +1,38 @@
 <WelcomeWindow>:
-    #md_bg_color: app.theme_cls.opposite_bg_darkest
-
     name: "welcome"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            texture: app.texture
 
     MDBoxLayout:
+        #md_bg_color: C('#000000')
+        padding: 5
         orientation: "vertical"
         MDBoxLayout:
             orientation: "vertical"
-            padding: 30
+            padding: 15
 
             MDLabel:
-                font_style: "H1"
+                #text_color: C('#03A062')
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: "H3"
                 halign: "center"
                 underline: True
-                text: "[color=#03A062]C0de.Net[/color]"
-                markup: True
+                text: "Code.Net"
 
             MDLabel:
-              #  font_style: 'Subtitle1'
-                text: "Welcome to a social card game that requires an App to play. The App is still in its Alpha phase therefore, you may experience lack of content, incomplete features, and bugs."
+                #text_color: C('#03A062')
+                md_bg_color: app.theme_cls.primary_dark
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle2'
+                text: "Welcome to a social deduction card game that relies on an App for its functionality. The App is still under development; therefore, you may experience lack of content, incomplete features, and bugs."
                 pos_hint: {"center_x":0.5, "top":1}
-                text_size: self.size
                 halign: "center"
+
             MDBoxLayout:
 
         MDBoxLayout:
@@ -29,14 +40,19 @@
 
             MDLabel:
                 text_size: self.size
+                #text_color: C('#03A062')
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: "Subtitle2"
                 halign: "center"
                 text: "Created by Plague Products. All rights reserved."
                 pos_hint: {"center_x":0.5, "center_y":0.25}
 
-            Button:
+            MDFillRoundFlatButton:
                 text: "New Game"
-                size_hint: 1, 0.61
-                pos_hint: {"center_x":0.5, "bottom":1}
+                font_style: "Button"
+                size_hint: 0.99, 0.61
+                pos_hint: {"center_x":0.5, "center_y":0.5}
                 on_release:
                     app.root.current = "player"
                     app.root.transition.direction = "left"

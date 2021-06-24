@@ -8,12 +8,10 @@ from screens.playerselect import *
 from screens.revealscreen import *
 from popups.poprev import *
 from kivymd.uix.screen import MDScreen
+from screens.loadsetup import LoadingScreen
 from systems.generatelog import *
 from systems.generateplayerlog import *
 from globals import *
-from kivymd.font_definitions import theme_font_styles
-from kivy.core.text import LabelBase
-from kivy.clock import Clock
 import random
 import globals
 
@@ -146,19 +144,6 @@ class LogPopup(Popup):
 class WindowManager(ScreenManager):
     pass
 
-class LoadingScreen(Screen):
-    def on_enter(self):
-        Clock.schedule_once(self.nextscreen, 5)
-
-        LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Regular.ttf")
-        theme_font_styles.append('H1')
-        MDApp.get_running_app().theme_cls.font_styles["H1"] = ["H1", 16, False, 0.15]
-        print("works")
-
-    def nextscreen(self, dt):
-        self.manager.current = "welcome"
-
-
 class codenetApp(MDApp):
     import globals
 # use import globals not the bottom shit
@@ -168,23 +153,10 @@ class codenetApp(MDApp):
     buttonname = StringProperty("")
 
     def build(self):
-# Set Fonts
-       # LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Regular.ttf")
-
-       # theme_font_styles.append('H1')
-       # self.theme_cls.font_styles["H1"] = ["H1", 16, False, 0.15]
-
-
-      #  LabelBase.register(name='Subtitle1', fn_regular="font/JetBrainsMono-Regular.ttf")
-      #  theme_font_styles.append('Subtitle1')
-      #  self.theme_cls.font_styles['Subtitle1'] = ['JetBrainsMono', 16, False, 0.15]
-
-
-        print(self.theme_cls.font_styles)
         #self.theme_cls.theme_style = "Dark"
+        #self.theme_cls.primary_palette = "Green"
+        #self.theme_cls.accent_palette = "Blue"
 
-        self.theme_cls.primary_palette = "Green"
-        self.theme_cls.accent_palette = "Blue"
         pass
 
 if __name__ == "__main__":
