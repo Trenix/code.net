@@ -6,10 +6,14 @@
 #:import C kivy.utils.get_color_from_hex
 
 WindowManager:
+    LoadingScreen:
     WelcomeWindow:
     PlayerWindow:
     PlayerReveal:
     MainWindow:
+
+<LoadingScreen>
+    name: "load"
 
 <MainWindow>
     name: "main"

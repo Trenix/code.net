@@ -1,4 +1,5 @@
-from kivy.app import App
+from kivymd.app import MDApp
+from kivy.lang import Builder
 from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen
@@ -6,10 +7,17 @@ from kivy.core.window import Window
 from screens.playerselect import *
 from screens.revealscreen import *
 from popups.poprev import *
+from kivymd.uix.screen import MDScreen
 from systems.generatelog import *
 from systems.generateplayerlog import *
 from globals import *
+from kivymd.font_definitions import theme_font_styles
+from kivy.core.text import LabelBase
+from kivy.clock import Clock
 import random
+import globals
+
+Window.size = (400, 800)
 
 class WelcomeWindow(Screen):
     pass
@@ -138,14 +146,45 @@ class LogPopup(Popup):
 class WindowManager(ScreenManager):
     pass
 
-class codenetApp(App):
+class LoadingScreen(Screen):
+    def on_enter(self):
+        Clock.schedule_once(self.nextscreen, 5)
 
+        LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Regular.ttf")
+        theme_font_styles.append('H1')
+        MDApp.get_running_app().theme_cls.font_styles["H1"] = ["H1", 16, False, 0.15]
+        print("works")
+
+    def nextscreen(self, dt):
+        self.manager.current = "welcome"
+
+
+class codenetApp(MDApp):
+    import globals
+# use import globals not the bottom shit
 #Global Variables Between KV and PY
 
     arehacker = StringProperty("")
     buttonname = StringProperty("")
 
     def build(self):
+# Set Fonts
+       # LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Regular.ttf")
+
+       # theme_font_styles.append('H1')
+       # self.theme_cls.font_styles["H1"] = ["H1", 16, False, 0.15]
+
+
+      #  LabelBase.register(name='Subtitle1', fn_regular="font/JetBrainsMono-Regular.ttf")
+      #  theme_font_styles.append('Subtitle1')
+      #  self.theme_cls.font_styles['Subtitle1'] = ['JetBrainsMono', 16, False, 0.15]
+
+
+        print(self.theme_cls.font_styles)
+        #self.theme_cls.theme_style = "Dark"
+
+        self.theme_cls.primary_palette = "Green"
+        self.theme_cls.accent_palette = "Blue"
         pass
 
 if __name__ == "__main__":
