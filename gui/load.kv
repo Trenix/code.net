@@ -1,0 +1,15 @@
+<LoadingScreen>
+    name: "load"
+
+    AnchorLayout
+        Image:
+            size_hint: None, None
+            size: 1644, 3840
+            source: "images/defaultback.png"
+    MDBoxLayout:
+        pos_hint: {"center_x":0.5, "center_y":0.5}
+        size_hint: 0.6, 0.3
+        Image:
+            size: self.texture_size
+            source: "images/logo.png"
+

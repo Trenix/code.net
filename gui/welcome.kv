@@ -5,7 +5,7 @@
         Image:
             size_hint: None, None
             size: 1644, 3840
-            source: "font/Takeover-01.png"
+            source: "images/defaultback.png"
 
     MDBoxLayout:
         #md_bg_color: C('#000000')
@@ -21,7 +21,7 @@
                 theme_text_color: "Custom"
                 font_style: "H3"
                 halign: "center"
-                text: "C[color=#FFFFFF]0[/color]de.Net"
+                text: "C[color=#FFFFFF]0[/color]de[color=#FFFFFF].[/color]Net"
                 markup: True
 
             MDLabel:
@@ -49,11 +49,12 @@
                 markup: True
                 pos_hint: {"center_x":0.5, "center_y":0.25}
 
-            MDRoundFlatButton:
+            MDFillRoundFlatButton:
+                #button has weird bug
                 md_bg_color: app.theme_cls.primary_dark
                 text: "New Game"
                 font_style: "Button"
-                size_hint: 0.99, 0.61
+                size_hint: 0.99, 0.4
                 pos_hint: {"center_x":0.5, "center_y":0.5}
                 on_release:
                     app.root.current = "player"

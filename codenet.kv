@@ -3,6 +3,7 @@
 #:include gui\revealdirections.kv
 #:include gui\revpop.kv
 #:include gui\logpop.kv
+#:include gui\load.kv
 #:import C kivy.utils.get_color_from_hex
 
 WindowManager:
@@ -11,9 +12,6 @@ WindowManager:
     PlayerWindow:
     PlayerReveal:
     MainWindow:
-
-<LoadingScreen>
-    name: "load"
 
 <MainWindow>
     name: "main"
