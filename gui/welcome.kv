@@ -1,4 +1,4 @@
-<WelcomeWindow>:
+<WelcomeWindow>
     name: "welcome"
 
     AnchorLayout
@@ -8,12 +8,11 @@
             source: "images/defaultback.png"
 
     MDBoxLayout:
-        #md_bg_color: C('#000000')
         padding: 5
         orientation: "vertical"
         MDBoxLayout:
             orientation: "vertical"
-            padding: 15
+            padding: 10
 
             MDLabel:
                 #text_color: C('#03A062')
@@ -25,7 +24,7 @@
                 markup: True
 
             MDLabel:
-                #text_color: C('#03A062')
+                id: test
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle2'
@@ -33,6 +32,18 @@
                 pos_hint: {"center_x":0.5, "top":1}
                 halign: "center"
                 markup: True
+                # Add this specifically to logs.
+                #canvas.before:
+                #    Color:
+                #        rgba: 51/255, 255/255, 51/255, 0.3
+                #    Line:
+                #        width: 0.3
+                #        rectangle: self.x, self.y, self.width, self.height
+                #    Color:
+                #        rgba: 51/255, 255/255, 51/255, 0.06
+                #    Rectangle:
+                #        pos: self.pos
+                #        size: self.size
 
             MDBoxLayout:
 

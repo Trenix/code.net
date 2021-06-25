@@ -6,12 +6,11 @@ from kivymd.app import MDApp
 
 class LoadingScreen(Screen):
 
-    def on_enter(self):
-        #Timer to allow load for initial startup.
-        Clock.schedule_once(self.nextscreen, 3)
+    def __init__(self, **kwargs):
+        super(Screen, self).__init__(**kwargs)
 
         #Set colors to use throughout app
-        MDApp.get_running_app().theme_cls.set_colors("Green", "700", "600", "900", "Blue", "600", "100", "900")
+        MDApp.get_running_app().theme_cls.set_colors("Green", "700", "600", "900", "Lime", "600", "100", "900")
 
         #Set Fonts
         LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Light.ttf")
@@ -59,6 +58,14 @@ class LoadingScreen(Screen):
         MDApp.get_running_app().theme_cls.font_styles["Button"] = ["Button", 14, True, 1.25]
 
         print(MDApp.get_running_app().theme_cls.font_styles)
+
+        Clock.schedule_once(self.start_loadbar, 0.1)
+
+    def start_loadbar(self, dt):
+        #Timer to allow load for initial startup. Default is 3
+        Clock.schedule_once(self.nextscreen, 3)
+
+        self.ids.loadbar.start()
 
     def nextscreen(self, dt):
         self.manager.current = "welcome"
