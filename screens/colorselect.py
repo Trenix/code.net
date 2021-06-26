@@ -3,7 +3,6 @@ from kivymd.uix.screen import MDScreen
 
 class ColorSelectScreen(MDScreen):
 
-    def SelectColor(self):
-        pass
-
+    def test(self):
+        self.ids.disabled = True
     pass
