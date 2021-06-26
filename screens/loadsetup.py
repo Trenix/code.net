@@ -57,7 +57,13 @@ class LoadingScreen(MDScreen):
         theme_font_styles.append('Button')
         MDApp.get_running_app().theme_cls.font_styles["Button"] = ["Button", 14, True, 1.25]
 
-        print(MDApp.get_running_app().theme_cls.font_styles)
+        LabelBase.register(name="Caption", fn_regular="font/JetBrainsMono-Regular.ttf")
+        theme_font_styles.append('Caption')
+        MDApp.get_running_app().theme_cls.font_styles["Caption"] = ["Caption", 12, False, 0.4]
+
+        LabelBase.register(name="Overline", fn_regular="font/JetBrainsMono-Regular.ttf")
+        theme_font_styles.append('Overline')
+        MDApp.get_running_app().theme_cls.font_styles["Overline"] = ["Overline", 10, True, 1.5]
 
         Clock.schedule_once(self.start_loadbar, 0.1)
 
