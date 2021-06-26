@@ -17,7 +17,7 @@ import globals
 
 Window.size = (400, 800)
 
-class WelcomeWindow(Screen):
+class WelcomeWindow(MDScreen):
     pass
 
 class MainWindow(Screen):
@@ -153,10 +153,6 @@ class codenetApp(MDApp):
     buttonname = StringProperty("")
 
     def build(self):
-        #self.theme_cls.theme_style = "Dark"
-        #self.theme_cls.primary_palette = "Green"
-        #self.theme_cls.accent_palette = "Blue"
-
         pass
 
 if __name__ == "__main__":

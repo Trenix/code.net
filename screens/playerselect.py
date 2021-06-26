@@ -1,7 +1,7 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 import globals
 
-class PlayerWindow(Screen):
+class PlayerWindow(MDScreen):
     from systems.generatelists import playersetup
 
     def fourp(self):

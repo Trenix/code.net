@@ -1,13 +1,13 @@
-from kivy.uix.screenmanager import Screen
+from kivymd.uix.screen import MDScreen
 from kivy.core.text import LabelBase
 from kivy.clock import Clock
 from kivymd.font_definitions import theme_font_styles
 from kivymd.app import MDApp
 
-class LoadingScreen(Screen):
+class LoadingScreen(MDScreen):
 
     def __init__(self, **kwargs):
-        super(Screen, self).__init__(**kwargs)
+        super(MDScreen, self).__init__(**kwargs)
 
         #Set colors to use throughout app
         MDApp.get_running_app().theme_cls.set_colors("Green", "700", "600", "900", "Lime", "600", "100", "900")

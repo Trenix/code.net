@@ -12,10 +12,6 @@
         pos_hint: {"center_x":0.5, "center_y":0.5}
         size_hint: 0.7, 0.4
 
-        MDLabel:
-            id: bob
-            text: "test"
-
         Image:
             size: self.texture_size
             source: "images/logo.png"
@@ -23,7 +19,6 @@
         MDProgressBar:
             id: loadbar
             type: "determinate"
-            running_duration: 2.3
+            running_duration: 2.4
             size: self.size
             color: app.theme_cls.primary_color
-            value: 0

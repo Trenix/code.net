@@ -5,8 +5,10 @@
 #:include gui\logpop.kv
 #:include gui\load.kv
 #:import C kivy.utils.get_color_from_hex
+#:import SlideTransition kivy.uix.screenmanager.SlideTransition
 
 WindowManager:
+    transition: SlideTransition()
     LoadingScreen:
     WelcomeWindow:
     PlayerWindow:

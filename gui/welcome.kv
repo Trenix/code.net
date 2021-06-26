@@ -24,7 +24,6 @@
                 markup: True
 
             MDLabel:
-                id: test
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle2'
@@ -61,7 +60,6 @@
                 pos_hint: {"center_x":0.5, "center_y":0.25}
 
             MDFillRoundFlatButton:
-                #button has weird bug
                 md_bg_color: app.theme_cls.primary_dark
                 text: "New Game"
                 font_style: "Button"
@@ -69,4 +67,4 @@
                 pos_hint: {"center_x":0.5, "center_y":0.5}
                 on_release:
                     app.root.current = "player"
-                    app.root.transition.direction = "left"
+                    root.manager.transition.direction = "left"
