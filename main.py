@@ -20,7 +20,7 @@ Window.size = (400, 800)
 class WelcomeWindow(MDScreen):
     pass
 
-class MainWindow(Screen):
+class MainWindow(MDScreen):
 
 #Logs per each round.
 

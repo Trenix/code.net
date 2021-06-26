@@ -7,9 +7,11 @@
             size: 1644, 3840
             source: "images/defaultback.png"
 
-    BoxLayout:
-        adaptive_width: True
+    MDBoxLayout:
+        padding: 5
         orientation: "vertical"
+
+        MDBoxLayout:
 
         MDLabel:
             text_color: app.theme_cls.primary_color
@@ -19,16 +21,18 @@
             text: "How many [color=#FFFFFF]players[/color] are playing?"
             markup: True
 
+        MDBoxLayout:
+
         GridLayout:
             cols: 3
             rows: 2
-            padding: 50
             spacing: 5
 
         # use old buttons, because this shit isn't working
 
-            MDRaisedButton:
-                size_hint: None, None
+            MDFillRoundFlatIconButton:
+                icon: "robot"
+                pos_hint: {"center_x":0.5, "center_y":0.5}
                 id: but1
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
@@ -38,8 +42,8 @@
                     app.root.current = "reveal"
                     root.manager.transition.direction = "left"
 
-            MDRaisedButton:
-                size_hint: None, None
+            MDFillRoundFlatIconButton:
+                icon: "robot"
                 id: but2
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
@@ -50,8 +54,8 @@
                     app.root.current = "reveal"
                     root.manager.transition.direction = "left"
 
-            MDRaisedButton:
-                size_hint: None, None
+            MDFillRoundFlatIconButton:
+                icon: "account-group"
                 id: but3
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
@@ -61,8 +65,8 @@
                     app.root.current = "reveal"
                     root.manager.transition.direction = "left"
 
-            MDRaisedButton:
-                size_hint: None, None
+            MDFillRoundFlatIconButton:
+                icon: "account-group"
                 id: but4
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
@@ -72,8 +76,8 @@
                     app.root.current = "reveal"
                     root.manager.transition.direction = "left"
 
-            MDRaisedButton:
-                size_hint: None, None
+            MDFillRoundFlatIconButton:
+                icon: "account-group"
                 id: but5
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
@@ -83,8 +87,8 @@
                     app.root.current = "reveal"
                     root.manager.transition.direction = "left"
 
-            MDRaisedButton:
-                size_hint: None, None
+            MDFillRoundFlatIconButton:
+                icon: "account-group"
                 id: but6
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
@@ -95,12 +99,13 @@
                     root.manager.transition.direction = "left"
 
         MDBoxLayout:
+        MDBoxLayout:
 
             MDFillRoundFlatButton:
                 md_bg_color: app.theme_cls.primary_dark
                 font_style: "Button"
                 text: "Go Back"
-                size_hint: 1, 0.39
+                size_hint: 1, 0.85
                 on_release:
                     app.root.current = "welcome"
                     root.manager.transition.direction = "right"

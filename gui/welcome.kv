@@ -63,8 +63,16 @@
                 md_bg_color: app.theme_cls.primary_dark
                 text: "New Game"
                 font_style: "Button"
-                size_hint: 0.99, 0.4
+                size_hint: 0.99, 0.5
                 pos_hint: {"center_x":0.5, "center_y":0.5}
                 on_release:
+                    #-------temp to fix shit kivymd----
+                    root.manager.get_screen("player").ids.but1.size_hint = 1, 1
+                    root.manager.get_screen("player").ids.but2.size_hint = 1, 1
+                    root.manager.get_screen("player").ids.but3.size_hint = 1, 1
+                    root.manager.get_screen("player").ids.but4.size_hint = 1, 1
+                    root.manager.get_screen("player").ids.but5.size_hint = 1, 1
+                    root.manager.get_screen("player").ids.but6.size_hint = 1, 1
+                    #-------temp to fix shit kivymd----
                     app.root.current = "player"
                     root.manager.transition.direction = "left"
