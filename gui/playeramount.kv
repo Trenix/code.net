@@ -23,20 +23,17 @@
 
         MDBoxLayout:
 
-        GridLayout:
+        MDGridLayout:
             cols: 3
             rows: 2
             spacing: 5
 
-        # use old buttons, because this shit isn't working
-
             MDFillRoundFlatIconButton:
                 icon: "robot"
-                pos_hint: {"center_x":0.5, "center_y":0.5}
                 id: but1
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
-                text: "4 Players"#\n(1 AI)"
+                text: "4 Players"
                 on_release:
                     root.fourp()
                     app.root.current = "reveal"
@@ -48,7 +45,7 @@
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_dark
                 halign: "center"
-                text: "5 Players"#\n(1 AI)"
+                text: "5 Players"
                 on_release:
                     root.fivep()
                     app.root.current = "reveal"
@@ -100,12 +97,13 @@
 
         MDBoxLayout:
         MDBoxLayout:
+        MDBoxLayout:
 
             MDFillRoundFlatButton:
                 md_bg_color: app.theme_cls.primary_dark
                 font_style: "Button"
                 text: "Go Back"
-                size_hint: 1, 0.85
+                size_hint: 1, 1
                 on_release:
                     app.root.current = "welcome"
                     root.manager.transition.direction = "right"
