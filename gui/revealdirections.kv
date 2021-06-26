@@ -1,19 +1,29 @@
 <PlayerReveal>
     name: "reveal"
 
+    AnchorLayout
+        Image:
+            size_hint: None, None
+            size: 1644, 3840
+            source: "images/defaultback.png"
+
     FloatLayout:
+        padding: 5
 
-        Label:
+        MDLabel:
             id: whatplayer
+            text_color: app.theme_cls.primary_color
+            theme_text_color: "Custom"
+            font_style: 'Subtitle1'
             text: "Pass the phone to Player 1."
-            pos_hint: {"center_x":0.5, "top":1}
-            text_size: self.size
+            pos_hint: {"center_x":0.5, "center_y":0.5}
             halign: "center"
-            size_hint: 0.8, 0.39
 
-        Button:
+        MDFillRoundFlatButton:
             id: endreveal
-            size_hint: 1, 0.19
+            md_bg_color: app.theme_cls.primary_dark
             text: "Reveal"
+            font_style: "Button"
+            size_hint: 1, 0.19
             on_release:
                 root.reveal()

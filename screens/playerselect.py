@@ -1,8 +1,19 @@
 from kivymd.uix.screen import MDScreen
+from main import MDApp
 import globals
 
 class PlayerWindow(MDScreen):
     from systems.generatelists import playersetup
+
+    def gridset(self):
+
+        tempvariable = []
+
+        for x in range(9):
+            tempvariable.append(f"but{x + 1}")
+
+        for x in tempvariable:
+            self.manager.get_screen("colorselect").ids[x].size_hint = 1, 1
 
     def fourp(self):
 

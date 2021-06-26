@@ -1,5 +1,5 @@
-<PlayerWindow>:
-    name: "player"
+<ColorSelectScreen>
+    name: "colorselect"
 
     AnchorLayout
         Image:
@@ -18,85 +18,111 @@
             theme_text_color: "Custom"
             font_style: 'Subtitle1'
             halign: "center"
-            text: "Greetings [color=#FFFFFF]host[/color],\nhow many [color=#FFFFFF]players[/color] are playing?"
+            text: "Now select the [color=#FFFFFF]colors[/color] that are in play starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color]."
             markup: True
 
         MDBoxLayout:
 
         MDGridLayout:
             cols: 3
-            rows: 2
+            rows: 3
             spacing: 5
 
             MDFillRoundFlatIconButton:
-                icon: "robot"
+                icon: "brush"
                 id: but1
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
-                text: "4 Players"
+                md_bg_color: C('#b71c1c')
+                text: "Red"
                 on_release:
                     root.fourp()
-                    root.gridset()
                     app.root.current = "colorselect"
                     root.manager.transition.direction = "left"
 
             MDFillRoundFlatIconButton:
-                icon: "robot"
+                md_bg_color: C('#880e4f')
+                icon: "brush"
                 id: but2
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
-                text: "5 Players"
+                text: "Pink"
                 on_release:
                     root.fivep()
-                    root.gridset()
                     app.root.current = "colorselect"
                     root.manager.transition.direction = "left"
 
             MDFillRoundFlatIconButton:
-                icon: "account-group"
+                md_bg_color: C('#4a148c')
+                icon: "brush"
                 id: but3
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
-                text: "6 Players"
+                text: "Purple"
                 on_release:
                     root.sixp()
-                    root.gridset()
                     app.root.current = "colorselect"
                     root.manager.transition.direction = "left"
 
             MDFillRoundFlatIconButton:
-                icon: "account-group"
+                md_bg_color: C('#0d47a1')
+                icon: "brush"
                 id: but4
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
-                text: "7 Players"
+                text: "Blue"
                 on_release:
                     root.sevenp()
-                    root.gridset()
                     app.root.current = "colorselect"
                     root.manager.transition.direction = "left"
 
             MDFillRoundFlatIconButton:
-                icon: "account-group"
+                md_bg_color: C('#1b5e20')
+                icon: "brush"
                 id: but5
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
-                text: "8 Players"
+                text: "Green"
                 on_release:
                     root.eightp()
-                    root.gridset()
                     app.root.current = "colorselect"
                     root.manager.transition.direction = "left"
 
             MDFillRoundFlatIconButton:
-                icon: "account-group"
+                md_bg_color: C('#fbc02d')
+                icon: "brush"
                 id: but6
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
-                text: "9 Players"
+                text: "Yellow"
                 on_release:
                     root.ninep()
-                    root.gridset()
+                    app.root.current = "colorselect"
+                    root.manager.transition.direction = "left"
+            MDFillRoundFlatIconButton:
+                md_bg_color: C('#ef6c00')
+                icon: "brush"
+                id: but7
+                font_style: "Button"
+                text: "Orange"
+                on_release:
+                    root.sevenp()
+                    app.root.current = "colorselect"
+                    root.manager.transition.direction = "left"
+
+            MDFillRoundFlatIconButton:
+                md_bg_color: C('#3e2723')
+                icon: "brush"
+                id: but8
+                font_style: "Button"
+                text: "Brown"
+                on_release:
+                    root.eightp()
+                    app.root.current = "colorselect"
+                    root.manager.transition.direction = "left"
+
+            MDFillRoundFlatIconButton:
+                md_bg_color: C('#212121')
+                icon: "brush"
+                id: but9
+                font_style: "Button"
+                text: "Grey"
+                on_release:
+                    root.ninep()
                     app.root.current = "colorselect"
                     root.manager.transition.direction = "left"
 

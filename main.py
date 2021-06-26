@@ -9,6 +9,7 @@ from screens.revealscreen import *
 from popups.poprev import *
 from kivymd.uix.screen import MDScreen
 from screens.loadsetup import LoadingScreen
+from screens.colorselect import ColorSelectScreen
 from systems.generatelog import *
 from systems.generateplayerlog import *
 from globals import *
