@@ -44,3 +44,6 @@ def playersetup(self):
         globals.playerlist[globals.hackerlist[0]]["allies"] = globals.hackerlist[1], globals.hackerlist[2]
         globals.playerlist[globals.hackerlist[1]]["allies"] = globals.hackerlist[0], globals.hackerlist[2]
         globals.playerlist[globals.hackerlist[2]]["allies"] = globals.hackerlist[0], globals.hackerlist[1]
+
+# Get color tracker ready
+    globals.colortracker = globals.players

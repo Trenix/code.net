@@ -35,8 +35,7 @@
                 md_bg_color: C('#b71c1c')
                 text: "Red"
                 on_release:
-                    self.disabled = True
-                    #root.test()
+                    root.ColorSelect(but1)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#880e4f')
@@ -45,7 +44,7 @@
                 font_style: "Button"
                 text: "Pink"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but2)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#4a148c')
@@ -54,7 +53,7 @@
                 font_style: "Button"
                 text: "Purple"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but3)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#0d47a1')
@@ -63,7 +62,7 @@
                 font_style: "Button"
                 text: "Blue"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but4)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#1b5e20')
@@ -72,16 +71,16 @@
                 font_style: "Button"
                 text: "Green"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but5)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#fbc02d')
+                md_bg_color: C('#f9a825')
                 icon: "brush"
                 id: but6
                 font_style: "Button"
                 text: "Yellow"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but6)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#ef6c00')
@@ -90,7 +89,7 @@
                 font_style: "Button"
                 text: "Orange"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but7)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#3e2723')
@@ -99,7 +98,7 @@
                 font_style: "Button"
                 text: "Brown"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but8)
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#212121')
@@ -108,9 +107,16 @@
                 font_style: "Button"
                 text: "Grey"
                 on_release:
-                    self.disabled = True
+                    root.ColorSelect(but9)
 
-        MDBoxLayout:
+        MDIconButton:
+            icon: "refresh"
+            md_bg_color: app.theme_cls.primary_dark
+            font_style: "Button"
+            pos_hint: {"right": 1}
+
+#TODO: need to use dp to set sizes for buttons, starting to look bad. Also this button doesnt carry text font.
+
         MDBoxLayout:
         MDBoxLayout:
 
@@ -118,7 +124,8 @@
                 md_bg_color: app.theme_cls.primary_dark
                 font_style: "Button"
                 text: "Go Back"
-                size_hint: 1, 1
+                size_hint: 1, 0.85
                 on_release:
-                    app.root.current = "welcome"
+                    root.ClearTracker()
+                    app.root.current = "player"
                     root.manager.transition.direction = "right"
