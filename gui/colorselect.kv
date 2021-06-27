@@ -9,23 +9,22 @@
 
     MDBoxLayout:
         padding: 5
+        spacing: 5
         orientation: "vertical"
 
         MDBoxLayout:
+            size_hint: 0.4, 0.4
 
         MDLabel:
             text_color: app.theme_cls.primary_color
             theme_text_color: "Custom"
             font_style: 'Subtitle1'
             halign: "center"
-            text: "Now select the [color=#FFFFFF]colors[/color] that are in play starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color]."
+            text: "Select the [color=#FFFFFF]colors[/color] that are in play starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color].\n"
             markup: True
-
-        MDBoxLayout:
 
         MDGridLayout:
             cols: 3
-            rows: 3
             spacing: 5
 
             MDFillRoundFlatIconButton:
@@ -110,21 +109,21 @@
                     root.ColorSelect(but9)
 
         MDIconButton:
+            theme_text_color: "Custom"
             icon: "refresh"
             md_bg_color: app.theme_cls.primary_dark
-            font_style: "Button"
-            pos_hint: {"right": 1}
+            text_color: C("#FFFFFF")
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            on_press:
+                root.RefreshTracker()
 
-#TODO: need to use dp to set sizes for buttons, starting to look bad. Also this button doesnt carry text font.
-
-        MDBoxLayout:
         MDBoxLayout:
 
             MDFillRoundFlatButton:
                 md_bg_color: app.theme_cls.primary_dark
                 font_style: "Button"
                 text: "Go Back"
-                size_hint: 1, 0.85
+                size_hint: 1, 0.55
                 on_release:
                     root.ClearTracker()
                     app.root.current = "player"
