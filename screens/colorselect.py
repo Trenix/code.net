@@ -33,7 +33,6 @@ class ColorSelectScreen(MDScreen):
 
     def ClearTracker(self):
         globals.playercounter = 1
-        globals.colortracker = 0
 
         tempvariable = []
 

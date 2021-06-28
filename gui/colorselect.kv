@@ -13,7 +13,7 @@
         orientation: "vertical"
 
         MDBoxLayout:
-            size_hint: 0.4, 0.4
+            size_hint: None, 0.85
 
         MDLabel:
             text_color: app.theme_cls.primary_color
@@ -104,7 +104,7 @@
                 icon: "brush"
                 id: but9
                 font_style: "Button"
-                text: "Grey"
+                text: "Black"
                 on_release:
                     root.ColorSelect(but9)
 
@@ -118,12 +118,13 @@
                 root.RefreshTracker()
 
         MDBoxLayout:
+        MDBoxLayout:
 
             MDFillRoundFlatButton:
                 md_bg_color: app.theme_cls.primary_dark
                 font_style: "Button"
                 text: "Go Back"
-                size_hint: 1, 0.55
+                size_hint: 1, 0.8
                 on_release:
                     root.ClearTracker()
                     app.root.current = "player"
