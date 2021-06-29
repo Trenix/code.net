@@ -12,6 +12,8 @@ from screens.loadsetup import LoadingScreen
 from screens.colorselect import ColorSelectScreen
 from systems.generatelog import *
 from systems.generateplayerlog import *
+from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
+from kivymd.uix.button import MDFillRoundFlatIconButton
 from globals import *
 import random
 import globals
@@ -19,6 +21,10 @@ import globals
 Window.size = (400, 800)
 
 class WelcomeWindow(MDScreen):
+    pass
+
+# Add toggle to iconbuttons
+class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton):
     pass
 
 class MainWindow(MDScreen):
@@ -143,7 +149,27 @@ class LogPopup(Popup):
     pass
 
 class WindowManager(ScreenManager):
-    pass
+
+#TODO: Move this into it's own file. When going back at color select, clear instead of using a button. If already cleared, go back to previous screen.
+
+# Read keys in these screens
+    def __init__(self, **kwargs):
+        super(WindowManager, self).__init__(**kwargs)
+        Window.bind(on_keyboard=self.on_key)
+
+# Go back if pressing back in app or esc in Windows 10
+    def on_key(self, window, key, *args):
+        if key == 27:  # the esc key
+            if self.current_screen.name == "welcome":
+                return False  # exit the app from this page
+            elif self.current_screen.name == "player":
+                self.current = "welcome"
+                self.transition.direction = "right"
+                return True  # do not exit the app
+            elif self.current_screen.name == "colorselect":
+                self.current = "player"
+                self.transition.direction = "right"
+                return True  # do not exit the app
 
 class codenetApp(MDApp):
     import globals

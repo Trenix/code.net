@@ -28,87 +28,63 @@
             rows: 2
             spacing: 5
 
-            MDFillRoundFlatIconButton:
+            MDFillRoundFlatIconButtonToggle:
                 icon: "robot"
+                group: "player"
                 id: butt1
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "4 Players"
-                on_release:
-                    root.fourp()
-                    root.gridset()
-                    app.root.current = "colorselect"
-                    root.manager.transition.direction = "left"
 
-            MDFillRoundFlatIconButton:
+            MDFillRoundFlatIconButtonToggle:
                 icon: "robot"
+                group: "player"
                 id: butt2
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "5 Players"
-                on_release:
-                    root.fivep()
-                    root.gridset()
-                    app.root.current = "colorselect"
-                    root.manager.transition.direction = "left"
 
-            MDFillRoundFlatIconButton:
+            MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
+                group: "player"
                 id: butt3
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "6 Players"
-                on_release:
-                    root.sixp()
-                    root.gridset()
-                    app.root.current = "colorselect"
-                    root.manager.transition.direction = "left"
 
-            MDFillRoundFlatIconButton:
+            MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
+                group: "player"
                 id: butt4
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "7 Players"
-                on_release:
-                    root.sevenp()
-                    root.gridset()
-                    app.root.current = "colorselect"
-                    root.manager.transition.direction = "left"
 
-            MDFillRoundFlatIconButton:
+            MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
+                group: "player"
                 id: butt5
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "8 Players"
-                on_release:
-                    root.eightp()
-                    root.gridset()
-                    app.root.current = "colorselect"
-                    root.manager.transition.direction = "left"
 
-            MDFillRoundFlatIconButton:
+            MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
+                group: "player"
                 id: butt6
                 font_style: "Button"
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "9 Players"
-                on_release:
-                    root.ninep()
-                    root.gridset()
-                    app.root.current = "colorselect"
-                    root.manager.transition.direction = "left"
 
         MDBoxLayout:
         MDBoxLayout:
         MDBoxLayout:
 
             MDFillRoundFlatButton:
-                md_bg_color: app.theme_cls.primary_dark
-                font_style: "Button"
-                text: "Go Back"
+                id: proceed
                 size_hint: 1, 1
+                md_bg_color: app.theme_cls.primary_color
+                font_style: "Button"
+                text: "Continue"
                 on_release:
-                    app.root.current = "welcome"
-                    root.manager.transition.direction = "right"
+                    root.setplayervars()

@@ -15,7 +15,6 @@
             padding: 10
 
             MDLabel:
-                #text_color: C('#03A062')
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: "H3"
@@ -60,19 +59,19 @@
                 pos_hint: {"center_x":0.5, "center_y":0.25}
 
             MDFillRoundFlatButton:
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 text: "New Game"
                 font_style: "Button"
                 size_hint: 1, 0.4
                 pos_hint: {"center_x":0.5, "center_y":0.5}
                 on_release:
-                    #-------temp to fix shit kivymd----
+                    #-------Fix for shit kivymd----
                     root.manager.get_screen("player").ids.butt1.size_hint = 1, 1
                     root.manager.get_screen("player").ids.butt2.size_hint = 1, 1
                     root.manager.get_screen("player").ids.butt3.size_hint = 1, 1
                     root.manager.get_screen("player").ids.butt4.size_hint = 1, 1
                     root.manager.get_screen("player").ids.butt5.size_hint = 1, 1
                     root.manager.get_screen("player").ids.butt6.size_hint = 1, 1
-                    #-------temp to fix shit kivymd----
+                    #-------Fix for shit kivymd----
                     app.root.current = "player"
                     root.manager.transition.direction = "left"

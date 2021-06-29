@@ -30,14 +30,14 @@
             MDFillRoundFlatIconButton:
                 icon: "brush"
                 id: but1
-                font_style: "Button"
-                md_bg_color: C('#b71c1c')
+                font_style: "Button" #800
+                md_bg_color: C('#c62828')
                 text: "Red"
                 on_release:
                     root.ColorSelect(but1)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#880e4f')
+                md_bg_color: C('#ad1457')
                 icon: "brush"
                 id: but2
                 font_style: "Button"
@@ -46,7 +46,7 @@
                     root.ColorSelect(but2)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#4a148c')
+                md_bg_color: C('#6a1b9a')
                 icon: "brush"
                 id: but3
                 font_style: "Button"
@@ -55,7 +55,7 @@
                     root.ColorSelect(but3)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#0d47a1')
+                md_bg_color: C('#1565c0')
                 icon: "brush"
                 id: but4
                 font_style: "Button"
@@ -64,7 +64,7 @@
                     root.ColorSelect(but4)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#1b5e20')
+                md_bg_color: C('#2e7d32')
                 icon: "brush"
                 id: but5
                 font_style: "Button"
@@ -91,7 +91,7 @@
                     root.ColorSelect(but7)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#3e2723')
+                md_bg_color: C('#4e342e')
                 icon: "brush"
                 id: but8
                 font_style: "Button"
@@ -100,18 +100,18 @@
                     root.ColorSelect(but8)
 
             MDFillRoundFlatIconButton:
-                md_bg_color: C('#212121')
+                md_bg_color: C('#424242')
                 icon: "brush"
                 id: but9
                 font_style: "Button"
-                text: "Black"
+                text: "Grey"
                 on_release:
                     root.ColorSelect(but9)
 
         MDIconButton:
             theme_text_color: "Custom"
             icon: "refresh"
-            md_bg_color: app.theme_cls.primary_dark
+            md_bg_color: app.theme_cls.primary_color
             text_color: C("#FFFFFF")
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
             on_press:
@@ -120,12 +120,14 @@
         MDBoxLayout:
         MDBoxLayout:
 
+        #TODO: Do not go to reveal screen until players have colors set.
+
             MDFillRoundFlatButton:
-                md_bg_color: app.theme_cls.primary_dark
+                md_bg_color: app.theme_cls.primary_color
                 font_style: "Button"
-                text: "Go Back"
+                text: "Continue"
                 size_hint: 1, 0.8
                 on_release:
                     root.ClearTracker()
-                    app.root.current = "player"
-                    root.manager.transition.direction = "right"
+                    app.root.current = "reveal"
+                    root.manager.transition.direction = "left"

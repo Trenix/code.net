@@ -9,8 +9,11 @@ class LoadingScreen(MDScreen):
     def __init__(self, **kwargs):
         super(MDScreen, self).__init__(**kwargs)
 
+        #Add darker green
+        MDApp.get_running_app().theme_cls.colors["Green"]["900"] = "#003300"
+
         #Set colors to use throughout app
-        MDApp.get_running_app().theme_cls.set_colors("Green", "700", "600", "900", "Lime", "600", "100", "900")
+        MDApp.get_running_app().theme_cls.set_colors("Green", "800", "600", "900", "Lime", "600", "100", "900")
 
         #Set Fonts
         LabelBase.register(name="H1", fn_regular="font/JetBrainsMono-Light.ttf")
