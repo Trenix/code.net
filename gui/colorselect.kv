@@ -120,14 +120,10 @@
         MDBoxLayout:
         MDBoxLayout:
 
-        #TODO: Do not go to reveal screen until players have colors set.
-
             MDFillRoundFlatButton:
                 md_bg_color: app.theme_cls.primary_color
                 font_style: "Button"
                 text: "Continue"
                 size_hint: 1, 0.8
                 on_release:
-                    root.ClearTracker()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
+                    root.Continue()

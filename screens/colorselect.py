@@ -30,6 +30,10 @@ class ColorSelectScreen(MDScreen):
         globals.colortracker = globals.players
         globals.playercounter = 1
 
+    def Continue(self):
+        if globals.colortracker == 0:
+            self.manager.current = "reveal"
+            self.manager.transition.direction = "left"
 
     def ClearTracker(self):
         globals.playercounter = 1
