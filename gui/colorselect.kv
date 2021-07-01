@@ -13,14 +13,24 @@
         orientation: "vertical"
 
         MDBoxLayout:
-            size_hint: None, 0.85
+            size_hint: None, 0.2
 
         MDLabel:
+            id: strplayeramt
+            size_hint: 1, 0.5
+            text_color: C("FFFFFF")
+            theme_text_color: "Custom"
+            font_style: 'H4'
+            halign: "center"
+            markup: True
+
+        MDLabel:
+            size_hint: 1, 0.7
             text_color: app.theme_cls.primary_color
             theme_text_color: "Custom"
             font_style: 'Subtitle1'
             halign: "center"
-            text: "Select the [color=#FFFFFF]colors[/color] that are in play starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color].\n"
+            text: "Select a [color=#FFFFFF]color[/color] for each [color=#FFFFFF]player[/color], starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color].\n"
             markup: True
 
         MDGridLayout:
@@ -28,7 +38,7 @@
             spacing: 5
 
             MDFillRoundFlatIconButton:
-                icon: "brush"
+                icon: "circle-outline"
                 id: but1
                 font_style: "Button" #800
                 md_bg_color: C('#c62828')
@@ -38,7 +48,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#ad1457')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but2
                 font_style: "Button"
                 text: "Pink"
@@ -47,7 +57,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#6a1b9a')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but3
                 font_style: "Button"
                 text: "Purple"
@@ -56,7 +66,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#1565c0')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but4
                 font_style: "Button"
                 text: "Blue"
@@ -65,7 +75,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#2e7d32')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but5
                 font_style: "Button"
                 text: "Green"
@@ -74,7 +84,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#f9a825')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but6
                 font_style: "Button"
                 text: "Yellow"
@@ -83,7 +93,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#ef6c00')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but7
                 font_style: "Button"
                 text: "Orange"
@@ -92,7 +102,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#4e342e')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but8
                 font_style: "Button"
                 text: "Brown"
@@ -101,7 +111,7 @@
 
             MDFillRoundFlatIconButton:
                 md_bg_color: C('#424242')
-                icon: "brush"
+                icon: "circle-outline"
                 id: but9
                 font_style: "Button"
                 text: "Grey"
@@ -118,12 +128,13 @@
                 root.RefreshTracker()
 
         MDBoxLayout:
+            size_hint: None, 0.2
         MDBoxLayout:
 
             MDFillRoundFlatButton:
                 md_bg_color: app.theme_cls.primary_color
                 font_style: "Button"
                 text: "Continue"
-                size_hint: 1, 0.8
+                size_hint: 1, 0.55
                 on_release:
                     root.Continue()

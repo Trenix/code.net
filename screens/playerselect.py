@@ -12,6 +12,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 4
             globals.aiamt = 1
+            self.manager.get_screen("colorselect").ids.strplayeramt.text = "4 Players"
             self.nextscreen()
 
         # 5 players
@@ -19,30 +20,35 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 5
             globals.aiamt = 1
+            self.manager.get_screen("colorselect").ids.strplayeramt.text = "5 Players"
             self.nextscreen()
 
         # 6 players
         elif self.ids.butt3.state == "down":
             globals.amtbad = 2
             globals.players = 6
+            self.manager.get_screen("colorselect").ids.strplayeramt.text = "6 Players"
             self.nextscreen()
 
         # 7 players
         elif self.ids.butt4.state == "down":
             globals.amtbad = 2
             globals.players = 7
+            self.manager.get_screen("colorselect").ids.strplayeramt.text = "7 Players"
             self.nextscreen()
 
         # 8 players
         elif self.ids.butt5.state == "down":
             globals.amtbad = 2
             globals.players = 8
+            self.manager.get_screen("colorselect").ids.strplayeramt.text = "8 Players"
             self.nextscreen()
 
         # 9 players
         elif self.ids.butt6.state == "down":
             globals.amtbad = 3
             globals.players = 9
+            self.manager.get_screen("colorselect").ids.strplayeramt.text = "9 Players"
             self.nextscreen()
 
     def nextscreen(self):

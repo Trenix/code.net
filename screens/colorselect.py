@@ -5,15 +5,15 @@ class ColorSelectScreen(MDScreen):
 
     def ColorSelect(self, instance):
 # Sets colors to players in a sequence
-        if globals.colortracker > 0 and instance.icon == "brush":
+        if globals.colortracker > 0 and instance.icon == "circle-outline":
             globals.playerlist[f"player {globals.playercounter}"]["color"] = instance.text
             instance.icon = "numeric-" + str(globals.playercounter) + "-circle-outline"
             globals.playercounter += 1
             globals.colortracker -= 1
 
 # Clicking last color selected, will clear it
-        elif instance.icon != "brush" and instance.icon == ("numeric-" + str(globals.playercounter - 1) + "-circle-outline"):
-            instance.icon = "brush"
+        elif instance.icon != "circle-outline" and instance.icon == ("numeric-" + str(globals.playercounter - 1) + "-circle-outline"):
+            instance.icon = "circle-outline"
             globals.playercounter -= 1
             globals.colortracker += 1
 
@@ -25,7 +25,7 @@ class ColorSelectScreen(MDScreen):
             tempvariable.append(f"but{x + 1}")
 
         for x in tempvariable:
-            self.manager.get_screen("colorselect").ids[x].icon = "brush"
+            self.manager.get_screen("colorselect").ids[x].icon = "circle-outline"
 
         globals.colortracker = globals.players
         globals.playercounter = 1
@@ -44,4 +44,4 @@ class ColorSelectScreen(MDScreen):
             tempvariable.append(f"but{x + 1}")
 
         for x in tempvariable:
-            self.manager.get_screen("colorselect").ids[x].icon = "brush"
+            self.manager.get_screen("colorselect").ids[x].icon = "circle-outline"

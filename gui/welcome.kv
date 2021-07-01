@@ -8,70 +8,67 @@
             source: "images/defaultback.png"
 
     MDBoxLayout:
-        padding: 5
         orientation: "vertical"
-        MDBoxLayout:
-            orientation: "vertical"
-            padding: 10
+        MDToolbar:
+            title: "C0de.Net"
+            left_action_items: [["menu", lambda x: x]]
+            right_action_items: [["information-outline", lambda x: x]]
+
+        MDStackLayout:
+            spacing: 20
+            padding: 20
 
             MDLabel:
-                text_color: app.theme_cls.primary_color
+                adaptive_height: True
+                text_color: C("FFFFFF")
                 theme_text_color: "Custom"
                 font_style: "H3"
+                text: "Welcome"
                 halign: "center"
-                text: "C[color=#FFFFFF]0[/color]de[color=#FFFFFF].[/color]Net"
-                markup: True
 
             MDLabel:
+                adaptive_height: True
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle2'
-                text: "[color=#FFFFFF]Welcome[/color] to a [color=#FFFFFF]social deduction[/color] card game that relies on an App for its [color=#FFFFFF]functionality[/color]. The App is still [color=#FFFFFF]under development[/color]; therefore, you may experience lack of [color=#FFFFFF]content[/color], incomplete [color=#FFFFFF]features[/color], and [color=#FFFFFF]bugs[/color]."
-                pos_hint: {"center_x":0.5, "top":1}
+                text: "[color=#FFFFFF]Welcome[/color] to a [color=#FFFFFF]social deduction[/color] card game that relies on an App for its basic [color=#FFFFFF]functionality[/color]. The App is still [color=#FFFFFF]under development[/color]; therefore, you may experience lack of [color=#FFFFFF]content[/color], incomplete [color=#FFFFFF]features[/color], and [color=#FFFFFF]bugs[/color]."
                 halign: "center"
                 markup: True
-                # Add this specifically to logs.
-                #canvas.before:
-                #    Color:
-                #        rgba: 51/255, 255/255, 51/255, 0.3
-                #    Line:
-                #        width: 0.3
-                #        rectangle: self.x, self.y, self.width, self.height
-                #    Color:
-                #        rgba: 51/255, 255/255, 51/255, 0.06
-                #    Rectangle:
-                #        pos: self.pos
-                #        size: self.size
 
-            MDBoxLayout:
+#            MDLabel:
+#                text_color: app.theme_cls.primary_color
+#                theme_text_color: "Custom"
+#                font_style: 'Subtitle2'
+#                text: "[color=#FFFFFF]Welcome[/color] to a [color=#FFFFFF]social deduction[/color] card game that relies on an App for its basic [color=#FFFFFF]functionality[/color]. The App is still [color=#FFFFFF]under development[/color]; therefore, you may experience lack of [color=#FFFFFF]content[/color], incomplete [color=#FFFFFF]features[/color], and [color=#FFFFFF]bugs[/color]."
+#                halign: "center"
+#                markup: True
+#                # Add this specifically to logs.
+#                #canvas.before:
+#                #    Color:
+#                #        rgba: 51/255, 255/255, 51/255, 0.3
+#                #    Line:
+#                #        width: 0.3
+#                #        rectangle: self.x, self.y, self.width, self.height
+#                #    Color:
+#                #        rgba: 51/255, 255/255, 51/255, 0.06
+#                #    Rectangle:
+#                #        pos: self.pos
+#                #        size: self.size
 
         MDBoxLayout:
             orientation: "vertical"
 
             MDLabel:
-                text_size: self.size
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
-                font_style: "Subtitle2"
+                font_style: "Caption"
                 halign: "center"
                 text: "Created by [color=#FFFFFF]Plague Products[/color]. All rights reserved."
                 markup: True
-                pos_hint: {"center_x":0.5, "center_y":0.25}
+                adaptive_height: True
 
-            MDFillRoundFlatButton:
-                md_bg_color: app.theme_cls.primary_color
-                text: "New Game"
-                font_style: "Button"
-                size_hint: 1, 0.4
-                pos_hint: {"center_x":0.5, "center_y":0.5}
-                on_release:
-                    #-------Fix for shit kivymd----
-                    root.manager.get_screen("player").ids.butt1.size_hint = 1, 1
-                    root.manager.get_screen("player").ids.butt2.size_hint = 1, 1
-                    root.manager.get_screen("player").ids.butt3.size_hint = 1, 1
-                    root.manager.get_screen("player").ids.butt4.size_hint = 1, 1
-                    root.manager.get_screen("player").ids.butt5.size_hint = 1, 1
-                    root.manager.get_screen("player").ids.butt6.size_hint = 1, 1
-                    #-------Fix for shit kivymd----
-                    app.root.current = "player"
-                    root.manager.transition.direction = "left"
+        MDBottomAppBar:
+            MDToolbar:
+                icon: "home"
+                type: "bottom"
+                right_action_items: [["chevron-right", lambda x: root.nextscreen()]]

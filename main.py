@@ -6,6 +6,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 from screens.playerselect import *
 from screens.revealscreen import *
+from screens.welcome import WelcomeWindow
 from popups.poprev import *
 from kivymd.uix.screen import MDScreen
 from screens.loadsetup import LoadingScreen
@@ -19,9 +20,6 @@ import random
 import globals
 
 Window.size = (400, 800)
-
-class WelcomeWindow(MDScreen):
-    pass
 
 # Add toggle to iconbuttons
 class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton):
@@ -149,9 +147,6 @@ class LogPopup(Popup):
     pass
 
 class WindowManager(ScreenManager):
-
-#TODO: Move this into it's own file. When going back at color select, clear instead of using a button. If already cleared, go back to previous screen.
-
 # Read keys in these screens
     def __init__(self, **kwargs):
         super(WindowManager, self).__init__(**kwargs)

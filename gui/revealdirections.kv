@@ -7,7 +7,8 @@
             size: 1644, 3840
             source: "images/defaultback.png"
 
-    FloatLayout:
+    MDBoxLayout:
+        orientation: "vertical"
         padding: 5
 
         MDLabel:
@@ -16,14 +17,13 @@
             theme_text_color: "Custom"
             font_style: 'Subtitle1'
             text: "Pass the phone to Player 1."
-            pos_hint: {"center_x":0.5, "center_y":0.5}
             halign: "center"
 
         MDFillRoundFlatButton:
             id: endreveal
-            md_bg_color: app.theme_cls.primary_dark
+            md_bg_color: app.theme_cls.primary_color
             text: "Reveal"
             font_style: "Button"
-            size_hint: 1, 0.19
+            size_hint: 1, 0.18
             on_release:
                 root.reveal()
