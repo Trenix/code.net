@@ -4,13 +4,14 @@ from kivy.properties import ObjectProperty, StringProperty
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
-from screens.playerselect import *
-from screens.revealscreen import *
-from screens.welcome import WelcomeWindow
+import displays.colorselect
+from displays.playeramount import *
+from displays.revealscreen import *
+from displays.welcome import WelcomeWindow
 from popups.poprev import *
 from kivymd.uix.screen import MDScreen
-from screens.loadsetup import LoadingScreen
-from screens.colorselect import ColorSelectScreen
+from displays.loadsetup import LoadingScreen
+from displays.colorselect import ColorSelectScreen
 from systems.generatelog import *
 from systems.generateplayerlog import *
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
@@ -160,8 +161,31 @@ class WindowManager(ScreenManager):
             elif self.current_screen.name == "player":
                 self.current = "welcome"
                 self.transition.direction = "right"
+
+                # Reset toggle on buttons
+                tempvariable = []
+
+                for x in range(6):
+                    tempvariable.append(f"butt{x + 1}")
+
+                for x in tempvariable:
+                    self.get_screen("player").ids[x].state = "normal"
+
                 return True  # do not exit the app
+
             elif self.current_screen.name == "colorselect":
+
+                globals.colortracker = globals.players
+                globals.playercounter = 1
+
+                #Clear colorselect screen
+                tempvariable = []
+                for x in range(9):
+                    tempvariable.append(f"but{x + 1}")
+
+                for x in tempvariable:
+                    self.get_screen("colorselect").ids[x].icon = "circle-outline"
+
                 self.current = "player"
                 self.transition.direction = "right"
                 return True  # do not exit the app

@@ -8,95 +8,94 @@
             source: "images/defaultback.png"
 
     MDBoxLayout:
-        padding: 5
         orientation: "vertical"
+        MDToolbar:
+            title: "C0de.Net"
+            left_action_items: [["menu", lambda x: x]]
+            right_action_items: [["refresh", lambda x: root.refresh()]]
 
-        MDBoxLayout:
-            padding: 15
-            orientation: "vertical"
+        MDStackLayout:
+            spacing: 20
+            padding: 20
 
             MDLabel:
+                adaptive_height: True
                 text_color: C("FFFFFF")
                 theme_text_color: "Custom"
                 font_style: "H4"
-                halign: "center"
                 text: "Player Amount"
-                text_size: self.size
+                halign: "center"
 
             MDLabel:
+                adaptive_height: True
                 text_color: app.theme_cls.primary_color
-                size_hint: 1, 0.7
-                text_size: self.size
                 theme_text_color: "Custom"
                 font_style: 'Subtitle1'
-                halign: "center"
                 text: "Greetings [color=#FFFFFF]host[/color], please select the [color=#FFFFFF]amount[/color] of [color=#FFFFFF]players[/color] that are currently playing."
+                halign: "center"
                 markup: True
 
-        MDBoxLayout:
-        MDBoxLayout:
+        MDGridLayout:
+            cols: 3
+            rows: 2
+            padding: 5
+            spacing: 5
+            size_hint: 1, 0.5
 
-            MDGridLayout:
-                cols: 3
-                rows: 2
-                spacing: 5
-                size_hint: 1, 0.5
-
-                MDFillRoundFlatIconButtonToggle:
-                    icon: "account-group-outline"
-                    group: "player"
-                    id: butt1
-                    font_style: "Button"
-                    md_bg_color: app.theme_cls.primary_color
-                    text: "4 Players"
-
-                MDFillRoundFlatIconButtonToggle:
-                    icon: "account-group-outline"
-                    group: "player"
-                    id: butt2
-                    font_style: "Button"
-                    md_bg_color: app.theme_cls.primary_color
-                    text: "5 Players"
-
-                MDFillRoundFlatIconButtonToggle:
-                    icon: "account-group"
-                    group: "player"
-                    id: butt3
-                    font_style: "Button"
-                    md_bg_color: app.theme_cls.primary_color
-                    text: "6 Players"
-
-                MDFillRoundFlatIconButtonToggle:
-                    icon: "account-group"
-                    group: "player"
-                    id: butt4
-                    font_style: "Button"
-                    md_bg_color: app.theme_cls.primary_color
-                    text: "7 Players"
-
-                MDFillRoundFlatIconButtonToggle:
-                    icon: "account-group"
-                    group: "player"
-                    id: butt5
-                    font_style: "Button"
-                    md_bg_color: app.theme_cls.primary_color
-                    text: "8 Players"
-
-                MDFillRoundFlatIconButtonToggle:
-                    icon: "account-group"
-                    group: "player"
-                    id: butt6
-                    font_style: "Button"
-                    md_bg_color: app.theme_cls.primary_color
-                    text: "9 Players"
-
-        MDBoxLayout:
-
-            MDFillRoundFlatButton:
-                id: proceed
-                size_hint: 1, 0.4
-                md_bg_color: app.theme_cls.primary_color
+            MDFillRoundFlatIconButtonToggle:
+                icon: "account-group-outline"
+                group: "player"
+                id: butt1
                 font_style: "Button"
-                text: "Continue"
-                on_release:
-                    root.setplayervars()
+                md_bg_color: app.theme_cls.primary_color
+                text: "4 Players"
+
+            MDFillRoundFlatIconButtonToggle:
+                icon: "account-group-outline"
+                group: "player"
+                id: butt2
+                font_style: "Button"
+                md_bg_color: app.theme_cls.primary_color
+                text: "5 Players"
+
+            MDFillRoundFlatIconButtonToggle:
+                icon: "account-group"
+                group: "player"
+                id: butt3
+                font_style: "Button"
+                md_bg_color: app.theme_cls.primary_color
+                text: "6 Players"
+
+            MDFillRoundFlatIconButtonToggle:
+                icon: "account-group"
+                group: "player"
+                id: butt4
+                font_style: "Button"
+                md_bg_color: app.theme_cls.primary_color
+                text: "7 Players"
+
+            MDFillRoundFlatIconButtonToggle:
+                icon: "account-group"
+                group: "player"
+                id: butt5
+                font_style: "Button"
+                md_bg_color: app.theme_cls.primary_color
+                text: "8 Players"
+
+            MDFillRoundFlatIconButtonToggle:
+                icon: "account-group"
+                group: "player"
+                id: butt6
+                font_style: "Button"
+                md_bg_color: app.theme_cls.primary_color
+                text: "9 Players"
+
+        MDBoxLayout:
+
+        MDBottomAppBar:
+            MDToolbar:
+                icon: "square-rounded-outline"
+                type: "bottom"
+                on_action_button: app.on_pause()
+                left_action_items: [["chevron-left", lambda x: root.previousscreen()]]
+                right_action_items: [["chevron-right", lambda x: root.setplayervars()]]

@@ -1,5 +1,4 @@
 from kivymd.uix.screen import MDScreen
-from main import MDApp
 import globals
 
 class PlayerWindow(MDScreen):
@@ -51,11 +50,31 @@ class PlayerWindow(MDScreen):
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "9 Players"
             self.nextscreen()
 
+    def refresh(self):
+
+        # Reset toggle on buttons
+        tempvariable = []
+
+        for x in range(6):
+            tempvariable.append(f"butt{x + 1}")
+
+        for x in tempvariable:
+            self.ids[x].state = "normal"
+
+
+    def previousscreen(self):
+
+        self.manager.current = "welcome"
+        self.manager.transition.direction = "right"
+
+        self.refresh()
+
     def nextscreen(self):
 
         self.manager.current = "colorselect"
         self.manager.transition.direction = "left"
 
+        self.refresh()
         self.playersetup()
 
 # Set grid for next screen

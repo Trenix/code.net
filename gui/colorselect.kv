@@ -8,32 +8,40 @@
             source: "images/defaultback.png"
 
     MDBoxLayout:
-        padding: 5
-        spacing: 5
         orientation: "vertical"
+        MDToolbar:
+            title: "C0de.Net"
+            left_action_items: [["menu", lambda x: x]]
+            right_action_items: [["refresh", lambda x: root.RefreshTracker()]]
+
+        MDStackLayout:
+            spacing: 20
+            padding: 20
+
+            MDLabel:
+                id: strplayeramt
+                adaptive_height: True
+                text_color: C("FFFFFF")
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text: "Player Amount"
+                halign: "center"
+
+            MDLabel:
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle1'
+                text: "Select a [color=#FFFFFF]color[/color] for each [color=#FFFFFF]player[/color], starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color].\n"
+                halign: "center"
+                markup: True
 
         MDBoxLayout:
-            size_hint: None, 0.2
-
-        MDLabel:
-            id: strplayeramt
-            size_hint: 1, 0.5
-            text_color: C("FFFFFF")
-            theme_text_color: "Custom"
-            font_style: 'H4'
-            halign: "center"
-            markup: True
-
-        MDLabel:
-            size_hint: 1, 0.7
-            text_color: app.theme_cls.primary_color
-            theme_text_color: "Custom"
-            font_style: 'Subtitle1'
-            halign: "center"
-            text: "Select a [color=#FFFFFF]color[/color] for each [color=#FFFFFF]player[/color], starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color].\n"
-            markup: True
+            size_hint: 1, 0.3
 
         MDGridLayout:
+            padding: 5
+            spacing: 5
             cols: 3
             spacing: 5
 
@@ -118,23 +126,25 @@
                 on_release:
                     root.ColorSelect(but9)
 
-        MDIconButton:
-            theme_text_color: "Custom"
-            icon: "refresh"
-            md_bg_color: app.theme_cls.primary_color
-            text_color: C("#FFFFFF")
-            pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            on_press:
-                root.RefreshTracker()
-
-        MDBoxLayout:
-            size_hint: None, 0.2
         MDBoxLayout:
 
-            MDFillRoundFlatButton:
-                md_bg_color: app.theme_cls.primary_color
-                font_style: "Button"
-                text: "Continue"
-                size_hint: 1, 0.55
-                on_release:
-                    root.Continue()
+        MDBottomAppBar:
+            MDToolbar:
+                icon: "square-rounded-outline"
+                type: "bottom"
+                on_action_button: app.on_pause()
+                left_action_items: [["chevron-left", lambda x: root.previousscreen()]]
+                right_action_items: [["chevron-right", lambda x: root.nextscreen()]]
+
+#
+#            MDBoxLayout:
+#                size_hint: None, 0.2
+#            MDBoxLayout:
+#
+#                MDFillRoundFlatButton:
+#                    md_bg_color: app.theme_cls.primary_color
+#                    font_style: "Button"
+#                    text: "Continue"
+#                    size_hint: 1, 0.55
+#                    on_release:
+#                        root.Continue()

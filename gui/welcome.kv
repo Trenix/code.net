@@ -22,7 +22,7 @@
                 adaptive_height: True
                 text_color: C("FFFFFF")
                 theme_text_color: "Custom"
-                font_style: "H3"
+                font_style: "H4"
                 text: "Welcome"
                 halign: "center"
 
@@ -69,6 +69,7 @@
 
         MDBottomAppBar:
             MDToolbar:
-                icon: "home"
+                icon: "square-rounded-outline"
                 type: "bottom"
+                on_action_button: app.on_pause()
                 right_action_items: [["chevron-right", lambda x: root.nextscreen()]]

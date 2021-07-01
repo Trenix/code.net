@@ -25,23 +25,18 @@ class ColorSelectScreen(MDScreen):
             tempvariable.append(f"but{x + 1}")
 
         for x in tempvariable:
-            self.manager.get_screen("colorselect").ids[x].icon = "circle-outline"
+            self.ids[x].icon = "circle-outline"
 
         globals.colortracker = globals.players
         globals.playercounter = 1
 
-    def Continue(self):
+    def nextscreen(self):
         if globals.colortracker == 0:
             self.manager.current = "reveal"
             self.manager.transition.direction = "left"
 
-    def ClearTracker(self):
-        globals.playercounter = 1
+    def previousscreen(self):
+        self.manager.current = "player"
+        self.manager.transition.direction = "right"
 
-        tempvariable = []
-
-        for x in range(9):
-            tempvariable.append(f"but{x + 1}")
-
-        for x in tempvariable:
-            self.manager.get_screen("colorselect").ids[x].icon = "circle-outline"
+        self.RefreshTracker()
