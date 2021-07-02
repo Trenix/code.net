@@ -9,21 +9,100 @@
 
     MDBoxLayout:
         orientation: "vertical"
-        padding: 5
+        MDToolbar:
+            title: "C0de.Net"
+            left_action_items: [["menu", lambda x: x]]
 
-        MDLabel:
-            id: whatplayer
-            text_color: app.theme_cls.primary_color
-            theme_text_color: "Custom"
-            font_style: 'Subtitle1'
-            text: "Pass the phone to Player 1."
-            halign: "center"
+        MDStackLayout:
+            spacing: 20
+            padding: 20
 
-        MDFillRoundFlatButton:
-            id: endreveal
-            md_bg_color: app.theme_cls.primary_color
-            text: "Reveal"
-            font_style: "Button"
-            size_hint: 1, 0.18
-            on_release:
-                root.reveal()
+            MDLabel:
+                adaptive_height: True
+                text_color: C("FFFFFF")
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text: "Role Reveal"
+                halign: "center"
+
+            MDLabel:
+                text: "Please follow the [color=#FFFFFF]tracker[/color] and [color=#FFFFFF]click[/color] the reveal [color=#FFFFFF]button[/color] when it's your [color=#FFFFFF]turn[/color] to check your [color=#FFFFFF]role[/color]."
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle1'
+                halign: "center"
+                markup: True
+
+        MDGridLayout:
+            id: setgrid
+            padding: 20
+            spacing: 5
+            cols: 9
+            spacing: 5
+
+
+            MDProgressBar:
+                id: ind1
+                value: 100
+
+            MDProgressBar:
+                id: ind2
+                value: 100
+
+            MDProgressBar:
+                id: ind3
+                value: 100
+
+            MDProgressBar:
+                id: ind4
+                value: 100
+
+            MDProgressBar:
+                id: ind5
+                value: 100
+
+            MDProgressBar:
+                id: ind6
+                value: 100
+
+            MDProgressBar:
+                id: ind6
+                value: 100
+
+            MDProgressBar:
+                id: ind7
+                value: 100
+
+            MDProgressBar:
+                id: ind8
+                value: 100
+
+
+#    MDBoxLayout:
+#        orientation: "vertical"
+#        padding: 5
+#
+#        MDLabel:
+#            id: whatplayer
+#            text_color: app.theme_cls.primary_color
+#            theme_text_color: "Custom"
+#            font_style: 'Subtitle1'
+#            text: "Pass the phone to Player 1."
+#            halign: "center"
+#
+#        MDFillRoundFlatButton:
+#            id: endreveal
+#            md_bg_color: app.theme_cls.primary_color
+#            text: "Reveal"
+#            font_style: "Button"
+#            size_hint: 1, 0.18
+#            on_release:
+#                root.reveal()
+
+        MDBottomAppBar:
+            MDToolbar:
+                icon: "square-rounded-outline"
+                type: "bottom"
+                on_action_button: app.on_pause()
+                right_action_items: [["chevron-right", lambda x: x]]

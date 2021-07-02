@@ -3,6 +3,7 @@ from popups.poprev import RevealPopup
 from main import MDApp
 import globals
 
+
 class PlayerReveal(MDScreen):
 
     def reveal(self):
