@@ -39,26 +39,10 @@ class ColorSelectScreen(MDScreen):
             self.manager.transition.direction = "left"
 
         #Setup tracker
-        #
-        # if globals.players == 4:
-        #     self.manager.get_screen("reveal").ids.setgrid.cols = 4
-        #
-        #     for x in range(4):
-        #         tempvar =
-        #
-        #     for x in range(4):
-        #         self.manager.get_screen("reveal").ids.setgrid.add_widget(MDProgressBar(value=100, id=f"track{x+1}"))
-        #     #print(self.manager.get_screen("reveal").ids)
 
-
-
-            #
-            # tempvariable = []
-            # for x in range(5, 9):
-            #     tempvariable.append(f"ind{x}")
-            #
-            # for x in tempvariable:
-            #     self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[x])
+        self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
+        for x in range(globals.players + 1, 9 + 1):
+            self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
 
     def previousscreen(self):
         self.manager.current = "player"
