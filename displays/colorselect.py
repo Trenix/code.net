@@ -1,6 +1,6 @@
 import globals
 from kivymd.uix.screen import MDScreen
-from kivymd.uix.progressbar import MDProgressBar
+from kivy.clock import Clock
 
 
 class ColorSelectScreen(MDScreen):
@@ -38,11 +38,22 @@ class ColorSelectScreen(MDScreen):
             self.manager.current = "reveal"
             self.manager.transition.direction = "left"
 
-        #Setup tracker
+            #Setup tracker
+            self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
 
-        self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
-        for x in range(globals.players + 1, 9 + 1):
-            self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
+            # Destroy widgets not in play
+            for x in range(globals.players + 1, 9 + 1):
+                self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
+
+            # Set colors
+            for x in range(globals.players):
+                self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
+
+    #     # Set ping for first player
+    #     Clock.schedule_once(self.ping, 1)
+    #
+    # def ping(self, dt):
+    #     self.manager.get_screen("reveal").ids.ind1.start()
 
     def previousscreen(self):
         self.manager.current = "player"
