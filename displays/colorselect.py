@@ -43,17 +43,20 @@ class ColorSelectScreen(MDScreen):
 
             # Destroy widgets not in play
             for x in range(globals.players + 1, 9 + 1):
-                self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
+                self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"des{x}"])
 
             # Set colors
             for x in range(globals.players):
-                self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
+                self.manager.get_screen("reveal").ids[f"cind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
 
-    #     # Set ping for first player
-    #     Clock.schedule_once(self.ping, 1)
-    #
-    # def ping(self, dt):
-    #     self.manager.get_screen("reveal").ids.ind1.start()
+        # Set ping for first player
+        event = Clock.schedule_interval(self.ping, 1)
+
+    def ping(self, dt):
+        if self.manager.get_screen("reveal").ids.ind1.opacity == 1:
+            self.manager.get_screen("reveal").ids.ind1.opacity = 0
+        else:
+            self.manager.get_screen("reveal").ids.ind1.opacity = 1
 
     def previousscreen(self):
         self.manager.current = "player"
