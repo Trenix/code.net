@@ -1,7 +1,5 @@
 import globals
 from kivymd.uix.screen import MDScreen
-from kivy.clock import Clock
-
 
 class ColorSelectScreen(MDScreen):
 
@@ -43,20 +41,11 @@ class ColorSelectScreen(MDScreen):
 
             # Destroy widgets not in play
             for x in range(globals.players + 1, 9 + 1):
-                self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"des{x}"])
+                self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
 
             # Set colors
             for x in range(globals.players):
-                self.manager.get_screen("reveal").ids[f"cind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
-
-        # Set ping for first player
-        event = Clock.schedule_interval(self.ping, 1)
-
-    def ping(self, dt):
-        if self.manager.get_screen("reveal").ids.ind1.opacity == 1:
-            self.manager.get_screen("reveal").ids.ind1.opacity = 0
-        else:
-            self.manager.get_screen("reveal").ids.ind1.opacity = 1
+                self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
 
     def previousscreen(self):
         self.manager.current = "player"
