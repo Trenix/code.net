@@ -14,8 +14,8 @@
             left_action_items: [["menu", lambda x: x]]
 
         MDStackLayout:
-            spacing: 20
-            padding: 20
+            spacing: 10
+            padding: 21
 
             MDLabel:
                 adaptive_height: True
@@ -23,8 +23,10 @@
                 theme_text_color: "Custom"
                 font_style: "H4"
                 text: "Role Reveal"
-                underline: True
                 halign: "center"
+
+            MDSeparator:
+                color: C("FFFFFF")
 
             MDLabel:
                 text: "Please follow the [color=#FFFFFF]tracker[/color] below and [color=#FFFFFF]click[/color] the [color=#FFFFFF]button[/color] at the bottom right corner when it's your [color=#FFFFFF]turn[/color] to check your [color=#FFFFFF]role[/color]."
@@ -151,4 +153,4 @@
                 icon: "square-rounded-outline"
                 type: "bottom"
                 on_action_button: app.on_pause()
-                right_action_items: [["account-search", lambda x: x], ["chevron-right", lambda x: x]]
+                right_action_items: [["account-search", lambda x: root.reveal()], ["chevron-right", lambda x: x]]

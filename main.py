@@ -6,7 +6,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.core.window import Window
 import displays.colorselect
 from displays.playeramount import *
-from displays.revealscreen import *
+from displays.revealdirections import *
 from displays.welcome import WelcomeWindow
 from popups.poprev import *
 from kivymd.uix.screen import MDScreen
@@ -191,11 +191,10 @@ class WindowManager(ScreenManager):
                 return True  # do not exit the app
 
 class codenetApp(MDApp):
-    import globals
-# use import globals not the bottom shit
 #Global Variables Between KV and PY
 
     arehacker = StringProperty("")
+    identitydes = StringProperty("")
     buttonname = StringProperty("")
 
     def build(self):

@@ -5,11 +5,11 @@ playerlist = {}
 playercounter = 1
 popupWindow = None
 colortracker = 0
-savedpopup = None
 notai = []
 hackerlist = []
 coderlist = []
 playerlogrev = []
+revealtracker = 1
 colordefs = {"Red": [198/255, 40/255, 40/255, 1], "Pink": [173/255, 20/255, 87/255, 1],
              "Purple": [106/255, 27/255, 154/255, 1], "Blue": [21/255, 101/255, 192/255, 1],
              "Green": [46/255, 125/255, 50/255, 1], "Yellow": [249/255, 168/255, 37/255, 1],

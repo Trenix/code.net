@@ -1,105 +1,172 @@
 <RevealPopup>:
-    size_hint: 0.9, 0.7
-    pos_hint: {"center_x":0.5, "top":0.94}
     auto_dismiss: False
-    title: "Player Reveal"
+    size_hint: 0.8, 0.5
 
-    BoxLayout:
+    MDCard:
         orientation: "vertical"
+        padding: 21
+        md_bg_color: app.theme_cls.primary_color
 
-        Label:
-            size_hint: 0.8, 0.6
-            pos_hint: {"center_x":0.5, "top":1}
-            text: app.arehacker
+        MDLabel:
+            id: header
+            text: "Identity"
+            font_style: "H4"
+            size_hint_y: None
+            height: self.texture_size[1]
             halign: "center"
+            theme_text_color: "Custom"
+            text_color: C("FFFFFF")
+
+        MDSeparator:
+            color: C("FFFFFF")
+
+        BoxLayout:
+            size_hint: 1, 0.1
+
+        MDLabel:
+            text: app.arehacker
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            size_hint_y: None
+            height: self.texture_size[1]
             markup: True
 
-        BoxLayout:
-            size_hint: 0.1, 0.15
-            pos_hint: {"center_x":0.5, "top":1}
+        MDIcon:
+            text: app.identitydes
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            text_color: C("FFFFFF")
+            size_hint_y: None
+            height: self.texture_size[1]
+            markup: True
 
-            Label:
-                text: "Select your color:"
+        MDBoxLayout:
 
-        GridLayout:
-            pos_hint: {"center_x":0.5, "top":0.9}
-            cols: 3
-            rows: 3
-            spacing: 4
-
-            Button:
-                id: Red
-                text: "Red"
-                background_color: C("#FF0000")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-
-            Button:
-                id: Orange
-                text: "Orange"
-                background_color: C("#FFA500")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: Yellow
-                text: "Yellow"
-                background_color: C("#FFFF00")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: Green
-                text: "Green"
-                background_color: C("#008000")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: Blue
-                text: "Blue"
-                background_color: C("#0000FF")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: Purple
-                text: "Purple"
-                background_color: C("#800080")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: White
-                text: "White"
-                background_color: C("#FFFFFF")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: Black
-                text: "Black"
-                background_color: C("#000000")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-            Button:
-                id: Pink
-                text: "Pink"
-                background_color: C("#FFC0CB")
-                on_press:
-                    app.buttonname = self.text
-                    root.ColorSelect()
-
-        BoxLayout:
-            size_hint: 1, 0.3
-
-        Button:
-            id: exitcolor
-            size_hint: 1, 0.3
+        MDRectangleFlatButton:
+            font_style: "Button"
+            theme_text_color: "Custom"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            md_bg_color: app.theme_cls.primary_dark
+            line_color: C("FFFFFF")
+            text_color: C("FFFFFF")
             text: "OK"
-            disabled: True
-            on_press:
-                root.ColorTrack()
+            on_release:
                 root.dismiss()
+
+#    title: "Player Reveal"
+#    text_color: app.theme_cls.primary_color
+#    theme_text_color: "Custom"
+#    font_style: 'H3'
+#    md_bg_color: app.theme_cls.primary_dark
+#
+#    MDCard:
+#
+#
+#    MDBoxLayout:
+#        MDLabel:
+#            size_hint: 1, 1
+#            text_color: app.theme_cls.primary_color
+#            theme_text_color: "Custom"
+#            font_style: 'Subtitle1'
+#            text: "test"
+
+#    BoxLayout:
+#        orientation: "vertical"
+#
+#        Label:
+#            size_hint: 0.8, 0.6
+#            pos_hint: {"center_x":0.5, "top":1}
+#            text: app.arehacker
+#            halign: "center"
+#            markup: True
+#
+#        BoxLayout:
+#            size_hint: 0.1, 0.15
+#            pos_hint: {"center_x":0.5, "top":1}
+
+#            Label:
+#                text: "Select your color:"
+
+#        GridLayout:
+#            pos_hint: {"center_x":0.5, "top":0.9}
+#            cols: 3
+#            rows: 3
+#            spacing: 4
+#
+#            Button:
+#                id: Red
+#                text: "Red"
+#                background_color: C("#FF0000")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#
+#            Button:
+#                id: Orange
+#                text: "Orange"
+#                background_color: C("#FFA500")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: Yellow
+#                text: "Yellow"
+#                background_color: C("#FFFF00")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: Green
+#                text: "Green"
+#                background_color: C("#008000")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: Blue
+#                text: "Blue"
+#                background_color: C("#0000FF")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: Purple
+#                text: "Purple"
+#                background_color: C("#800080")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: White
+#                text: "White"
+#                background_color: C("#FFFFFF")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: Black
+#                text: "Black"
+#                background_color: C("#000000")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+#            Button:
+#                id: Pink
+#                text: "Pink"
+#                background_color: C("#FFC0CB")
+#                on_press:
+#                    app.buttonname = self.text
+#                    root.ColorSelect()
+
+#        BoxLayout:
+#            size_hint: 1, 0.3
+
+#        Button:
+#            id: exitcolor
+#            size_hint: 1, 0.3
+#            text: "OK"
+##            disabled: True
+#            on_press:
+##                root.ColorTrack()
+#                root.dismiss()
