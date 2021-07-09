@@ -19,13 +19,8 @@ class ColorSelectScreen(MDScreen):
 
     def RefreshTracker(self):
 
-        tempvariable = []
-
         for x in range(9):
-            tempvariable.append(f"but{x + 1}")
-
-        for x in tempvariable:
-            self.ids[x].icon = "circle-outline"
+            self.ids[f"but{x + 1}"].icon = "circle-outline"
 
         globals.colortracker = globals.players
         globals.playercounter = 1
@@ -52,3 +47,4 @@ class ColorSelectScreen(MDScreen):
         self.manager.transition.direction = "right"
 
         self.RefreshTracker()
+        globals.playerlist.clear()

@@ -53,14 +53,8 @@ class PlayerWindow(MDScreen):
     def refresh(self):
 
         # Reset toggle on buttons
-        tempvariable = []
-
         for x in range(6):
-            tempvariable.append(f"butt{x + 1}")
-
-        for x in tempvariable:
-            self.ids[x].state = "normal"
-
+            self.ids[f"butt{x + 1}"].state = "normal"
 
     def previousscreen(self):
 
@@ -78,10 +72,5 @@ class PlayerWindow(MDScreen):
         self.playersetup()
 
 # Set grid for next screen
-        tempvariable = []
-
         for x in range(9):
-            tempvariable.append(f"but{x + 1}")
-
-        for x in tempvariable:
-            self.manager.get_screen("colorselect").ids[x].size_hint = 1, 1
+            self.manager.get_screen("colorselect").ids[f"but{x + 1}"].size_hint = 1, 1

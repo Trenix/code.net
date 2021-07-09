@@ -163,13 +163,8 @@ class WindowManager(ScreenManager):
                 self.transition.direction = "right"
 
                 # Reset toggle on buttons
-                tempvariable = []
-
                 for x in range(6):
-                    tempvariable.append(f"butt{x + 1}")
-
-                for x in tempvariable:
-                    self.get_screen("player").ids[x].state = "normal"
+                    self.get_screen("player").ids[f"butt{x + 1}"].state = "normal"
 
                 return True  # do not exit the app
 
@@ -179,15 +174,12 @@ class WindowManager(ScreenManager):
                 globals.playercounter = 1
 
                 #Clear colorselect screen
-                tempvariable = []
                 for x in range(9):
-                    tempvariable.append(f"but{x + 1}")
-
-                for x in tempvariable:
-                    self.get_screen("colorselect").ids[x].icon = "circle-outline"
+                    self.get_screen("colorselect").ids[f"but{x + 1}"].icon = "circle-outline"
 
                 self.current = "player"
                 self.transition.direction = "right"
+                globals.playerlist.clear()
                 return True  # do not exit the app
 
 class codenetApp(MDApp):
