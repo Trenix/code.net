@@ -1,26 +1,27 @@
 from kivymd.app import MDApp
-from kivy.lang import Builder
-from kivy.properties import ObjectProperty, StringProperty
+from kivy.properties import StringProperty
 from kivy.uix.popup import Popup
-from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
-import displays.colorselect
-from displays.playeramount import *
+from displays.playeramount import PlayerWindow
 from displays.revealdirections import *
 from displays.welcome import WelcomeWindow
-from popups.poprev import *
 from kivymd.uix.screen import MDScreen
 from displays.loadsetup import LoadingScreen
 from displays.colorselect import ColorSelectScreen
-from systems.generatelog import *
-from systems.generateplayerlog import *
+from systems.generatelog import createlog
+from systems.generateplayerlog import createplayerlog
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
-from globals import *
+from kivymd.uix.dialog import MDDialog
+from globals import * #might have to remove this?
 import random
 import globals
 
 Window.size = (400, 800)
+
+class RevealPopup(MDDialog):
+    pass
 
 # Add toggle to iconbuttons
 class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton):
@@ -187,7 +188,6 @@ class codenetApp(MDApp):
 
     arehacker = StringProperty("")
     identitydes = StringProperty("")
-    buttonname = StringProperty("")
 
     def build(self):
         pass
