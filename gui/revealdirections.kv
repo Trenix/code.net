@@ -29,13 +29,14 @@
                 color: C("FFFFFF")
 
             MDLabel:
-                text: "Please follow the [color=#FFFFFF]tracker[/color] below and [color=#FFFFFF]click[/color] the [color=#FFFFFF]button[/color] at the bottom right corner when it's your [color=#FFFFFF]turn[/color] to check your [color=#FFFFFF]role[/color]."
+                text: "Please follow the [color=#FFFFFF]tracker[/color] below and [color=#FFFFFF]press[/color] the [color=#FFFFFF]button[/color] at the bottom when it's your [color=#FFFFFF]turn[/color] to check your [color=#FFFFFF]role[/color]."
                 adaptive_height: True
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle1'
                 halign: "center"
                 markup: True
+
         MDBoxLayout:
             padding: 10
 
@@ -116,42 +117,10 @@
         MDBoxLayout:
         MDBoxLayout:
         MDBoxLayout:
-#        MDFillRoundFlatButton:
-#            id: endreveal
-#            md_bg_color: app.theme_cls.primary_color
-#            text: "Reveal"
-#            font_style: "Button"
-#            pos_hint: {"center_x": 0.5, "center_y": 0.5}
-#            size_hint: 0.5, 0.5
-#            on_release:
-#                root.reveal()
-#        MDBoxLayout:
-
-#    MDBoxLayout:
-#        orientation: "vertical"
-#        padding: 5
-#
-#        MDLabel:
-#            id: whatplayer
-#            text_color: app.theme_cls.primary_color
-#            theme_text_color: "Custom"
-#            font_style: 'Subtitle1'
-#            text: "Pass the phone to Player 1."
-#            halign: "center"
-#
-#        MDFillRoundFlatButton:
-#            id: endreveal
-#            md_bg_color: app.theme_cls.primary_color
-#            text: "Reveal"
-#            font_style: "Button"
-#            size_hint: 1, 0.18
-#            on_release:
-#                root.reveal()
 
         MDBottomAppBar:
             MDToolbar:
                 id: revtool
-                icon: "square-rounded-outline"
+                icon: "account-search"
                 type: "bottom"
-                on_action_button: app.on_pause()
-                right_action_items: [["account-search", lambda x: root.reveal()], ["chevron-right", lambda x: x]]
+                on_action_button: root.reveal()
