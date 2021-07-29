@@ -1,7 +1,6 @@
 from kivymd.uix.screen import MDScreen
 from main import RevealPopup
 from main import codenetApp
-# from kivymd.icon_definitions import md_icons
 import globals
 
 class PlayerReveal(MDScreen):

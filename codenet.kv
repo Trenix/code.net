@@ -20,29 +20,33 @@ WindowManager:
 <MainWindow>
     name: "main"
 
-    BoxLayout:
+    AnchorLayout
+        Image:
+            size_hint: None, None
+            size: 1644, 3840
+            source: "images/defaultback.png"
+
+    MDBoxLayout:
         orientation: "vertical"
 
-        BoxLayout:
+        MDToolbar:
+            title: "C0de.Net"
+            left_action_items: [["menu", lambda x: x]]
+
+        MDBoxLayout:
             orientation: "vertical"
             padding: 20
             spacing: 11
-            Label:
-                bold: True
-                underline: True
-                font_size: 70
-                text: "Code.Net"
-                size_hint: 0.2, 0.2
-                pos_hint: {"center_x":0.5, "top":0.8}
 
-            Label:
-                font_size: 25
+            MDLabel:
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle1'
                 id: currentround
-                text: "[b]Current Round:[/b] 0"
+                text: "Current Round: 0"
                 markup: True
-                size_hint: 0.2, 0.2
-                pos_hint: {"center_x":0.5, "top":0.8}
-
+                halign: "center"
+                adaptive_height: True
 
             Button:
                 id: startround
@@ -57,70 +61,85 @@ WindowManager:
                 pos_hint: {"center_x":0.5, "top":.9}
                 size_hint: 0.92, 0.25
                 disabled: True
-
         BoxLayout:
             orientation: "vertical"
 
-            TabbedPanel:
+            MDTabs:
+                indicator_color: C('FFFFFF')
+                text_color_active: C('FFFFFF')
+                text_color_normal: C('000000')
                 id: mainpanel
-                do_default_tab: False
-                tab_width: (self.parent.width / 3)
+                tab_hint_x: True
+                default_tab: 1
 
-                TabbedPanelItem:
-                    id: tab1
-                    text: "Round 1"
+                Tab:
+                    title: f"[font=font/JetBrainsMono-Regular]Round 1[/font]"
+                    markup: True
 
-                    BoxLayout:
+                    MDBoxLayout:
                         id: round1show
-                        opacity: 0
                         orientation: "vertical"
                         padding: 10
                         spacing: 10
 
-                        BoxLayout:
+                        MDBoxLayout:
 
-                        BoxLayout:
+                        MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
                             orientation: "vertical"
                             canvas.before:
                                 Color:
-                                    rgba: C('#708090')
+                                    rgba: 51/255, 255/255, 51/255, 0.3
+                                Line:
+                                    width: 0.3
+                                    rectangle: self.x, self.y, self.width, self.height
+                                Color:
+                                    rgba: 51/255, 255/255, 51/255, 0.06
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
-                            Label:
+
+                            MDLabel:
                                 id: round1sub
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
                                 markup: True
-                                text: ""
+                                text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
-                            Label:
+                            MDLabel:
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: "At least one hacker is among the following."
                                 id: round1sum
-                                text: ""
 
-                        BoxLayout:
+                        MDFillRoundFlatButton:
+                            id: round1reveal
+                            text: "Reveal Log"
+                            font_style: "Button"
+                            md_bg_color: app.theme_cls.primary_color
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            disabled: True
+                            on_press:
+                                root.r1l1()
 
-                            Button:
-                                id: round1reveal
-                                text: "Reveal Log"
-                                pos_hint: {"center_x":0.5, "center_y":0.5}
-                                disabled: True
-                                on_press:
-                                    root.r1l1()
+                        MDBoxLayout:
 
-                        BoxLayout:
+                Tab:
+                    title: f"[font=font/JetBrainsMono-Regular]Round 2[/font]"
+                    markup: True
 
-                TabbedPanelItem:
-                    id: tab2
-                    text: "Round 2"
-
-                    BoxLayout:
+                    MDBoxLayout:
                         id: round2show
-                        opacity: 0
+                        opacity: 1
                         orientation: "vertical"
                         padding: 10
                         spacing: 10
 
-                        BoxLayout:
+                        MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
                             orientation: "vertical"
                             canvas.before:
@@ -130,16 +149,14 @@ WindowManager:
                                     pos: self.pos
                                     size: self.size
 
-                            Label:
+                            MDLabel:
                                 id: round2sub1
                                 markup: True
-                                text: ""
 
-                            Label:
+                            MDLabel:
                                 id: round2sum1
-                                text: ""
 
-                        BoxLayout:
+                        MDBoxLayout:
                             Button:
                                 id: round2reveal1
                                 text: "Reveal Log"
@@ -148,7 +165,7 @@ WindowManager:
                                 on_press:
                                     root.r2l1()
 
-                        BoxLayout:
+                        MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
                             orientation: "vertical"
                             canvas.before:
@@ -157,16 +174,14 @@ WindowManager:
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
-                            Label:
+                            MDLabel:
                                 id: round2sub2
                                 markup: True
-                                text: ""
 
-                            Label:
+                            MDLabel:
                                 id: round2sum2
-                                text: ""
 
-                        BoxLayout:
+                        MDBoxLayout:
                             Button:
                                 id: round2reveal2
                                 text: "Reveal Log"
@@ -175,18 +190,18 @@ WindowManager:
                                 on_press:
                                     root.r2l2()
 
-                TabbedPanelItem:
-                    id: tab3
-                    text: "Round 3"
+                Tab:
+                    title: f"[font=font/JetBrainsMono-Regular]Round 3[/font]"
+                    markup: True
 
-                    BoxLayout:
+                    MDBoxLayout:
                         id: round3show
-                        opacity: 0
+                        opacity: 1
                         orientation: "vertical"
                         padding: 10
                         spacing: 10
 
-                        BoxLayout:
+                        MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
                             orientation: "vertical"
                             canvas.before:
@@ -196,12 +211,12 @@ WindowManager:
                                     pos: self.pos
                                     size: self.size
 
-                            Label:
+                            MDLabel:
                                 id: round3sum1
                                 halign: "center"
                                 text: "The following is exclusively revealed\nto the specified player."
 
-                        BoxLayout:
+                        MDBoxLayout:
                             Button:
                                 id: round3reveal1
                                 text: ""
@@ -210,7 +225,7 @@ WindowManager:
                                 on_press:
                                     root.r3l1()
 
-                        BoxLayout:
+                        MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
                             orientation: "vertical"
                             canvas.before:
@@ -225,7 +240,7 @@ WindowManager:
                                 halign: "center"
                                 text: "The following is exclusively revealed\nto the specified player."
 
-                        BoxLayout:
+                        MDBoxLayout:
                             Button:
                                 id: round3reveal2
                                 text: ""
@@ -233,3 +248,188 @@ WindowManager:
                                 disabled: True
                                 on_press:
                                     root.r3l2()
+
+
+
+
+#        BoxLayout:
+#            orientation: "vertical"
+#
+#            TabbedPanel:
+#                id: mainpanel
+#                do_default_tab: False
+#                tab_width: (self.parent.width / 3)
+#
+#                TabbedPanelItem:
+#                    id: tab1
+#                    text: "Round 1"
+#
+#                    BoxLayout:
+#                        id: round1show
+#                        opacity: 0
+#                        orientation: "vertical"
+#                        padding: 10
+#                        spacing: 10
+#
+#                        BoxLayout:
+#
+#                        BoxLayout:
+#                            pos_hint: {"center_x":0.5, "y": 0}
+#                            orientation: "vertical"
+#                            canvas.before:
+#                                Color:
+#                                    rgba: C('#708090')
+#                                Rectangle:
+#                                    pos: self.pos
+#                                    size: self.size
+#                            Label:
+#                                id: round1sub
+#                                markup: True
+#                                text: ""
+#
+#                            Label:
+#                                id: round1sum
+#                                text: ""
+#
+#                        BoxLayout:
+#
+#                            Button:
+#                                id: round1reveal
+#                                text: "Reveal Log"
+#                                pos_hint: {"center_x":0.5, "center_y":0.5}
+#                                disabled: True
+#                                on_press:
+#                                    root.r1l1()
+#
+#                        BoxLayout:
+#
+#                TabbedPanelItem:
+#                    id: tab2
+#                    text: "Round 2"
+#
+#                    BoxLayout:
+#                        id: round2show
+#                        opacity: 0
+#                        orientation: "vertical"
+#                        padding: 10
+#                        spacing: 10
+#
+#                        BoxLayout:
+#                            pos_hint: {"center_x":0.5, "y": 0}
+#                            orientation: "vertical"
+#                            canvas.before:
+#                                Color:
+#                                    rgba: C('#708090')
+#                                Rectangle:
+#                                    pos: self.pos
+#                                    size: self.size
+#
+#                            Label:
+#                                id: round2sub1
+#                                markup: True
+#                                text: ""
+#
+#                            Label:
+#                                id: round2sum1
+#                                text: ""
+#
+#                        BoxLayout:
+#                            Button:
+#                                id: round2reveal1
+#                                text: "Reveal Log"
+#                                pos_hint: {"center_x":0.5, "center_y":0.5}
+#                                disabled: True
+#                                on_press:
+#                                    root.r2l1()
+#
+#                        BoxLayout:
+#                            pos_hint: {"center_x":0.5, "y": 0}
+#                            orientation: "vertical"
+#                            canvas.before:
+#                                Color:
+#                                    rgba: C('#708090')
+#                                Rectangle:
+#                                    pos: self.pos
+#                                    size: self.size
+#                            Label:
+#                                id: round2sub2
+#                                markup: True
+#                                text: ""
+#
+#                            Label:
+#                                id: round2sum2
+#                                text: ""
+#
+#                        BoxLayout:
+#                            Button:
+#                                id: round2reveal2
+#                                text: "Reveal Log"
+#                                pos_hint: {"center_x":0.5, "center_y":0.5}
+#                                disabled: True
+#                                on_press:
+#                                    root.r2l2()
+#
+#                TabbedPanelItem:
+#                    id: tab3
+#                    text: "Round 3"
+#
+#                    BoxLayout:
+#                        id: round3show
+#                        opacity: 0
+#                        orientation: "vertical"
+#                        padding: 10
+#                        spacing: 10
+#
+#                        BoxLayout:
+#                            pos_hint: {"center_x":0.5, "y": 0}
+#                            orientation: "vertical"
+#                            canvas.before:
+#                                Color:
+#                                    rgba: C('#708090')
+#                                Rectangle:
+#                                    pos: self.pos
+#                                    size: self.size
+#
+#                            Label:
+#                                id: round3sum1
+#                                halign: "center"
+#                                text: "The following is exclusively revealed\nto the specified player."
+#
+#                        BoxLayout:
+#                            Button:
+#                                id: round3reveal1
+#                                text: ""
+#                                pos_hint: {"center_x":0.5, "center_y":0.5}
+#                                disabled: True
+#                                on_press:
+#                                    root.r3l1()
+#
+#                        BoxLayout:
+#                            pos_hint: {"center_x":0.5, "y": 0}
+#                            orientation: "vertical"
+#                            canvas.before:
+#                                Color:
+#                                    rgba: C('#708090')
+#                                Rectangle:
+#                                    pos: self.pos
+#                                    size: self.size
+#
+#                            Label:
+#                                id: round3sum2
+#                                halign: "center"
+#                                text: "The following is exclusively revealed\nto the specified player."
+#
+#                        BoxLayout:
+#                            Button:
+#                                id: round3reveal2
+#                                text: ""
+#                                pos_hint: {"center_x":0.5, "center_y":0.5}
+#                                disabled: True
+#                                on_press:
+#                                    root.r3l2()
+
+        MDBottomAppBar:
+            MDToolbar:
+                icon: "cards"
+                type: "bottom"
+                on_action_button: app.on_pause()

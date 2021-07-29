@@ -3,6 +3,7 @@ from kivy.properties import StringProperty
 from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
+from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
 from displays.revealdirections import *
 from displays.welcome import WelcomeWindow
@@ -14,6 +15,8 @@ from systems.generateplayerlog import createplayerlog
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
+from kivymd.uix.tab import MDTabsBase
+from kivymd.uix.floatlayout import MDFloatLayout
 from globals import * #might have to remove this?
 import random
 import globals
@@ -21,6 +24,9 @@ import globals
 Window.size = (400, 800)
 
 class RevealPopup(MDDialog):
+    pass
+
+class Tab(MDFloatLayout, MDTabsBase):
     pass
 
 # Add toggle to iconbuttons
@@ -47,8 +53,8 @@ class MainWindow(MDScreen):
 #-----------------------------------------------
 
         else:
-            self.ids.round1sub.text = "[b]Log Retrieval Failed[/b]"
-            self.ids.round1sum.text = "Unfortunately, the log files have been corrupted."
+            self.ids.round1sub.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
+            self.ids.round1sum.text = "The log files have been corrupted!"
 
     def r2l1(self):
 
@@ -65,7 +71,7 @@ class MainWindow(MDScreen):
 
         else:
             self.ids.round2sub1.text = "[b]Log Retrieval Failed[/b]"
-            self.ids.round2sum1.text = "Unfortunately, the log files have been corrupted."
+            self.ids.round2sum1.text = "The log files have been corrupted!"
 
 
     def r2l2(self):
@@ -83,7 +89,7 @@ class MainWindow(MDScreen):
 
         else:
             self.ids.round2sub2.text = "[b]Log Retrieval Failed[/b]"
-            self.ids.round2sum2.text = "Unfortunately, the log files have been corrupted."
+            self.ids.round2sum2.text = "The log files have been corrupted!"
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
@@ -105,10 +111,10 @@ class MainWindow(MDScreen):
     def nextround(self):
 
 # Round 1
-        if self.ids.currentround.text == "[b]Current Round:[/b] 0":
-            self.ids.currentround.text = "[b]Current Round:[/b] 1"
+        if self.ids.currentround.text == "Current Round: 0":
+            self.ids.currentround.text = "Current Round: 1"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_to(self.ids.tab1)
+            self.ids.mainpanel.switch_tab(f"[font=font/JetBrainsMono-Regular]Round 1[/font]")
 
 
 #Tab displays activated
@@ -116,10 +122,10 @@ class MainWindow(MDScreen):
             self.ids.round1show.opacity = 1
 
 # Round 2
-        elif self.ids.currentround.text == "[b]Current Round:[/b] 1":
-            self.ids.currentround.text = "[b]Current Round:[/b] 2"
+        elif self.ids.currentround.text == "Current Round: 1":
+            self.ids.currentround.text = "Current Round: 2"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_to(self.ids.tab2)
+            self.ids.mainpanel.switch_tab(f"[font=font/JetBrainsMono-Regular]Round 2[/font]")
 
 #Tab displays activated
             self.ids.round2reveal1.disabled = False
@@ -128,9 +134,9 @@ class MainWindow(MDScreen):
 
 # Round 3
         else:
-            self.ids.currentround.text = "[b]Current Round:[/b] 3"
+            self.ids.currentround.text = "Current Round: 3"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_to(self.ids.tab3)
+            self.ids.mainpanel.switch_tab(f"[font=font/JetBrainsMono-Regular]Round 3[/font]")
 
 #Tab displays activated
             self.ids.round3reveal1.disabled = False
