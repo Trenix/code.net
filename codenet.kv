@@ -144,7 +144,12 @@ WindowManager:
                             orientation: "vertical"
                             canvas.before:
                                 Color:
-                                    rgba: C('#708090')
+                                    rgba: 51/255, 255/255, 51/255, 0.3
+                                Line:
+                                    width: 0.3
+                                    rectangle: self.x, self.y, self.width, self.height
+                                Color:
+                                    rgba: 51/255, 255/255, 51/255, 0.06
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
@@ -152,43 +157,71 @@ WindowManager:
                             MDLabel:
                                 id: round2sub1
                                 markup: True
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum1
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: "At least one hacker is among the following."
 
-                        MDBoxLayout:
-                            Button:
-                                id: round2reveal1
-                                text: "Reveal Log"
-                                pos_hint: {"center_x":0.5, "center_y":0.5}
-                                disabled: True
-                                on_press:
-                                    root.r2l1()
+                        MDFillRoundFlatButton:
+                            id: round2reveal1
+                            text: "Reveal Log"
+                            font_style: "Button"
+                            md_bg_color: app.theme_cls.primary_color
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            disabled: True
+                            on_press:
+                                root.r2l1()
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
                             orientation: "vertical"
                             canvas.before:
                                 Color:
-                                    rgba: C('#708090')
+                                    rgba: 51/255, 255/255, 51/255, 0.3
+                                Line:
+                                    width: 0.3
+                                    rectangle: self.x, self.y, self.width, self.height
+                                Color:
+                                    rgba: 51/255, 255/255, 51/255, 0.06
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
+
                             MDLabel:
                                 id: round2sub2
                                 markup: True
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum2
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: "At least one hacker is among the following."
 
-                        MDBoxLayout:
-                            Button:
-                                id: round2reveal2
-                                text: "Reveal Log"
-                                pos_hint: {"center_x":0.5, "center_y":0.5}
-                                disabled: True
-                                on_press:
-                                    root.r2l2()
+                        MDFillRoundFlatButton:
+                            id: round2reveal2
+                            text: "Reveal Log"
+                            font_style: "Button"
+                            md_bg_color: app.theme_cls.primary_color
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                            disabled: True
+                            on_press:
+                                root.r2l2()
 
                 Tab:
                     title: f"[font=font/JetBrainsMono-Regular]Round 3[/font]"

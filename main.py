@@ -45,7 +45,7 @@ class MainWindow(MDScreen):
 
             self.ids.round1sum.text = "At least one hacker is among the following."
             log = createlog(4)
-            self.ids.round1sub.text = log + "."
+            self.ids.round1sub.text = log
 
 # May be used, sets players less on log rather than specific amount.
 #            templog = sorted(random.sample(list(globals.coderlist), ((globals.players + globals.aiamt) - tempamthacker) - playerslesslog) + random.sample(list(globals.hackerlist), tempamthacker))
@@ -67,10 +67,10 @@ class MainWindow(MDScreen):
 
             self.ids.round2sum1.text = "At least one hacker is among the following."
             log = createlog(3)
-            self.ids.round2sub1.text = log + "."
+            self.ids.round2sub1.text = log
 
         else:
-            self.ids.round2sub1.text = "[b]Log Retrieval Failed[/b]"
+            self.ids.round2sub1.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
             self.ids.round2sum1.text = "The log files have been corrupted!"
 
 
@@ -85,10 +85,10 @@ class MainWindow(MDScreen):
 
             self.ids.round2sum2.text = "At least one hacker is among the following."
             log = createlog(3)
-            self.ids.round2sub2.text = log + "."
+            self.ids.round2sub2.text = log
 
         else:
-            self.ids.round2sub2.text = "[b]Log Retrieval Failed[/b]"
+            self.ids.round2sub2.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
             self.ids.round2sum2.text = "The log files have been corrupted!"
 
     def r3l1(self):
