@@ -33,35 +33,43 @@ WindowManager:
             title: "C0de.Net"
             left_action_items: [["menu", lambda x: x]]
 
-        MDBoxLayout:
-            orientation: "vertical"
-            padding: 20
-            spacing: 11
+        MDStackLayout:
+            padding: 10
+            spacing: 21
+
+            MDLabel:
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text_color: C("FFFFFF")
+                text: "Round"
+                halign: "center"
+                adaptive_height: True
+
+            MDSeparator:
+                color: C("FFFFFF")
 
             MDLabel:
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
-                font_style: 'Subtitle1'
                 id: currentround
-                text: "Current Round: 0"
+                text: f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-outline']}[/color]{md_icons['minus']}{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]"
                 markup: True
                 halign: "center"
                 adaptive_height: True
 
-            Button:
+            MDFillRoundFlatIconButton:
                 id: startround
-                text: "Start Round"
-                pos_hint: {"center_x":0.5, "top":.9}
-                size_hint: 0.92, 0.25
+                text: "Begin Round"
+                icon: 'monitor'
+                halign: "center"
+                adaptive_height: True
+#                pos_hint: {"center_x":0.5, "center_y":0.5}
+                theme_text_color: "Custom"
+                font_style: 'Button'
                 on_release:
                     root.nextround()
 
-            Button:
-                text: "Use Item"
-                pos_hint: {"center_x":0.5, "top":.9}
-                size_hint: 0.92, 0.25
-                disabled: True
-        BoxLayout:
+        MDBoxLayout:
             orientation: "vertical"
 
             MDTabs:
@@ -73,7 +81,7 @@ WindowManager:
                 tab_indicator_anim: True
 
                 Tab:
-                    title: f"[font=font/JetBrainsMono-Regular]Round 1[/font]"
+                    title: f"[size=14][font=font/JetBrainsMono-Regular]ROUND 1[/font][/size]"
                     markup: True
 
                     MDBoxLayout:
@@ -116,9 +124,10 @@ WindowManager:
                                 text: "At least one hacker is among the following."
                                 id: round1sum
 
-                        MDFillRoundFlatButton:
+                        MDFillRoundFlatIconButton:
                             id: round1reveal
                             text: "Reveal Log"
+                            icon: 'monitor-eye'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x": .5, "center_y": .5}
@@ -129,7 +138,7 @@ WindowManager:
                         MDBoxLayout:
 
                 Tab:
-                    title: f"[font=font/JetBrainsMono-Regular]Round 2[/font]"
+                    title: f"[size=14][font=font/JetBrainsMono-Regular]ROUND 2[/font][/size]"
                     markup: True
 
                     MDBoxLayout:
@@ -171,9 +180,10 @@ WindowManager:
                                 halign: "center"
                                 text: "At least one hacker is among the following."
 
-                        MDFillRoundFlatButton:
+                        MDFillRoundFlatIconButton:
                             id: round2reveal1
                             text: "Reveal Log"
+                            icon: 'monitor-eye'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x": .5, "center_y": .5}
@@ -213,9 +223,10 @@ WindowManager:
                                 halign: "center"
                                 text: "At least one hacker is among the following."
 
-                        MDFillRoundFlatButton:
+                        MDFillRoundFlatIconButton:
                             id: round2reveal2
                             text: "Reveal Log"
+                            icon: 'monitor-eye'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x": .5, "center_y": .5}
@@ -224,7 +235,7 @@ WindowManager:
                                 root.r2l2()
 
                 Tab:
-                    title: f"[font=font/JetBrainsMono-Regular]Round 3[/font]"
+                    title: f"[size=14][font=font/JetBrainsMono-Regular]ROUND 3[/font][/size]"
                     markup: True
 
                     MDBoxLayout:
@@ -239,21 +250,39 @@ WindowManager:
                             orientation: "vertical"
                             canvas.before:
                                 Color:
-                                    rgba: C('#708090')
+                                    rgba: 51/255, 255/255, 51/255, 0.3
+                                Line:
+                                    width: 0.3
+                                    rectangle: self.x, self.y, self.width, self.height
+                                Color:
+                                    rgba: 51/255, 255/255, 51/255, 0.06
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
 
                             MDLabel:
                                 id: round3sum1
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
                                 halign: "center"
-                                text: "The following is exclusively revealed\nto the specified player."
+                                markup: True
+                                text: f"[size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
+
+                            MDLabel:
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: "The log is exclusive to specified player."
 
                         MDBoxLayout:
-                            Button:
+                            MDFillRoundFlatIconButton:
                                 id: round3reveal1
-                                text: ""
                                 pos_hint: {"center_x":0.5, "center_y":0.5}
+                                icon: 'monitor-eye'
+                                font_style: "Button"
+                                md_bg_color: app.theme_cls.primary_color
                                 disabled: True
                                 on_press:
                                     root.r3l1()
@@ -263,27 +292,42 @@ WindowManager:
                             orientation: "vertical"
                             canvas.before:
                                 Color:
-                                    rgba: C('#708090')
+                                    rgba: 51/255, 255/255, 51/255, 0.3
+                                Line:
+                                    width: 0.3
+                                    rectangle: self.x, self.y, self.width, self.height
+                                Color:
+                                    rgba: 51/255, 255/255, 51/255, 0.06
                                 Rectangle:
                                     pos: self.pos
                                     size: self.size
 
-                            Label:
+                            MDLabel:
                                 id: round3sum2
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
                                 halign: "center"
-                                text: "The following is exclusively revealed\nto the specified player."
+                                markup: True
+                                text: f"[size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
+
+                            MDLabel:
+                                text_color: app.theme_cls.primary_color
+                                theme_text_color: "Custom"
+                                font_style: 'Subtitle2'
+                                halign: "center"
+                                text: "The log is exclusive to specified player."
 
                         MDBoxLayout:
-                            Button:
+                            MDFillRoundFlatIconButton:
                                 id: round3reveal2
-                                text: ""
+                                icon: 'monitor-eye'
+                                font_style: "Button"
+                                md_bg_color: app.theme_cls.primary_color
                                 pos_hint: {"center_x":0.5, "center_y":0.5}
                                 disabled: True
                                 on_press:
                                     root.r3l2()
-
-
-
 
 #        BoxLayout:
 #            orientation: "vertical"

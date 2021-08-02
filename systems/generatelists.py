@@ -16,11 +16,10 @@ def playersetup(self):
         for num in range(globals.players):
             globals.playerlist[f"player {num+1}"]["computer"] = False
 
-# No computers on logs
+# Computers wont get player logs
         for x in range(globals.players):
             if globals.playerlist[f"player {x+1}"]["computer"] == False:
                 globals.notai.append(f"player {x+1}")
-
 
 # Randomly set players to be hacker and create hacker list
     globals.hackerlist = random.sample(list(globals.playerlist.keys()), globals.amtbad)

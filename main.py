@@ -54,7 +54,7 @@ class MainWindow(MDScreen):
 
         else:
             self.ids.round1sub.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
-            self.ids.round1sum.text = "The log files have been corrupted!"
+            self.ids.round1sum.text = "The log has been corrupted!"
 
     def r2l1(self):
 
@@ -71,7 +71,7 @@ class MainWindow(MDScreen):
 
         else:
             self.ids.round2sub1.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
-            self.ids.round2sum1.text = "The log files have been corrupted!"
+            self.ids.round2sum1.text = "The log has been corrupted!"
 
 
     def r2l2(self):
@@ -89,7 +89,7 @@ class MainWindow(MDScreen):
 
         else:
             self.ids.round2sub2.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
-            self.ids.round2sum2.text = "The log files have been corrupted!"
+            self.ids.round2sum2.text = "The log has been corrupted!"
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
@@ -111,10 +111,10 @@ class MainWindow(MDScreen):
     def nextround(self):
 
 # Round 1
-        if self.ids.currentround.text == "Current Round: 0":
-            self.ids.currentround.text = "Current Round: 1"
+        if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-outline']}[/color]{md_icons['minus']}{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]":
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}[/color]{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_tab(f"[font=font/JetBrainsMono-Regular]Round 1[/font]")
+            self.ids.mainpanel.switch_tab(f"[size=14][font=font/JetBrainsMono-Regular]ROUND 1[/font][/size]")
 
 
 #Tab displays activated
@@ -122,10 +122,10 @@ class MainWindow(MDScreen):
             self.ids.round1show.opacity = 1
 
 # Round 2
-        elif self.ids.currentround.text == "Current Round: 1":
-            self.ids.currentround.text = "Current Round: 2"
+        elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}[/color]{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]":
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}{md_icons['numeric-2-circle-outline']}{md_icons['minus']}[/color]{md_icons['circle-outline']}[/font][/size]"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_tab(f"[font=font/JetBrainsMono-Regular]Round 2[/font]")
+            self.ids.mainpanel.switch_tab(f"[size=14][font=font/JetBrainsMono-Regular]ROUND 2[/font][/size]")
 
 #Tab displays activated
             self.ids.round2reveal1.disabled = False
@@ -134,9 +134,9 @@ class MainWindow(MDScreen):
 
 # Round 3
         else:
-            self.ids.currentround.text = "Current Round: 3"
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}{md_icons['numeric-2-circle-outline']}{md_icons['minus']}{md_icons['numeric-3-circle-outline']}[/color][/font][/size]"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_tab(f"[font=font/JetBrainsMono-Regular]Round 3[/font]")
+            self.ids.mainpanel.switch_tab(f"[size=14][font=font/JetBrainsMono-Regular]ROUND 3[/font][/size]")
 
 #Tab displays activated
             self.ids.round3reveal1.disabled = False
