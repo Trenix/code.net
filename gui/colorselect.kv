@@ -9,6 +9,7 @@
 
     MDBoxLayout:
         orientation: "vertical"
+
         MDToolbar:
             title: "C0de.Net"
             left_action_items: [["menu", lambda x: x]]
@@ -35,12 +36,12 @@
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle1'
-                text: "Select a [color=#FFFFFF]color[/color] for each [color=#FFFFFF]player[/color], starting with [color=#FFFFFF]your[/color] choice, following by the player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color].\n"
+                text: "Please select your [color=#FFFFFF]color[/color], then select the color of the following player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color]."
                 halign: "center"
                 markup: True
 
         MDBoxLayout:
-            size_hint: 1, 0.3
+            size_hint: 1, 0.35
 
         MDGridLayout:
             padding: 5

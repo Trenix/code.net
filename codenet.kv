@@ -20,7 +20,7 @@ WindowManager:
 <MainWindow>
     name: "main"
 
-    AnchorLayout
+    AnchorLayout:
         Image:
             size_hint: None, None
             size: 1644, 3840
@@ -33,9 +33,13 @@ WindowManager:
             title: "C0de.Net"
             left_action_items: [["menu", lambda x: x]]
 
-        MDStackLayout:
+        MDBoxLayout:
+            orientation: "vertical"
             padding: 10
             spacing: 21
+
+#            MDStackLayout:
+#                spacing: 21
 
             MDLabel:
                 theme_text_color: "Custom"
@@ -47,27 +51,52 @@ WindowManager:
 
             MDSeparator:
                 color: C("FFFFFF")
+                adaptive_height: True
 
             MDLabel:
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 id: currentround
-                text: f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-outline']}[/color]{md_icons['minus']}{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]"
+                text: f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
                 markup: True
                 halign: "center"
                 adaptive_height: True
 
+            MDLabel:
+                id: timer
+                text_color: app.theme_cls.primary_color
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                theme_text_color: "Custom"
+                font_style: 'H6'
+                adaptive_height: True
+                halign: "center"
+                markup: True
+                text: f"[font=Icons]{md_icons['clock']}[/font]\n00:00"
+
             MDFillRoundFlatIconButton:
                 id: startround
-                text: "Begin Round"
+                text: "Start Round"
                 icon: 'monitor'
-                halign: "center"
                 adaptive_height: True
-#                pos_hint: {"center_x":0.5, "center_y":0.5}
+                pos_hint: {"center_x": .5}
                 theme_text_color: "Custom"
                 font_style: 'Button'
                 on_release:
                     root.nextround()
+
+            MDFillRoundFlatIconButton:
+                icon: 'close-circle-outline'
+                text: "End Timer"
+                adaptive_height: True
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                theme_text_color: "Custom"
+                font_style: 'Button'
+
+            MDLabel:
+                id: playeridentifer
+                halign: "center"
+                adaptive_height: True
+                markup: True
 
         MDBoxLayout:
             orientation: "vertical"
@@ -81,7 +110,7 @@ WindowManager:
                 tab_indicator_anim: True
 
                 Tab:
-                    title: f"[size=14][font=font/JetBrainsMono-Regular]ROUND 1[/font][/size]"
+                    title: f"[font=Button]ROUND 1[/font]"
                     markup: True
 
                     MDBoxLayout:
@@ -121,13 +150,14 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
+                                markup: True
                                 text: "At least one hacker is among the following."
                                 id: round1sum
 
                         MDFillRoundFlatIconButton:
                             id: round1reveal
                             text: "Reveal Log"
-                            icon: 'monitor-eye'
+                            icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x": .5, "center_y": .5}
@@ -138,7 +168,7 @@ WindowManager:
                         MDBoxLayout:
 
                 Tab:
-                    title: f"[size=14][font=font/JetBrainsMono-Regular]ROUND 2[/font][/size]"
+                    title: f"[font=Button]ROUND 2[/font]"
                     markup: True
 
                     MDBoxLayout:
@@ -178,12 +208,13 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
+                                markup: True
                                 text: "At least one hacker is among the following."
 
                         MDFillRoundFlatIconButton:
                             id: round2reveal1
                             text: "Reveal Log"
-                            icon: 'monitor-eye'
+                            icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x": .5, "center_y": .5}
@@ -221,12 +252,13 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
+                                markup: True
                                 text: "At least one hacker is among the following."
 
                         MDFillRoundFlatIconButton:
                             id: round2reveal2
                             text: "Reveal Log"
-                            icon: 'monitor-eye'
+                            icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x": .5, "center_y": .5}
@@ -235,7 +267,7 @@ WindowManager:
                                 root.r2l2()
 
                 Tab:
-                    title: f"[size=14][font=font/JetBrainsMono-Regular]ROUND 3[/font][/size]"
+                    title: f"[font=Button]ROUND 3[/font]"
                     markup: True
 
                     MDBoxLayout:
@@ -274,18 +306,19 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: "The log is exclusive to specified player."
+                                text: "The log is encrypted to specified player."
 
-                        MDBoxLayout:
-                            MDFillRoundFlatIconButton:
-                                id: round3reveal1
-                                pos_hint: {"center_x":0.5, "center_y":0.5}
-                                icon: 'monitor-eye'
-                                font_style: "Button"
-                                md_bg_color: app.theme_cls.primary_color
-                                disabled: True
-                                on_press:
-                                    root.r3l1()
+
+                        MDFillRoundFlatIconButton:
+                            id: round3reveal1
+                            pos_hint: {"center_x":0.5, "center_y":0.5}
+                            icon: 'cloud-upload'
+                            font_style: "Button"
+                            md_bg_color: app.theme_cls.primary_color
+                            text: "Reveal Unknown's Log"
+                            disabled: True
+                            on_press:
+                                root.r3l1()
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -316,18 +349,18 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: "The log is exclusive to specified player."
+                                text: "The log is encrypted to specified player."
 
-                        MDBoxLayout:
-                            MDFillRoundFlatIconButton:
-                                id: round3reveal2
-                                icon: 'monitor-eye'
-                                font_style: "Button"
-                                md_bg_color: app.theme_cls.primary_color
-                                pos_hint: {"center_x":0.5, "center_y":0.5}
-                                disabled: True
-                                on_press:
-                                    root.r3l2()
+                        MDFillRoundFlatIconButton:
+                            id: round3reveal2
+                            icon: 'cloud-upload'
+                            font_style: "Button"
+                            md_bg_color: app.theme_cls.primary_color
+                            pos_hint: {"center_x":0.5, "center_y":0.5}
+                            text: "Reveal Unknown's Log"
+                            disabled: True
+                            on_press:
+                                root.r3l2()
 
 #        BoxLayout:
 #            orientation: "vertical"

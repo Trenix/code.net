@@ -53,8 +53,8 @@ class MainWindow(MDScreen):
 #-----------------------------------------------
 
         else:
-            self.ids.round1sub.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
-            self.ids.round1sum.text = "The log has been corrupted!"
+            self.ids.round1sub.text = f"[color=#c62828][size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+            self.ids.round1sum.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r2l1(self):
 
@@ -70,9 +70,8 @@ class MainWindow(MDScreen):
             self.ids.round2sub1.text = log
 
         else:
-            self.ids.round2sub1.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
-            self.ids.round2sum1.text = "The log has been corrupted!"
-
+            self.ids.round2sub1.text = f"[color=#c62828][size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+            self.ids.round2sum1.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r2l2(self):
 
@@ -88,8 +87,8 @@ class MainWindow(MDScreen):
             self.ids.round2sub2.text = log
 
         else:
-            self.ids.round2sub2.text = f"[size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font][/size]"
-            self.ids.round2sum2.text = "The log has been corrupted!"
+            self.ids.round2sub2.text = f"[color=#c62828][size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+            self.ids.round2sum2.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
@@ -111,10 +110,10 @@ class MainWindow(MDScreen):
     def nextround(self):
 
 # Round 1
-        if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-outline']}[/color]{md_icons['minus']}{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]":
-            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}[/color]{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]"
+        if self.ids.currentround.text == f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_tab(f"[size=14][font=font/JetBrainsMono-Regular]ROUND 1[/font][/size]")
+            self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 1[/font]")
 
 
 #Tab displays activated
@@ -122,10 +121,10 @@ class MainWindow(MDScreen):
             self.ids.round1show.opacity = 1
 
 # Round 2
-        elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}[/color]{md_icons['circle-outline']}{md_icons['minus']}{md_icons['circle-outline']}[/font][/size]":
-            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}{md_icons['numeric-2-circle-outline']}{md_icons['minus']}[/color]{md_icons['circle-outline']}[/font][/size]"
+        elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_tab(f"[size=14][font=font/JetBrainsMono-Regular]ROUND 2[/font][/size]")
+            self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 2[/font]")
 
 #Tab displays activated
             self.ids.round2reveal1.disabled = False
@@ -134,22 +133,32 @@ class MainWindow(MDScreen):
 
 # Round 3
         else:
-            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['numeric-1-circle-outline']}{md_icons['minus']}{md_icons['numeric-2-circle-outline']}{md_icons['minus']}{md_icons['numeric-3-circle-outline']}[/color][/font][/size]"
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
             self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_tab(f"[size=14][font=font/JetBrainsMono-Regular]ROUND 3[/font][/size]")
+            self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 3[/font]")
 
-#Tab displays activated
+# Tab displays activated
             self.ids.round3reveal1.disabled = False
             self.ids.round3reveal2.disabled = False
             self.ids.round3show.opacity = 1
 
-        if globals.players < 5:
-            globals.playerlogrev = random.sample(list(globals.notai), 2)
-        else:
-            globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
+# Sets what players are provided logs, ais will not get logs.
+            if globals.players <= 5:
+                globals.playerlogrev = random.sample(list(globals.notai), 2)
+            else:
+                globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
 
-        self.ids.round3reveal1.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-        self.ids.round3reveal2.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
+# Display what players have encrypted logs, only revealed on round 3.
+            self.ids.round3reveal1.text = f"Reveal {globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
+            self.ids.round3reveal2.text = f"Reveal {globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
+
+            tempcolorlog = []
+
+            for x in globals.playerlogrev:
+                tempcolorlog.append(globals.playerlist[x]["color"])
+
+            self.ids.round3sum1.text = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
+            self.ids.round3sum2.text = f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
 
 class LogPopup(Popup):
     pass

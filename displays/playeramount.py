@@ -1,4 +1,5 @@
 from kivymd.uix.screen import MDScreen
+from kivymd.icon_definitions import md_icons
 import globals
 
 class PlayerWindow(MDScreen):
@@ -11,6 +12,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 4
             globals.aiamt = 1
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "4 Players"
             self.nextscreen()
 
