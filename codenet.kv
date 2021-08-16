@@ -32,22 +32,29 @@ WindowManager:
         MDToolbar:
             title: "C0de.Net"
             left_action_items: [["menu", lambda x: x]]
+            right_action_items: [["information-outline", lambda x: x]]
 
         MDBoxLayout:
             orientation: "vertical"
             padding: 10
             spacing: 21
 
-#            MDStackLayout:
-#                spacing: 21
+            MDFloatLayout:
+                MDLabel:
+                    adaptive_size: True
+#                    adaptive_height: True
+                    id: playeridentifer
+                    markup: True
+                    pos_hint: {"right": 1, "top": 1}
 
             MDLabel:
                 theme_text_color: "Custom"
                 font_style: "H4"
+                halign: "center"
                 text_color: C("FFFFFF")
                 text: "Round"
-                halign: "center"
-                adaptive_height: True
+#                adaptive_height: True
+                pos_hint: {"right": 1, "center_y": 0.5}
 
             MDSeparator:
                 color: C("FFFFFF")
@@ -60,43 +67,51 @@ WindowManager:
                 text: f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
                 markup: True
                 halign: "center"
-                adaptive_height: True
+                pos_hint: {"center_x": 0.5, "top": 1}
+
+#            MDFillRoundFlatIconButton:
+#                id: startround
+#                text: "Start Round"
+#                icon: 'monitor'
+#                pos_hint: {"center_x": .5}
+#                theme_text_color: "Custom"
+#                font_style: 'Button'
+#                on_release:
+#                    root.nextround()
+
+            MDBoxLayout:
 
             MDLabel:
                 id: timer
-                text_color: app.theme_cls.primary_color
+                text_color: C('FFFFFF')
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 theme_text_color: "Custom"
-                font_style: 'H6'
+                font_style: 'Button'
+                halign: "center"
+                text: "Round Timer"
+
+            MDSeparator:
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                size_hint: 0.3, None
+                color: C("FFFFFF")
                 adaptive_height: True
+
+            MDFloatingLabel:
+                text: "[font=H4][size=30]00:00[/size][/font]"
+                theme_text_color: "Custom"
                 halign: "center"
                 markup: True
-                text: f"[font=Icons]{md_icons['clock']}[/font]\n00:00"
-
-            MDFillRoundFlatIconButton:
-                id: startround
-                text: "Start Round"
-                icon: 'monitor'
-                adaptive_height: True
-                pos_hint: {"center_x": .5}
-                theme_text_color: "Custom"
-                font_style: 'Button'
-                on_release:
-                    root.nextround()
+                text_color: C('#FFFFFF')
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
             MDFillRoundFlatIconButton:
                 icon: 'close-circle-outline'
                 text: "End Timer"
-                adaptive_height: True
+                adaptive_size: True
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 theme_text_color: "Custom"
                 font_style: 'Button'
-
-            MDLabel:
-                id: playeridentifer
-                halign: "center"
-                adaptive_height: True
-                markup: True
+#                disabled: True
 
         MDBoxLayout:
             orientation: "vertical"
@@ -540,6 +555,6 @@ WindowManager:
 
         MDBottomAppBar:
             MDToolbar:
-                icon: "cards"
+                icon: "play"
                 type: "bottom"
                 on_action_button: app.on_pause()
