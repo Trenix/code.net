@@ -1,3 +1,5 @@
+import datetime
+
 from kivymd.app import MDApp
 from kivy.properties import StringProperty
 from kivy.uix.popup import Popup
@@ -17,6 +19,7 @@ from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
+from kivy.clock import Clock
 from kivymd.uix.boxlayout import MDBoxLayout
 from globals import * #might have to remove this?
 import random
@@ -36,10 +39,19 @@ class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton)
 
 class MainWindow(MDScreen):
 
+    def mainactioncheck(self):
+
+        if self.ids.roundregulator.icon == "play":
+            self.nextround()
+        elif self.ids.roundregulator.icon == "stop":
+            globals.timer.cancel()
+            self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
+            self.ids.roundregulator.icon = "play"
+
 #Logs per each round.
 
     def r1l1(self):
-        self.ids.startround.disabled = False
+
         self.ids.round1reveal.disabled = True
 
         if random.random() < 0.7:
@@ -59,9 +71,6 @@ class MainWindow(MDScreen):
 
     def r2l1(self):
 
-        if self.ids.round2reveal2.disabled == True:
-            self.ids.startround.disabled = False
-
         self.ids.round2reveal1.disabled = True
 
         if random.random() < 0.7:
@@ -75,9 +84,6 @@ class MainWindow(MDScreen):
             self.ids.round2sum1.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r2l2(self):
-
-        if self.ids.round2reveal1.disabled == True:
-            self.ids.startround.disabled = False
 
         self.ids.round2reveal2.disabled = True
 
@@ -108,40 +114,59 @@ class MainWindow(MDScreen):
         temppop.ids.log1sub.text = log + "."
         temppop.open()
 
+# Configure timer
+
+    def settime(self):
+
+        globals.time = 300 # 5 minutes
+        minutes, seconds = divmod(globals.time, 60)
+        self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
+        globals.timer = Clock.schedule_interval(self.activatetime, 1)
+
+    def activatetime(self, dt):
+        if globals.time == 0:
+            globals.timer.cancel()
+            self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
+
+        else:
+            globals.time = globals.time - 1
+            minutes, seconds = divmod(globals.time, 60)
+            self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
+
+
     def nextround(self):
 
 # Round 1
         if self.ids.currentround.text == f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
-            self.ids.startround.disabled = True
             self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 1[/font]")
-
+            self.ids.roundregulator.icon = "stop"
+            self.settime()
 
 #Tab displays activated
             self.ids.round1reveal.disabled = False
-            self.ids.round1show.opacity = 1
 
 # Round 2
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
-            self.ids.startround.disabled = True
             self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 2[/font]")
+            self.ids.roundregulator.icon = "stop"
+            self.settime()
 
 #Tab displays activated
             self.ids.round2reveal1.disabled = False
             self.ids.round2reveal2.disabled = False
-            self.ids.round2show.opacity = 1
 
 # Round 3
         else:
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
-            self.ids.startround.disabled = True
             self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 3[/font]")
+            self.ids.roundregulator.icon = "stop"
+            self.settime()
 
 # Tab displays activated
             self.ids.round3reveal1.disabled = False
             self.ids.round3reveal2.disabled = False
-            self.ids.round3show.opacity = 1
 
 # Sets what players are provided logs, ais will not get logs.
             if globals.players <= 5:

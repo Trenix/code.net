@@ -82,21 +82,22 @@ WindowManager:
             MDBoxLayout:
 
             MDLabel:
-                id: timer
                 text_color: C('FFFFFF')
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 theme_text_color: "Custom"
-                font_style: 'Button'
+                font_style: 'Subtitle1'
                 halign: "center"
+                underline: True
                 text: "Round Timer"
 
-            MDSeparator:
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
-                size_hint: 0.3, None
-                color: C("FFFFFF")
-                adaptive_height: True
+#            MDSeparator:
+#                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+#                size_hint: 0.3, None
+#                color: C("FFFFFF")
+#                adaptive_height: True
 
             MDFloatingLabel:
+                id: timer
                 text: "[font=H4][size=30]00:00[/size][/font]"
                 theme_text_color: "Custom"
                 halign: "center"
@@ -104,14 +105,25 @@ WindowManager:
                 text_color: C('#FFFFFF')
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
+
             MDFillRoundFlatIconButton:
-                icon: 'close-circle-outline'
-                text: "End Timer"
+                icon: 'cards'
+                text: "Use Item"
                 adaptive_size: True
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 theme_text_color: "Custom"
                 font_style: 'Button'
+
+#            MDFillRoundFlatIconButton:
+#                icon: 'close-circle-outline'
+#                text: "End Timer"
+#                adaptive_size: True
+#                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+#                theme_text_color: "Custom"
+#                font_style: 'Button'
 #                disabled: True
+
+            MDBoxLayout:
 
         MDBoxLayout:
             orientation: "vertical"
@@ -129,7 +141,6 @@ WindowManager:
                     markup: True
 
                     MDBoxLayout:
-                        id: round1show
                         orientation: "vertical"
                         padding: 10
                         spacing: 10
@@ -187,7 +198,6 @@ WindowManager:
                     markup: True
 
                     MDBoxLayout:
-                        id: round2show
                         opacity: 1
                         orientation: "vertical"
                         padding: 10
@@ -286,8 +296,6 @@ WindowManager:
                     markup: True
 
                     MDBoxLayout:
-                        id: round3show
-                        opacity: 1
                         orientation: "vertical"
                         padding: 10
                         spacing: 10
@@ -555,6 +563,7 @@ WindowManager:
 
         MDBottomAppBar:
             MDToolbar:
+                id: roundregulator
                 icon: "play"
                 type: "bottom"
-                on_action_button: app.on_pause()
+                on_action_button: root.mainactioncheck()

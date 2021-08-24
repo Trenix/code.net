@@ -18,3 +18,5 @@ colordefs = {"Red": [198/255, 40/255, 40/255, 1], "Pink": [173/255, 20/255, 87/2
 colordefs2 = {"Red": "#c62828", "Pink": "#ad1457", "Purple": "#6a1b9a", "Blue": "#1565c0",
              "Green": '#2e7d32', "Yellow": '#f9a825', "Orange": '#ef6c00', "Brown": '#4e342e',
              "Grey": '#424242', "AI": '#FFFFFF'}
+time = 0
+timer = 0
