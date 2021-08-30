@@ -41,7 +41,4 @@ def createlog(playersonlog):
                      f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
                      f"[color={globals.colordefs2[tempcolorlog[2]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] "
 
-
-    # strtemplog = '[b]' + ', '.join(str(x) for x in tempcolorlog) + '[/b]'
-
     return strtemplog

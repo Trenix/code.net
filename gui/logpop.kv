@@ -1,40 +1,95 @@
 <LogPopup>:
-    title: ""
-    size_hint: 0.9, 0.7
-    pos_hint: {"center_x":0.5, "top":0.94}
+    size_hint: 0.8, 0.5
     auto_dismiss: False
+    md_bg_color: app.theme_cls.primary_color
 
-    BoxLayout:
+    MDCard:
         orientation: "vertical"
+        padding: 21
+        md_bg_color: app.theme_cls.primary_color
 
-        BoxLayout:
+        MDLabel:
+            id: playerlogtitle
+            font_style: "H4"
+            size_hint_y: None
+            height: self.texture_size[1]
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: C("FFFFFF")
 
-        BoxLayout:
-            padding: 20
+        MDSeparator:
+            color: C("FFFFFF")
+
+        MDBoxLayout:
+            size_hint: 1, 0.1
+
+        MDBoxLayout:
             orientation: "vertical"
             pos_hint: {"center_x":0.5, "y": 0}
-            canvas.before:
-                Color:
-                    rgba: C('#708090')
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
+            md_bg_color: C('000000')
 
-            Label:
-                id: log1sub
-                halign: "center"
-                text: ""
-                markup: True
+            MDBoxLayout:
+                size_hint: 1, 0.6
 
-            Label:
-                id: log1sum
-                halign: "center"
-                text: "One hacker and one coder is\namong the following."
+            MDBoxLayout:
+                pos_hint: {"center_x":0.5, "y": 0}
+                orientation: "vertical"
+                size_hint: 0.9, 1
+                canvas.before:
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.3
+                    Line:
+                        width: 0.3
+                        rectangle: self.x, self.y, self.width, self.height
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.06
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
 
-        BoxLayout:
+                MDLabel:
+                    id: log1sub
+                    markup: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Subtitle2'
+                    halign: "center"
+                    text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
-        Button:
-            size_hint: 1, 0.4
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Subtitle2'
+                    halign: "center"
+                    markup: True
+                    text: "One hacker and one coder is among the following."
+
+            MDBoxLayout:
+                size_hint: 1, 0.5
+
+            MDFillRoundFlatIconButton:
+                id: playerlogbutton
+                text: "Retrieve log"
+                icon: 'cloud-upload'
+                font_style: "Button"
+                md_bg_color: app.theme_cls.primary_color
+                pos_hint: {"center_x":0.5, "center_y":0.5}
+                on_press:
+                    root.revealplayerlog()
+
+            MDBoxLayout:
+                size_hint: 1, 0.2
+
+        MDBoxLayout:
+            size_hint: 1, 0.1
+
+        MDRectangleFlatButton:
+            font_style: "Button"
+            theme_text_color: "Custom"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            md_bg_color: app.theme_cls.primary_dark
+            line_color: C("FFFFFF")
+            text_color: C("FFFFFF")
             text: "OK"
-            on_press:
+            on_release:
                 root.dismiss()

@@ -42,7 +42,6 @@ WindowManager:
             MDFloatLayout:
                 MDLabel:
                     adaptive_size: True
-#                    adaptive_height: True
                     id: playeridentifer
                     markup: True
                     pos_hint: {"right": 1, "top": 1}
@@ -53,7 +52,6 @@ WindowManager:
                 halign: "center"
                 text_color: C("FFFFFF")
                 text: "Round"
-#                adaptive_height: True
                 pos_hint: {"right": 1, "center_y": 0.5}
 
             MDSeparator:
@@ -69,16 +67,6 @@ WindowManager:
                 halign: "center"
                 pos_hint: {"center_x": 0.5, "top": 1}
 
-#            MDFillRoundFlatIconButton:
-#                id: startround
-#                text: "Start Round"
-#                icon: 'monitor'
-#                pos_hint: {"center_x": .5}
-#                theme_text_color: "Custom"
-#                font_style: 'Button'
-#                on_release:
-#                    root.nextround()
-
             MDBoxLayout:
 
             MDLabel:
@@ -89,12 +77,6 @@ WindowManager:
                 halign: "center"
                 underline: True
                 text: "Round Timer"
-
-#            MDSeparator:
-#                pos_hint: {"center_x": 0.5, "center_y": 0.5}
-#                size_hint: 0.3, None
-#                color: C("FFFFFF")
-#                adaptive_height: True
 
             MDFloatingLabel:
                 id: timer
@@ -113,15 +95,6 @@ WindowManager:
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
                 theme_text_color: "Custom"
                 font_style: 'Button'
-
-#            MDFillRoundFlatIconButton:
-#                icon: 'close-circle-outline'
-#                text: "End Timer"
-#                adaptive_size: True
-#                pos_hint: {"center_x": 0.5, "center_y": 0.5}
-#                theme_text_color: "Custom"
-#                font_style: 'Button'
-#                disabled: True
 
             MDBoxLayout:
 
@@ -182,7 +155,7 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round1reveal
-                            text: "Reveal Log"
+                            text: "Retrieve Log"
                             icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
@@ -238,7 +211,7 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round2reveal1
-                            text: "Reveal Log"
+                            text: "Retrieve Log"
                             icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
@@ -282,7 +255,7 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round2reveal2
-                            text: "Reveal Log"
+                            text: "Retrieve Log"
                             icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
@@ -335,10 +308,10 @@ WindowManager:
                         MDFillRoundFlatIconButton:
                             id: round3reveal1
                             pos_hint: {"center_x":0.5, "center_y":0.5}
-                            icon: 'cloud-upload'
+                            icon: 'cloud'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
-                            text: "Reveal Unknown's Log"
+                            text: "Retrieve Unknown's Log"
                             disabled: True
                             on_press:
                                 root.r3l1()
@@ -376,190 +349,14 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round3reveal2
-                            icon: 'cloud-upload'
+                            icon: 'cloud'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x":0.5, "center_y":0.5}
-                            text: "Reveal Unknown's Log"
+                            text: "Retrieve Unknown's Log"
                             disabled: True
                             on_press:
                                 root.r3l2()
-
-#        BoxLayout:
-#            orientation: "vertical"
-#
-#            TabbedPanel:
-#                id: mainpanel
-#                do_default_tab: False
-#                tab_width: (self.parent.width / 3)
-#
-#                TabbedPanelItem:
-#                    id: tab1
-#                    text: "Round 1"
-#
-#                    BoxLayout:
-#                        id: round1show
-#                        opacity: 0
-#                        orientation: "vertical"
-#                        padding: 10
-#                        spacing: 10
-#
-#                        BoxLayout:
-#
-#                        BoxLayout:
-#                            pos_hint: {"center_x":0.5, "y": 0}
-#                            orientation: "vertical"
-#                            canvas.before:
-#                                Color:
-#                                    rgba: C('#708090')
-#                                Rectangle:
-#                                    pos: self.pos
-#                                    size: self.size
-#                            Label:
-#                                id: round1sub
-#                                markup: True
-#                                text: ""
-#
-#                            Label:
-#                                id: round1sum
-#                                text: ""
-#
-#                        BoxLayout:
-#
-#                            Button:
-#                                id: round1reveal
-#                                text: "Reveal Log"
-#                                pos_hint: {"center_x":0.5, "center_y":0.5}
-#                                disabled: True
-#                                on_press:
-#                                    root.r1l1()
-#
-#                        BoxLayout:
-#
-#                TabbedPanelItem:
-#                    id: tab2
-#                    text: "Round 2"
-#
-#                    BoxLayout:
-#                        id: round2show
-#                        opacity: 0
-#                        orientation: "vertical"
-#                        padding: 10
-#                        spacing: 10
-#
-#                        BoxLayout:
-#                            pos_hint: {"center_x":0.5, "y": 0}
-#                            orientation: "vertical"
-#                            canvas.before:
-#                                Color:
-#                                    rgba: C('#708090')
-#                                Rectangle:
-#                                    pos: self.pos
-#                                    size: self.size
-#
-#                            Label:
-#                                id: round2sub1
-#                                markup: True
-#                                text: ""
-#
-#                            Label:
-#                                id: round2sum1
-#                                text: ""
-#
-#                        BoxLayout:
-#                            Button:
-#                                id: round2reveal1
-#                                text: "Reveal Log"
-#                                pos_hint: {"center_x":0.5, "center_y":0.5}
-#                                disabled: True
-#                                on_press:
-#                                    root.r2l1()
-#
-#                        BoxLayout:
-#                            pos_hint: {"center_x":0.5, "y": 0}
-#                            orientation: "vertical"
-#                            canvas.before:
-#                                Color:
-#                                    rgba: C('#708090')
-#                                Rectangle:
-#                                    pos: self.pos
-#                                    size: self.size
-#                            Label:
-#                                id: round2sub2
-#                                markup: True
-#                                text: ""
-#
-#                            Label:
-#                                id: round2sum2
-#                                text: ""
-#
-#                        BoxLayout:
-#                            Button:
-#                                id: round2reveal2
-#                                text: "Reveal Log"
-#                                pos_hint: {"center_x":0.5, "center_y":0.5}
-#                                disabled: True
-#                                on_press:
-#                                    root.r2l2()
-#
-#                TabbedPanelItem:
-#                    id: tab3
-#                    text: "Round 3"
-#
-#                    BoxLayout:
-#                        id: round3show
-#                        opacity: 0
-#                        orientation: "vertical"
-#                        padding: 10
-#                        spacing: 10
-#
-#                        BoxLayout:
-#                            pos_hint: {"center_x":0.5, "y": 0}
-#                            orientation: "vertical"
-#                            canvas.before:
-#                                Color:
-#                                    rgba: C('#708090')
-#                                Rectangle:
-#                                    pos: self.pos
-#                                    size: self.size
-#
-#                            Label:
-#                                id: round3sum1
-#                                halign: "center"
-#                                text: "The following is exclusively revealed\nto the specified player."
-#
-#                        BoxLayout:
-#                            Button:
-#                                id: round3reveal1
-#                                text: ""
-#                                pos_hint: {"center_x":0.5, "center_y":0.5}
-#                                disabled: True
-#                                on_press:
-#                                    root.r3l1()
-#
-#                        BoxLayout:
-#                            pos_hint: {"center_x":0.5, "y": 0}
-#                            orientation: "vertical"
-#                            canvas.before:
-#                                Color:
-#                                    rgba: C('#708090')
-#                                Rectangle:
-#                                    pos: self.pos
-#                                    size: self.size
-#
-#                            Label:
-#                                id: round3sum2
-#                                halign: "center"
-#                                text: "The following is exclusively revealed\nto the specified player."
-#
-#                        BoxLayout:
-#                            Button:
-#                                id: round3reveal2
-#                                text: ""
-#                                pos_hint: {"center_x":0.5, "center_y":0.5}
-#                                disabled: True
-#                                on_press:
-#                                    root.r3l2()
 
         MDBottomAppBar:
             MDToolbar:

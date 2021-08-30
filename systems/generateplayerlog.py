@@ -1,5 +1,6 @@
 import random
 import globals
+from kivymd.icon_definitions import md_icons
 
 def createplayerlog():
 
@@ -12,6 +13,7 @@ def createplayerlog():
 
     tempplayercolorlog.sort()
 
-    strtempplayerlog = '[b]' + ', '.join(str(x) for x in tempplayercolorlog) + '[/b]'
+    strtempplayerlog = f"[color={globals.colordefs2[tempplayercolorlog[0]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                 f"[color={globals.colordefs2[tempplayercolorlog[1]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] "
 
     return strtempplayerlog

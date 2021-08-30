@@ -1,8 +1,5 @@
-import datetime
-
 from kivymd.app import MDApp
 from kivy.properties import StringProperty
-from kivy.uix.popup import Popup
 from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
@@ -20,7 +17,6 @@ from kivymd.uix.dialog import MDDialog
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.clock import Clock
-from kivymd.uix.boxlayout import MDBoxLayout
 from globals import * #might have to remove this?
 import random
 import globals
@@ -29,6 +25,13 @@ Window.size = (400, 800)
 
 class RevealPopup(MDDialog):
     pass
+
+class LogPopup(MDDialog):
+
+    def revealplayerlog(self):
+        log = createplayerlog()
+        self.ids.log1sub.text = log
+        self.ids.playerlogbutton.disabled = True
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
@@ -99,19 +102,14 @@ class MainWindow(MDScreen):
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
-
-        LogPopup.title = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-        log = createplayerlog()
         temppop = LogPopup()
-        temppop.ids.log1sub.text = log + "."
+        temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
         temppop.open()
 
     def r3l2(self):
         self.ids.round3reveal2.disabled = True
-        LogPopup.title = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
-        log = createplayerlog()
         temppop = LogPopup()
-        temppop.ids.log1sub.text = log + "."
+        temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
         temppop.open()
 
 # Configure timer
@@ -127,6 +125,7 @@ class MainWindow(MDScreen):
         if globals.time == 0:
             globals.timer.cancel()
             self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
+            self.ids.roundregulator.icon = "play"
 
         else:
             globals.time = globals.time - 1
@@ -175,8 +174,8 @@ class MainWindow(MDScreen):
                 globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
 
 # Display what players have encrypted logs, only revealed on round 3.
-            self.ids.round3reveal1.text = f"Reveal {globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-            self.ids.round3reveal2.text = f"Reveal {globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
+            self.ids.round3reveal1.text = f"Open {globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
+            self.ids.round3reveal2.text = f"Open {globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
 
             tempcolorlog = []
 
@@ -185,9 +184,6 @@ class MainWindow(MDScreen):
 
             self.ids.round3sum1.text = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
             self.ids.round3sum2.text = f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
-
-class LogPopup(Popup):
-    pass
 
 class WindowManager(ScreenManager):
 # Read keys in these screens
