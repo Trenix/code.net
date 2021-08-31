@@ -1,6 +1,5 @@
 from kivymd.app import MDApp
 from kivy.properties import StringProperty
-from kivy.uix.screenmanager import ScreenManager
 from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
@@ -9,8 +8,9 @@ from displays.welcome import WelcomeWindow
 from kivymd.uix.screen import MDScreen
 from displays.loadsetup import LoadingScreen
 from displays.colorselect import ColorSelectScreen
+from displays.logpopup import LogPopup
+from displays.screenmanager import WindowManager
 from systems.generatelog import createlog
-from systems.generateplayerlog import createplayerlog
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
@@ -25,13 +25,6 @@ Window.size = (400, 800)
 
 class RevealPopup(MDDialog):
     pass
-
-class LogPopup(MDDialog):
-
-    def revealplayerlog(self):
-        log = createplayerlog()
-        self.ids.log1sub.text = log
-        self.ids.playerlogbutton.disabled = True
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
@@ -184,41 +177,6 @@ class MainWindow(MDScreen):
 
             self.ids.round3sum1.text = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
             self.ids.round3sum2.text = f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
-
-class WindowManager(ScreenManager):
-# Read keys in these screens
-    def __init__(self, **kwargs):
-        super(WindowManager, self).__init__(**kwargs)
-        Window.bind(on_keyboard=self.on_key)
-
-# Go back if pressing back in app or esc in Windows 10
-    def on_key(self, window, key, *args):
-        if key == 27:  # the esc key
-            if self.current_screen.name == "welcome":
-                return False  # exit the app from this page
-            elif self.current_screen.name == "player":
-                self.current = "welcome"
-                self.transition.direction = "right"
-
-                # Reset toggle on buttons
-                for x in range(6):
-                    self.get_screen("player").ids[f"butt{x + 1}"].state = "normal"
-
-                return True  # do not exit the app
-
-            elif self.current_screen.name == "colorselect":
-
-                globals.colortracker = globals.players
-                globals.playercounter = 1
-
-                #Clear colorselect screen
-                for x in range(9):
-                    self.get_screen("colorselect").ids[f"but{x + 1}"].icon = "circle-outline"
-
-                self.current = "player"
-                self.transition.direction = "right"
-                globals.playerlist.clear()
-                return True  # do not exit the app
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY
