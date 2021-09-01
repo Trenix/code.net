@@ -22,7 +22,7 @@ import globals
 
 Window.size = (400, 800)
 
-class RevealPopup(MDDialog):
+class IdentityDialog(MDDialog):
     pass
 
 class ConfirmDialog(MDDialog):
