@@ -1,0 +1,58 @@
+<ConfirmDialog>:
+    auto_dismiss: False
+    size_hint: 0.8, 0.25
+
+    MDCard:
+        orientation: "vertical"
+        padding: 21
+        md_bg_color: app.theme_cls.primary_color
+
+        MDLabel:
+            text: "Are you sure?"
+            font_style: "H5"
+            size_hint_y: None
+            height: self.texture_size[1]
+            theme_text_color: "Custom"
+            text_color: C("FFFFFF")
+
+        MDSeparator:
+            color: C("FFFFFF")
+
+        MDBoxLayout:
+            size_hint: 1, 0.2
+
+        MDLabel:
+            text: "This will reset the timer so you can begin the next round."
+            text_color: C("FFFFFF")
+            font_style: "Subtitle2"
+            theme_text_color: "Custom"
+            size_hint_y: None
+            height: self.texture_size[1]
+            markup: True
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: 15
+
+            MDBoxLayout:
+
+            MDRectangleFlatButton:
+                font_style: "Button"
+                theme_text_color: "Custom"
+                md_bg_color: app.theme_cls.primary_dark
+                line_color: C("FFFFFF")
+                text_color: C("FFFFFF")
+                text: "Yes"
+                on_release:
+                    app.root.get_screen('main').resettimer()
+                    root.dismiss()
+
+            MDRectangleFlatButton:
+                font_style: "Button"
+                theme_text_color: "Custom"
+                md_bg_color: app.theme_cls.primary_dark
+                line_color: C("FFFFFF")
+                text_color: C("FFFFFF")
+                text: "No"
+                on_release:
+                    root.dismiss()

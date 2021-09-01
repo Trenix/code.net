@@ -26,6 +26,9 @@ Window.size = (400, 800)
 class RevealPopup(MDDialog):
     pass
 
+class ConfirmDialog(MDDialog):
+    pass
+
 class Tab(MDFloatLayout, MDTabsBase):
     pass
 
@@ -35,14 +38,18 @@ class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton)
 
 class MainWindow(MDScreen):
 
+    def resettimer(self):
+
+        self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
+        self.ids.roundregulator.icon = "play"
+        globals.timer.cancel()
+
     def mainactioncheck(self):
 
         if self.ids.roundregulator.icon == "play":
             self.nextround()
         elif self.ids.roundregulator.icon == "stop":
-            globals.timer.cancel()
-            self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
-            self.ids.roundregulator.icon = "play"
+            ConfirmDialog().open()
 
 #Logs per each round.
 
