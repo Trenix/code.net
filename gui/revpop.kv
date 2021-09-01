@@ -1,4 +1,5 @@
 <RevealPopup>:
+    name: "test"
     auto_dismiss: False
     size_hint: 0.8, 0.5
 
@@ -8,7 +9,6 @@
         md_bg_color: app.theme_cls.primary_color
 
         MDLabel:
-            id: header
             text: "Identity"
             font_style: "H4"
             size_hint_y: None
@@ -24,7 +24,7 @@
             size_hint: 1, 0.1
 
         MDLabel:
-            text: app.arehacker
+            id: arehacker
             text_color: C("FFFFFF")
             font_style: "Subtitle1"
             theme_text_color: "Custom"
@@ -33,7 +33,7 @@
             markup: True
 
         MDIcon:
-            text: app.identitydes
+            id: identitydes
             font_style: "Subtitle1"
             theme_text_color: "Custom"
             text_color: C("FFFFFF")

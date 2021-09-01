@@ -1,5 +1,4 @@
 from kivymd.app import MDApp
-from kivy.properties import StringProperty
 from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
@@ -187,9 +186,6 @@ class MainWindow(MDScreen):
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY
-
-    arehacker = StringProperty("")
-    identitydes = StringProperty("")
 
     def build(self):
         pass
