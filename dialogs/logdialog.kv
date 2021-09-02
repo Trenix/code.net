@@ -1,9 +1,10 @@
-<LogPopup>:
+<LogDialog>:
     size_hint: 0.8, 0.5
     auto_dismiss: False
     md_bg_color: app.theme_cls.primary_color
 
     MDCard:
+        spacing: 10
         orientation: "vertical"
         padding: 21
         md_bg_color: app.theme_cls.primary_color
@@ -20,21 +21,27 @@
         MDSeparator:
             color: C("FFFFFF")
 
-        MDBoxLayout:
-            size_hint: 1, 0.1
+        MDLabel:
+            font_style: "Subtitle2"
+            adaptive_height: True
+            theme_text_color: "Custom"
+            halign: "center"
+            text_color: C("FFFFFF")
+            text: "Only the player which owns the log may upload and see the results."
 
         MDBoxLayout:
+            size_hint: 1, 0.6
             orientation: "vertical"
             pos_hint: {"center_x":0.5, "y": 0}
             md_bg_color: C('000000')
 
             MDBoxLayout:
-                size_hint: 1, 0.6
+                size_hint: 1, 0.15
 
             MDBoxLayout:
                 pos_hint: {"center_x":0.5, "y": 0}
                 orientation: "vertical"
-                size_hint: 0.9, 1
+                size_hint: 0.92, 1
                 canvas.before:
                     Color:
                         rgba: 51/255, 255/255, 51/255, 0.3
@@ -62,28 +69,31 @@
                     font_style: 'Subtitle2'
                     halign: "center"
                     markup: True
-                    text: "One hacker and one coder is among the following."
+                    text: "One of each faction is among the following."
 
             MDBoxLayout:
-                size_hint: 1, 0.5
+                size_hint: 1, 0.2
 
             MDFillRoundFlatIconButton:
                 id: playerlogbutton
-                text: "Retrieve log"
+                text: "Upload log"
                 icon: 'cloud-upload'
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_color
                 pos_hint: {"center_x":0.5, "center_y":0.5}
                 on_press:
                     root.revealplayerlog()
+                    root.ids.okbutton.disabled = False
 
             MDBoxLayout:
-                size_hint: 1, 0.2
+                size_hint: 1, 0.15
 
         MDBoxLayout:
             size_hint: 1, 0.1
 
         MDRectangleFlatButton:
+            id: okbutton
+            disabled: True
             font_style: "Button"
             theme_text_color: "Custom"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}

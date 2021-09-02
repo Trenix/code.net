@@ -7,7 +7,7 @@ from displays.welcome import WelcomeWindow
 from kivymd.uix.screen import MDScreen
 from displays.loadsetup import LoadingScreen
 from displays.colorselect import ColorSelectScreen
-from displays.logpopup import LogPopup
+from displays.logpopup import LogDialog
 from displays.screenmanager import WindowManager
 from systems.generatelog import createlog
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
@@ -101,13 +101,13 @@ class MainWindow(MDScreen):
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
-        temppop = LogPopup()
+        temppop = LogDialog()
         temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
         temppop.open()
 
     def r3l2(self):
         self.ids.round3reveal2.disabled = True
-        temppop = LogPopup()
+        temppop = LogDialog()
         temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
         temppop.open()
 
@@ -171,18 +171,6 @@ class MainWindow(MDScreen):
                 globals.playerlogrev = random.sample(list(globals.notai), 2)
             else:
                 globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
-
-# Display what players have encrypted logs, only revealed on round 3.
-            self.ids.round3reveal1.text = f"Open {globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-            self.ids.round3reveal2.text = f"Open {globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
-
-            tempcolorlog = []
-
-            for x in globals.playerlogrev:
-                tempcolorlog.append(globals.playerlist[x]["color"])
-
-            self.ids.round3sum1.text = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
-            self.ids.round3sum2.text = f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/color][/size]"
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY

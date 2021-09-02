@@ -1,7 +1,7 @@
 from kivymd.uix.dialog import MDDialog
 from systems.generateplayerlog import createplayerlog
 
-class LogPopup(MDDialog):
+class LogDialog(MDDialog):
 
     def revealplayerlog(self):
         log = createplayerlog()

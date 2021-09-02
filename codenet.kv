@@ -1,9 +1,9 @@
 #:include gui\welcome.kv
 #:include gui\playeramount.kv
 #:include gui\revealdirections.kv
-#:include gui\IdentityDialog.kv
-#:include gui\confirmdialog.kv
-#:include gui\logpop.kv
+#:include dialogs\IdentityDialog.kv
+#:include dialogs\confirmdialog.kv
+#:include dialogs\logdialog.kv
 #:include gui\load.kv
 #:include gui\colorselect.kv
 #:import C kivy.utils.get_color_from_hex
@@ -156,7 +156,7 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round1reveal
-                            text: "Retrieve Log"
+                            text: "Upload Log"
                             icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
@@ -212,7 +212,7 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round2reveal1
-                            text: "Retrieve Log"
+                            text: "Upload Log"
                             icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
@@ -256,7 +256,7 @@ WindowManager:
 
                         MDFillRoundFlatIconButton:
                             id: round2reveal2
-                            text: "Retrieve Log"
+                            text: "Upload Log"
                             icon: 'cloud-upload'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
@@ -303,7 +303,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: "The log is encrypted to specified player."
+                                text: "One of each faction is among the following."
 
 
                         MDFillRoundFlatIconButton:
@@ -312,7 +312,7 @@ WindowManager:
                             icon: 'cloud'
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
-                            text: "Retrieve Unknown's Log"
+                            text: "Open Cloud"
                             disabled: True
                             on_press:
                                 root.r3l1()
@@ -346,7 +346,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: "The log is encrypted to specified player."
+                                text: "One of each faction is among the following."
 
                         MDFillRoundFlatIconButton:
                             id: round3reveal2
@@ -354,7 +354,7 @@ WindowManager:
                             font_style: "Button"
                             md_bg_color: app.theme_cls.primary_color
                             pos_hint: {"center_x":0.5, "center_y":0.5}
-                            text: "Retrieve Unknown's Log"
+                            text: "Open Cloud"
                             disabled: True
                             on_press:
                                 root.r3l2()
