@@ -1,9 +1,13 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.icon_definitions import md_icons
+from displays.dialogcode import PlayerDialog
 import globals
 
 class PlayerWindow(MDScreen):
     from systems.generatelists import playersetup
+
+    def openinfo(self):
+        PlayerDialog().open()
 
     def setplayervars(self):
 

@@ -16,11 +16,13 @@ from kivymd.uix.dialog import MDDialog
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from kivy.clock import Clock
-from globals import * #might have to remove this?
 import random
 import globals
 
 Window.size = (400, 800)
+
+class MainDialog(MDDialog):
+    pass
 
 class IdentityDialog(MDDialog):
     pass
