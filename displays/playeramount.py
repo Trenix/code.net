@@ -33,6 +33,7 @@ class PlayerWindow(MDScreen):
         elif self.ids.butt3.state == "down":
             globals.amtbad = 2
             globals.players = 6
+            globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "6 Players"
             self.nextscreen()
@@ -41,6 +42,7 @@ class PlayerWindow(MDScreen):
         elif self.ids.butt4.state == "down":
             globals.amtbad = 2
             globals.players = 7
+            globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-7-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "7 Players"
             self.nextscreen()
@@ -49,6 +51,7 @@ class PlayerWindow(MDScreen):
         elif self.ids.butt5.state == "down":
             globals.amtbad = 2
             globals.players = 8
+            globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-8-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "8 Players"
             self.nextscreen()
@@ -57,6 +60,7 @@ class PlayerWindow(MDScreen):
         elif self.ids.butt6.state == "down":
             globals.amtbad = 3
             globals.players = 9
+            globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-9-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "9 Players"
             self.nextscreen()

@@ -5,6 +5,7 @@
 #:include dialogs\confirmdialog.kv
 #:include dialogs\logdialog.kv
 #:include dialogs\playerdialog.kv
+#:include dialogs\maindialog.kv
 #:include gui\load.kv
 #:include gui\colorselect.kv
 #:import C kivy.utils.get_color_from_hex
@@ -34,7 +35,7 @@ WindowManager:
         MDToolbar:
             title: "C0de.Net"
             left_action_items: [["menu", lambda x: x]]
-            right_action_items: [["information-outline", lambda x: x]]
+            right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
         MDBoxLayout:
             orientation: "vertical"

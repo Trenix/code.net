@@ -15,14 +15,12 @@ from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.dialog import MDDialog
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
+from displays.dialogcode import MainDialog
 from kivy.clock import Clock
 import random
 import globals
 
 Window.size = (400, 800)
-
-class MainDialog(MDDialog):
-    pass
 
 class IdentityDialog(MDDialog):
     pass
@@ -38,6 +36,9 @@ class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton)
     pass
 
 class MainWindow(MDScreen):
+
+    def openinfo(self):
+        MainDialog().open()
 
     def resettimer(self):
 

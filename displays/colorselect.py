@@ -48,3 +48,6 @@ class ColorSelectScreen(MDScreen):
 
         self.RefreshTracker()
         globals.playerlist.clear()
+        globals.coderlist.clear()
+        globals.hackerlist.clear()
+        globals.notai.clear()
