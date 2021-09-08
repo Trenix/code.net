@@ -1,0 +1,154 @@
+<PlayerInfo>:
+    name: "playerinfo"
+
+    AnchorLayout:
+        Image:
+            size_hint: None, None
+            size: 1644, 3840
+            source: "images/defaultback.png"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Player Information"
+            left_action_items: [["close", lambda x: root.close()]]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: 10
+            padding: 21
+
+            MDLabel:
+                adaptive_height: True
+                text_color: C('FFFFFF')
+                theme_text_color: "Custom"
+                font_style: 'H6'
+                text: "Factions"
+                markup: True
+
+            MDLabel:
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Body2'
+                text: "Players are split up into two different factions, hackers and coders. The AI is a computer that assists the hacker's anonymity when the amount of players are low. It is not a faction on it's own. The AI may be a coder or a hacker."
+                markup: True
+
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDLabel:
+                halign: "left"
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                text: f"[size=22][font=Icons]{md_icons['account-cog']}[/font][/size]: AI"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                halign: "left"
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                text: f"[size=22][color=#c62828][font=Icons]{md_icons['account']}[/font][/color][/size]: Hacker"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                halign: "left"
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                text: f"[size=22][color=#1565c0][font=Icons]{md_icons['account']}[/font][/color][/size]: Coder"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDStackLayout:
+                canvas.before:
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.3
+                    Line:
+                        width: 0.3
+                        rectangle: self.x, self.y, self.width, self.height
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.06
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+# 4 Players
+
+                MDLabel:
+                    halign: "center"
+                    text_color: C("FFFFFF")
+                    font_style: "Subtitle1"
+                    text: f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] 4 Players: [size=22][font=Icons]{md_icons['account-cog']}{md_icons['numeric-1-circle']}[color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][/font][/size]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+# 5 Players
+
+                MDLabel:
+                    halign: "center"
+                    text_color: C("FFFFFF")
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+                    md_bg_color: app.theme_cls.primary_dark
+                    text: f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] 5 Players: [size=22][font=Icons]{md_icons['account-cog']}{md_icons['numeric-1-circle']}[color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
+
+# 6 Players
+
+                MDLabel:
+                    halign: "center"
+                    text_color: C("FFFFFF")
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+                    text: f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] 6 Players: [size=22][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/font][/color][/size]"
+
+# 7 Players
+
+                MDLabel:
+                    halign: "center"
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    text_color: C("FFFFFF")
+                    adaptive_height: True
+                    markup: True
+                    md_bg_color: app.theme_cls.primary_dark
+                    text: f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] 7 Players: [size=22][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-5-circle']}[/color][/font][/size]"
+
+# 8 Players
+
+                MDLabel:
+                    halign: "center"
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    text_color: C("FFFFFF")
+                    adaptive_height: True
+                    markup: True
+                    text: f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] 8 Players: [size=22][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
+
+# 9 Players
+
+                MDLabel:
+                    halign: "center"
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    text_color: C("FFFFFF")
+                    adaptive_height: True
+                    markup: True
+                    md_bg_color: app.theme_cls.primary_dark
+                    text: f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] 9 Players: [size=22][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[color=#c62828]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
+
+        MDBoxLayout:
+            size_hint: 1, 0.623

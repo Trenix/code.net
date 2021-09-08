@@ -1,13 +1,13 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.icon_definitions import md_icons
-from displays.dialogcode import PlayerDialog
 import globals
 
 class PlayerWindow(MDScreen):
     from systems.generatelists import playersetup
 
     def openinfo(self):
-        PlayerDialog().open()
+        self.manager.transition.direction = 'up'
+        self.manager.current = "playerinfo"
 
     def setplayervars(self):
 
@@ -16,7 +16,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 4
             globals.aiamt = 1
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "4 Players"
             self.nextscreen()
 
@@ -25,7 +25,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 5
             globals.aiamt = 1
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-5-circle']}[/color][/font][/size]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "5 Players"
             self.nextscreen()
 
@@ -34,7 +34,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 6
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "6 Players"
             self.nextscreen()
 
@@ -43,7 +43,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 7
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-7-circle']}[/color][/font][/size]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-5-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "7 Players"
             self.nextscreen()
 
@@ -52,7 +52,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 8
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-8-circle']}[/color][/font][/size]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "8 Players"
             self.nextscreen()
 
@@ -61,7 +61,7 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 3
             globals.players = 9
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=20][color=#FFFFFF][font=Icons]{md_icons['account']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-9-circle']}[/color][/font][/size]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
             self.manager.get_screen("colorselect").ids.strplayeramt.text = "9 Players"
             self.nextscreen()
 

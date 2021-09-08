@@ -1,7 +1,10 @@
 from kivymd.uix.dialog import MDDialog
 
-class PlayerDialog(MDDialog):
+class MainDialog(MDDialog):
     pass
 
-class MainDialog(MDDialog):
+class IdentityDialog(MDDialog):
+    pass
+
+class ConfirmDialog(MDDialog):
     pass

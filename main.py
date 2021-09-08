@@ -16,17 +16,14 @@ from kivymd.uix.dialog import MDDialog
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from displays.dialogcode import MainDialog
+from displays.dialogcode import IdentityDialog
+from displays.dialogcode import ConfirmDialog
+from displays.informationcode import PlayerInfo
 from kivy.clock import Clock
 import random
 import globals
 
 Window.size = (400, 800)
-
-class IdentityDialog(MDDialog):
-    pass
-
-class ConfirmDialog(MDDialog):
-    pass
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
