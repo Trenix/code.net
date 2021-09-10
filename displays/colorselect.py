@@ -12,6 +12,8 @@ class ColorSelectScreen(MDScreen):
             globals.playercounter += 1
             globals.colortracker -= 1
             self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
+            if globals.colortracker == 0:
+                self.ids.colorbottomtoolbar.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
 # Clicking last color selected, will clear it
         elif instance.icon != "circle-outline" and instance.icon == ("numeric-" + str(globals.playercounter - 1) + "-circle-outline"):
@@ -19,6 +21,7 @@ class ColorSelectScreen(MDScreen):
             globals.playercounter -= 1
             globals.colortracker += 1
             self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
+            self.ids.colorbottomtoolbar.right_action_items = []
 
     def RefreshTracker(self):
 
@@ -27,6 +30,7 @@ class ColorSelectScreen(MDScreen):
 
         globals.colortracker = globals.players
         globals.playercounter = 1
+        self.ids.colorbottomtoolbar.right_action_items = []
         self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
 
     def nextscreen(self):
@@ -49,7 +53,7 @@ class ColorSelectScreen(MDScreen):
     def previousscreen(self):
         self.manager.current = "player"
         self.manager.transition.direction = "right"
-
+        self.ids.colorbottomtoolbar.right_action_items = []
         self.RefreshTracker()
         globals.playerlist.clear()
         globals.coderlist.clear()
