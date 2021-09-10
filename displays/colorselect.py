@@ -1,4 +1,5 @@
 import globals
+from kivymd.icon_definitions import md_icons
 from kivymd.uix.screen import MDScreen
 
 class ColorSelectScreen(MDScreen):
@@ -10,12 +11,14 @@ class ColorSelectScreen(MDScreen):
             instance.icon = "numeric-" + str(globals.playercounter) + "-circle-outline"
             globals.playercounter += 1
             globals.colortracker -= 1
+            self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
 
 # Clicking last color selected, will clear it
         elif instance.icon != "circle-outline" and instance.icon == ("numeric-" + str(globals.playercounter - 1) + "-circle-outline"):
             instance.icon = "circle-outline"
             globals.playercounter -= 1
             globals.colortracker += 1
+            self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
 
     def RefreshTracker(self):
 
@@ -24,6 +27,7 @@ class ColorSelectScreen(MDScreen):
 
         globals.colortracker = globals.players
         globals.playercounter = 1
+        self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
 
     def nextscreen(self):
 

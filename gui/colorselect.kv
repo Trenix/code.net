@@ -12,7 +12,6 @@
 
         MDToolbar:
             title: "C0de.Net"
-            left_action_items: [["menu", lambda x: x]]
             right_action_items: [["refresh", lambda x: root.RefreshTracker()]]
 
         MDStackLayout:
@@ -20,12 +19,11 @@
             padding: 21
 
             MDLabel:
-                id: strplayeramt
                 adaptive_height: True
                 text_color: C("FFFFFF")
                 theme_text_color: "Custom"
                 font_style: "H4"
-                text: "Player Amount"
+                text: "Color Select"
                 halign: "center"
 
             MDSeparator:
@@ -37,6 +35,16 @@
                 theme_text_color: "Custom"
                 font_style: 'Subtitle1'
                 text: "Please select your [color=#FFFFFF]color[/color], then select the color of the following player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color]."
+                halign: "center"
+                markup: True
+
+            MDLabel:
+                id: remainder
+                height: self.texture_size[1]
+                adaptive_height: True
+                text_color: C('FFFFFF')
+                theme_text_color: "Custom"
+                font_style: 'Subtitle2'
                 halign: "center"
                 markup: True
 

@@ -8,17 +8,16 @@ from kivymd.uix.screen import MDScreen
 from displays.loadsetup import LoadingScreen
 from displays.colorselect import ColorSelectScreen
 from displays.logpopup import LogDialog
-from displays.screenmanager import WindowManager
+from systems.screenmanager import WindowManager
 from systems.generatelog import createlog
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
-from kivymd.uix.dialog import MDDialog
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
-from displays.dialogcode import MainDialog
 from displays.dialogcode import IdentityDialog
 from displays.dialogcode import ConfirmDialog
 from displays.informationcode import PlayerInfo
+from displays.informationcode import MainInfo
 from kivy.clock import Clock
 import random
 import globals
@@ -35,7 +34,9 @@ class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton)
 class MainWindow(MDScreen):
 
     def openinfo(self):
-        MainDialog().open()
+
+        self.manager.transition.direction = 'up'
+        self.manager.current = "maininfo"
 
     def resettimer(self):
 

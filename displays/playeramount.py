@@ -9,6 +9,12 @@ class PlayerWindow(MDScreen):
         self.manager.transition.direction = 'up'
         self.manager.current = "playerinfo"
 
+    def selectcheck(self, instance):
+        if instance.state == 'down':
+            self.ids.bottomplayertoolbar.right_action_items = [["chevron-right", lambda x: self.setplayervars()]]
+        else:
+            self.ids.bottomplayertoolbar.right_action_items = []
+
     def setplayervars(self):
 
         # 4 players
@@ -17,7 +23,9 @@ class PlayerWindow(MDScreen):
             globals.players = 4
             globals.aiamt = 1
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][/font][/size]"
-            self.manager.get_screen("colorselect").ids.strplayeramt.text = "4 Players"
+
+            self.manager.get_screen("colorselect").ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.players}"
+
             self.nextscreen()
 
         # 5 players
@@ -26,7 +34,9 @@ class PlayerWindow(MDScreen):
             globals.players = 5
             globals.aiamt = 1
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-1-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
-            self.manager.get_screen("colorselect").ids.strplayeramt.text = "5 Players"
+
+            self.manager.get_screen("colorselect").ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.players}"
+
             self.nextscreen()
 
         # 6 players
@@ -35,7 +45,9 @@ class PlayerWindow(MDScreen):
             globals.players = 6
             globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-4-circle']}[/color][/font][/size]"
-            self.manager.get_screen("colorselect").ids.strplayeramt.text = "6 Players"
+
+            self.manager.get_screen("colorselect").ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.players}"
+
             self.nextscreen()
 
         # 7 players
@@ -44,7 +56,9 @@ class PlayerWindow(MDScreen):
             globals.players = 7
             globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-5-circle']}[/color][/font][/size]"
-            self.manager.get_screen("colorselect").ids.strplayeramt.text = "7 Players"
+
+            self.manager.get_screen("colorselect").ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.players}"
+
             self.nextscreen()
 
         # 8 players
@@ -53,7 +67,9 @@ class PlayerWindow(MDScreen):
             globals.players = 8
             globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
-            self.manager.get_screen("colorselect").ids.strplayeramt.text = "8 Players"
+
+            self.manager.get_screen("colorselect").ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.players}"
+
             self.nextscreen()
 
         # 9 players
@@ -62,28 +78,21 @@ class PlayerWindow(MDScreen):
             globals.players = 9
             globals.aiamt = 0
             self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][color=#FFFFFF][font=Icons]{md_icons['account-cog']}{md_icons['numeric-0-circle']}[/color][color=#c62828]{md_icons['account']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['account']}{md_icons['numeric-6-circle']}[/color][/font][/size]"
-            self.manager.get_screen("colorselect").ids.strplayeramt.text = "9 Players"
+
+            self.manager.get_screen("colorselect").ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.players}"
+
             self.nextscreen()
-
-    def refresh(self):
-
-        # Reset toggle on buttons
-        for x in range(6):
-            self.ids[f"butt{x + 1}"].state = "normal"
 
     def previousscreen(self):
 
         self.manager.current = "welcome"
         self.manager.transition.direction = "right"
 
-        self.refresh()
-
     def nextscreen(self):
 
         self.manager.current = "colorselect"
         self.manager.transition.direction = "left"
 
-        self.refresh()
         self.playersetup()
 
 # Set grid for next screen

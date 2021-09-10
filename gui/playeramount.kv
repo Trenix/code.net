@@ -12,8 +12,7 @@
 
         MDToolbar:
             title: "C0de.Net"
-            left_action_items: [["menu", lambda x: x]]
-            right_action_items: [["information-outline", lambda x: root.openinfo()], ["refresh", lambda x: root.refresh()]]
+            right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
         MDStackLayout:
             spacing: 10
@@ -52,6 +51,8 @@
                 font_style: 'Button'
                 md_bg_color: app.theme_cls.primary_color
                 text: "4 players"
+                on_press:
+                    root.selectcheck(butt1)
 
             MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
@@ -60,6 +61,8 @@
                 font_style: 'Button'
                 md_bg_color: app.theme_cls.primary_color
                 text: "5 players"
+                on_press:
+                    root.selectcheck(butt2)
 
             MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
@@ -68,6 +71,8 @@
                 font_style: 'Button'
                 md_bg_color: app.theme_cls.primary_color
                 text: "6 players"
+                on_press:
+                    root.selectcheck(butt3)
 
             MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
@@ -76,6 +81,8 @@
                 font_style: 'Button'
                 md_bg_color: app.theme_cls.primary_color
                 text: "7 Players"
+                on_press:
+                    root.selectcheck(butt4)
 
             MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
@@ -84,6 +91,8 @@
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_color
                 text: "8 Players"
+                on_press:
+                    root.selectcheck(butt5)
 
             MDFillRoundFlatIconButtonToggle:
                 icon: "account-group"
@@ -92,13 +101,15 @@
                 font_style: "Button"
                 md_bg_color: app.theme_cls.primary_color
                 text: "9 Players"
+                on_press:
+                    root.selectcheck(butt6)
 
         MDBoxLayout:
 
         MDBottomAppBar:
             MDToolbar:
+                id: bottomplayertoolbar
                 icon: "square-rounded-outline"
                 type: "bottom"
                 on_action_button: app.on_pause()
                 left_action_items: [["chevron-left", lambda x: root.previousscreen()]]
-                right_action_items: [["chevron-right", lambda x: root.setplayervars()]]

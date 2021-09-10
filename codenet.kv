@@ -4,8 +4,8 @@
 #:include dialogs\IdentityDialog.kv
 #:include dialogs\confirmdialog.kv
 #:include dialogs\logdialog.kv
-#:include dialogs\playerinformation.kv
-#:include dialogs\maindialog.kv
+#:include gui\playerinformation.kv
+#:include gui\maininformation.kv
 #:include gui\load.kv
 #:include gui\colorselect.kv
 #:import C kivy.utils.get_color_from_hex
@@ -20,6 +20,7 @@ WindowManager:
     PlayerReveal:
     MainWindow:
     PlayerInfo:
+    MainInfo:
 
 <MainWindow>
     name: "main"
