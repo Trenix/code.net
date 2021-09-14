@@ -16,8 +16,7 @@ from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
 from displays.dialogcode import IdentityDialog
 from displays.dialogcode import ConfirmDialog
-from displays.informationcode import PlayerInfo
-from displays.informationcode import MainInfo
+from displays.information import MainInfo
 from kivy.clock import Clock
 import random
 import globals
