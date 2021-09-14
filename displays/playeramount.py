@@ -6,8 +6,9 @@ class PlayerWindow(MDScreen):
     from systems.generatelists import playersetup
 
     def openinfo(self):
+        globals.lastscreen = self.manager.current
         self.manager.transition.direction = 'up'
-        self.manager.current = "playerinfo"
+        self.manager.current = "maininfo"
 
     def selectcheck(self, instance):
         if instance.state == 'down':

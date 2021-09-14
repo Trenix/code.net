@@ -35,6 +35,7 @@ class MainWindow(MDScreen):
 
     def openinfo(self):
 
+        globals.lastscreen = self.manager.current
         self.manager.transition.direction = 'up'
         self.manager.current = "maininfo"
 

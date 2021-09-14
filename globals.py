@@ -20,3 +20,4 @@ colordefs2 = {"Red": "#c62828", "Pink": "#ad1457", "Purple": "#6a1b9a", "Blue": 
              "Grey": '#424242', "AI": '#FFFFFF'}
 time = 0
 timer = 0
+lastscreen = None
