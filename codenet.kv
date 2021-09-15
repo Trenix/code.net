@@ -29,6 +29,36 @@ WindowManager:
             size: 1644, 3840
             source: "images/defaultback.png"
 
+#---------- Indicators----------
+
+    AnchorLayout:
+        anchor_x: "right"
+        anchor_y: "top"
+        padding: 0, 27, 0, 0
+        MDLabel:
+            id: playeridentifer
+            halign: "right"
+            size_hint: None, None
+            text_color: C('FFFFFF')
+            adaptive_width: True
+            theme_text_color: "Custom"
+            markup: True
+            text: f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-6-circle']}[/color][/font]"
+
+    AnchorLayout:
+        anchor_x: "left"
+        anchor_y: "top"
+        padding: 0, 27, 0, 0
+        MDLabel:
+            id: alignmentidentifer
+            size_hint: None, None
+            text_color: C('FFFFFF')
+            adaptive_width: True
+            theme_text_color: "Custom"
+            markup: True
+            text: f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+#-----------------------------
+
     MDBoxLayout:
         orientation: "vertical"
 
@@ -41,13 +71,6 @@ WindowManager:
             orientation: "vertical"
             padding: 10
             spacing: 21
-
-            MDFloatLayout:
-                MDLabel:
-                    adaptive_size: True
-                    id: playeridentifer
-                    markup: True
-                    pos_hint: {"right": 1, "top": 1}
 
             MDLabel:
                 theme_text_color: "Custom"
@@ -70,8 +93,6 @@ WindowManager:
                 halign: "center"
                 pos_hint: {"center_x": 0.5, "top": 1}
 
-            MDBoxLayout:
-
             MDLabel:
                 text_color: C('FFFFFF')
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
@@ -79,7 +100,7 @@ WindowManager:
                 font_style: 'Subtitle1'
                 halign: "center"
                 underline: True
-                text: "Round Timer"
+                text: "Timer"
 
             MDFloatingLabel:
                 id: timer
@@ -90,7 +111,6 @@ WindowManager:
                 text_color: C('#FFFFFF')
                 pos_hint: {"center_x": 0.5, "center_y": 0.5}
 
-
             MDFillRoundFlatIconButton:
                 icon: 'cards'
                 text: "Use Item"
@@ -100,6 +120,7 @@ WindowManager:
                 font_style: 'Button'
 
             MDBoxLayout:
+                size_hint: 1, 0.1
 
         MDBoxLayout:
             orientation: "vertical"
