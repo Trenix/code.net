@@ -1,6 +1,8 @@
 from kivymd.uix.screen import MDScreen
 
 class WelcomeWindow(MDScreen):
+    from systems.openinformation import openinfo
+
     def nextscreen(self):
 
         # Set grid for next screen

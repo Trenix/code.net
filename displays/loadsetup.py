@@ -2,6 +2,9 @@ from kivymd.uix.screen import MDScreen
 from kivy.core.text import LabelBase
 from kivy.clock import Clock
 from kivymd.font_definitions import theme_font_styles
+from kivymd.uix.menu import MDDropdownMenu
+from kivymd.icon_definitions import md_icons
+import globals
 from main import MDApp
 
 class LoadingScreen(MDScreen):
@@ -68,11 +71,31 @@ class LoadingScreen(MDScreen):
         theme_font_styles.append('Overline')
         MDApp.get_running_app().theme_cls.font_styles["Overline"] = ["Overline", 10, True, 1.5]
 
+        # Add items to the menu
+
+      #   templist = ["Lore", "Alignments", "Players", "Rounds", "Item", "Log"]
+      #   menu_items = [
+      #       {
+      #           "viewclass": "OneLineListItem",
+      #           "text": f"[color=#FFFFFF][font=Icons]{md_icons['shield']}[/font] {x}[/color]",
+      #           "height": 56,
+      #       } for x in templist
+      #   ]
+      #
+      # # Create Dropdown
+      #
+      #   globals.infodropdown = MDDropdownMenu(
+      #       items=menu_items,
+      #       width_mult=2.8,
+      #       background_color=MDApp.get_running_app().theme_cls.primary_color,
+      #   )
+      #   globals.infodropdown.bind()
+
         Clock.schedule_once(self.start_loadbar, 0.1)
 
     def start_loadbar(self, dt):
-        #Timer to allow load for initial startup. Default is 3
-        Clock.schedule_once(self.nextscreen, 3)
+        #Timer to allow load for initial startup. Default is 3.3
+        Clock.schedule_once(self.nextscreen, 3.3)
 
         self.ids.loadbar.start()
 

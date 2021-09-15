@@ -12,7 +12,7 @@
 
         MDToolbar:
             title: "C0de.Net"
-            right_action_items: [["refresh", lambda x: root.RefreshTracker()]]
+            right_action_items: [["information-outline", lambda x: root.openinfo()], ["refresh", lambda x: root.RefreshTracker()]]
 
         MDStackLayout:
             spacing: 10
@@ -34,9 +34,12 @@
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle1'
-                text: "Please select your [color=#FFFFFF]color[/color], then select the color of the following player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color]."
+                text: "Now select your [color=#FFFFFF]color[/color], then select the color of the following player to the [color=#FFFFFF]left[/color] of you and continuing [color=#FFFFFF]clockwise[/color]."
                 halign: "center"
                 markup: True
+
+        MDBoxLayout:
+            size_hint: 1, 0.15
 
             MDLabel:
                 id: remainder
@@ -49,7 +52,7 @@
                 markup: True
 
         MDBoxLayout:
-            size_hint: 1, 0.35
+            size_hint: 1, 0.18
 
         MDGridLayout:
             padding: 5

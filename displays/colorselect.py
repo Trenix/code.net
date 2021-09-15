@@ -3,6 +3,7 @@ from kivymd.icon_definitions import md_icons
 from kivymd.uix.screen import MDScreen
 
 class ColorSelectScreen(MDScreen):
+    from systems.openinformation import openinfo
 
     def ColorSelect(self, instance):
 # Sets colors to players in a sequence
@@ -11,7 +12,7 @@ class ColorSelectScreen(MDScreen):
             instance.icon = "numeric-" + str(globals.playercounter) + "-circle-outline"
             globals.playercounter += 1
             globals.colortracker -= 1
-            self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
+            self.ids.remainder.text = f"Remainder: {globals.colortracker}"
             if globals.colortracker == 0:
                 self.ids.colorbottomtoolbar.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
@@ -20,7 +21,7 @@ class ColorSelectScreen(MDScreen):
             instance.icon = "circle-outline"
             globals.playercounter -= 1
             globals.colortracker += 1
-            self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
+            self.ids.remainder.text = f"Remainder: {globals.colortracker}"
             self.ids.colorbottomtoolbar.right_action_items = []
 
     def RefreshTracker(self):
@@ -31,7 +32,7 @@ class ColorSelectScreen(MDScreen):
         globals.colortracker = globals.players
         globals.playercounter = 1
         self.ids.colorbottomtoolbar.right_action_items = []
-        self.ids.remainder.text = f"[size=22][font=Icons]{md_icons['account-group']}[/font][/size] Players: {globals.players}\n[size=22][font=Icons]{md_icons['counter']}[/font][/size] Remainder: {globals.colortracker}"
+        self.ids.remainder.text = f"Remainder: {globals.colortracker}"
 
     def nextscreen(self):
 

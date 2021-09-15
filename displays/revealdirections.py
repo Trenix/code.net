@@ -3,6 +3,7 @@ from main import IdentityDialog
 import globals
 
 class PlayerReveal(MDScreen):
+    from systems.openinformation import openinfo
 
     def reveal(self):
 
