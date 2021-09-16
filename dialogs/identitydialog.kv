@@ -3,10 +3,9 @@
     size_hint: 0.8, 0.5
 
     MDCard:
-        id: identity
         orientation: "vertical"
         padding: 21
-        spacing: 5
+        spacing: 10
         md_bg_color: app.theme_cls.primary_color
         border_radius: 20
         radius: [15]
@@ -24,47 +23,67 @@
             color: C("FFFFFF")
 
         MDBoxLayout:
-            size_hint: 1, 0.1
-
-        MDLabel:
-            id: whatcolor
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-            markup: True
-
-        MDLabel:
-            id: arehacker
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-            markup: True
-
-        MDLabel:
-            id: haveallies
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-            markup: True
-
-        MDLabel:
-            id: identitydes
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            text_color: C("FFFFFF")
-            adaptive_height: True
-            markup: True
+            size_hint: 1, 0.01
 
         MDBoxLayout:
+            id: identity
+            spacing: 4
+            orientation: "vertical"
+            padding: 8, 0, 8, 0
+            canvas.before:
+                Color:
+                    rgba: C('#296f2c')
+                Line:
+                    width: 2.5
+                    rectangle: self.x, self.y, self.width, self.height
+                Color:
+                    rgba: C('#236027')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                id: whatcolor
+                text_color: C("FFFFFF")
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                id: arehacker
+                text_color: C("FFFFFF")
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                id: haveallies
+                text_color: C("FFFFFF")
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                id: identitydes
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                text_color: C("FFFFFF")
+                adaptive_height: True
+                markup: True
+
+            MDBoxLayout:
+                size_hint: 1, 0.01
+
+        MDBoxLayout:
+            size_hint: 1, 0.01
 
         MDRectangleFlatButton:
             font_style: "Button"
             theme_text_color: "Custom"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
-            md_bg_color: app.theme_cls.primary_dark
             line_color: C("FFFFFF")
             text_color: C("FFFFFF")
             text: "OK"
