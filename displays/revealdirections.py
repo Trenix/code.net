@@ -44,11 +44,13 @@ class PlayerReveal(MDScreen):
                 tempdialog.open()
 
             if globals.revealtracker < globals.players:
+                self.ids.nextplayer.text = "It's " + globals.playerlist[f"player {globals.revealtracker + 1}"]["color"] + "'s turn!"
                 self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
                 globals.revealtracker += 1
                 self.ids[f"ind{globals.revealtracker}"].icon = "circle-slice-8"
 
             elif globals.revealtracker == globals.players:
+                self.ids.nextplayer.text = ""
                 self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
                 globals.revealtracker += 1
                 self.ids.revtool.icon = "square-rounded-outline"

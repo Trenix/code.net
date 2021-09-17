@@ -36,20 +36,21 @@ class ColorSelectScreen(MDScreen):
 
     def nextscreen(self):
 
-        if globals.colortracker == 0:
-            self.manager.current = "reveal"
-            self.manager.transition.direction = "left"
+        #Setup tracker
+        self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
 
-            #Setup tracker
-            self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
+        # Destroy widgets not in play
+        for x in range(globals.players + 1, 9 + 1):
+            self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
 
-            # Destroy widgets not in play
-            for x in range(globals.players + 1, 9 + 1):
-                self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
+        # Set colors
+        for x in range(globals.players):
+            self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
 
-            # Set colors
-            for x in range(globals.players):
-                self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
+        self.manager.get_screen("reveal").ids.nextplayer.text = "It's " + globals.playerlist["player 1"]["color"] + "'s turn!"
+
+        self.manager.current = "reveal"
+        self.manager.transition.direction = "left"
 
     def previousscreen(self):
         self.manager.current = "player"
