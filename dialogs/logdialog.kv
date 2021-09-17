@@ -1,5 +1,5 @@
 <LogDialog>:
-    size_hint: 0.8, 0.5
+    size_hint: 0.8, 0.54
     auto_dismiss: False
 
     MDCard:
@@ -11,46 +11,70 @@
         radius: [15]
 
         MDLabel:
-            id: playerlogtitle
             font_style: "H4"
             size_hint_y: None
             height: self.texture_size[1]
             halign: "center"
             theme_text_color: "Custom"
             text_color: C("FFFFFF")
+            text: "Player Log"
 
         MDSeparator:
             color: C("FFFFFF")
 
-        MDLabel:
-            font_style: "Subtitle2"
-            adaptive_height: True
-            theme_text_color: "Custom"
-            halign: "center"
-            text_color: C("FFFFFF")
-            text: "Only the player which owns the log may upload and see the results."
+        MDBoxLayout:
+            size_hint: 1, 0.01
 
         MDBoxLayout:
-            size_hint: 1, 0.6
+            spacing: 4
+            padding: 8, 0, 8, 8
             orientation: "vertical"
-            pos_hint: {"center_x":0.5, "y": 0}
-            md_bg_color: C('000000')
+            canvas.before:
+                Color:
+                    rgba: C('#296f2c')
+                Line:
+                    width: 2.5
+                    rectangle: self.x, self.y, self.width, self.height
+                Color:
+                    rgba: C('#236027')
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                id: playerlogtitle
+                font_style: "H6"
+                adaptive_height: True
+                theme_text_color: "Custom"
+                halign: "center"
+                text_color: C("FFFFFF")
+
+            MDSeparator:
+                adaptive_height: True
+                color: C("FFFFFF")
+
+            MDLabel:
+                font_style: "Subtitle2"
+                adaptive_height: True
+                theme_text_color: "Custom"
+                halign: "center"
+                text_color: C("FFFFFF")
+                text: "Only the player which owns the log may upload and see the results."
 
             MDBoxLayout:
-                size_hint: 1, 0.15
+                size_hint: 1, 0.01
 
             MDBoxLayout:
-                pos_hint: {"center_x":0.5, "y": 0}
                 orientation: "vertical"
-                size_hint: 0.92, 1
+                padding: 4, 0, 4, 0
                 canvas.before:
                     Color:
-                        rgba: 51/255, 255/255, 51/255, 0.3
+                        rgba: 0/255, 0/255, 0/255, 0.8
                     Line:
                         width: 0.3
                         rectangle: self.x, self.y, self.width, self.height
                     Color:
-                        rgba: 51/255, 255/255, 51/255, 0.06
+                        rgba: 0/255, 0/255, 0/255, 0.5
                     Rectangle:
                         pos: self.pos
                         size: self.size
@@ -73,7 +97,7 @@
                     text: "One of each faction is among the following."
 
             MDBoxLayout:
-                size_hint: 1, 0.2
+                size_hint: 1, 0.01
 
             MDFillRoundFlatIconButton:
                 id: playerlogbutton
@@ -87,10 +111,10 @@
                     root.ids.okbutton.disabled = False
 
             MDBoxLayout:
-                size_hint: 1, 0.15
+                size_hint: 1, 0.01
 
         MDBoxLayout:
-            size_hint: 1, 0.1
+            size_hint: 1, 0.01
 
         MDRectangleFlatButton:
             id: okbutton
