@@ -133,7 +133,7 @@ class MainWindow(MDScreen):
 # Round 1
         if self.ids.currentround.text == f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 1[/font]")
+            self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 1[/font][/size]")
             self.ids.roundregulator.icon = "stop"
             self.settime()
 
@@ -143,7 +143,7 @@ class MainWindow(MDScreen):
 # Round 2
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 2[/font]")
+            self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 2[/font][/size]")
             self.ids.roundregulator.icon = "stop"
             self.settime()
 
@@ -154,7 +154,7 @@ class MainWindow(MDScreen):
 # Round 3
         else:
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[font=Button]ROUND 3[/font]")
+            self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 3[/font][/size]")
             self.ids.roundregulator.icon = "stop"
             self.settime()
 
