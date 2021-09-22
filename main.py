@@ -166,7 +166,7 @@ class MainWindow(MDScreen):
             if globals.players <= 5:
                 globals.playerlogrev = random.sample(list(globals.notai), 2)
             else:
-                globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
+                globals.playerlogrev = random.sample(list(globals.playerlist), 2)
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY

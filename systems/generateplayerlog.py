@@ -2,9 +2,22 @@ import random
 import globals
 from kivymd.icon_definitions import md_icons
 
-def createplayerlog():
+def createplayerlog(logplayer):
 
-    tempplayerlog = random.sample(list(globals.coderlist), 1) + random.sample(list(globals.hackerlist), 1)
+    tempplayerlog = []
+
+    temphackerlist = globals.hackerlist.copy()
+    tempcoderlist = globals.coderlist.copy()
+
+    if globals.playerlist[logplayer]['hacker'] == True:
+        temphackerlist.remove(logplayer)
+    else:
+        tempcoderlist.remove(logplayer)
+
+    newhackerlist = random.sample(list(temphackerlist), 1)
+    newcoderlist = random.sample(list(tempcoderlist), 1)
+
+    tempplayerlog.extend(newhackerlist + newcoderlist)
 
     tempplayercolorlog = []
 
