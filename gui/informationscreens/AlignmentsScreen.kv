@@ -1,0 +1,187 @@
+<AlignmentsScreen@MDScreen>
+    name: "Alignments"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: f"[font=Icons]{md_icons['shield']}[/font] Alignments"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: 10
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: 10
+                padding: 21
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "Players are split up into two different alignments, hackers and coders. On the right side of the main screen there will be icons which will show you how many hackers and coders are present within the game."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Legend"
+                    markup: True
+
+                MDLabel:
+                    text_color: C("FFFFFF")
+                    font_style: "Body2"
+                    text: f"[color=#c62828][size=22][font=Icons]{md_icons['shield-bug']}[/font][/size][/color]: Hacker"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C("FFFFFF")
+                    font_style: "Body2"
+                    text: f"[color=#1565c0][size=22][font=Icons]{md_icons['shield-lock']}[/font][/size][/color]: Coder"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDGridLayout:
+                    adaptive_height: True
+                    cols: 1
+                    canvas.before:
+                        Color:
+                            rgba: 51/255, 255/255, 51/255, 0.3
+                        Line:
+                            width: 0.3
+                            rectangle: self.x, self.y, self.width, self.height
+                        Color:
+                            rgba: 51/255, 255/255, 51/255, 0.06
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+    # 4 Players
+
+                    MDLabel:
+                        halign: "center"
+                        text_color: C("FFFFFF")
+                        font_style: "Body2"
+                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 4 Players: [size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-3-circle']}[/color][/font]"
+                        theme_text_color: "Custom"
+                        adaptive_height: True
+                        markup: True
+
+    # 5 Players
+
+                    MDLabel:
+                        halign: "center"
+                        text_color: C("FFFFFF")
+                        font_style: "Body2"
+                        theme_text_color: "Custom"
+                        adaptive_height: True
+                        markup: True
+                        md_bg_color: app.theme_cls.primary_dark
+                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 5 Players: [size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+
+    # 6 Players
+
+                    MDLabel:
+                        halign: "center"
+                        text_color: C("FFFFFF")
+                        font_style: "Body2"
+                        theme_text_color: "Custom"
+                        adaptive_height: True
+                        markup: True
+                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 6 Players: [size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+
+    # 7 Players
+
+                    MDLabel:
+                        halign: "center"
+                        font_style: "Body2"
+                        theme_text_color: "Custom"
+                        text_color: C("FFFFFF")
+                        adaptive_height: True
+                        markup: True
+                        md_bg_color: app.theme_cls.primary_dark
+                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 7 Players: [size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-5-circle']}[/color][/font]"
+
+    # 8 Players
+
+                    MDLabel:
+                        halign: "center"
+                        font_style: "Body2"
+                        theme_text_color: "Custom"
+                        text_color: C("FFFFFF")
+                        adaptive_height: True
+                        markup: True
+                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 8 Players: [size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
+
+    # 9 Players
+
+                    MDLabel:
+                        halign: "center"
+                        font_style: "Body2"
+                        theme_text_color: "Custom"
+                        text_color: C("FFFFFF")
+                        adaptive_height: True
+                        markup: True
+                        md_bg_color: app.theme_cls.primary_dark
+                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 9 Players: [size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Hacker"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "Hackers always have an ally and are fully aware of who their ally is. Only when there are nine players, do hackers have a second ally. Their objective is to have as many coders as possible to trust them, while making coders distrust each other. Denial and deception is key to victory."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Coder"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "Coders must work together to figure out who the hackers are with the assistance of items and logs. Unfortunately, these tools will never provide definite information. Therefore coders must be aware of deception, use process of elimination, and make informed decisions."
+                    markup: True

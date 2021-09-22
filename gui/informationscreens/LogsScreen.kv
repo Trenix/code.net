@@ -1,0 +1,184 @@
+<LogsScreen@MDScreen>
+    name: "Log"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: f"[font=Icons]{md_icons['folder']}[/font] Logs"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: 10
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: 10
+                padding: 21
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "In the beginning of each round, after actions have been taken place, the entire group is provided one or more logs. Depending on the round, will depend on how many and what type of log is provided and who is able to upload it. Logs will never provide definite information. Players consistently found on logs do not necessarily prove guilt."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Legend"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22][font=Icons]{md_icons['folder']}[/font][/size][color=#FFFFFF]: Unrevealed Evidence[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C('FFFFFF')
+                    font_style: "Body2"
+                    text: f"[color=#1565c0][size=22][font=Icons]{md_icons['folder-key']}[/font][/size][/color]: Unrevealed Exclusive Evidence"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C('FFFFFF')
+                    font_style: "Body2"
+                    text: f"[size=22][font=Icons]{md_icons['folder-account']}[/font][/size]: Revealed Evidence"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C('FFFFFF')
+                    font_style: "Body2"
+                    text: f"[size=22][color=#c62828][font=Icons]{md_icons['folder-alert']}[/font][/color][/size]: Corrupted Evidence"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDGridLayout:
+                    adaptive_height: True
+                    cols: 1
+                    canvas.before:
+                        Color:
+                            rgba: 51/255, 255/255, 51/255, 0.3
+                        Line:
+                            width: 0.3
+                            rectangle: self.x, self.y, self.width, self.height
+                        Color:
+                            rgba: 51/255, 255/255, 51/255, 0.06
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+    # Round 1
+
+                    MDLabel:
+                        text_color: app.theme_cls.primary_color
+                        font_style: "Body2"
+                        text: f" [color=#FFFFFF][font=Icons][size=22]{md_icons['folder-search']}[/font][/size] Round 1:[/color] [size=22][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                        theme_text_color: "Custom"
+                        adaptive_height: True
+                        markup: True
+
+    # Round 2
+
+                    MDLabel:
+                        text_color: app.theme_cls.primary_color
+                        font_style: "Body2"
+                        md_bg_color: app.theme_cls.primary_dark
+                        text: f" [color=#FFFFFF][font=Icons][size=22]{md_icons['folder-search']}[/font][/size] Round 2:[/color] [size=22][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size][color=#FFFFFF],[/color] [size=22][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                        theme_text_color: "Custom"
+                        adaptive_height: True
+                        markup: True
+
+    # Round 3
+
+                    MDLabel:
+                        text_color: app.theme_cls.primary_color
+                        font_style: "Body2"
+                        text: f" [color=#FFFFFF][size=22][font=Icons]{md_icons['folder-search']}[/font][/size] Round 3:[/color][color=#1565c0] [size=22][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size][/color][color=#FFFFFF],[/color] [color=#1565c0][size=22][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size][/color]"
+                        theme_text_color: "Custom"
+                        adaptive_height: True
+                        markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Evidence"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "Each unrevealed evidence is a player that is on the log. Once a log is uploaded, the color of the player that is on the log will be revealed, unless of course it gets corrupted. There is a probability where logs may be exactly the same. This is intended and should be taken into consideration."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Corrupted Log"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "There is a seventy percent chance of a log failing when it is being revealed. When this occurs, all unrevealed evidence becomes corrupted and no further information is provided. Log corruption may only occur in the first and second round."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Exclusive Evidence"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "Exclusive evidence can only be uploaded and viewed by the player that owns it. It also is unable to be corrupted. Players who own the log will never be on their own logs. When a hacker gets their hands on an exclusive log, they should do their best to deceive the coders since there is no way of them knowing what their log contains."
+                    markup: True
