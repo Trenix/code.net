@@ -7,6 +7,7 @@ from displays.welcome import WelcomeWindow
 from kivymd.uix.screen import MDScreen
 from displays.loadsetup import LoadingScreen
 from displays.colorselect import ColorSelectScreen
+from displays.endgame import EndGame
 from systems.screenmanager import WindowManager
 from systems.generatelog import createlog
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
@@ -33,11 +34,23 @@ class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton)
 class MainWindow(MDScreen):
     from systems.openinformation import openinfo
 
+    def nextscreen(self):
+
+        EndGame.setalignments(self)
+        self.manager.current = "endgame"
+        self.manager.transition.direction = "left"
+
     def resettimer(self):
 
         self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
-        self.ids.roundregulator.icon = "play"
         globals.timer.cancel()
+
+        if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
+            self.ids.roundregulator.icon = "square-rounded-outline"
+            self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
+
+        else:
+            self.ids.roundregulator.icon = "play"
 
     def mainactioncheck(self):
 
@@ -118,9 +131,15 @@ class MainWindow(MDScreen):
 
     def activatetime(self, dt):
         if globals.time == 0:
+
             globals.timer.cancel()
-            self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
-            self.ids.roundregulator.icon = "play"
+
+            if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
+                self.ids.roundregulator.icon = "square-rounded-outline"
+                self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
+
+            else:
+                self.ids.roundregulator.icon = "play"
 
         else:
             globals.time = globals.time - 1

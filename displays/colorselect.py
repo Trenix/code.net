@@ -1,5 +1,4 @@
 import globals
-from kivymd.icon_definitions import md_icons
 from kivymd.uix.screen import MDScreen
 
 class ColorSelectScreen(MDScreen):
