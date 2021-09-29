@@ -34,7 +34,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "In the beginning of each round, after actions have been taken place, the entire group is provided one or more logs. Depending on the round, will depend on how many and what type of log is provided and who is able to upload it. Logs will never provide definite information. Players consistently found on logs do not necessarily prove guilt."
+                    text: "In the beginning of each round, the entire group is provided one or more logs. Depending on the round, will depend on how many and what type of log is provided and who is able to upload it. Logs will never provide definite information. Players consistently found on logs do not necessarily prove guilt."
                     markup: True
 
                 MDSeparator:
@@ -79,52 +79,6 @@
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
-
-                MDGridLayout:
-                    adaptive_height: True
-                    cols: 1
-                    canvas.before:
-                        Color:
-                            rgba: 51/255, 255/255, 51/255, 0.3
-                        Line:
-                            width: 0.3
-                            rectangle: self.x, self.y, self.width, self.height
-                        Color:
-                            rgba: 51/255, 255/255, 51/255, 0.06
-                        Rectangle:
-                            pos: self.pos
-                            size: self.size
-
-    # Round 1
-
-                    MDLabel:
-                        text_color: app.theme_cls.primary_color
-                        font_style: "Body2"
-                        text: f" [color=#FFFFFF][font=Icons][size=22]{md_icons['folder-search']}[/font][/size] Round 1:[/color] [size=22][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-                        theme_text_color: "Custom"
-                        adaptive_height: True
-                        markup: True
-
-    # Round 2
-
-                    MDLabel:
-                        text_color: app.theme_cls.primary_color
-                        font_style: "Body2"
-                        md_bg_color: app.theme_cls.primary_dark
-                        text: f" [color=#FFFFFF][font=Icons][size=22]{md_icons['folder-search']}[/font][/size] Round 2:[/color] [size=22][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size][color=#FFFFFF],[/color] [size=22][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-                        theme_text_color: "Custom"
-                        adaptive_height: True
-                        markup: True
-
-    # Round 3
-
-                    MDLabel:
-                        text_color: app.theme_cls.primary_color
-                        font_style: "Body2"
-                        text: f" [color=#FFFFFF][size=22][font=Icons]{md_icons['folder-search']}[/font][/size] Round 3:[/color][color=#1565c0] [size=22][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size][/color][color=#FFFFFF],[/color] [color=#1565c0][size=22][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size][/color]"
-                        theme_text_color: "Custom"
-                        adaptive_height: True
-                        markup: True
 
                 MDSeparator:
                     color: C("FFFFFF")

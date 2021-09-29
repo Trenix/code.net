@@ -1,0 +1,57 @@
+<TimerScreen@MDScreen>:
+    name: "Timer"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: f"[font=Icons]{md_icons['timer']}[/font] Timer"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: 10
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: 10
+                padding: 21
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "At the start of every round, after actions have been made, the timer is activated. During this time, players should discuss with one another to either mislead or obtain information which they can use to make a determination of what alignment they are part of. When the timer has ended, players may then move onto the next round."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "End Timer Early"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: f"Players may choose to end the timer sooner than intended. This can be because no more information can be obtained from players or hackers want to prevent more information from being revealed. In order to end a timer early, the majority must agree to it. Once agreed, press the [color=#FFFFFF][size=22][font=Icons]{md_icons['stop']}[/font][/size][/color] button below the main screen and agree to the prompt."
+                    markup: True
