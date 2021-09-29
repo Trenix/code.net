@@ -96,7 +96,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "Each folder is a player that will be on the log. Once a log is uploaded, the color of the player that is on the log will be revealed, unless of course it gets corrupted. There is a probability where logs may be exactly the same. This is an intended and should be taken into consideration."
+                    text: f"Each folder is a player that will be on the log. Once a log is uploaded by pressing the [color=#FFFFFF][size=22][font=Icons]{md_icons['cloud-upload']}[/font][/size][/color] button, the colors of the players that are on the log will be revealed. There is a probability where logs may be exactly the same. This is an intended and should be taken into consideration."
                     markup: True
 
                 MDSeparator:
@@ -134,5 +134,5 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "Player logs can only be uploaded and viewed by the player that owns it and can never be revealed by other players. Evidence for a player log cannot be corrupted. The Player who owns the log will never be on their own log. One player cannot have two player logs nor can an AI get a player log."
+                    text: f"A player log can be opened by the pressing the [color=#FFFFFF][size=22][font=Icons]{md_icons['cloud']}[/font][/size][/color] button. Once opened, at the top it will reveal who the log belongs to. Only the owner of the log can upload and view its revealed contents. Player logs cannot be corrupted. The log owner will never be within their own log. One player cannot have two player logs nor can an AI get a player log."
                     markup: True
