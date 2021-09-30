@@ -59,3 +59,13 @@ class PlayerReveal(MDScreen):
     def nextscreen(self):
         if globals.revealtracker > globals.players:
             self.manager.current = "main"
+
+        # Reset code for new game if it occurs.
+        self.manager.get_screen("reveal").ids['ind1'].icon = "circle-slice-8"
+
+        for x in range(globals.players + 1, 9 + 1):
+            self.manager.get_screen("reveal").ids[f"ind{x}"].icon = 'circle-outline'
+
+        self.ids.revtool.right_action_items = []
+        self.ids.revtool.icon = "account-search"
+        globals.revealtracker = 1

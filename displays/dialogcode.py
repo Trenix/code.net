@@ -8,6 +8,9 @@ class IdentityDialog(MDDialog):
 class ConfirmDialog(MDDialog):
     pass
 
+class RematchDialog(MDDialog):
+    pass
+
 class LogDialog(MDDialog):
 
     def revealplayerlog(self):

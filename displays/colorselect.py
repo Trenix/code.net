@@ -1,5 +1,6 @@
 import globals
 from kivymd.uix.screen import MDScreen
+from kivymd.uix.label import MDIcon
 
 class ColorSelectScreen(MDScreen):
     from systems.openinformation import openinfo
@@ -34,13 +35,26 @@ class ColorSelectScreen(MDScreen):
         self.ids.remainder.text = f"Remainder: {globals.colortracker}"
 
     def nextscreen(self):
+        #Setup tracker
+        # for x in range(1, globals.players + 1):
+        #     widget = []
+        #     widget[x] = (MDIcon(icon="circle-outline", halign="center", font_size=30))
+        #     self.manager.get_screen("reveal").ids.setindicator.add_widget(f'widget{x}')
+        #     self.manager.get_screen("reveal").ids.widget[x] = f'ind{x}'
+        #
+        # print(self.manager.get_screen("reveal").ids)
+
 
         #Setup tracker
         self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
 
         # Destroy widgets not in play
+        # for x in range(globals.players + 1, 9 + 1):
+        #     self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
+
+        # Remove indicator icon
         for x in range(globals.players + 1, 9 + 1):
-            self.manager.get_screen("reveal").ids.setgrid.remove_widget(self.manager.get_screen("reveal").ids[f"ind{x}"])
+            self.manager.get_screen("reveal").ids[f"ind{x}"].icon = ''
 
         # Set colors
         for x in range(globals.players):
@@ -50,6 +64,7 @@ class ColorSelectScreen(MDScreen):
 
         self.manager.current = "reveal"
         self.manager.transition.direction = "left"
+        self.RefreshTracker()
 
     def previousscreen(self):
         self.manager.current = "player"

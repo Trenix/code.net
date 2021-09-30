@@ -104,6 +104,9 @@ class PlayerWindow(MDScreen):
         self.manager.current = "colorselect"
         self.manager.transition.direction = "left"
 
+        for x in range(6):
+            self.ids[f"butt{x + 1}"].state = "normal"
+
         self.playersetup()
 
 # Set grid for next screen
