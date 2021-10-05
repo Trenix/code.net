@@ -34,12 +34,6 @@ class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton)
 class MainWindow(MDScreen):
     from systems.openinformation import openinfo
 
-    def nextscreen(self):
-
-        EndGame.setalignments(self)
-        self.manager.current = "endgame"
-        self.manager.transition.direction = "left"
-
     def resettimer(self):
 
         self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
@@ -159,7 +153,7 @@ class MainWindow(MDScreen):
 
     def settime(self):
 
-        globals.time = 5 # 5 minutes 300
+        globals.time = 300 # 5 minutes
         minutes, seconds = divmod(globals.time, 60)
         self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
         globals.timer = Clock.schedule_interval(self.activatetime, 1)
@@ -222,6 +216,31 @@ class MainWindow(MDScreen):
                 globals.playerlogrev = random.sample(list(globals.notai), 2)
             else:
                 globals.playerlogrev = random.sample(list(globals.playerlist), 2)
+
+    def nextscreen(self):
+
+        EndGame.setalignments(self)
+        self.manager.current = "endgame"
+        self.manager.transition.direction = "left"
+
+        # Reset folders
+        self.ids.round1sub.text = f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round2sub1.text = f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round2sub2.text = f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+
+        # Reset possible log corruption text
+        self.ids.round1sum.text = "At least one hacker is among the following."
+        self.ids.round2sum1.text = "At least one hacker is among the following."
+        self.ids.round2sum2.text = "At least one hacker is among the following."
+
+        # Reset round indicator and navigator
+        self.ids.currentround.text = f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+        self.ids.roundregulator.right_action_items = []
+        self.ids.roundregulator.icon = "play"
+
+        # Set tab back to round 1
+        self.ids.mainpanel.switch_tab(
+    f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 1[/font][/size]")
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY

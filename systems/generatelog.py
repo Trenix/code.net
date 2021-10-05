@@ -10,10 +10,12 @@ def createlog(playersonlog):
                 amtbadlog = 3
             else:
                 amtbadlog = 2
+
         else:
             amtbadlog = 1
 
-            tempamthacker = random.randint(1, amtbadlog)
+        tempamthacker = random.randint(1, amtbadlog)
+
     else:
         if random.random() < (1 / ((globals.players + globals.aiamt) - 1)):
             amtbadlog = 2
