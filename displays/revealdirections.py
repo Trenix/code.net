@@ -58,6 +58,7 @@ class PlayerReveal(MDScreen):
 
     def nextscreen(self):
         if globals.revealtracker > globals.players:
+            self.manager.transition.direction = "left"
             self.manager.current = "main"
 
         # Reset code for new game if it occurs.
@@ -69,3 +70,13 @@ class PlayerReveal(MDScreen):
         self.ids.revtool.right_action_items = []
         self.ids.revtool.icon = "account-search"
         globals.revealtracker = 1
+
+    def rematchreset(self):
+
+        # Set up tracker for revealing
+        for x in range(globals.players):
+            self.ids[f"ind{x + 1}"].color = globals.colordefs[
+                globals.playerlist[f"player {x + 1}"]["color"]]
+
+        for x in range(globals.players + 1, 9 + 1):
+            self.ids[f"ind{x}"].icon = ''

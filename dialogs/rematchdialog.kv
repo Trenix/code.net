@@ -46,8 +46,10 @@
                 text_color: C("FFFFFF")
                 text: "Rematch"
                 on_release:
+                    root.rematch()
+                    app.root.get_screen('reveal').rematchreset()
+                    app.root.transition.direction = "down"
                     app.root.current = "reveal"
-                    app.root.get_screen('endgame').refresh()
                     root.dismiss()
 
             MDRectangleFlatButton:
@@ -57,6 +59,7 @@
                 text_color: C("FFFFFF")
                 text: "New Game"
                 on_release:
+                    app.root.transition.direction = "down"
                     app.root.current = "player"
                     app.root.get_screen('endgame').refresh()
                     root.dismiss()
