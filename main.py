@@ -65,6 +65,12 @@ class MainWindow(MDScreen):
 
         self.ids.round1reveal.disabled = True
 
+        # Check if logs are complete before being allowed to move to next round
+        if globals.time == 0:
+            self.ids.roundregulator.icon = "play"
+        else:
+            self.ids.roundregulator.icon = "stop"
+
         if random.random() < 0.7:
 
             self.ids.round1sum.text = "At least one hacker is among the following."
@@ -84,6 +90,12 @@ class MainWindow(MDScreen):
 
         self.ids.round2reveal1.disabled = True
 
+        # Check if logs are complete before being allowed to move to next round
+        if self.ids.round2reveal2.disabled == True and globals.time == 0:
+            self.ids.roundregulator.icon = "play"
+        elif self.ids.round2reveal2.disabled == True:
+            self.ids.roundregulator.icon = "stop"
+
         if random.random() < 0.7:
 
             self.ids.round2sum1.text = "At least one hacker is among the following."
@@ -98,6 +110,12 @@ class MainWindow(MDScreen):
 
         self.ids.round2reveal2.disabled = True
 
+        # Check if logs are complete before being allowed to move to next round
+        if self.ids.round2reveal1.disabled == True and globals.time == 0:
+            self.ids.roundregulator.icon = "play"
+        elif self.ids.round2reveal1.disabled == True:
+            self.ids.roundregulator.icon = "stop"
+
         if random.random() < 0.7:
 
             self.ids.round2sum2.text = "At least one hacker is among the following."
@@ -110,12 +128,29 @@ class MainWindow(MDScreen):
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
+
+        # Check if logs are complete before being allowed to move to next round
+        if self.ids.round3reveal2.disabled == True and globals.time == 0:
+            self.ids.roundregulator.icon = "square-rounded-outline"
+            self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
+        elif self.ids.round3reveal2.disabled == True:
+            self.ids.roundregulator.icon = "stop"
+
         temppop = LogDialog()
         temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
         temppop.open()
 
     def r3l2(self):
+
         self.ids.round3reveal2.disabled = True
+
+        # Check if logs are complete before being allowed to move to next round
+        if self.ids.round3reveal1.disabled == True and globals.time == 0:
+            self.ids.roundregulator.icon = "square-rounded-outline"
+            self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
+        elif self.ids.round3reveal1.disabled == True:
+            self.ids.roundregulator.icon = "stop"
+
         temppop = LogDialog()
         temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
         temppop.open()
@@ -124,7 +159,7 @@ class MainWindow(MDScreen):
 
     def settime(self):
 
-        globals.time = 300 # 5 minutes
+        globals.time = 5 # 5 minutes 300
         minutes, seconds = divmod(globals.time, 60)
         self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
         globals.timer = Clock.schedule_interval(self.activatetime, 1)
@@ -134,17 +169,18 @@ class MainWindow(MDScreen):
 
             globals.timer.cancel()
 
-            if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
+        # Check if moving to the next screen
+            if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]" and self.ids.roundregulator.icon == "stop":
                 self.ids.roundregulator.icon = "square-rounded-outline"
                 self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
-            else:
+            elif self.ids.roundregulator.icon == "stop":
                 self.ids.roundregulator.icon = "play"
 
         else:
-            globals.time = globals.time - 1
+            globals.time -= 1
             minutes, seconds = divmod(globals.time, 60)
-            self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
+            self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/size][/font]"
 
 
     def nextround(self):
@@ -153,7 +189,7 @@ class MainWindow(MDScreen):
         if self.ids.currentround.text == f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 1[/font][/size]")
-            self.ids.roundregulator.icon = "stop"
+            self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime()
 
 #Tab displays activated
@@ -163,7 +199,7 @@ class MainWindow(MDScreen):
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 2[/font][/size]")
-            self.ids.roundregulator.icon = "stop"
+            self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime()
 
 #Tab displays activated
@@ -174,7 +210,7 @@ class MainWindow(MDScreen):
         else:
             self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 3[/font][/size]")
-            self.ids.roundregulator.icon = "stop"
+            self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime()
 
 # Tab displays activated
