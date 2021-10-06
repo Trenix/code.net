@@ -22,7 +22,6 @@ class EndGame(MDScreen):
         self.ids.hackers.text = f" [color=#c62828][size=22][font=Icons]{md_icons['shield-bug']}[/font][/size][/color] Hackers: "
         self.ids.coders.text = f" [color=#1565c0][size=22][font=Icons]{md_icons['shield-lock']}[/font][/size][/color] Coders: "
 
-        globals.playerlist.clear()
         globals.coderlist.clear()
         globals.hackerlist.clear()
         globals.notai.clear()

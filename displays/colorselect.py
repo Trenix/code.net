@@ -1,6 +1,5 @@
 import globals
 from kivymd.uix.screen import MDScreen
-from kivymd.uix.label import MDIcon
 
 class ColorSelectScreen(MDScreen):
     from systems.openinformation import openinfo

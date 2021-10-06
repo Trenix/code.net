@@ -46,6 +46,7 @@
                 text_color: C("FFFFFF")
                 text: "Rematch"
                 on_release:
+                    app.root.get_screen('endgame').refresh()
                     root.rematch()
                     app.root.get_screen('reveal').rematchreset()
                     app.root.transition.direction = "down"
@@ -62,4 +63,5 @@
                     app.root.transition.direction = "down"
                     app.root.current = "player"
                     app.root.get_screen('endgame').refresh()
+                    root.newgame()
                     root.dismiss()

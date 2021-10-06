@@ -94,8 +94,8 @@ class LoadingScreen(MDScreen):
         Clock.schedule_once(self.start_loadbar, 0.1)
 
     def start_loadbar(self, dt):
-        #Timer to allow load for initial startup. Default is 3.3
-        Clock.schedule_once(self.nextscreen, 3.3)
+        #Timer to allow load for initial startup. Default is 3.5
+        Clock.schedule_once(self.nextscreen, 3.5)
 
         self.ids.loadbar.start()
 
