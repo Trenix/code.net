@@ -5,7 +5,7 @@
         orientation: "vertical"
 
         MDToolbar:
-            title: "Main Information"
+            title: f"[size=22][font=Icons]{md_icons['file-code']}[/font][/size] Actions"
             left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
@@ -13,7 +13,3 @@
             orientation: "vertical"
             spacing: 10
             padding: 21
-
-
-        MDLabel:
-            text: "Screen 3"

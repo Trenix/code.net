@@ -27,15 +27,13 @@
                     theme_text_color: "Custom"
                     font_style: 'H6'
                     text: "Introduction"
-                    markup: True
 
                 MDLabel:
                     adaptive_height: True
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "There are three rounds for each game. Depending on the round, depends on what kind and how many logs are provided. At any time you may review each round by using the tabs in the middle of the screen. You may not move to the next round if the timer is currently active."
-                    markup: True
+                    text: "There are three rounds for each game. Depending on the round, depends on what kind and how many logs are provided. At any time you may review each round by using the tabs in the middle of the screen. Use this feature to see what logs are coming up next or to see what evidence was revealed previously."
 
                 MDSeparator:
                     color: C("FFFFFF")
@@ -46,7 +44,6 @@
                     theme_text_color: "Custom"
                     font_style: 'H6'
                     text: "Legend"
-                    markup: True
 
                 MDLabel:
                     text_color: app.theme_cls.primary_color
@@ -118,17 +115,30 @@
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
                     font_style: 'H6'
-                    text: "Next Round"
-                    markup: True
+                    text: "Begin Round"
 
                 MDLabel:
                     text_color: app.theme_cls.primary_color
                     font_style: "Body2"
-                    text: f"In order to begin the next round, the [color=#FFFFFF][size=22][font=Icons]{md_icons['play']}[/font][/size][/color] button at the bottom must be pressed. There is also a round tracker at the top of the screen represented by three [color=#FFFFFF][size=22][font=Icons]{md_icons['circle-outline']}[/font][/size][/color]'s. The game ends after the three rounds have been completed."
+                    text: f"In order to begin the next round, the [color=#FFFFFF][size=22][font=Icons]{md_icons['play']}[/font][/size][/color] at the bottom must be pressed. It is only available once all logs have been uploaded for the round and the timer has ended. The timer may also end prematurely if agreed upon. Please review the timer section for more information."
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
 
+                MDSeparator:
+                    color: C("FFFFFF")
 
-#                    When the main screen is reached, players will be able to see three round tabs in the middle. At any time, you may review these tabs and have an idea of what is coming up and how many logs are provided. At the top of the screen you will notice three circles that represent what round you are currently in. You may begin the next round by pressing  at the bottom
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Round Indicator"
 
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"At the top of the screen there are three [color=#FFFFFF][size=22][font=Icons]{md_icons['circle-outline']}[/font][/size][/color]'s which represent each round. When a round begins, a [color=#FFFFFF][size=22][font=Icons]{md_icons['circle-outline']}[/font][/size][/color] becomes a [color=#FFFFFF][size=22][font=Icons]{md_icons['circle-slice-8']}[/font][/size][/color] to indicate what the current round is. The game ends once all three rounds have been completed. Once the game ends, a [color=#FFFFFF][size=22][font=Icons]{md_icons['chevron-right']}[/font][/size][/color] will appear at the bottom right of the screen which will take you to the results screen."
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
