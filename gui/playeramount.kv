@@ -14,9 +14,10 @@
             title: "C0de.Net"
             right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
-        MDStackLayout:
-            spacing: 10
-            padding: 21
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
 
             MDLabel:
                 adaptive_height: True
@@ -38,71 +39,71 @@
                 halign: "center"
                 markup: True
 
-        MDGridLayout:
-            cols: 3
-            padding: 5
-            spacing: 5
-            size_hint: 1, 0.5
+            MDBoxLayout:
 
-            MDFillRoundFlatIconButtonToggle:
-                icon: "account-group"
-                group: "player"
-                id: butt1
-                font_style: 'Button'
-                md_bg_color: app.theme_cls.primary_color
-                text: "4 players"
-                on_press:
-                    root.selectcheck(butt1)
+            MDGridLayout:
+                cols: 3
+                spacing: "8dp"
 
-            MDFillRoundFlatIconButtonToggle:
-                icon: "account-group"
-                group: "player"
-                id: butt2
-                font_style: 'Button'
-                md_bg_color: app.theme_cls.primary_color
-                text: "5 players"
-                on_press:
-                    root.selectcheck(butt2)
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt1
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "4 players"
+                    on_press:
+                        root.selectcheck(butt1)
 
-            MDFillRoundFlatIconButtonToggle:
-                icon: "account-group"
-                group: "player"
-                id: butt3
-                font_style: 'Button'
-                md_bg_color: app.theme_cls.primary_color
-                text: "6 players"
-                on_press:
-                    root.selectcheck(butt3)
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt2
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "5 players"
+                    on_press:
+                        root.selectcheck(butt2)
 
-            MDFillRoundFlatIconButtonToggle:
-                icon: "account-group"
-                group: "player"
-                id: butt4
-                font_style: 'Button'
-                md_bg_color: app.theme_cls.primary_color
-                text: "7 Players"
-                on_press:
-                    root.selectcheck(butt4)
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt3
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "6 players"
+                    on_press:
+                        root.selectcheck(butt3)
 
-            MDFillRoundFlatIconButtonToggle:
-                icon: "account-group"
-                group: "player"
-                id: butt5
-                font_style: "Button"
-                md_bg_color: app.theme_cls.primary_color
-                text: "8 Players"
-                on_press:
-                    root.selectcheck(butt5)
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt4
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "7 Players"
+                    on_press:
+                        root.selectcheck(butt4)
 
-            MDFillRoundFlatIconButtonToggle:
-                icon: "account-group"
-                group: "player"
-                id: butt6
-                font_style: "Button"
-                md_bg_color: app.theme_cls.primary_color
-                text: "9 Players"
-                on_press:
-                    root.selectcheck(butt6)
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt5
+                    font_style: "Button"
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "8 Players"
+                    on_press:
+                        root.selectcheck(butt5)
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt6
+                    font_style: "Button"
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "9 Players"
+                    on_press:
+                        root.selectcheck(butt6)
 
         MDBoxLayout:
 

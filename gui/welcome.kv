@@ -14,9 +14,10 @@
             title: "C0de.Net"
             right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
-        MDStackLayout:
-            spacing: 10
-            padding: 21
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
 
             MDLabel:
                 adaptive_height: True
@@ -38,8 +39,7 @@
                 halign: "center"
                 markup: True
 
-        MDBoxLayout:
-            orientation: "vertical"
+            MDBoxLayout:
 
             MDLabel:
                 text_color: app.theme_cls.primary_color

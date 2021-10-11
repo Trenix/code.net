@@ -14,9 +14,10 @@
             title: "C0de.Net"
             right_action_items: [["information-outline", lambda x: root.openinfo()], ["refresh", lambda x: root.RefreshTracker()]]
 
-        MDStackLayout:
-            spacing: 10
-            padding: 21
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
 
             MDLabel:
                 adaptive_height: True
@@ -38,8 +39,8 @@
                 halign: "center"
                 markup: True
 
-        MDBoxLayout:
-            size_hint: 1, 0.15
+            MDBoxLayout:
+                size_hint: 1, 0.28
 
             MDLabel:
                 id: remainder
@@ -51,97 +52,96 @@
                 halign: "center"
                 markup: True
 
-        MDBoxLayout:
-            size_hint: 1, 0.18
+            MDBoxLayout:
+                size_hint: 1, 0.3
 
-        MDGridLayout:
-            padding: 5
-            spacing: 5
-            cols: 3
-            spacing: 5
+            MDGridLayout:
+                cols: 3
+                spacing: "8dp"
 
-            MDFillRoundFlatIconButton:
-                icon: "circle-outline"
-                id: but1
-                font_style: "Button" #800
-                md_bg_color: C('#c62828')
-                text: "Red"
-                on_release:
-                    root.ColorSelect(but1)
+                MDFillRoundFlatIconButton:
+                    icon: "circle-outline"
+                    id: but1
+                    font_style: "Button" #800
+                    md_bg_color: C('#c62828')
+                    text: "Red"
+                    on_release:
+                        root.ColorSelect(but1)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#ad1457')
-                icon: "circle-outline"
-                id: but2
-                font_style: "Button"
-                text: "Pink"
-                on_release:
-                    root.ColorSelect(but2)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#ad1457')
+                    icon: "circle-outline"
+                    id: but2
+                    font_style: "Button"
+                    text: "Pink"
+                    on_release:
+                        root.ColorSelect(but2)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#6a1b9a')
-                icon: "circle-outline"
-                id: but3
-                font_style: "Button"
-                text: "Purple"
-                on_release:
-                    root.ColorSelect(but3)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#6a1b9a')
+                    icon: "circle-outline"
+                    id: but3
+                    font_style: "Button"
+                    text: "Purple"
+                    on_release:
+                        root.ColorSelect(but3)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#1565c0')
-                icon: "circle-outline"
-                id: but4
-                font_style: "Button"
-                text: "Blue"
-                on_release:
-                    root.ColorSelect(but4)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#1565c0')
+                    icon: "circle-outline"
+                    id: but4
+                    font_style: "Button"
+                    text: "Blue"
+                    on_release:
+                        root.ColorSelect(but4)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#2e7d32')
-                icon: "circle-outline"
-                id: but5
-                font_style: "Button"
-                text: "Green"
-                on_release:
-                    root.ColorSelect(but5)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#2e7d32')
+                    icon: "circle-outline"
+                    id: but5
+                    font_style: "Button"
+                    text: "Green"
+                    on_release:
+                        root.ColorSelect(but5)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#f9a825')
-                icon: "circle-outline"
-                id: but6
-                font_style: "Button"
-                text: "Yellow"
-                on_release:
-                    root.ColorSelect(but6)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#f9a825')
+                    icon: "circle-outline"
+                    id: but6
+                    font_style: "Button"
+                    text: "Yellow"
+                    on_release:
+                        root.ColorSelect(but6)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#ef6c00')
-                icon: "circle-outline"
-                id: but7
-                font_style: "Button"
-                text: "Orange"
-                on_release:
-                    root.ColorSelect(but7)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#ef6c00')
+                    icon: "circle-outline"
+                    id: but7
+                    font_style: "Button"
+                    text: "Orange"
+                    on_release:
+                        root.ColorSelect(but7)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#4e342e')
-                icon: "circle-outline"
-                id: but8
-                font_style: "Button"
-                text: "Brown"
-                on_release:
-                    root.ColorSelect(but8)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#4e342e')
+                    icon: "circle-outline"
+                    id: but8
+                    font_style: "Button"
+                    text: "Brown"
+                    on_release:
+                        root.ColorSelect(but8)
 
-            MDFillRoundFlatIconButton:
-                md_bg_color: C('#424242')
-                icon: "circle-outline"
-                id: but9
-                font_style: "Button"
-                text: "Grey"
-                on_release:
-                    root.ColorSelect(but9)
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C('#424242')
+                    icon: "circle-outline"
+                    id: but9
+                    font_style: "Button"
+                    text: "Grey"
+                    on_release:
+                        root.ColorSelect(but9)
 
         MDBoxLayout:
+            size_hint: 1, 0.7
 
         MDBottomAppBar:
             MDToolbar:

@@ -14,9 +14,10 @@
             title: "C0de.Net"
             right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
-        MDStackLayout:
-            spacing: 10
-            padding: 21
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
 
             MDLabel:
                 adaptive_height: True
@@ -30,29 +31,13 @@
                 color: C("FFFFFF")
 
             MDLabel:
-                text: f"Follow the [color=#FFFFFF]tracker[/color] below and press the [size=22][color=#FFFFFF][font=Icons]{md_icons['account-search']}[/font][/color][/size] button at the [color=#FFFFFF]bottom[/color] when it's [color=#FFFFFF]your[/color] turn to reveal your [color=#FFFFFF]identity[/color]."
+                text: f"Follow the [color=#FFFFFF]tracker[/color] below and press the [size=16sp][color=#FFFFFF][font=Icons]{md_icons['account-search']}[/font][/color][/size] button at the [color=#FFFFFF]bottom[/color] when it's [color=#FFFFFF]your[/color] turn to reveal your [color=#FFFFFF]identity[/color]."
                 adaptive_height: True
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 font_style: 'Subtitle1'
                 halign: "center"
                 markup: True
-
-        MDBoxLayout:
-            padding: 21
-            adaptive_height: True
-
-#            canvas.before:
-#                Color:
-#                    rgba: 51/255, 255/255, 51/255, 0.3
-#                Line:
-#                    width: 0.3
-#                    rectangle: self.x, self.y, self.width, self.height
-#                Color:
-#                    rgba: 51/255, 255/255, 51/255, 0.06
-#                Rectangle:
-#                    pos: self.pos
-#                    size: self.size
 
             MDGridLayout:
                 canvas.before:
@@ -68,76 +53,76 @@
                         size: self.size
                 id: setgrid
                 adaptive_height: True
-                padding: 20
+                padding: "20dp"
                 cols: 9
 
                 MDIcon:
                     id: ind1
                     theme_text_color: "Custom"
                     icon: "circle-slice-8"
-                    font_size: 30
+                    font_size: "30sp"
                     halign: "center"
 
                 MDIcon:
                     id: ind2
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind3
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind4
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind5
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind6
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind7
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind8
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
                 MDIcon:
                     id: ind9
-                    font_size: 30
+                    font_size: "30sp"
                     theme_text_color: "Custom"
                     icon: "circle-outline"
                     halign: "center"
 
-        MDBoxLayout:
-            padding: 40
+            MDBoxLayout:
+                size_hint: 1, 0.1
+
             MDLabel:
-                pos_hint: {"top": 1}
                 id: nextplayer
                 text_color: C("FFFFFF")
                 halign: "center"
