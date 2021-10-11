@@ -22,10 +22,10 @@ from kivy.clock import Clock
 import random
 import globals
 
-KIVY_DPI=320
-KIVY_METRICS_DENSITY=2
-
-Window.size = (720, 1280)
+# KIVY_DPI=320
+# KIVY_METRICS_DENSITY=2
+#
+# Window.size = (720, 1280)
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
