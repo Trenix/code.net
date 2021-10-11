@@ -1,11 +1,11 @@
 <IdentityDialog>:
     auto_dismiss: False
-    size_hint: 0.8, 0.5
+    size_hint: 0.9, 0.5
 
     MDCard:
         orientation: "vertical"
-        padding: 21
-        spacing: 10
+        spacing: "8dp"
+        padding: "8dp"
         md_bg_color: app.theme_cls.primary_color
         border_radius: 20
         radius: [15]
@@ -27,9 +27,9 @@
 
         MDBoxLayout:
             id: identity
-            spacing: 4
+            spacing: "8dp"
             orientation: "vertical"
-            padding: 8, 0, 8, 0
+            padding: "8dp"
             canvas.before:
                 Color:
                     rgba: C('#296f2c')
