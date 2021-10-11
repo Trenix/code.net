@@ -19,9 +19,9 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 4
             globals.aiamt = 1
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-4-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-4-circle']}[/color][/font]"
 
-            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-3-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-3-circle']}[/color][/font]"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -33,9 +33,9 @@ class PlayerWindow(MDScreen):
             globals.players = 5
             globals.aiamt = 1
 
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-5-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-5-circle']}[/color][/font]"
 
-            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -46,9 +46,9 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 6
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-6-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-6-circle']}[/color][/font]"
 
-            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -59,9 +59,9 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 7
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-7-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-7-circle']}[/color][/font]"
 
-            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-5-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-5-circle']}[/color][/font]"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -72,9 +72,9 @@ class PlayerWindow(MDScreen):
             globals.amtbad = 2
             globals.players = 8
             globals.aiamt = 0
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-8-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-8-circle']}[/color][/font]"
 
-            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -86,9 +86,9 @@ class PlayerWindow(MDScreen):
             globals.players = 9
             globals.aiamt = 0
 
-            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-9-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.playeridentifer.text = f"[size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-9-circle']}[/color][/font]"
 
-            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
+            self.manager.get_screen("main").ids.alignmentidentifer.text = f"[size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 

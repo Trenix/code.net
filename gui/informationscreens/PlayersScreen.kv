@@ -10,7 +10,7 @@
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
         ScrollView:
-            bar_width: 10
+            bar_width: "8dp"
             bar_color: C('FFFFFF')
 
             MDBoxLayout:
@@ -18,8 +18,8 @@
                 size_hint: None, None
                 height: self.minimum_height
                 size: (root.width, root.height)
-                spacing: 10
-                padding: 21
+                spacing: "8dp"
+                padding: "8dp"
 
                 MDLabel:
                     adaptive_height: True
@@ -48,7 +48,7 @@
                 MDLabel:
                     text_color: C("FFFFFF")
                     font_style: "Body2"
-                    text: f"[size=22][font=Icons]{md_icons['account-circle']}[/font][/size]: AI"
+                    text: f"[size=22sp][font=Icons]{md_icons['account-circle']}[/font][/size]: AI"
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
@@ -56,7 +56,7 @@
                 MDLabel:
                     text_color: C("FFFFFF")
                     font_style: "Body2"
-                    text: f"[color=#2e7d32][size=22][font=Icons]{md_icons['account-supervisor-circle']}[/font][/size][/color]: Human"
+                    text: f"[color=#2e7d32][size=22sp][font=Icons]{md_icons['account-supervisor-circle']}[/font][/size][/color]: Human"
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
@@ -82,7 +82,7 @@
                         halign: "center"
                         text_color: C("FFFFFF")
                         font_style: "Body2"
-                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 4 Players: [size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-4-circle']}[/color][/font]"
+                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 4 Players: [size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-4-circle']}[/color][/font]"
                         theme_text_color: "Custom"
                         adaptive_height: True
                         markup: True
@@ -97,7 +97,7 @@
                         adaptive_height: True
                         markup: True
                         md_bg_color: app.theme_cls.primary_dark
-                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 5 Players: [size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-5-circle']}[/color][/font]"
+                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 5 Players: [size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-1-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-5-circle']}[/color][/font]"
 
     # 6 Players
 
@@ -108,7 +108,7 @@
                         theme_text_color: "Custom"
                         adaptive_height: True
                         markup: True
-                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 6 Players: [size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-6-circle']}[/color][/font]"
+                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 6 Players: [size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-6-circle']}[/color][/font]"
 
     # 7 Players
 
@@ -120,7 +120,7 @@
                         adaptive_height: True
                         markup: True
                         md_bg_color: app.theme_cls.primary_dark
-                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 7 Players: [size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-7-circle']}[/color][/font]"
+                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 7 Players: [size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-7-circle']}[/color][/font]"
 
     # 8 Players
 
@@ -131,7 +131,7 @@
                         text_color: C("FFFFFF")
                         adaptive_height: True
                         markup: True
-                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 8 Players: [size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-8-circle']}[/color][/font]"
+                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 8 Players: [size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-8-circle']}[/color][/font]"
 
     # 9 Players
 
@@ -143,7 +143,7 @@
                         adaptive_height: True
                         markup: True
                         md_bg_color: app.theme_cls.primary_dark
-                        text: f"[font=Icons][size=22]{md_icons['account-group']}[/font][/size] 9 Players: [size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-9-circle']}[/color][/font]"
+                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 9 Players: [size=22sp][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-9-circle']}[/color][/font]"
 
                 MDSeparator:
                     color: C("FFFFFF")

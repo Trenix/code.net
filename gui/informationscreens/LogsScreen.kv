@@ -10,7 +10,7 @@
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
         ScrollView:
-            bar_width: 10
+            bar_width: "8dp"
             bar_color: C('FFFFFF')
 
             MDBoxLayout:
@@ -18,8 +18,8 @@
                 size_hint: None, None
                 height: self.minimum_height
                 size: (root.width, root.height)
-                spacing: 10
-                padding: 21
+                spacing: "8dp"
+                padding: "8dp"
 
                 MDLabel:
                     adaptive_height: True
@@ -50,7 +50,7 @@
                 MDLabel:
                     text_color: app.theme_cls.primary_color
                     font_style: "Body2"
-                    text: f"[size=22][font=Icons]{md_icons['folder']}[/font][/size][color=#FFFFFF]: Unrevealed Evidence[/color]"
+                    text: f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size][color=#FFFFFF]: Unrevealed Evidence[/color]"
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
@@ -58,7 +58,7 @@
                 MDLabel:
                     text_color: C('FFFFFF')
                     font_style: "Body2"
-                    text: f"[color=#1565c0][size=22][font=Icons]{md_icons['folder-key']}[/font][/size][/color]: Exclusive Evidence"
+                    text: f"[color=#1565c0][size=22sp][font=Icons]{md_icons['folder-key']}[/font][/size][/color]: Exclusive Evidence"
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
@@ -66,7 +66,7 @@
                 MDLabel:
                     text_color: C('FFFFFF')
                     font_style: "Body2"
-                    text: f"[size=22][font=Icons]{md_icons['folder-account']}[/font][/size]: Revealed Evidence"
+                    text: f"[size=22sp][font=Icons]{md_icons['folder-account']}[/font][/size]: Revealed Evidence"
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
@@ -74,7 +74,7 @@
                 MDLabel:
                     text_color: C('FFFFFF')
                     font_style: "Body2"
-                    text: f"[size=22][color=#c62828][font=Icons]{md_icons['folder-alert']}[/font][/color][/size]: Corrupted Evidence"
+                    text: f"[size=22sp][color=#c62828][font=Icons]{md_icons['folder-alert']}[/font][/color][/size]: Corrupted Evidence"
                     theme_text_color: "Custom"
                     adaptive_height: True
                     markup: True
@@ -94,7 +94,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"Each [size=22][color=#FFFFFF][font=Icons]{md_icons['folder']}[/font][/color][/size] is evidence of a player that is on the log. Once a log is uploaded by pressing the [color=#FFFFFF][size=22][font=Icons]{md_icons['cloud-upload']}[/font][/size][/color], the evidence will become [color=#FFFFFF][size=22][font=Icons]{md_icons['folder-account']}[/font][/size][/color] and the color of the evidence will signify who it belongs to. There is a probability where logs may be exactly the same. This is an intended and should be taken into consideration."
+                    text: f"Each [size=22sp][color=#FFFFFF][font=Icons]{md_icons['folder']}[/font][/color][/size] is evidence of a player that is on the log. Once a log is uploaded by pressing the [color=#FFFFFF][size=22sp][font=Icons]{md_icons['cloud-upload']}[/font][/size][/color], the evidence will become [color=#FFFFFF][size=22sp][font=Icons]{md_icons['folder-account']}[/font][/size][/color] and the color of the evidence will signify who it belongs to. There is a probability where logs may be exactly the same. This is an intended and should be taken into consideration."
                     markup: True
 
                 MDSeparator:
@@ -112,7 +112,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"There is a seventy percent chance of a log failing when it is being revealed. This percentage may have been tampered with by other players. When a log becomes corrupted, all unrevealed evidence becomes [size=22][color=#FFFFFF][font=Icons]{md_icons['folder-alert']}[/font][/color][/size] and no further information is provided. Only player logs cannot be corrupted. Corrupted logs may be recovered by actions."
+                    text: f"There is a seventy percent chance of a log failing when it is being revealed. This percentage may have been tampered with by other players. When a log becomes corrupted, all unrevealed evidence becomes [size=22sp][color=#FFFFFF][font=Icons]{md_icons['folder-alert']}[/font][/color][/size] and no further information is provided. Only player logs cannot be corrupted. Corrupted logs may be recovered by actions."
                     markup: True
 
                 MDSeparator:
@@ -130,5 +130,5 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"Player logs are found on the 3rd round and are identified by two [color=#FFFFFF][size=22][font=Icons]{md_icons['folder-key']}[/font][/size][/color]. A player log can be opened by the pressing the [color=#FFFFFF][size=22][font=Icons]{md_icons['cloud']}[/font][/size][/color]. Once opened, it will reveal who the log belongs to. Only the owner of the log can upload and view its revealed contents. The player who owns the log will never be within their own log. One player cannot have multiple player logs nor can an AI get a player log."
+                    text: f"Player logs are found on the 3rd round and are identified by two [color=#FFFFFF][size=22sp][font=Icons]{md_icons['folder-key']}[/font][/size][/color]. A player log can be opened by the pressing the [color=#FFFFFF][size=22sp][font=Icons]{md_icons['cloud']}[/font][/size][/color]. Once opened, it will reveal who the log belongs to. Only the owner of the log can upload and view its revealed contents. The player who owns the log will never be within their own log. One player cannot have multiple player logs nor can an AI get a player log."
                     markup: True

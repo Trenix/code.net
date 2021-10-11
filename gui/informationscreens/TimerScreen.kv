@@ -10,7 +10,7 @@
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
         ScrollView:
-            bar_width: 10
+            bar_width: "8dp"
             bar_color: C('FFFFFF')
 
             MDBoxLayout:
@@ -18,8 +18,8 @@
                 size_hint: None, None
                 height: self.minimum_height
                 size: (root.width, root.height)
-                spacing: 10
-                padding: 21
+                spacing: "8dp"
+                padding: "8dp"
 
                 MDLabel:
                     adaptive_height: True
@@ -50,5 +50,5 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"Players may choose to end the timer sooner than intended. This can be because no more information can be obtained from players or hackers want to prevent more information from being revealed. In order to end a timer early, the majority must agree to it. Once agreed, press the [color=#FFFFFF][size=22][font=Icons]{md_icons['stop']}[/font][/size][/color] below the main screen and agree to the prompt."
+                    text: f"Players may choose to end the timer sooner than intended. This can be because no more information can be obtained from players or hackers want to prevent more information from being revealed. In order to end a timer early, the majority must agree to it. Once agreed, press the [color=#FFFFFF][size=22sp][font=Icons]{md_icons['stop']}[/font][/size][/color] below the main screen and agree to the prompt."
                     markup: True

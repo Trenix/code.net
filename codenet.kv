@@ -37,7 +37,7 @@ WindowManager:
     AnchorLayout:
         anchor_x: "right"
         anchor_y: "top"
-        padding: 0, 100, 10, 0
+        padding: "0dp", "100dp", "10dp", "0dp"
         MDLabel:
             id: playeridentifer
             halign: "right"
@@ -46,12 +46,11 @@ WindowManager:
             adaptive_width: True
             theme_text_color: "Custom"
             markup: True
-            text: f"[size=22][font=Icons]{md_icons['account-circle']}{md_icons['numeric-0-circle']}[color=#2e7d32]{md_icons['account-supervisor-circle']}{md_icons['numeric-6-circle']}[/color][/font]"
 
     AnchorLayout:
         anchor_x: "left"
         anchor_y: "top"
-        padding: 10, 100, 0, 0
+        padding: "10dp", "100dp", "0dp", "0dp"
         MDLabel:
             id: alignmentidentifer
             size_hint: None, None
@@ -59,7 +58,7 @@ WindowManager:
             adaptive_width: True
             theme_text_color: "Custom"
             markup: True
-            text: f"[size=22][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+
 #-----------------------------
 
     MDBoxLayout:
@@ -72,8 +71,8 @@ WindowManager:
 
         MDBoxLayout:
             orientation: "vertical"
-            padding: 10
-            spacing: 21
+            spacing: "8dp"
+            padding: "8dp"
 
             MDLabel:
                 theme_text_color: "Custom"
@@ -90,16 +89,16 @@ WindowManager:
                 text_color: app.theme_cls.primary_color
                 theme_text_color: "Custom"
                 id: currentround
-                text: f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+                text: f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
                 markup: True
                 halign: "center"
 
             MDBoxLayout:
-                size_hint: 1, 0.5
+            MDBoxLayout:
 
             MDBoxLayout:
                 orientation: "vertical"
-                spacing: 10
+                spacing: "10dp"
 
                 MDLabel:
                     adaptive_height: True
@@ -108,12 +107,12 @@ WindowManager:
                     font_style: 'Subtitle1'
                     halign: "center"
                     markup: True
-                    text: f"[size=22][font=Icons]{md_icons['timer']}[/font][/size]"
+                    text: f"[size=25sp][font=Icons]{md_icons['timer']}[/font][/size]"
 
                 MDFloatingLabel:
                     adaptive_height: True
                     id: timer
-                    text: "[font=H4][size=30]00:00[/size][/font]"
+                    text: "[font=H4][size=50sp]00:00[/size][/font]"
                     theme_text_color: "Custom"
                     markup: True
                     text_color: C('#FFFFFF')
@@ -129,7 +128,9 @@ WindowManager:
                 disabled: True
 
             MDBoxLayout:
-                size_hint: 1, 0.01
+            MDBoxLayout:
+            MDBoxLayout:
+            MDBoxLayout:
 
         MDBoxLayout:
             orientation: "vertical"
@@ -143,13 +144,13 @@ WindowManager:
                 tab_indicator_anim: True
 
                 Tab:
-                    title: f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 1[/font][/size]"
+                    title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]"
                     markup: True
 
                     MDBoxLayout:
                         orientation: "vertical"
-                        padding: 10
-                        spacing: 10
+                        padding: "8dp"
+                        spacing: "8dp"
 
                         MDBoxLayout:
 
@@ -175,7 +176,7 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 markup: True
-                                text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
                             MDLabel:
                                 text_color: app.theme_cls.primary_color
@@ -200,14 +201,14 @@ WindowManager:
                         MDBoxLayout:
 
                 Tab:
-                    title: f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 2[/font][/size]"
+                    title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]"
                     markup: True
 
                     MDBoxLayout:
                         opacity: 1
                         orientation: "vertical"
-                        padding: 10
-                        spacing: 10
+                        padding: "8dp"
+                        spacing: "8dp"
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -231,7 +232,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum1
@@ -275,7 +276,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum2
@@ -298,13 +299,13 @@ WindowManager:
                                 root.r2l2()
 
                 Tab:
-                    title: f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 3[/font][/size]"
+                    title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 3[/font][/size]"
                     markup: True
 
                     MDBoxLayout:
                         orientation: "vertical"
-                        padding: 10
-                        spacing: 10
+                        padding: "8dp"
+                        spacing: "8dp"
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -328,7 +329,7 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 markup: True
-                                text: f"[size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
 
                             MDLabel:
                                 text_color: app.theme_cls.primary_color
@@ -371,7 +372,7 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 markup: True
-                                text: f"[size=30][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
 
                             MDLabel:
                                 text_color: app.theme_cls.primary_color

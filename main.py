@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-from kivy.core.window import Window
+# from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
 from displays.revealdirections import *
@@ -39,10 +39,10 @@ class MainWindow(MDScreen):
 
     def resettimer(self):
 
-        self.ids.timer.text = "[font=H4][size=30]00:00[/size][/font]"
+        self.ids.timer.text = "[font=H4][size=50sp]00:00[/size][/font]"
         globals.timer.cancel()
 
-        if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
+        if self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
             self.ids.roundregulator.icon = "square-rounded-outline"
             self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
@@ -80,7 +80,7 @@ class MainWindow(MDScreen):
 #-----------------------------------------------
 
         else:
-            self.ids.round1sub.text = f"[color=#c62828][size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+            self.ids.round1sub.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
             self.ids.round1sum.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r2l1(self):
@@ -100,7 +100,7 @@ class MainWindow(MDScreen):
             self.ids.round2sub1.text = log
 
         else:
-            self.ids.round2sub1.text = f"[color=#c62828][size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+            self.ids.round2sub1.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
             self.ids.round2sum1.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r2l2(self):
@@ -120,7 +120,7 @@ class MainWindow(MDScreen):
             self.ids.round2sub2.text = log
 
         else:
-            self.ids.round2sub2.text = f"[color=#c62828][size=30][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+            self.ids.round2sub2.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
             self.ids.round2sum2.text = "[color=#c62828]The log has been corrupted![/color]"
 
     def r3l1(self):
@@ -158,7 +158,7 @@ class MainWindow(MDScreen):
 
         globals.time = 300 # 5 minutes
         minutes, seconds = divmod(globals.time, 60)
-        self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
+        self.ids.timer.text = "[font=H4][size=50sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
         globals.timer = Clock.schedule_interval(self.activatetime, 1)
 
     def activatetime(self, dt):
@@ -167,7 +167,7 @@ class MainWindow(MDScreen):
             globals.timer.cancel()
 
         # Check if moving to the next screen
-            if self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]" and self.ids.roundregulator.icon == "stop":
+            if self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]" and self.ids.roundregulator.icon == "stop":
                 self.ids.roundregulator.icon = "square-rounded-outline"
                 self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
@@ -177,15 +177,15 @@ class MainWindow(MDScreen):
         else:
             globals.time -= 1
             minutes, seconds = divmod(globals.time, 60)
-            self.ids.timer.text = "[font=H4][size=30]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/size][/font]"
+            self.ids.timer.text = "[font=H4][size=50sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/size][/font]"
 
 
     def nextround(self):
 
 # Round 1
-        if self.ids.currentround.text == f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
-            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 1[/font][/size]")
+        if self.ids.currentround.text == f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+            self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime()
 
@@ -193,9 +193,9 @@ class MainWindow(MDScreen):
             self.ids.round1reveal.disabled = False
 
 # Round 2
-        elif self.ids.currentround.text == f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
-            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 2[/font][/size]")
+        elif self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
+            self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime()
 
@@ -205,8 +205,8 @@ class MainWindow(MDScreen):
 
 # Round 3
         else:
-            self.ids.currentround.text = f"[color=#FFFFFF][size=30][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 3[/font][/size]")
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
+            self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 3[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime()
 
@@ -227,9 +227,9 @@ class MainWindow(MDScreen):
         self.manager.transition.direction = "left"
 
         # Reset folders
-        self.ids.round1sub.text = f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-        self.ids.round2sub1.text = f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-        self.ids.round2sub2.text = f"[size=30][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round1sub.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round2sub1.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round2sub2.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
         # Reset possible log corruption text
         self.ids.round1sum.text = "At least one hacker is among the following."
@@ -237,13 +237,13 @@ class MainWindow(MDScreen):
         self.ids.round2sum2.text = "At least one hacker is among the following."
 
         # Reset round indicator and navigator
-        self.ids.currentround.text = f"[size=30][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+        self.ids.currentround.text = f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
         self.ids.roundregulator.right_action_items = []
         self.ids.roundregulator.icon = "play"
 
         # Set tab back to round 1
         self.ids.mainpanel.switch_tab(
-    f"[size=22][font=Icons]{md_icons['folder-search']}[/font][/size][size=15][font=Button] ROUND 1[/font][/size]")
+    f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]")
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY

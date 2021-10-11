@@ -10,7 +10,7 @@
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
         ScrollView:
-            bar_width: 10
+            bar_width: "8dp"
             bar_color: C('FFFFFF')
 
             MDBoxLayout:
@@ -18,8 +18,8 @@
                 size_hint: None, None
                 height: self.minimum_height
                 size: (root.width, root.height)
-                spacing: 10
-                padding: 21
+                spacing: "8dp"
+                padding: "8dp"
 
                 MDLabel:
                     adaptive_height: True
