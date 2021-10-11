@@ -34,13 +34,13 @@ def createlog(playersonlog):
     tempcolorlog.sort()
 
     if playersonlog == 4:
-        strtemplog = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs2[tempcolorlog[2]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs2[tempcolorlog[3]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] "
+        strtemplog = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                     f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                     f"[color={globals.colordefs2[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                     f"[color={globals.colordefs2[tempcolorlog[3]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] "
     else:
-        strtemplog = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs2[tempcolorlog[2]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] "
+        strtemplog = f"[color={globals.colordefs2[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                     f"[color={globals.colordefs2[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                     f"[color={globals.colordefs2[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] "
 
     return strtemplog

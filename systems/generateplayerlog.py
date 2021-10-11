@@ -26,7 +26,7 @@ def createplayerlog(logplayer):
 
     tempplayercolorlog.sort()
 
-    strtempplayerlog = f"[color={globals.colordefs2[tempplayercolorlog[0]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                 f"[color={globals.colordefs2[tempplayercolorlog[1]]}][size=30][font=Icons]{md_icons['folder-account']}[/font][/color] "
+    strtempplayerlog = f"[color={globals.colordefs2[tempplayercolorlog[0]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
+                 f"[color={globals.colordefs2[tempplayercolorlog[1]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] "
 
     return strtempplayerlog

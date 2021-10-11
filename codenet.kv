@@ -72,7 +72,7 @@ WindowManager:
         MDBoxLayout:
             orientation: "vertical"
             spacing: "8dp"
-            padding: "8dp"
+            padding: "8dp", "8dp", "8dp", "60dp"
 
             MDLabel:
                 theme_text_color: "Custom"
@@ -94,7 +94,6 @@ WindowManager:
                 halign: "center"
 
             MDBoxLayout:
-            MDBoxLayout:
 
             MDBoxLayout:
                 orientation: "vertical"
@@ -107,12 +106,12 @@ WindowManager:
                     font_style: 'Subtitle1'
                     halign: "center"
                     markup: True
-                    text: f"[size=25sp][font=Icons]{md_icons['timer']}[/font][/size]"
+                    text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size]"
 
                 MDFloatingLabel:
                     adaptive_height: True
                     id: timer
-                    text: "[font=H4][size=50sp]00:00[/size][/font]"
+                    text: "[font=H4][size=40sp]00:00[/size][/font]"
                     theme_text_color: "Custom"
                     markup: True
                     text_color: C('#FFFFFF')
@@ -127,9 +126,6 @@ WindowManager:
                 font_style: 'Button'
                 disabled: True
 
-            MDBoxLayout:
-            MDBoxLayout:
-            MDBoxLayout:
             MDBoxLayout:
 
         MDBoxLayout:

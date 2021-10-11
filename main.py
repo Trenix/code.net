@@ -39,7 +39,7 @@ class MainWindow(MDScreen):
 
     def resettimer(self):
 
-        self.ids.timer.text = "[font=H4][size=50sp]00:00[/size][/font]"
+        self.ids.timer.text = "[font=H4][size=40sp]00:00[/size][/font]"
         globals.timer.cancel()
 
         if self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
@@ -158,7 +158,7 @@ class MainWindow(MDScreen):
 
         globals.time = 300 # 5 minutes
         minutes, seconds = divmod(globals.time, 60)
-        self.ids.timer.text = "[font=H4][size=50sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
+        self.ids.timer.text = "[font=H4][size=40sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
         globals.timer = Clock.schedule_interval(self.activatetime, 1)
 
     def activatetime(self, dt):
@@ -177,7 +177,7 @@ class MainWindow(MDScreen):
         else:
             globals.time -= 1
             minutes, seconds = divmod(globals.time, 60)
-            self.ids.timer.text = "[font=H4][size=50sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/size][/font]"
+            self.ids.timer.text = "[font=H4][size=40sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/size][/font]"
 
 
     def nextround(self):
