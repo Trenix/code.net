@@ -40,8 +40,7 @@ WindowManager:
             left_action_items: [["menu", lambda x: x]]
             right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
-        MDBoxLayout:
-            orientation: "vertical"
+        MDStackLayout:
             spacing: "8dp"
             padding: "8dp"
 
@@ -66,6 +65,8 @@ WindowManager:
                     theme_text_color: "Custom"
                     markup: True
                     halign: "left"
+                    text_size: self.size
+                    valign: "top"
 
                 MDLabel:
                     text_color: app.theme_cls.primary_color
@@ -83,25 +84,31 @@ WindowManager:
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
                     markup: True
-                    halign: "right"
+                    text_size: self.size
+                    valign: "top"
 
-            MDLabel:
+            MDBoxLayout:
+                orientation: "vertical"
+                spacing: "8dp"
                 adaptive_height: True
-                text_color: C('FFFFFF')
-                theme_text_color: "Custom"
-                font_style: 'Subtitle1'
-                halign: "center"
-                markup: True
-                text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size]"
 
-            MDFloatingLabel:
-                adaptive_height: True
-                id: timer
-                text: "[font=H4][size=40sp]00:00[/size][/font]"
-                theme_text_color: "Custom"
-                markup: True
-                text_color: C('#FFFFFF')
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Subtitle1'
+                    halign: "center"
+                    markup: True
+                    text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size]"
+
+                MDFloatingLabel:
+                    adaptive_height: True
+                    id: timer
+                    text: "[font=H4][size=40sp]00:00[/size][/font]"
+                    theme_text_color: "Custom"
+                    markup: True
+                    text_color: C('#FFFFFF')
+                    pos_hint: {"center_x": 0.5}
 
 #            MDFillRoundFlatIconButton:
 #                icon: 'file-code'
@@ -112,11 +119,9 @@ WindowManager:
 #                font_style: 'Button'
 #                disabled: True
 
-            MDBoxLayout:
-
         MDBoxLayout:
             orientation: "vertical"
-            padding: "0dp", "8dp", "0dp", "50dp"
+            padding: "0dp", "8dp", "0dp", "55dp"
 
             MDTabs:
                 indicator_color: C('FFFFFF')
