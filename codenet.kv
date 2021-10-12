@@ -32,35 +32,6 @@ WindowManager:
             size: 1644, 3840
             source: "images/defaultback.png"
 
-#---------- Indicators----------
-
-    AnchorLayout:
-        anchor_x: "right"
-        anchor_y: "top"
-        padding: "0dp", "100dp", "10dp", "0dp"
-        MDLabel:
-            id: playeridentifer
-            halign: "right"
-            size_hint: None, None
-            text_color: C('FFFFFF')
-            adaptive_width: True
-            theme_text_color: "Custom"
-            markup: True
-
-    AnchorLayout:
-        anchor_x: "left"
-        anchor_y: "top"
-        padding: "10dp", "100dp", "0dp", "0dp"
-        MDLabel:
-            id: alignmentidentifer
-            size_hint: None, None
-            text_color: C('FFFFFF')
-            adaptive_width: True
-            theme_text_color: "Custom"
-            markup: True
-
-#-----------------------------
-
     MDBoxLayout:
         orientation: "vertical"
 
@@ -72,9 +43,10 @@ WindowManager:
         MDBoxLayout:
             orientation: "vertical"
             spacing: "8dp"
-            padding: "8dp", "8dp", "8dp", "60dp"
+            padding: "8dp"
 
             MDLabel:
+                adaptive_height: True
                 theme_text_color: "Custom"
                 font_style: "H4"
                 halign: "center"
@@ -84,52 +56,70 @@ WindowManager:
             MDSeparator:
                 color: C("FFFFFF")
 
-            MDLabel:
+            MDBoxLayout:
+                orientation: "horizontal"
                 adaptive_height: True
-                text_color: app.theme_cls.primary_color
-                theme_text_color: "Custom"
-                id: currentround
-                text: f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
-                markup: True
-                halign: "center"
-
-            MDBoxLayout:
-
-            MDBoxLayout:
-                orientation: "vertical"
-                spacing: "10dp"
 
                 MDLabel:
-                    adaptive_height: True
+                    id: alignmentidentifer
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
-                    font_style: 'Subtitle1'
-                    halign: "center"
                     markup: True
-                    text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size]"
+                    halign: "left"
 
-                MDFloatingLabel:
-                    adaptive_height: True
-                    id: timer
-                    text: "[font=H4][size=40sp]00:00[/size][/font]"
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    id: currentround
+                    text: f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+                    markup: True
+                    halign: "center"
+                    valign: "top"
+                    text_size: self.size
+
+                MDLabel:
+                    id: playeridentifer
+                    halign: "right"
+                    text_color: C('FFFFFF')
                     theme_text_color: "Custom"
                     markup: True
-                    text_color: C('#FFFFFF')
-                    pos_hint: {"center_x": 0.5, "center_y": 0.5}
+                    halign: "right"
 
-            MDFillRoundFlatIconButton:
-                icon: 'file-code'
-                text: "Actions"
-                adaptive_size: True
-                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            MDBoxLayout:
+
+            MDLabel:
+                adaptive_height: True
+                text_color: C('FFFFFF')
                 theme_text_color: "Custom"
-                font_style: 'Button'
-                disabled: True
+                font_style: 'Subtitle1'
+                halign: "center"
+                markup: True
+                text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size]"
 
+            MDFloatingLabel:
+                adaptive_height: True
+                id: timer
+                text: "[font=H4][size=40sp]00:00[/size][/font]"
+                theme_text_color: "Custom"
+                markup: True
+                text_color: C('#FFFFFF')
+                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+
+#            MDFillRoundFlatIconButton:
+#                icon: 'file-code'
+#                text: "Actions"
+#                adaptive_size: True
+#                pos_hint: {"center_x": 0.5, "center_y": 0.5}
+#                theme_text_color: "Custom"
+#                font_style: 'Button'
+#                disabled: True
+
+            MDBoxLayout:
             MDBoxLayout:
 
         MDBoxLayout:
             orientation: "vertical"
+            padding: "0dp", "8dp", "0dp", "60dp"
 
             MDTabs:
                 indicator_color: C('FFFFFF')
