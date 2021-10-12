@@ -65,8 +65,9 @@ WindowManager:
                     theme_text_color: "Custom"
                     markup: True
                     halign: "left"
-                    text_size: self.size
-                    valign: "top"
+                    adaptive_height: True
+#                    text_size: self.size
+#                    valign: "top"
 
                 MDLabel:
                     text_color: app.theme_cls.primary_color
@@ -84,8 +85,9 @@ WindowManager:
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
                     markup: True
-                    text_size: self.size
-                    valign: "top"
+                    adaptive_height: True
+#                    text_size: self.size
+#                    valign: "top"
 
             MDBoxLayout:
                 orientation: "vertical"
