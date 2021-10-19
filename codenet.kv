@@ -57,7 +57,7 @@ WindowManager:
                 color: C("FFFFFF")
 
             MDStackLayout:
-                spacing: "52dp"
+                spacing: "60dp"
 
                 MDBoxLayout:
                     orientation: "horizontal"
@@ -89,20 +89,9 @@ WindowManager:
 
                 MDBoxLayout:
                     orientation: "vertical"
-                    spacing: "8dp"
                     adaptive_height: True
 
-                    MDLabel:
-                        adaptive_height: True
-                        text_color: C('FFFFFF')
-                        theme_text_color: "Custom"
-                        font_style: 'Subtitle1'
-                        halign: "center"
-                        markup: True
-                        text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size]"
-
                     MDFloatingLabel:
-                        adaptive_height: True
                         id: timer
                         text: "[font=H4][size=40sp]00:00[/size][/font]"
                         theme_text_color: "Custom"
