@@ -33,7 +33,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "After the game is over and you reach the results screen, going clockwise, players should begin to collect points depending on the scoring of their alignment. Players may not have negative points, they simply remain at 0. These points are intended so the group can play play multiple matches. The amount of matches should be set by the group."
+                    text: "Points are provided via the use of determination cards. After the game is over and you reach the results screen, the host will provide points depending on the scoring of their alignment. These points are accumulated and are intended to be used throughout multiple matches. The amount of matches and the points needed to win, should be set by the group before the game begins."
                     markup: True
 
                 MDSeparator:
@@ -51,16 +51,16 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all hackers, for each coder that determined a hacker innocent."
+                    text: f"[color=#FFFFFF]+[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for all hackers, for each coder that determined a hacker innocent."
                     markup: True
 
-                MDLabel:
-                    adaptive_height: True
-                    text_color: app.theme_cls.primary_color
-                    theme_text_color: "Custom"
-                    font_style: 'Body2'
-                    text: f"[color=#FFFFFF]-[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for the hacker, for each hacker they have determined guilty."
-                    markup: True
+#                MDLabel:
+#                    adaptive_height: True
+#                    text_color: app.theme_cls.primary_color
+#                    theme_text_color: "Custom"
+#                    font_style: 'Body2'
+#                    text: f"[color=#FFFFFF]-[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for the hacker, for each hacker they have determined guilty."
+#                    markup: True
 
                 MDSeparator:
                     color: C("FFFFFF")
@@ -72,12 +72,20 @@
                     font_style: 'H6'
                     text: "Coder Scoring"
 
+#                MDLabel:
+#                    adaptive_height: True
+#                    text_color: app.theme_cls.primary_color
+#                    theme_text_color: "Custom"
+#                    font_style: 'Body2'
+#                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all coders, if majority of coders have determined a hacker as guilty."
+#                    markup: True
+
                 MDLabel:
                     adaptive_height: True
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all coders, if majority of coders have determined a hacker as guilty."
+                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for the coder, for each hacker they have determined guilty."
                     markup: True
 
                 MDLabel:
@@ -85,13 +93,13 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for the coder, for each hacker they have determined guilty."
+                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for the coder, for every even amount of coders they have determined innocent."
                     markup: True
 
-                MDLabel:
-                    adaptive_height: True
-                    text_color: app.theme_cls.primary_color
-                    theme_text_color: "Custom"
-                    font_style: 'Body2'
-                    text: f"[color=#FFFFFF]-[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for the coder, for each coder that they have determined guilty and were part of the majority."
-                    markup: True
+#                MDLabel:
+#                    adaptive_height: True
+#                    text_color: app.theme_cls.primary_color
+#                    theme_text_color: "Custom"
+#                    font_style: 'Body2'
+#                    text: f"[color=#FFFFFF]-[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for the coder, for each coder that they have determined guilty and were part of the majority."
+#                    markup: True
