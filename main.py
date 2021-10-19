@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-# from kivy.core.window import Window
+from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
 from displays.revealdirections import *
@@ -22,10 +22,10 @@ from kivy.clock import Clock
 import random
 import globals
 
-# KIVY_DPI=320
-# KIVY_METRICS_DENSITY=2
-#
-# Window.size = (720, 1280)
+KIVY_DPI=320
+KIVY_METRICS_DENSITY=2
+
+Window.size = (720, 1280)
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
@@ -56,72 +56,11 @@ class MainWindow(MDScreen):
         elif self.ids.roundregulator.icon == "stop":
             ConfirmDialog().open()
 
-#Logs per each round.
-
-    def r1l1(self):
-
-        self.ids.round1reveal.disabled = True
-
-        # Check if logs are complete before being allowed to move to next round
-        if globals.time == 0:
-            self.ids.roundregulator.icon = "play"
-        else:
-            self.ids.roundregulator.icon = "stop"
-
-        if random.random() < 0.7:
-
-            self.ids.round1sum.text = "At least one hacker is among the following."
-            log = createlog(4)
-            self.ids.round1sub.text = log
-
 # May be used, sets players less on log rather than specific amount.
 #            templog = sorted(random.sample(list(globals.coderlist), ((globals.players + globals.aiamt) - tempamthacker) - playerslesslog) + random.sample(list(globals.hackerlist), tempamthacker))
 #            playerslesslog = 2
-#-----------------------------------------------
 
-        else:
-            self.ids.round1sub.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-            self.ids.round1sum.text = "[color=#c62828]The log has been corrupted![/color]"
-
-    def r2l1(self):
-
-        self.ids.round2reveal1.disabled = True
-
-        # Check if logs are complete before being allowed to move to next round
-        if self.ids.round2reveal2.disabled == True and globals.time == 0:
-            self.ids.roundregulator.icon = "play"
-        elif self.ids.round2reveal2.disabled == True:
-            self.ids.roundregulator.icon = "stop"
-
-        if random.random() < 0.7:
-
-            self.ids.round2sum1.text = "At least one hacker is among the following."
-            log = createlog(3)
-            self.ids.round2sub1.text = log
-
-        else:
-            self.ids.round2sub1.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-            self.ids.round2sum1.text = "[color=#c62828]The log has been corrupted![/color]"
-
-    def r2l2(self):
-
-        self.ids.round2reveal2.disabled = True
-
-        # Check if logs are complete before being allowed to move to next round
-        if self.ids.round2reveal1.disabled == True and globals.time == 0:
-            self.ids.roundregulator.icon = "play"
-        elif self.ids.round2reveal1.disabled == True:
-            self.ids.roundregulator.icon = "stop"
-
-        if random.random() < 0.7:
-
-            self.ids.round2sum2.text = "At least one hacker is among the following."
-            log = createlog(3)
-            self.ids.round2sub2.text = log
-
-        else:
-            self.ids.round2sub2.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-            self.ids.round2sum2.text = "[color=#c62828]The log has been corrupted![/color]"
+# Logs per each round.
 
     def r3l1(self):
         self.ids.round3reveal1.disabled = True
@@ -154,9 +93,9 @@ class MainWindow(MDScreen):
 
 # Configure timer
 
-    def settime(self):
+    def settime(self, time):
 
-        globals.time = 300 # 5 minutes
+        globals.time = time # 5 minutes = 300
         minutes, seconds = divmod(globals.time, 60)
         self.ids.timer.text = "[font=H4][size=40sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/font][/size]"
         globals.timer = Clock.schedule_interval(self.activatetime, 1)
@@ -166,7 +105,7 @@ class MainWindow(MDScreen):
 
             globals.timer.cancel()
 
-        # Check if moving to the next screen
+        # Check if moving to the results screen
             if self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]" and self.ids.roundregulator.icon == "stop":
                 self.ids.roundregulator.icon = "square-rounded-outline"
                 self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
@@ -184,31 +123,64 @@ class MainWindow(MDScreen):
 
 # Round 1
         if self.ids.currentround.text == f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+
+            # Alter displays
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
-            self.settime()
+            self.settime(60) # 1 minute
+            self.ids.roundregulator.icon = "stop"
 
-#Tab displays activated
-            self.ids.round1reveal.disabled = False
+            # Reveal log
+            log = createlog(4)
+            self.ids.round1sub.text = log
 
 # Round 2
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+
+            # Alter displays
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
-            self.settime()
+            self.settime(360)
+            self.ids.roundregulator.icon = "stop"
 
-#Tab displays activated
-            self.ids.round2reveal1.disabled = False
-            self.ids.round2reveal2.disabled = False
+            # Attempt Reveal First Log
+            if random.random() < 0.7:
+
+                log = createlog(3)
+                self.ids.round2sub1.text = log
+
+            else:
+                self.ids.round2sub1.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+                self.ids.round2sum1.text = "[color=#c62828]The log has been corrupted![/color]"
+
+            # Attempt Reveal Second Log
+            if random.random() < 0.7:
+
+                log = createlog(3)
+                self.ids.round2sub2.text = log
+
+            else:
+                self.ids.round2sub2.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+                self.ids.round2sum2.text = "[color=#c62828]The log has been corrupted![/color]"
+
+            # Attempt Reveal Third Log
+            if random.random() < 0.7:
+
+                log = createlog(3)
+                self.ids.round2sub3.text = log
+
+            else:
+                self.ids.round2sub3.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+                self.ids.round2sum3.text = "[color=#c62828]The log has been corrupted![/color]"
 
 # Round 3
         else:
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 3[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
-            self.settime()
+            self.settime(300)
 
 # Tab displays activated
             self.ids.round3reveal1.disabled = False
@@ -220,6 +192,12 @@ class MainWindow(MDScreen):
             else:
                 globals.playerlogrev = random.sample(list(globals.playerlist), 2)
 
+    # Reveal who's log it is.
+            self.ids.playerlog1.text = "[font=H4][size=20sp]" + f"{globals.playerlist[globals.playerlogrev[0]]['color']}" + "'s Log[/size][/font]"
+            self.ids.playerlog2.text = "[font=H4][size=20sp]" + f"{globals.playerlist[globals.playerlogrev[1]]['color']}" + "'s Log[/size][/font]"
+            self.ids.round3sum1.text_color = globals.colordefs[globals.playerlist[globals.playerlogrev[0]]['color']]
+            self.ids.round3sum2.text_color = globals.colordefs[globals.playerlist[globals.playerlogrev[1]]['color']]
+
     def nextscreen(self):
 
         EndGame.setalignments(self)
@@ -230,11 +208,16 @@ class MainWindow(MDScreen):
         self.ids.round1sub.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
         self.ids.round2sub1.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
         self.ids.round2sub2.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round2sub3.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
 
         # Reset possible log corruption text
-        self.ids.round1sum.text = "At least one hacker is among the following."
         self.ids.round2sum1.text = "At least one hacker is among the following."
         self.ids.round2sum2.text = "At least one hacker is among the following."
+        self.ids.round2sum3.text = "At least one hacker is among the following."
+
+        # Reset player logs
+        self.ids.playerlog1.text = "[font=H4][size=20sp]Player Log[/size][/font]"
+        self.ids.playerlog2.text = "[font=H4][size=20sp]Player Log[/size][/font]"
 
         # Reset round indicator and navigator
         self.ids.currentround.text = f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
@@ -247,6 +230,7 @@ class MainWindow(MDScreen):
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY
+    import globals
 
     def build(self):
         pass

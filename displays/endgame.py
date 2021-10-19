@@ -10,10 +10,10 @@ class EndGame(MDScreen):
     def setalignments(self):
 
         for x in globals.hackerlist:
-            self.manager.get_screen("endgame").ids.hackers.text += f"[color={globals.colordefs2[globals.playerlist[x]['color']]}][size=25sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
+            self.manager.get_screen("endgame").ids.hackers.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=25sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
 
         for x in globals.coderlist:
-            self.manager.get_screen("endgame").ids.coders.text += f"[color={globals.colordefs2[globals.playerlist[x]['color']]}][size=25sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
+            self.manager.get_screen("endgame").ids.coders.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=25sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
 
     def opendialog(self):
         RematchDialog().open()

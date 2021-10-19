@@ -1,5 +1,6 @@
 import globals
 from kivymd.uix.screen import MDScreen
+from kivy.utils import get_color_from_hex
 
 class ColorSelectScreen(MDScreen):
     from systems.openinformation import openinfo
@@ -44,7 +45,7 @@ class ColorSelectScreen(MDScreen):
 
         # Set colors
         for x in range(globals.players):
-            self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]]
+            self.manager.get_screen("reveal").ids[f"ind{x + 1}"].color = get_color_from_hex(globals.colordefs[globals.playerlist[f"player {x + 1}"]["color"]])
 
         self.manager.get_screen("reveal").ids.nextplayer.text = "It's " + globals.playerlist["player 1"]["color"] + "'s turn!"
 
