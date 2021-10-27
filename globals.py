@@ -22,4 +22,7 @@ colordefs = {"Red": "#b71c1c", "Pink": "#880e4f", "Purple": "#4a148c", "Blue": "
 time = 0
 timer = 0
 lastscreen = None
+hackeractionlist = ["Hack Digital Footprint", "DDOS Server", "Infect Software", "Hack Player", "Hack Log"]
+coderactionlist = ["Code", "Analyze Log", "Encrypt Log", "Analyze Player", "Backup Log"]
+playeractionlist = {}
 # infodropdown = None
