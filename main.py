@@ -17,6 +17,7 @@ from kivymd.uix.floatlayout import MDFloatLayout
 from displays.dialogcode import LogDialog
 from displays.dialogcode import IdentityDialog
 from displays.dialogcode import ConfirmDialog
+from displays.dialogcode import ActionDialog
 from displays.information import MainInfo
 from displays.action import ActionScreen
 from kivy.clock import Clock
@@ -128,7 +129,6 @@ class MainWindow(MDScreen):
             # Alter displays
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]")
-            self.ids.roundregulator.icon = "square-rounded-outline"
             self.settime(60) # 1 minute
             self.ids.roundregulator.icon = "stop"
 
@@ -146,7 +146,6 @@ class MainWindow(MDScreen):
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
-            self.ids.roundregulator.icon = "stop"
             # self.settime(360)
             #
             # # Attempt Reveal First Log

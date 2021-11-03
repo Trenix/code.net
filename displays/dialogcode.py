@@ -1,7 +1,9 @@
 from kivymd.uix.dialog import MDDialog
 from systems.generateplayerlog import createplayerlog
-from kivymd.icon_definitions import md_icons
 import globals
+
+class ActionDialog(MDDialog):
+    pass
 
 class IdentityDialog(MDDialog):
     pass

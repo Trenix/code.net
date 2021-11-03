@@ -78,11 +78,14 @@
             size_hint: 1, 0.3
 
         MDFillRoundFlatIconButton:
+            id: useaction
             adaptive_height: True
             icon: "file-code"
             text: "Use Action"
             pos_hint: {"center_x": 0.5}
             md_bg_color: app.theme_cls.primary_color
             font_style: "Button"
+            on_release:
+                root.beginaction()
 
         Widget:

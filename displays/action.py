@@ -1,4 +1,5 @@
 from kivymd.uix.screen import MDScreen
+from displays.dialogcode import ActionDialog
 import globals
 import random
 
@@ -41,4 +42,50 @@ class ActionScreen(MDScreen):
                 globals.playeractionlist[x]["Action"] = tempcoder[tempcodertracker]
                 tempcodertracker += 1
 
-        print(globals.playeractionlist)
+        globals.nextplayer = 0
+
+    def beginaction(self):
+
+        tempactiondialog = ActionDialog()
+        nextplayeraction = globals.playerlist[list(globals.playeractionlist)[0]]["color"]
+        tempactiondialog.ids.actiontitle.text = f"{nextplayeraction}'s Action"
+        tempactiondialog.ids.whataction.text = globals.playeractionlist[globals.nextplayer]
+
+        if globals.nextplayer < 4:
+
+            self.ids.whataction.text = globals.playeractionlist[globals.nextplayer]["Action"]
+
+            if globals.playeractionlist[globals.nextplayer]["Code"]:
+                self.ids.actiondesc.text = "You code for the day. No meaningful action is performed."
+
+            elif globals.playeractionlist[globals.nextplayer]["Analyze Log"]:
+                self.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you checked it."
+
+            elif globals.playeractionlist[globals.nextplayer]["Encrypt Log"]:
+                self.ids.actiondesc.text = "Select a log which prevents hackers from tampering with it."
+
+            elif globals.playeractionlist[globals.nextplayer]["Analyze Player"]:
+                self.ids.actiondesc.text = "Select a player to check their alignment."
+
+            elif globals.playeractionlist[globals.nextplayer]["Backup Log"]:
+                self.ids.actiondesc.text = "Select a log to prevent it from being corrupted."
+
+            elif globals.playeractionlist[globals.nextplayer]["Hack Digital Footprint"]:
+                self.ids.actiondesc.text = "Select a log to replace the digital footprint of a hacker with a coder."
+
+            elif globals.playeractionlist[globals.nextplayer]["Corrupt Log"]:
+                self.ids.actiondesc.text = "Select a log to corrupt it."
+
+            elif globals.playeractionlist[globals.nextplayer]["Infect Software"]:
+                self.ids.actiondesc.text = "If a coder uses an analyze player action, it will malfunction and will provide the wrong results."
+
+            elif globals.playeractionlist[globals.nextplayer]["DDOS Server"]:
+                self.ids.actiondesc.text = "A coder will be prevented from preforming their action."
+
+        else:
+            pass
+
+        tempactiondialog.open()
+
+    def actiontracker(self):
+        globals.nextplayer += 1
