@@ -77,7 +77,7 @@ class ActionScreen(MDScreen):
                 self.ids.actiondesc.text = "Select a log to corrupt it."
 
             elif globals.playeractionlist[globals.nextplayer]["Infect Software"]:
-                self.ids.actiondesc.text = "If a coder uses an analyze player action, it will malfunction and will provide the wrong results."
+                self.ids.actiondesc.text = "If a coder preforms the analyze player or analyze log action, it will provide the wrong results."
 
             elif globals.playeractionlist[globals.nextplayer]["DDOS Server"]:
                 self.ids.actiondesc.text = "A coder will be prevented from preforming their action."
