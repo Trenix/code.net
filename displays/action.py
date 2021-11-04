@@ -20,67 +20,67 @@ class ActionScreen(MDScreen):
         templist.sort()
 
         for player in templist:
-            globals.playeractionlist[player] = {"Action": None}
+            globals.playeractions[player] = {"Action": None}
 
+        # Set indicators to color for players that have an action.
         for x in range(4):
-            self.ids.mainscreenmanager.get_screen("actionscreen").ids[f'act{x + 1}'].color = globals.colordefs[globals.playerlist[list(globals.playeractionlist)[x]]["color"]]
+            self.ids.mainscreenmanager.get_screen("actionscreen").ids[f'act{x + 1}'].color = globals.colordefs[globals.playerlist[list(globals.playeractions)[x]]["color"]]
 
-        nextplayeraction = globals.playerlist[list(globals.playeractionlist)[0]]["color"]
+        nextplayeraction = globals.playerlist[list(globals.playeractions)[0]]["color"]
         self.ids.mainscreenmanager.get_screen("actionscreen").ids.nextplayer.text = f"It's {nextplayeraction}'s turn."
 
-        # prevent repetition
+        # prevent repetition and set actions for players
         tempcoder = random.sample(list(globals.coderactionlist), 4)
         temphacker = random.sample(list(globals.hackeractionlist), 3)
         tempcodertracker = 0
         temphackertracker = 0
 
-        for x in globals.playeractionlist:
+        for x in globals.playeractions:
             if globals.playerlist[x]["hacker"]:
-                globals.playeractionlist[x]["Action"] = temphacker[temphackertracker]
+                globals.playeractions[x]["Action"] = temphacker[temphackertracker]
                 temphackertracker += 1
             else:
-                globals.playeractionlist[x]["Action"] = tempcoder[tempcodertracker]
+                globals.playeractions[x]["Action"] = tempcoder[tempcodertracker]
                 tempcodertracker += 1
 
         globals.nextplayer = 0
+        globals.playeractionlist = list(globals.playeractions)
 
     def beginaction(self):
 
         tempactiondialog = ActionDialog()
-        nextplayeraction = globals.playerlist[list(globals.playeractionlist)[0]]["color"]
+        nextplayeraction = globals.playerlist[globals.playeractionlist[globals.nextplayer]]["color"]
         tempactiondialog.ids.actiontitle.text = f"{nextplayeraction}'s Action"
-        tempactiondialog.ids.whataction.text = globals.playeractionlist[globals.nextplayer]
+        tempactiondialog.ids.whataction.text = globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"]
 
         if globals.nextplayer < 4:
 
-            self.ids.whataction.text = globals.playeractionlist[globals.nextplayer]["Action"]
+            if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
+                tempactiondialog.ids.actiondesc.text = "You code for the day. No meaningful action will be performed."
 
-            if globals.playeractionlist[globals.nextplayer]["Code"]:
-                self.ids.actiondesc.text = "You code for the day. No meaningful action is performed."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Log":
+                tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you checked it."
 
-            elif globals.playeractionlist[globals.nextplayer]["Analyze Log"]:
-                self.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you checked it."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Encrypt Log":
+                tempactiondialog.ids.actiondesc.text = "Select a log which prevents hackers from tampering with it."
 
-            elif globals.playeractionlist[globals.nextplayer]["Encrypt Log"]:
-                self.ids.actiondesc.text = "Select a log which prevents hackers from tampering with it."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
+                tempactiondialog.ids.actiondesc.text = "Select a player to check their alignment."
 
-            elif globals.playeractionlist[globals.nextplayer]["Analyze Player"]:
-                self.ids.actiondesc.text = "Select a player to check their alignment."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Backup Log":
+                tempactiondialog.ids.actiondesc.text = "Select a log to prevent it from being corrupted."
 
-            elif globals.playeractionlist[globals.nextplayer]["Backup Log"]:
-                self.ids.actiondesc.text = "Select a log to prevent it from being corrupted."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Digital Footprint":
+                tempactiondialog.ids.actiondesc.text = "Select a log to replace the digital footprint of a hacker with a coder."
 
-            elif globals.playeractionlist[globals.nextplayer]["Hack Digital Footprint"]:
-                self.ids.actiondesc.text = "Select a log to replace the digital footprint of a hacker with a coder."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Corrupt Log":
+                tempactiondialog.ids.actiondesc.text = "Select a log to corrupt it."
 
-            elif globals.playeractionlist[globals.nextplayer]["Corrupt Log"]:
-                self.ids.actiondesc.text = "Select a log to corrupt it."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Infect Software":
+                tempactiondialog.ids.actiondesc.text = "If a coder preforms the analyze player or analyze log action, it will provide the wrong results."
 
-            elif globals.playeractionlist[globals.nextplayer]["Infect Software"]:
-                self.ids.actiondesc.text = "If a coder preforms the analyze player or analyze log action, it will provide the wrong results."
-
-            elif globals.playeractionlist[globals.nextplayer]["DDOS Server"]:
-                self.ids.actiondesc.text = "A coder will be prevented from preforming their action."
+            elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "DDOS Server":
+                tempactiondialog.ids.actiondesc.text = "A coder will be prevented from preforming their action."
 
         else:
             pass

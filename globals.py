@@ -25,5 +25,6 @@ timer = 0
 lastscreen = None
 hackeractionlist = ["Hack Digital Footprint", "Corrupt Log", "Infect Software", "DDOS Server"]
 coderactionlist = ["Code", "Analyze Log", "Encrypt Log", "Analyze Player", "Backup Log"]
-playeractionlist = {}
+playeractions = {}
+playeractionlist = []
 # infodropdown = None
