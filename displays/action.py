@@ -58,41 +58,43 @@ class ActionScreen(MDScreen):
 
         if globals.nextplayer < 4:
 
-            # if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
-            tempactiondialog.ids.actiondesc.text = "You code for the day. No meaningful action will be performed."
+            if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
+                pass
 
-            tempbutton = MDRoundFlatIconButton(
-                font_style="Button",
-                theme_text_color="Custom",
-                text="Code",
-                icon="file",
-                line_color=get_color_from_hex("#FFFFFF"),
-                icon_color=get_color_from_hex("#FFFFFF"),
-                text_color=get_color_from_hex("#FFFFFF"),
-                # Below function includes an additional argument, being the button itself.
-                on_release=partial(self.codeaction, tempactiondialog)
-            )
+                tempactiondialog.ids.actiondesc.text = "You will code for the day. No meaningful action will be performed."
 
-            # tempbutton.bind(on_release=partial(self.codeaction, tempactiondialog.ids))
+                tempbutton = MDRoundFlatIconButton(
+                    font_style="Button",
+                    theme_text_color="Custom",
+                    text="Code",
+                    icon="file",
+                    line_color=get_color_from_hex("#FFFFFF"),
+                    icon_color=get_color_from_hex("#FFFFFF"),
+                    text_color=get_color_from_hex("#FFFFFF"),
 
-            tempactiondialog.ids.addbuttons.add_widget(Widget())
-            tempactiondialog.ids.addbuttons.add_widget(tempbutton)
-            tempactiondialog.ids.addbuttons.add_widget(Widget())
+                    # Below function includes an additional argument, being the button itself.
+                    on_release=partial(self.codeaction, tempactiondialog)
+                )
+
+                tempactiondialog.ids.addbuttons.add_widget(Widget())
+                tempactiondialog.ids.addbuttons.add_widget(tempbutton)
+                tempactiondialog.ids.addbuttons.add_widget(Widget())
 
             # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Log":
-            #     tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you checked it."
+
+            # tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you checked it."
             #
-            #     tempbutton = MDRoundFlatIconButton(
-            #         font_style="Button",
-            #         theme_text_color="Custom",
-            #         text="Code",
-            #         text_color=get_color_from_hex("#FFFFFF"),
-            #         pos_hint={"center_x": 0.5},
-            #     )
+            # tempbutton = MDRoundFlatIconButton(
+            #     font_style="Button",
+            #     theme_text_color="Custom",
+            #     text="Code",
+            #     text_color=get_color_from_hex("#FFFFFF"),
+            #     pos_hint={"center_x": 0.5},
+            # )
             #
-            #     tempbutton.bind(on_release=partial(self.codeaction, tempactiondialog.ids))
-            #     tempactiondialog.ids.addbuttons.add_widget(tempbutton)
-            #
+            # tempbutton.bind(on_release=partial(self.codeaction, tempactiondialog.ids))
+            # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
+
             # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Encrypt Log":
             #     tempactiondialog.ids.actiondesc.text = "Select a log which prevents hackers from tampering with it."
             #     tempbutton = MDRoundFlatIconButton(
@@ -196,6 +198,8 @@ class ActionScreen(MDScreen):
         tempactiondialog.open()
 
     def codeaction(self, tempactiondialog, button):
+
+        tempactiondialog.ids.actionresult.text = "Code has been complete."
         button.disabled = True
         tempactiondialog.ids.okaction.disabled = False
 

@@ -22,43 +22,41 @@
         MDSeparator:
             color: C("FFFFFF")
 
+        MDLabel:
+            id: whataction
+            halign: "center"
+            text_color: C("FFFFFF")
+            font_style: "H5"
+            theme_text_color: "Custom"
+            adaptive_height: True
+
+        MDLabel:
+            id: actiondesc
+            halign: "center"
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            adaptive_height: True
+
+        Widget:
+            size_hint: 1, 0.1
+
+        MDBoxLayout:
+            adaptive_height: True
+            orientation: "horizontal"
+            id: addbuttons
+
         Widget:
             size_hint: 1, 0.01
 
-        MDBoxLayout:
-            spacing: "8dp"
-            orientation: "vertical"
-            padding: "8dp"
+        MDLabel:
+            id: actionresult
+            halign: "center"
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
 
-            MDLabel:
-                id: whataction
-                halign: "center"
-                text_color: C("FFFFFF")
-                font_style: "H5"
-                theme_text_color: "Custom"
-                adaptive_height: True
-                markup: True
-
-            MDLabel:
-                id: actiondesc
-                halign: "center"
-                text_color: C("FFFFFF")
-                font_style: "Subtitle1"
-                theme_text_color: "Custom"
-                adaptive_height: True
-                markup: True
-
-            Widget:
-                size_hint: 1, 0.01
-
-            MDBoxLayout:
-                adaptive_height: True
-                orientation: "horizontal"
-                id: addbuttons
-
-            Widget:
-                size_hint: 1, 0.01
-
+        Widget:
         Widget:
 
         MDRectangleFlatButton:
