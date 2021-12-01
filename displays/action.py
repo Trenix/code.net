@@ -8,6 +8,11 @@ import globals
 import random
 
 class ActionScreen(MDScreen):
+    from systems.preformactions import codeaction
+    from systems.preformactions import analyzelog
+    from systems.preformactions import disablewidgets
+    from systems.preformactions import amthacker
+
     def setactionplayers(self):
 
         # Collect players randomly that will have actions and then sort them
@@ -59,7 +64,6 @@ class ActionScreen(MDScreen):
         if globals.nextplayer < 4:
 
             # if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
-            #     pass
             #
             #     tempactiondialog.ids.actiondesc.text = "You will code for the day. No meaningful action will be performed."
             #
@@ -84,21 +88,49 @@ class ActionScreen(MDScreen):
 
             tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you checked it."
 
-            tempbutton = MDRoundFlatIconButton(
+            tempbutton1 = MDRoundFlatIconButton(
                 font_style="Button",
                 theme_text_color="Custom",
-                text="Code",
+                text="First Log",
                 icon="file",
                 line_color=get_color_from_hex("#FFFFFF"),
                 icon_color=get_color_from_hex("#FFFFFF"),
                 text_color=get_color_from_hex("#FFFFFF"),
 
                 # Below function includes an additional argument, being the button itself.
-                on_release=partial(self.codeaction, tempactiondialog)
+                on_release=partial(self.analyzelog, tempactiondialog, 1)
+            )
+
+            tempbutton2 = MDRoundFlatIconButton(
+                font_style="Button",
+                theme_text_color="Custom",
+                text="Second Log",
+                icon="file",
+                line_color=get_color_from_hex("#FFFFFF"),
+                icon_color=get_color_from_hex("#FFFFFF"),
+                text_color=get_color_from_hex("#FFFFFF"),
+
+                # Below function includes an additional argument, being the button itself.
+                on_release=partial(self.analyzelog, tempactiondialog, 2)
+            )
+
+            tempbutton3 = MDRoundFlatIconButton(
+                font_style="Button",
+                theme_text_color="Custom",
+                text="Third Log",
+                icon="file",
+                line_color=get_color_from_hex("#FFFFFF"),
+                icon_color=get_color_from_hex("#FFFFFF"),
+                text_color=get_color_from_hex("#FFFFFF"),
+
+                # Below function includes an additional argument, being the button itself.
+                on_release=partial(self.analyzelog, tempactiondialog, 3)
             )
 
             tempactiondialog.ids.addbuttons.add_widget(Widget())
-            tempactiondialog.ids.addbuttons.add_widget(tempbutton)
+            tempactiondialog.ids.addbuttons.add_widget(tempbutton1)
+            tempactiondialog.ids.addbuttons.add_widget(tempbutton2)
+            tempactiondialog.ids.addbuttons.add_widget(tempbutton3)
             tempactiondialog.ids.addbuttons.add_widget(Widget())
 
             # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Encrypt Log":
@@ -202,12 +234,6 @@ class ActionScreen(MDScreen):
             pass
 
         tempactiondialog.open()
-
-    def codeaction(self, tempactiondialog, button):
-
-        tempactiondialog.ids.actionresult.text = "Code has been complete."
-        button.disabled = True
-        tempactiondialog.ids.okaction.disabled = False
 
     def actiontracker(self):
         globals.nextplayer += 1
