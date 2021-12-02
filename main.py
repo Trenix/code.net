@@ -10,6 +10,7 @@ from displays.colorselect import ColorSelectScreen
 from displays.endgame import EndGame
 from systems.screenmanager import WindowManager
 from systems.generatelog import createlog
+from systems.generatelog import createhackeramt
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.tab import MDTabsBase
@@ -138,6 +139,13 @@ class MainWindow(MDScreen):
 
 # Round 2
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
+
+            #set log information for actions
+            for x in range(3):
+                globals.loginfo[f"log {x + 1}"] = {"hackers": createhackeramt()}
+                globals.loginfo[f"log {x + 1}"]['protected'] = False
+
+            print(globals.loginfo)
 
             ActionScreen.setactionplayers(self)
             self.ids.mainscreenmanager.current = "actionscreen"

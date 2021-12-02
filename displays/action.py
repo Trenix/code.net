@@ -13,7 +13,6 @@ class ActionScreen(MDScreen):
     from systems.preformactions import codeaction
     from systems.preformactions import analyzelog
     from systems.preformactions import disablewidgets
-    from systems.preformactions import amthacker
     from systems.preformactions import analyzeplayer
 
     def setactionplayers(self):
@@ -67,29 +66,29 @@ class ActionScreen(MDScreen):
         if globals.nextplayer < 4:
 
             # if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
-            #
-            #     tempactiondialog.ids.actiondesc.text = "You will code for the day. No meaningful action will be performed."
-            #
-            #     tempbutton = MDRoundFlatIconButton(
-            #         font_style="Button",
-            #         theme_text_color="Custom",
-            #         text="Code",
-            #         icon="file",
-            #         line_color=get_color_from_hex("#FFFFFF"),
-            #         icon_color=get_color_from_hex("#FFFFFF"),
-            #         text_color=get_color_from_hex("#FFFFFF"),
-            #
-            #         # Below function includes an additional argument, being the button itself.
-            #         on_release=partial(self.codeaction, tempactiondialog)
-            #     )
-            #
-            #     tempactiondialog.ids.addbuttons.add_widget(Widget())
-            #     tempactiondialog.ids.addbuttons.add_widget(tempbutton)
-            #     tempactiondialog.ids.addbuttons.add_widget(Widget())
+
+                # tempactiondialog.ids.actiondesc.text = "You will code for the day. No meaningful action will be performed."
+                #
+                # tempbutton = MDRoundFlatIconButton(
+                #     font_style="Button",
+                #     theme_text_color="Custom",
+                #     text="Code",
+                #     icon="file",
+                #     line_color=get_color_from_hex("#FFFFFF"),
+                #     icon_color=get_color_from_hex("#FFFFFF"),
+                #     text_color=get_color_from_hex("#FFFFFF"),
+                #
+                #     # Below function includes an additional argument, being the button itself.
+                #     on_release=partial(self.codeaction, tempactiondialog)
+                # )
+                #
+                # tempactiondialog.ids.addbuttons.add_widget(Widget())
+                # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
+                # tempactiondialog.ids.addbuttons.add_widget(Widget())
 
             # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Log":
 
-                # tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it, during the time you have checked it."
+                # tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it during the time you have checked it."
                 #
                 # tempbutton1 = MDRoundFlatIconButton(
                 #     font_style="Button",
@@ -138,57 +137,97 @@ class ActionScreen(MDScreen):
 
             # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
 
-                tempactiondialog.ids.actiondesc.text = "Select a player to check their alignment."
+                # tempactiondialog.ids.actiondesc.text = "Select a player to check their alignment."
+                #
+                # tempgrid = MDGridLayout(cols=4)
+                #
+                # tempactiondialog.ids.addbuttons.padding = "96dp", "0dp", "96dp", "0dp"
+                # tempactiondialog.ids.addbuttons.add_widget(tempgrid)
+                #
+                # #Create list that doesn't include player that is selecting.
+                #
+                # templist = []
+                #
+                # for player in globals.playerlist:
+                #     templist.append(player)
+                #
+                # templist.remove(globals.playeractionlist[globals.nextplayer])
+                #
+                # #----------------------
+                #
+                # for player in templist:
+                #
+                #     templayout = AnchorLayout()
+                #
+                #     tempbutton = MDRoundFlatIconButton(
+                #         font_style="Button",
+                #         theme_text_color="Custom",
+                #         text=globals.playerlist[player]['color'],
+                #         icon="account",
+                #         line_color=get_color_from_hex("#FFFFFF"),
+                #         icon_color=get_color_from_hex(globals.colordefs[globals.playerlist[player]['color']]),
+                #         text_color=get_color_from_hex("#FFFFFF"),
+                #
+                #         # Below function includes an additional argument, being the button itself.
+                #         on_release=partial(self.analyzeplayer, tempactiondialog, player)
+                #     )
+                #
+                #     tempgrid.add_widget(templayout)
+                #     templayout.add_widget(tempbutton)
 
-                tempgrid = MDGridLayout(cols=4)
+            # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Backup Log":
 
-                tempactiondialog.ids.addbuttons.padding = "96dp", "0dp", "96dp", "0dp"
-                tempactiondialog.ids.addbuttons.add_widget(tempgrid)
+            tempactiondialog.ids.actiondesc.text = "Select a log to prevent it from being corrupted."
 
-                #Create list that doesn't include player that is selecting.
+            tempbutton1 = MDRoundFlatIconButton(
+                font_style="Button",
+                theme_text_color="Custom",
+                text="First Log",
+                icon="file",
+                line_color=get_color_from_hex("#FFFFFF"),
+                icon_color=get_color_from_hex("#FFFFFF"),
+                text_color=get_color_from_hex("#FFFFFF"),
 
-                templist = []
+                # Below function includes an additional argument, being the button itself.
+                on_release=partial(self.analyzelog, tempactiondialog, 1)
+            )
 
-                for player in globals.playerlist:
-                    templist.append(player)
+            tempbutton2 = MDRoundFlatIconButton(
+                font_style="Button",
+                theme_text_color="Custom",
+                text="Second Log",
+                icon="file",
+                line_color=get_color_from_hex("#FFFFFF"),
+                icon_color=get_color_from_hex("#FFFFFF"),
+                text_color=get_color_from_hex("#FFFFFF"),
 
-                templist.remove(globals.playeractionlist[globals.nextplayer])
+                # Below function includes an additional argument, being the button itself.
+                on_release=partial(self.analyzelog, tempactiondialog, 2)
+            )
 
-                #----------------------
+            tempbutton3 = MDRoundFlatIconButton(
+                font_style="Button",
+                theme_text_color="Custom",
+                text="Third Log",
+                icon="file",
+                line_color=get_color_from_hex("#FFFFFF"),
+                icon_color=get_color_from_hex("#FFFFFF"),
+                text_color=get_color_from_hex("#FFFFFF"),
 
-                for player in templist:
+                # Below function includes an additional argument, being the button itself.
+                on_release=partial(self.analyzelog, tempactiondialog, 3)
+            )
 
-                    templayout = AnchorLayout()
+            tempactiondialog.ids.addbuttons.add_widget(Widget())
+            tempactiondialog.ids.addbuttons.add_widget(tempbutton1)
+            tempactiondialog.ids.addbuttons.add_widget(tempbutton2)
+            tempactiondialog.ids.addbuttons.add_widget(tempbutton3)
+            tempactiondialog.ids.addbuttons.add_widget(Widget())
 
-                    tempbutton = MDRoundFlatIconButton(
-                        font_style="Button",
-                        theme_text_color="Custom",
-                        text=globals.playerlist[player]['color'],
-                        icon="account",
-                        line_color=get_color_from_hex("#FFFFFF"),
-                        icon_color=get_color_from_hex(globals.colordefs[globals.playerlist[player]['color']]),
-                        text_color=get_color_from_hex("#FFFFFF"),
 
-                        # Below function includes an additional argument, being the button itself.
-                        on_release=partial(self.analyzeplayer, tempactiondialog, player)
-                    )
 
-                    tempgrid.add_widget(templayout)
-                    templayout.add_widget(tempbutton)
 
-            # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
-            #     tempactiondialog.ids.actiondesc.text = "Select a player to check their alignment."
-            #
-            #     tempbutton = MDRoundFlatIconButton(
-            #         font_style="Button",
-            #         theme_text_color="Custom",
-            #         text_color=get_color_from_hex("#FFFFFF"),
-            #         text="Code",
-            #         pos_hint={"center_x": 0.5},
-            #     )
-            #
-            #     tempbutton.bind(on_release=partial(self.codeaction, tempactiondialog.ids))
-            #     tempactiondialog.ids.addbuttons.add_widget(tempbutton)
+
             #
             # elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Backup Log":
             #     tempactiondialog.ids.actiondesc.text = "Select a log to prevent it from being corrupted."
