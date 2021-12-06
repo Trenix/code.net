@@ -44,3 +44,10 @@ def hacklog(self, tempactiondialog, lognumber, button):
 
     globals.loginfo[f"log {lognumber}"]['hackers'] -= 1
     tempactiondialog.ids.actionresult.text = f"A hacker's digital footprint from the {globals.lognumberword[lognumber]} log was removed."
+
+def corruptlog(self, tempactiondialog, lognumber, button):
+
+    disablewidgets(tempactiondialog)
+
+    globals.loginfo[f"log {lognumber}"]['corrupted'] = True
+    tempactiondialog.ids.actionresult.text = f"A backup was created for the {globals.lognumberword[lognumber]} log."

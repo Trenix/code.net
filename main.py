@@ -144,6 +144,7 @@ class MainWindow(MDScreen):
             for x in range(3):
                 globals.loginfo[f"log {x + 1}"] = {"hackers": createhackeramt()}
                 globals.loginfo[f"log {x + 1}"]['protected'] = False
+                globals.loginfo[f"log {x + 1}"]['corrupted'] = False
 
             ActionScreen.setactionplayers(self)
             self.ids.mainscreenmanager.current = "actionscreen"
