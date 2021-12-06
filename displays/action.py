@@ -14,6 +14,7 @@ class ActionScreen(MDScreen):
     from systems.preformactions import analyzelog
     from systems.preformactions import disablewidgets
     from systems.preformactions import analyzeplayer
+    from systems.preformactions import backuplog
 
     def setactionplayers(self):
 
@@ -189,7 +190,7 @@ class ActionScreen(MDScreen):
                 text_color=get_color_from_hex("#FFFFFF"),
 
                 # Below function includes an additional argument, being the button itself.
-                on_release=partial(self.analyzelog, tempactiondialog, 1)
+                on_release=partial(self.backuplog, tempactiondialog, 1)
             )
 
             tempbutton2 = MDRoundFlatIconButton(
@@ -202,7 +203,7 @@ class ActionScreen(MDScreen):
                 text_color=get_color_from_hex("#FFFFFF"),
 
                 # Below function includes an additional argument, being the button itself.
-                on_release=partial(self.analyzelog, tempactiondialog, 2)
+                on_release=partial(self.backuplog, tempactiondialog, 2)
             )
 
             tempbutton3 = MDRoundFlatIconButton(
@@ -215,7 +216,7 @@ class ActionScreen(MDScreen):
                 text_color=get_color_from_hex("#FFFFFF"),
 
                 # Below function includes an additional argument, being the button itself.
-                on_release=partial(self.analyzelog, tempactiondialog, 3)
+                on_release=partial(self.backuplog, tempactiondialog, 3)
             )
 
             tempactiondialog.ids.addbuttons.add_widget(Widget())

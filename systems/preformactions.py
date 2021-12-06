@@ -1,5 +1,4 @@
 import globals
-# import random
 
 def disablewidgets(tempactiondialog):
 
@@ -29,3 +28,10 @@ def analyzeplayer(self, tempactiondialog, player, button):
         tempactiondialog.ids.actionresult.text = f"[color={globals.colordefs[globals.playerlist[player]['color']]}]{globals.playerlist[player]['color']}[/color] is a [color={globals.colordefs['Blue']}]coder[/color]."
 
     disablewidgets(tempactiondialog)
+
+def backuplog(self, tempactiondialog, lognumber, button):
+
+    disablewidgets(tempactiondialog)
+
+    globals.loginfo[f"log {lognumber}"]['protected'] = True
+    tempactiondialog.ids.actionresult.text = f"A backup was created for the {globals.lognumberword[lognumber]} log."
