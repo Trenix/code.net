@@ -6,8 +6,9 @@ def disablewidgets(tempactiondialog):
     tempactiondialog.ids.okaction.disabled = False
 
 def codeaction(self, tempactiondialog, button):
-    tempactiondialog.ids.actionresult.text = "Coding has been complete."
     disablewidgets(tempactiondialog)
+
+    tempactiondialog.ids.actionresult.text = "Coding has been complete."
 
 #------------------------------------------------------
 
@@ -51,3 +52,9 @@ def corruptlog(self, tempactiondialog, lognumber, button):
 
     globals.loginfo[f"log {lognumber}"]['corrupted'] = True
     tempactiondialog.ids.actionresult.text = f"A backup was created for the {globals.lognumberword[lognumber]} log."
+
+def hackplayer(self, tempactiondialog, player, button):
+
+    disablewidgets(tempactiondialog)
+
+    tempactiondialog.ids.actionresult.text = f"[color={globals.colordefs[globals.playerlist[player]['color']]}]{globals.playerlist[player]['color']}[/color]'s action is [color={globals.colordefs['Blue']}]{globals.playeractions[player]['Action']}.[/color]"
