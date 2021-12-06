@@ -15,6 +15,8 @@ def analyzelog(self, tempactiondialog, lognumber, button):
 
     disablewidgets(tempactiondialog)
 
+    if globals.loginfo[f"log {lognumber}"]['hackers'] == 0:
+        tempactiondialog.ids.actionresult.text = f"There is [color={globals.colordefs['Red']}]no hacker[/color] in the {globals.lognumberword[lognumber]} log."
     if globals.loginfo[f"log {lognumber}"]['hackers'] == 1:
         tempactiondialog.ids.actionresult.text = f"There is [color={globals.colordefs['Red']}]one hacker[/color] in the {globals.lognumberword[lognumber]} log."
     else:
@@ -22,12 +24,12 @@ def analyzelog(self, tempactiondialog, lognumber, button):
 
 def analyzeplayer(self, tempactiondialog, player, button):
 
+    disablewidgets(tempactiondialog)
+
     if globals.playerlist[player]['hacker']:
         tempactiondialog.ids.actionresult.text = f"[color={globals.colordefs[globals.playerlist[player]['color']]}]{globals.playerlist[player]['color']}[/color] is a [color={globals.colordefs['Red']}]hacker[/color]."
     else:
         tempactiondialog.ids.actionresult.text = f"[color={globals.colordefs[globals.playerlist[player]['color']]}]{globals.playerlist[player]['color']}[/color] is a [color={globals.colordefs['Blue']}]coder[/color]."
-
-    disablewidgets(tempactiondialog)
 
 def backuplog(self, tempactiondialog, lognumber, button):
 
@@ -35,3 +37,10 @@ def backuplog(self, tempactiondialog, lognumber, button):
 
     globals.loginfo[f"log {lognumber}"]['protected'] = True
     tempactiondialog.ids.actionresult.text = f"A backup was created for the {globals.lognumberword[lognumber]} log."
+
+def hacklog(self, tempactiondialog, lognumber, button):
+
+    disablewidgets(tempactiondialog)
+
+    globals.loginfo[f"log {lognumber}"]['hackers'] -= 1
+    tempactiondialog.ids.actionresult.text = f"A hacker's digital footprint from the {globals.lognumberword[lognumber]} log was removed."
