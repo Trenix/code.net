@@ -58,6 +58,34 @@ class MainWindow(MDScreen):
             self.nextround()
         elif self.ids.roundregulator.icon == "stop":
             ConfirmDialog().open()
+        elif self.ids.roundregulator.icon == "check" and self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]":
+
+            # Round 2 - Reveal All 3 Logs
+            for num in range(3):
+
+                if globals.loginfo[f"log {num + 1}"]["protected"] == True:
+
+                    self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+
+                elif globals.loginfo[f"log {num + 1}"]["corrupted"] == False:
+
+                    if random.random() < 0.8:
+                        self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+
+                    else:
+                        self.ids[f"round2sub{num + 1}"].text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+                        self.ids[f"round2sum{num + 1}"].text = "[color=#c62828]The log has been corrupted![/color]"
+
+                else:
+                    self.ids[f"round2sub{num + 1}"].text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
+                    self.ids[f"round2sum{num + 1}"].text = "[color=#c62828]The log has been corrupted![/color]"
+
+            self.settime(360)
+            self.ids.roundregulator.icon = "stop"
+            self.ids.mainscreenmanager.current = "timescreen"
+
+            # Set back screen to what it was previously
+            self.ids.mainscreenmanager.get_screen('actionscreen').ids.useaction.disabled = False
 
 # May be used, sets players less on log rather than specific amount.
 #            templog = sorted(random.sample(list(globals.coderlist), ((globals.players + globals.aiamt) - tempamthacker) - playerslesslog) + random.sample(list(globals.hackerlist), tempamthacker))
@@ -134,7 +162,7 @@ class MainWindow(MDScreen):
             self.ids.roundregulator.icon = "stop"
 
             # Reveal log
-            log = createlog(4)
+            log = createlog(4, None, None)
             self.ids.round1sub.text = log
 
 # Round 2
@@ -145,45 +173,15 @@ class MainWindow(MDScreen):
                 globals.loginfo[f"log {x + 1}"] = {"hackers": createhackeramt()}
                 globals.loginfo[f"log {x + 1}"]['protected'] = False
                 globals.loginfo[f"log {x + 1}"]['corrupted'] = False
+                globals.loginfo[f"log {x + 1}"]['code'] = None
 
+            # Alter displays
             ActionScreen.setactionplayers(self)
             self.ids.mainscreenmanager.current = "actionscreen"
 
-            # Alter displays
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
-            # self.settime(360)
-            #
-            # # Attempt Reveal First Log
-            # if random.random() < 0.7:
-            #
-            #     log = createlog(3)
-            #     self.ids.round2sub1.text = log
-            #
-            # else:
-            #     self.ids.round2sub1.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-            #     self.ids.round2sum1.text = "[color=#c62828]The log has been corrupted![/color]"
-            #
-            # # Attempt Reveal Second Log
-            # if random.random() < 0.7:
-            #
-            #     log = createlog(3)
-            #     self.ids.round2sub2.text = log
-            #
-            # else:
-            #     self.ids.round2sub2.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-            #     self.ids.round2sum2.text = "[color=#c62828]The log has been corrupted![/color]"
-            #
-            # # Attempt Reveal Third Log
-            # if random.random() < 0.7:
-            #
-            #     log = createlog(3)
-            #     self.ids.round2sub3.text = log
-            #
-            # else:
-            #     self.ids.round2sub3.text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-            #     self.ids.round2sum3.text = "[color=#c62828]The log has been corrupted![/color]"
 
 # Round 3
         else:
