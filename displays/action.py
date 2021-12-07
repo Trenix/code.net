@@ -22,8 +22,6 @@ class ActionScreen(MDScreen):
 
     def setactionplayers(self):
 
-        print()
-
         # Collect players randomly that will have actions and then sort them
         templist = []
 
@@ -34,7 +32,7 @@ class ActionScreen(MDScreen):
             for player in random.sample(list(globals.playerlist), 4):
                 templist.append(player)
 
-        # templist.sort()
+        templist.sort()
 
         for player in templist:
             globals.playeractions[player] = {"Action": None}
@@ -382,5 +380,5 @@ class ActionScreen(MDScreen):
         else:
             self.ids.useaction.disabled = True
             self.ids[f'act{globals.nextplayer + 1}'].icon = "circle-outline"
-            self.ids.nextplayer.text = f"Pass the phone to the host."
+            self.ids.nextplayer.text = "Pass the phone to the host."
             MDApp.get_running_app().root.get_screen("main").ids.roundregulator.icon = "check"

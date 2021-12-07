@@ -50,7 +50,7 @@ class PlayerReveal(MDScreen):
                 self.ids[f"ind{globals.revealtracker}"].icon = "circle-slice-8"
 
             elif globals.revealtracker == globals.players:
-                self.ids.nextplayer.text = ""
+                self.ids.nextplayer.text = "Pass the phone to the host."
                 self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
                 globals.revealtracker += 1
                 self.ids.revtool.icon = "square-rounded-outline"
