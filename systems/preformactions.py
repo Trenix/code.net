@@ -39,22 +39,22 @@ def backuplog(self, tempactiondialog, lognumber, button):
 
     disablewidgets(tempactiondialog)
 
-    globals.loginfo[f"log {lognumber}"]['protected'] = True
+    globals.loginfo[f"log {lognumber}"]['backedup'] = True
     tempactiondialog.ids.actionresult.text = f"A backup was created for the {globals.lognumberword[lognumber]} log."
 
 def hacklog(self, tempactiondialog, lognumber, button):
 
     disablewidgets(tempactiondialog)
 
-    globals.loginfo[f"log {lognumber}"]['hackers'] -= 1
-    tempactiondialog.ids.actionresult.text = f"A hacker's digital footprint from the {globals.lognumberword[lognumber]} log was removed."
+    globals.loginfo[f"log {lognumber}"]['hacked'] = True
+    tempactiondialog.ids.actionresult.text = f"A hacker's digital footprint from the {globals.lognumberword[lognumber]} will be removed."
 
 def corruptlog(self, tempactiondialog, lognumber, button):
 
     disablewidgets(tempactiondialog)
 
     globals.loginfo[f"log {lognumber}"]['corrupted'] = True
-    tempactiondialog.ids.actionresult.text = f"You attempted to corrupt the {globals.lognumberword[lognumber]} log."
+    tempactiondialog.ids.actionresult.text = f"You attempt to corrupt the {globals.lognumberword[lognumber]} log."
 
 def hackplayer(self, tempactiondialog, player, button):
 

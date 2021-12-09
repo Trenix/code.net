@@ -63,7 +63,10 @@ class MainWindow(MDScreen):
             # Round 2 - Reveal All 3 Logs
             for num in range(3):
 
-                if globals.loginfo[f"log {num + 1}"]["protected"] == True:
+                if globals.loginfo[f"log {num + 1}"]["hacked"] == True:
+                    globals.loginfo[f"log {num + 1}"]["hackers"] = globals.loginfo[f"log {num + 1}"]["hackers"] - 1
+
+                if globals.loginfo[f"log {num + 1}"]["backedup"] == True:
 
                     self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
 
@@ -171,8 +174,9 @@ class MainWindow(MDScreen):
             #set log information for actions
             for x in range(3):
                 globals.loginfo[f"log {x + 1}"] = {"hackers": createhackeramt()}
-                globals.loginfo[f"log {x + 1}"]['protected'] = False
+                globals.loginfo[f"log {x + 1}"]['backedup'] = False
                 globals.loginfo[f"log {x + 1}"]['corrupted'] = False
+                globals.loginfo[f"log {x + 1}"]['hacked'] = False
                 globals.loginfo[f"log {x + 1}"]['code'] = None
 
             # Alter displays

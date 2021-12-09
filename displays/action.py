@@ -328,7 +328,7 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(Widget())
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Player":
-                tempactiondialog.ids.actiondesc.text = "Select a coder to reveal their action."
+                tempactiondialog.ids.actiondesc.text = "Select a player to hack to reveal their action."
 
                 tempgrid = MDGridLayout(cols=4)
 
