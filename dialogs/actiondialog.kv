@@ -24,22 +24,41 @@
 
         MDLabel:
             id: whataction
+            text: "[u]Action[/u]: "
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            adaptive_height: True
+            markup: True
+
+        MDLabel:
+            id: whatpriority
+            text: "[u]Priority[/u]: "
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            adaptive_height: True
+            markup: True
+
+        MDLabel:
+            id: actiondesc
+            text: "[u]Description[/u]: "
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            adaptive_height: True
+            markup: True
+
+        MDSeparator:
+            color: C("FFFFFF")
+
+        MDLabel:
+            text: "Select"
             halign: "center"
             text_color: C("FFFFFF")
             font_style: "H5"
             theme_text_color: "Custom"
             adaptive_height: True
-
-        MDLabel:
-            id: actiondesc
-            halign: "center"
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-
-        Widget:
-            size_hint: 1, 0.1
 
         MDBoxLayout:
             adaptive_height: True
@@ -47,18 +66,36 @@
             spacing: "8dp"
             id: addbuttons
 
-        Widget:
-            size_hint: 1, 0.01
-
         MDLabel:
-            id: actionresult
+            adaptive_height: True
             halign: "center"
+            text: "Result"
             text_color: C("FFFFFF")
-            font_style: "Subtitle1"
+            font_style: "H5"
             theme_text_color: "Custom"
-            markup: True
 
-        Widget:
+        MDBoxLayout:
+            padding: "8dp"
+            canvas.before:
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.8
+                Line:
+                    width: 0.3
+                    rectangle: self.x, self.y, self.width, self.height
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.4
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                id: actionresult
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                theme_text_color: "Custom"
+                halign: "center"
+                markup: True
+
         Widget:
 
         MDRectangleFlatButton:

@@ -7,6 +7,7 @@ from kivy.uix.anchorlayout import AnchorLayout
 from kivymd.uix.gridlayout import MDGridLayout
 from kivy.uix.widget import Widget
 from main import MDApp
+from kivymd.icon_definitions import md_icons
 import globals
 import random
 
@@ -66,14 +67,21 @@ class ActionScreen(MDScreen):
         tempactiondialog = ActionDialog()
         nextplayeraction = globals.playerlist[globals.playeractionlist[globals.nextplayer]]["color"]
         tempactiondialog.ids.actiontitle.text = f"{nextplayeraction}'s Action"
-        tempactiondialog.ids.whataction.text = globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"]
+
+        # If action is hacker or coder action, they will get the correct icon.
+        if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] in globals.coderactionlist:
+            tempactiondialog.ids.whataction.text += f"[size=18sp][font=Icons]{md_icons['shield-lock']}[/font][/size] {globals.playeractions[globals.playeractionlist[globals.nextplayer]]['Action']}"
+
+        else:
+            tempactiondialog.ids.whataction.text += f"[size=18sp][font=Icons]{md_icons['shield-bug']}[/font][/size] {globals.playeractions[globals.playeractionlist[globals.nextplayer]]['Action']}"
 
         if globals.nextplayer < 4:
         # Every player must press a button to preform an action to prevent cheating.
 
             if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
 
-                tempactiondialog.ids.actiondesc.text = "Select code to put your digital footprint on all the logs."
+                tempactiondialog.ids.actiondesc.text += "Select code to put your digital footprint on all the logs."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size] High"
 
                 tempbutton = MDRoundFlatIconButton(
                     font_style="Button",
@@ -94,7 +102,8 @@ class ActionScreen(MDScreen):
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Log":
 
-                tempactiondialog.ids.actiondesc.text = "Select a log to reveal exactly how many hackers are found within it during the time you have checked it."
+                tempactiondialog.ids.actiondesc.text += "Select a log to reveal exactly how many hackers are found within it during the time you have checked it."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size] High"
 
                 tempbutton1 = MDRoundFlatIconButton(
                     font_style="Button",
@@ -143,7 +152,8 @@ class ActionScreen(MDScreen):
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
 
-                tempactiondialog.ids.actiondesc.text = "Select a player to check their alignment."
+                tempactiondialog.ids.actiondesc.text += "Select a player to check their alignment."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size] High"
 
                 tempgrid = MDGridLayout(cols=4)
 
@@ -183,7 +193,8 @@ class ActionScreen(MDScreen):
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Backup Log":
 
-                tempactiondialog.ids.actiondesc.text = "Select a log to prevent it from being corrupted."
+                tempactiondialog.ids.actiondesc.text += "Select a log to prevent it from being corrupted."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size] High"
 
                 tempbutton1 = MDRoundFlatIconButton(
                     font_style="Button",
@@ -232,7 +243,9 @@ class ActionScreen(MDScreen):
 
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Log":
-                tempactiondialog.ids.actiondesc.text = "Select a log to replace the digital footprint of one hacker with a coder."
+
+                tempactiondialog.ids.actiondesc.text += "Select a log to replace the digital footprint of one hacker with a coder."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-up']}[/font][/size] Low"
 
                 tempbutton1 = MDRoundFlatIconButton(
                     font_style="Button",
@@ -280,7 +293,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(Widget())
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Corrupt Log":
-                tempactiondialog.ids.actiondesc.text = "Select a log to attempt to corrupt it."
+
+                tempactiondialog.ids.actiondesc.text += "Select a log to attempt to corrupt it."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-up']}[/font][/size] Low"
 
                 tempbutton1 = MDRoundFlatIconButton(
                     font_style="Button",
@@ -328,7 +343,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(Widget())
 
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Player":
-                tempactiondialog.ids.actiondesc.text = "Select a player to hack to reveal their action."
+
+                tempactiondialog.ids.actiondesc.text += "Select a player to hack to reveal their action."
+                tempactiondialog.ids.whatpriority.text += f"[size=18sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size] High"
 
                 tempgrid = MDGridLayout(cols=4)
 
