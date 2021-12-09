@@ -19,9 +19,7 @@ def analyzelog(self, tempactiondialog, lognumber, button):
 
     disablewidgets(tempactiondialog)
 
-    if globals.loginfo[f"log {lognumber}"]['hackers'] == 0:
-        tempactiondialog.ids.actionresult.text = f"There is [color={globals.colordefs['Red']}]no hacker[/color] in the {globals.lognumberword[lognumber]} log."
-    elif globals.loginfo[f"log {lognumber}"]['hackers'] == 1:
+    if globals.loginfo[f"log {lognumber}"]['hackers'] == 1:
         tempactiondialog.ids.actionresult.text = f"There is [color={globals.colordefs['Red']}]one hacker[/color] in the {globals.lognumberword[lognumber]} log."
     else:
         tempactiondialog.ids.actionresult.text = f"There are [color={globals.colordefs['Red']}]{globals.numbertoword[globals.loginfo[f'log {lognumber}']['hackers']]} hackers[/color] in the {globals.lognumberword[lognumber]} log."
