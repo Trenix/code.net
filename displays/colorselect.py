@@ -7,9 +7,9 @@ class ColorSelectScreen(MDScreen):
 
     def ColorSelect(self, instance):
 # Sets colors to players in a sequence
-        if globals.colortracker > 0 and instance.icon == "circle-outline":
+        if globals.colortracker > 0 and instance.icon == "circle":
             globals.playerlist[f"player {globals.playercounter}"]["color"] = instance.text
-            instance.icon = "numeric-" + str(globals.playercounter) + "-circle-outline"
+            instance.icon = "numeric-" + str(globals.playercounter) + "-circle"
             globals.playercounter += 1
             globals.colortracker -= 1
             self.ids.remainder.text = f"Remainder: {globals.colortracker}"
@@ -17,8 +17,8 @@ class ColorSelectScreen(MDScreen):
                 self.ids.colorbottomtoolbar.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
 # Clicking last color selected, will clear it
-        elif instance.icon != "circle-outline" and instance.icon == ("numeric-" + str(globals.playercounter - 1) + "-circle-outline"):
-            instance.icon = "circle-outline"
+        elif instance.icon != "circle" and instance.icon == ("numeric-" + str(globals.playercounter - 1) + "-circle"):
+            instance.icon = "circle"
             globals.playercounter -= 1
             globals.colortracker += 1
             self.ids.remainder.text = f"Remainder: {globals.colortracker}"
@@ -27,7 +27,7 @@ class ColorSelectScreen(MDScreen):
     def RefreshTracker(self):
 
         for x in range(9):
-            self.ids[f"but{x + 1}"].icon = "circle-outline"
+            self.ids[f"but{x + 1}"].icon = "circle"
 
         globals.colortracker = globals.players
         globals.playercounter = 1
