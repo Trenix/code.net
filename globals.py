@@ -12,9 +12,9 @@ coderlist = []
 playerlogrev = []
 revealtracker = 1
 #900 Color
-colordefs = {"Red": "#b71c1c", "Pink": "#880e4f", "Purple": "#4a148c", "Blue": "#0d47a1",
-             "Green": '#1b5e20', "Yellow": '#f57f17', "Orange": '#e65100', "Brown": '#3e2723',
-             "Grey": '#212121', "AI": '#FFFFFF'}
+colordefs = {"Red": "#c62828", "Pink": "#ad1457", "Purple": "#6a1b9a", "Blue": "#1565c0",
+             "Green": '#1b5e20', "Yellow": '#f9a825', "Orange": '#ef6c00', "Brown": '#4e342e',
+             "Grey": '#424242', "AI": '#FFFFFF'}
 time = 0
 timer = 0
 lastscreen = None

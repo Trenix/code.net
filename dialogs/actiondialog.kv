@@ -22,35 +22,47 @@
         MDSeparator:
             color: C("FFFFFF")
 
-        MDLabel:
-            id: whataction
-            text: "[u]Action[/u]: "
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-            markup: True
+        MDStackLayout:
+            padding: "8dp"
+            spacing: "12dp"
+            canvas.before:
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.8
+                Line:
+                    width: 0.3
+                    rectangle: self.x, self.y, self.width, self.height
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.4
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
-        MDLabel:
-            id: whatpriority
-            text: "[u]Priority[/u]: "
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-            markup: True
+            MDLabel:
+                id: whataction
+                text: "[u]Action[/u]: "
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
 
-        MDLabel:
-            id: actiondesc
-            text: "[u]Description[/u]: "
-            text_color: C("FFFFFF")
-            font_style: "Subtitle1"
-            theme_text_color: "Custom"
-            adaptive_height: True
-            markup: True
+            MDLabel:
+                id: whatpriority
+                text: "[u]Priority[/u]: "
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
 
-        MDSeparator:
-            color: C("FFFFFF")
+            MDLabel:
+                id: actiondesc
+                text: "[u]Description[/u]: "
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
 
         MDLabel:
             text: "Select"
@@ -59,6 +71,9 @@
             font_style: "H5"
             theme_text_color: "Custom"
             adaptive_height: True
+
+        MDSeparator:
+            color: C("FFFFFF")
 
         MDBoxLayout:
             adaptive_height: True
@@ -74,8 +89,12 @@
             font_style: "H5"
             theme_text_color: "Custom"
 
+        MDSeparator:
+            color: C("FFFFFF")
+
         MDBoxLayout:
             padding: "8dp"
+            orientation: "vertical"
             canvas.before:
                 Color:
                     rgba: 0/255, 0/255, 0/255, 0.8
@@ -97,6 +116,7 @@
                 markup: True
 
         Widget:
+            size_hint: 1, 0.5
 
         MDRectangleFlatButton:
             id: okaction

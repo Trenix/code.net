@@ -133,8 +133,8 @@ class ActionScreen(MDScreen):
                 tempbutton3 = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
-                    text="numeric-3-box-multiple",
-                    icon="file",
+                    text="Third Log",
+                    icon="numeric-3-box-multiple",
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
@@ -244,7 +244,7 @@ class ActionScreen(MDScreen):
             elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Log":
 
                 tempactiondialog.ids.actiondesc.text += "Select a log to replace the digital footprint of one hacker with a coder."
-                tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color] Low"
+                tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color] Low"
 
                 tempbutton1 = MDRoundFlatIconButton(
                     font_style="Button",
