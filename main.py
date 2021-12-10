@@ -72,7 +72,7 @@ class MainWindow(MDScreen):
 
                 elif globals.loginfo[f"log {num + 1}"]["corrupted"] == False:
 
-                    if random.random() < 0.8:
+                    if random.random() < 0.85:
                         self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
 
                     else:
