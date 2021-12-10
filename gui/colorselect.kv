@@ -39,7 +39,7 @@
                 halign: "center"
                 markup: True
 
-            MDBoxLayout:
+            Widget:
                 size_hint: 1, 0.31
 
             MDLabel:
@@ -52,7 +52,7 @@
                 halign: "center"
                 markup: True
 
-            MDBoxLayout:
+            Widget:
                 size_hint: 1, 0.2
 
             MDGridLayout:
@@ -96,7 +96,7 @@
                         root.ColorSelect(but4)
 
                 MDFillRoundFlatIconButton:
-                    md_bg_color: C('#2e7d32')
+                    md_bg_color: C(app.globals.colordefs["Green"])
                     icon: "circle"
                     id: but5
                     font_style: "Button"
@@ -140,7 +140,7 @@
                     on_release:
                         root.ColorSelect(but9)
 
-        MDBoxLayout:
+        Widget:
             size_hint: 1, 0.6
 
         MDBottomAppBar:
