@@ -80,6 +80,17 @@
             orientation: "horizontal"
             spacing: "8dp"
             id: addbuttons
+            canvas.before:
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.8
+                Line:
+                    width: 0.3
+                    rectangle: self.x, self.y, self.width, self.height
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.4
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
 
         MDLabel:
             adaptive_height: True

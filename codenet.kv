@@ -12,8 +12,10 @@
 #:include gui/endgame.kv
 #:import C kivy.utils.get_color_from_hex
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
+#:import SwapTransition kivy.uix.screenmanager.SwapTransition
 #:include gui/mainscreens/Timer.kv
 #:include gui/mainscreens/Action.kv
+#:include gui/mainscreens/PlayerLog.kv
 
 WindowManager:
     transition: SlideTransition()
@@ -93,8 +95,10 @@ WindowManager:
             ScreenManager:
                 id: mainscreenmanager
 
+                transition: SwapTransition()
                 Timer:
                 ActionScreen:
+                PlayerLogScreen:
 
         MDBoxLayout:
             orientation: "vertical"
@@ -117,7 +121,7 @@ WindowManager:
                         padding: "8dp"
                         spacing: "8dp"
 
-                        MDBoxLayout:
+                        Widget:
 
                         MDFloatingLabel:
                             adaptive_height: True
@@ -159,7 +163,7 @@ WindowManager:
                                 markup: True
                                 text: "At least one hacker is among the following."
 
-                        MDBoxLayout:
+                        Widget:
 
                 Tab:
                     title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]"
@@ -303,6 +307,9 @@ WindowManager:
                         padding: "8dp"
                         spacing: "8dp"
 
+                        Widget:
+                            size_hint: 1, 0.5
+
                         MDFloatingLabel:
                             id:playerlog1
                             adaptive_height: True
@@ -342,18 +349,6 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 text: "Only one hacker is among the following."
-
-
-                        MDFillRoundFlatIconButton:
-                            id: round3reveal1
-                            pos_hint: {"center_x":0.5, "center_y":0.5}
-                            icon: 'cloud'
-                            font_style: "Button"
-                            md_bg_color: app.theme_cls.primary_color
-                            text: "Open Log"
-                            disabled: True
-                            on_press:
-                                root.r3l1()
 
                         MDFloatingLabel:
                             id:playerlog2
@@ -395,16 +390,8 @@ WindowManager:
                                 halign: "center"
                                 text: "Only one hacker is among the following."
 
-                        MDFillRoundFlatIconButton:
-                            id: round3reveal2
-                            icon: 'cloud'
-                            font_style: "Button"
-                            md_bg_color: app.theme_cls.primary_color
-                            pos_hint: {"center_x":0.5, "center_y":0.5}
-                            text: "Open Log"
-                            disabled: True
-                            on_press:
-                                root.r3l2()
+                        Widget:
+                            size_hint: 1, 0.5
 
         MDBottomAppBar:
             MDToolbar:

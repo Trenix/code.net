@@ -22,24 +22,13 @@
         MDSeparator:
             color: C("FFFFFF")
 
-        MDBoxLayout:
+        Widget:
             size_hint: 1, 0.01
 
         MDBoxLayout:
             spacing: "8dp"
             padding: "8dp"
             orientation: "vertical"
-#            canvas.before:
-#                Color:
-#                    rgba: C('#296f2c')
-#                Line:
-#                    width: 2.5
-#                    rectangle: self.x, self.y, self.width, self.height
-#                Color:
-#                    rgba: C('#236027')
-#                Rectangle:
-#                    pos: self.pos
-#                    size: self.size
 
             MDLabel:
                 font_style: "Subtitle2"
@@ -49,7 +38,7 @@
                 text_color: C("FFFFFF")
                 text: "Only the player which owns the log may upload and see the results."
 
-            MDBoxLayout:
+            Widget:
                 size_hint: 1, 0.01
 
             MDBoxLayout:
@@ -84,29 +73,14 @@
                     markup: True
                     text: "Only one hacker is among the following."
 
-            MDBoxLayout:
+            Widget:
                 size_hint: 1, 0.01
 
-            MDFillRoundFlatIconButton:
-                id: playerlogbutton
-                text: "Upload log"
-                icon: 'cloud-upload'
-                font_style: "Button"
-                md_bg_color: app.theme_cls.primary_color
-                pos_hint: {"center_x":0.5, "center_y":0.5}
-                on_press:
-                    root.revealplayerlog()
-                    root.ids.okbutton.disabled = False
-
-            MDBoxLayout:
-                size_hint: 1, 0.01
-
-        MDBoxLayout:
+        Widget:
             size_hint: 1, 0.01
 
         MDRectangleFlatButton:
             id: okbutton
-            disabled: True
             font_style: "Button"
             theme_text_color: "Custom"
             pos_hint: {"center_x": 0.5, "center_y": 0.5}
@@ -114,4 +88,5 @@
             text_color: C("FFFFFF")
             text: "OK"
             on_release:
+                app.root.get_screen('main').ids.mainscreenmanager.get_screen('playerlogscreen').trackplayer()
                 root.dismiss()

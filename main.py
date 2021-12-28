@@ -15,12 +15,12 @@ from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import MDFloatLayout
-from displays.dialogcode import LogDialog
 from displays.dialogcode import IdentityDialog
 from displays.dialogcode import ConfirmDialog
 from displays.dialogcode import ActionDialog
 from displays.information import MainInfo
 from displays.action import ActionScreen
+from displays.playerlog import PlayerLogScreen
 from kivy.clock import Clock
 import random
 import globals
@@ -90,43 +90,13 @@ class MainWindow(MDScreen):
             # Set back screen to what it was previously
             self.ids.mainscreenmanager.get_screen('actionscreen').ids.useaction.disabled = False
 
-# May be used, sets players less on log rather than specific amount.
-#            templog = sorted(random.sample(list(globals.coderlist), ((globals.players + globals.aiamt) - tempamthacker) - playerslesslog) + random.sample(list(globals.hackerlist), tempamthacker))
-#            playerslesslog = 2
-
-# Logs per each round.
-
-    def r3l1(self):
-        self.ids.round3reveal1.disabled = True
-
-        # Check if logs are complete before being allowed to move to next round
-        if self.ids.round3reveal2.disabled == True and globals.time == 0:
-            self.ids.roundregulator.icon = "square-rounded-outline"
-            self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
-        elif self.ids.round3reveal2.disabled == True:
+        # Round 3 Check
+        else:
+            self.settime(300)
             self.ids.roundregulator.icon = "stop"
-
-        temppop = LogDialog()
-        temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-        temppop.open()
-
-    def r3l2(self):
-
-        self.ids.round3reveal2.disabled = True
-
-        # Check if logs are complete before being allowed to move to next round
-        if self.ids.round3reveal1.disabled == True and globals.time == 0:
-            self.ids.roundregulator.icon = "square-rounded-outline"
-            self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
-        elif self.ids.round3reveal1.disabled == True:
-            self.ids.roundregulator.icon = "stop"
-
-        temppop = LogDialog()
-        temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
-        temppop.open()
+            self.ids.mainscreenmanager.current = "timescreen"
 
 # Configure timer
-
     def settime(self, time):
 
         globals.time = time
@@ -152,7 +122,6 @@ class MainWindow(MDScreen):
             minutes, seconds = divmod(globals.time, 60)
             self.ids.mainscreenmanager.get_screen("timescreen").ids.timer.text = "[font=H4][size=40sp]" + "{:02}:{:02}".format(int(minutes), int(seconds)) + "[/size][/font]"
 
-
     def nextround(self):
 
 # Round 1
@@ -171,13 +140,13 @@ class MainWindow(MDScreen):
 # Round 2
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
 
-            #set log information for actions
-            for x in range(3):
-                globals.loginfo[f"log {x + 1}"] = {"hackers": createhackeramt()}
-                globals.loginfo[f"log {x + 1}"]['backedup'] = False
-                globals.loginfo[f"log {x + 1}"]['corrupted'] = False
-                globals.loginfo[f"log {x + 1}"]['hacked'] = False
-                globals.loginfo[f"log {x + 1}"]['code'] = None
+            # Set log information for actions
+            for x in range(1, 4):
+                globals.loginfo[f"log {x}"] = {"hackers": createhackeramt()}
+                globals.loginfo[f"log {x}"]['backedup'] = False
+                globals.loginfo[f"log {x}"]['corrupted'] = False
+                globals.loginfo[f"log {x}"]['hacked'] = False
+                globals.loginfo[f"log {x}"]['code'] = None
 
             # Alter displays
             ActionScreen.setactionplayers(self)
@@ -192,29 +161,35 @@ class MainWindow(MDScreen):
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
             self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 3[/font][/size]")
             self.ids.roundregulator.icon = "square-rounded-outline"
-            self.settime(300)
 
-# Tab displays activated
-            self.ids.round3reveal1.disabled = False
-            self.ids.round3reveal2.disabled = False
-
-# Sets what players are provided logs, ais will not get logs.
+            # Sets what players are provided logs, ais will not get logs.
             if globals.players <= 5:
                 globals.playerlogrev = random.sample(list(globals.notai), 2)
             else:
                 globals.playerlogrev = random.sample(list(globals.playerlist), 2)
 
-    # Reveal who's log it is.
+            num = 1
+            for player in globals.playerlogrev:
+                self.ids.mainscreenmanager.get_screen("playerlogscreen").ids[f'log{num}'].color = globals.colordefs[globals.playerlist[player]['color']]
+                num += 1
+
+            # Reveal who's log it is.
             self.ids.playerlog1.text = "[font=H4][size=20sp]" + f"{globals.playerlist[globals.playerlogrev[0]]['color']}" + "'s Log[/size][/font]"
             self.ids.playerlog2.text = "[font=H4][size=20sp]" + f"{globals.playerlist[globals.playerlogrev[1]]['color']}" + "'s Log[/size][/font]"
-            self.ids.round3sum1.text_color = globals.colordefs[globals.playerlist[globals.playerlogrev[0]]['color']]
-            self.ids.round3sum2.text_color = globals.colordefs[globals.playerlist[globals.playerlogrev[1]]['color']]
+
+            # Prepare log tracker
+            self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.log1.icon = 'circle-slice-8'
+            globals.revealtracker = 1
+            self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.nextplayer.text = f"It's {globals.playerlist[globals.playerlogrev[globals.revealtracker - 1]]['color']}'s turn."
+
+            # Change main screen
+            self.ids.mainscreenmanager.current = "playerlogscreen"
 
     def nextscreen(self):
 
         EndGame.setalignments(self)
-        self.manager.current = "endgame"
         self.manager.transition.direction = "left"
+        self.manager.current = "endgame"
 
         # Reset folders
         self.ids.round1sub.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"

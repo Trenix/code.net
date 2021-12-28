@@ -46,18 +46,20 @@ class PlayerReveal(MDScreen):
                 tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Identify other coders and work together to discover the {amthackers} hackers among the players."
                 tempdialog.open()
 
-            if globals.revealtracker < globals.players:
-                self.ids.nextplayer.text = "It's " + globals.playerlist[f"player {globals.revealtracker + 1}"]["color"] + "'s turn!"
-                self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
-                globals.revealtracker += 1
-                self.ids[f"ind{globals.revealtracker}"].icon = "circle-slice-8"
+    def trackplayer(self):
 
-            elif globals.revealtracker == globals.players:
-                self.ids.nextplayer.text = "Pass the phone to the host."
-                self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
-                globals.revealtracker += 1
-                self.ids.revtool.icon = "square-rounded-outline"
-                self.ids.revtool.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
+        if globals.revealtracker < globals.players:
+            self.ids.nextplayer.text = "It's " + globals.playerlist[f"player {globals.revealtracker + 1}"]["color"] + "'s turn!"
+            self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
+            globals.revealtracker += 1
+            self.ids[f"ind{globals.revealtracker}"].icon = "circle-slice-8"
+
+        elif globals.revealtracker == globals.players:
+            self.ids.nextplayer.text = "Pass the phone to the host."
+            self.ids[f"ind{globals.revealtracker}"].icon = "circle-outline"
+            globals.revealtracker += 1
+            self.ids.revtool.icon = "square-rounded-outline"
+            self.ids.revtool.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
     def nextscreen(self):
         if globals.revealtracker > globals.players:
