@@ -25,4 +25,5 @@ playeractionlist = []
 loginfo = {}
 numbertoword = {1: 'one', 2: 'two', 3: 'three'}
 lognumberword = {1: 'first', 2: 'second', 3: 'third'}
+logbuttonword = {1: 'First Log', 2: 'Second Log', 3: 'Third Log'}
 # infodropdown = None
