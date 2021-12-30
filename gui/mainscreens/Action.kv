@@ -18,7 +18,6 @@
             pos_hint: {"center_x": 0.5}
 
         MDGridLayout:
-            adaptive_height: True
             pos_hint: {"center_x": 0.5}
             canvas.before:
                 Color:
@@ -32,36 +31,39 @@
                     pos: self.pos
                     size: self.size
             size_hint_x: 0.3
-            padding: "20dp"
             cols: 4
 
-            MDIcon:
-                id: act1
-                theme_text_color: "Custom"
-                icon: "circle-slice-8"
-                font_size: "24sp"
-                halign: "center"
+            AnchorLayout:
+                MDIcon:
+                    id: act1
+                    theme_text_color: "Custom"
+                    icon: "circle-slice-8"
+                    font_size: "24sp"
+                    halign: "center"
 
-            MDIcon:
-                id: act2
-                font_size: "24sp"
-                theme_text_color: "Custom"
-                icon: "circle-outline"
-                halign: "center"
+            AnchorLayout:
+                MDIcon:
+                    id: act2
+                    font_size: "24sp"
+                    theme_text_color: "Custom"
+                    icon: "circle-outline"
+                    halign: "center"
 
-            MDIcon:
-                id: act3
-                font_size: "24sp"
-                theme_text_color: "Custom"
-                icon: "circle-outline"
-                halign: "center"
+            AnchorLayout:
+                MDIcon:
+                    id: act3
+                    font_size: "24sp"
+                    theme_text_color: "Custom"
+                    icon: "circle-outline"
+                    halign: "center"
 
-            MDIcon:
-                id: act4
-                font_size: "24sp"
-                theme_text_color: "Custom"
-                icon: "circle-outline"
-                halign: "center"
+            AnchorLayout:
+                MDIcon:
+                    id: act4
+                    font_size: "24sp"
+                    theme_text_color: "Custom"
+                    icon: "circle-outline"
+                    halign: "center"
 
         Widget:
             size_hint: 1, 0.3

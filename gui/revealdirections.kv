@@ -40,6 +40,9 @@
                 markup: True
 
             MDGridLayout:
+                size_hint_y: 0.01
+                id: setgrid
+                cols: 9
                 canvas.before:
                     Color:
                         rgba: 51/255, 255/255, 51/255, 0.3
@@ -51,73 +54,69 @@
                     Rectangle:
                         pos: self.pos
                         size: self.size
-                id: setgrid
-                adaptive_height: True
-                padding: "20dp"
-                cols: 9
 
-                MDIcon:
-                    id: ind1
-                    theme_text_color: "Custom"
-                    icon: "circle-slice-8"
-                    font_size: "24sp"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind1
+                        theme_text_color: "Custom"
+                        icon: "circle-slice-8"
+                        font_size: "24sp"
 
-                MDIcon:
-                    id: ind2
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind2
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind3
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind3
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind4
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind4
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind5
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind5
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind6
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind6
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind7
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind7
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind8
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind8
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
-                MDIcon:
-                    id: ind9
-                    font_size: "24sp"
-                    theme_text_color: "Custom"
-                    icon: "circle-outline"
-                    halign: "center"
+                AnchorLayout:
+                    MDIcon:
+                        id: ind9
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
 
             Widget:
                 size_hint: 1, 0.1

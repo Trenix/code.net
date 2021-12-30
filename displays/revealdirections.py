@@ -69,8 +69,9 @@ class PlayerReveal(MDScreen):
         # Reset code for new game if it occurs.
         self.manager.get_screen("reveal").ids['ind1'].icon = "circle-slice-8"
 
-        for x in range(globals.players + 1, 9 + 1):
+        for x in range(globals.players + 1, 10):
             self.manager.get_screen("reveal").ids[f"ind{x}"].icon = 'circle-outline'
+            self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 1, 1
 
         self.ids.revtool.right_action_items = []
         self.ids.revtool.icon = "account-search"

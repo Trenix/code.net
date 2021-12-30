@@ -312,7 +312,7 @@ WindowManager:
                         MDFloatingLabel:
                             id:playerlog1
                             adaptive_height: True
-                            text: "[font=H4][size=20sp]Player Log[/size][/font]"
+                            text: f"[size=20sp][font=Icons]{md_icons['account']}[/font] [font=H4]Player Log[/font][/size]"
                             theme_text_color: "Custom"
                             markup: True
                             text_color: C('#FFFFFF')
@@ -349,14 +349,24 @@ WindowManager:
                                 halign: "center"
                                 text: "Only one hacker is among the following."
 
-                        MDFloatingLabel:
+                        MDLabel:
                             id:playerlog2
                             adaptive_height: True
-                            text: "[font=H4][size=20sp]Player Log[/size][/font]"
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text: f"[size=20sp][font=Icons]{md_icons['account']}[/font] [font=H4]Log[/font][/size]"
                             theme_text_color: "Custom"
                             markup: True
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
+                            canvas.before:
+                                Color:
+                                    rgba: C('#FF0000')
+                                RoundedRectangle:
+                                    pos: self.x - 8, self.y - 3
+                                    size: self.width + 16, self.height + 6
+                                    radius: [5]
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}

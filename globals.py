@@ -11,10 +11,10 @@ hackerlist = []
 coderlist = []
 playerlogrev = []
 revealtracker = 1
-#900 Color
-colordefs = {"Red": "#c62828", "Pink": "#ad1457", "Purple": "#6a1b9a", "Blue": "#1565c0",
-             "Green": '#2e7d32', "Yellow": '#f9a825', "Orange": '#ef6c00', "Brown": '#4e342e',
-             "Grey": '#424242', "AI": '#FFFFFF'}
+#700 Color
+colordefs = {"Red": "#d32f2f", "Pink": "#c2185b", "Purple": "#7b1fa2", "Blue": "#1976d2",
+             "Green": '#689f38', "Yellow": '#fbc02d', "Orange": '#f57c00', "Brown": '#5d4037',
+             "Grey": '#616161', "AI": '#FFFFFF'}
 time = 0
 timer = 0
 lastscreen = None

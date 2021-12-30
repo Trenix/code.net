@@ -20,7 +20,6 @@ class ActionScreen(MDScreen):
     from systems.preformactions import hackplayer
 
     def setactionplayers(self):
-
         # Collect players randomly that will have actions and then sort them
         templist = []
 

@@ -91,7 +91,7 @@ class MainWindow(MDScreen):
             self.ids.mainscreenmanager.get_screen('actionscreen').ids.useaction.disabled = False
 
         # Round 3 Check
-        else:
+        elif self.ids.roundregulator.icon == "check" and self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
             self.settime(300)
             self.ids.roundregulator.icon = "stop"
             self.ids.mainscreenmanager.current = "timescreen"
@@ -174,8 +174,10 @@ class MainWindow(MDScreen):
                 num += 1
 
             # Reveal who's log it is.
-            self.ids.playerlog1.text = "[font=H4][size=20sp]" + f"{globals.playerlist[globals.playerlogrev[0]]['color']}" + "'s Log[/size][/font]"
-            self.ids.playerlog2.text = "[font=H4][size=20sp]" + f"{globals.playerlist[globals.playerlogrev[1]]['color']}" + "'s Log[/size][/font]"
+            self.ids.playerlog1.text = f"[color={globals.colordefs[globals.playerlist[globals.playerlogrev[0]]['color']]}][size=20sp][font=Icons]{md_icons['account']}[/font][/color] [font=H4]{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log[/size][/font]"
+            self.ids.playerlog2.text = f"[color={globals.colordefs[globals.playerlist[globals.playerlogrev[1]]['color']]}][size=20sp][font=Icons]{md_icons['account']}[/font][/color] [font=H4]{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log[/size][/font]"
+
+            self.ids.playerlog2.text_size = None, None
 
             # Prepare log tracker
             self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.log1.icon = 'circle-slice-8'

@@ -40,8 +40,9 @@ class ColorSelectScreen(MDScreen):
         self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
 
         # Remove indicator icon
-        for x in range(globals.players + 1, 9 + 1):
+        for x in range(globals.players + 1, 10):
             self.manager.get_screen("reveal").ids[f"ind{x}"].icon = ''
+            self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 0, 0
 
         # Set colors
         for x in range(globals.players):

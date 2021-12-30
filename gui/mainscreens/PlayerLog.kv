@@ -18,7 +18,6 @@
             pos_hint: {"center_x": 0.5}
 
         MDGridLayout:
-            adaptive_height: True
             pos_hint: {"center_x": 0.5}
             canvas.before:
                 Color:
@@ -31,23 +30,22 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
-            size_hint_x: 0.3
-            padding: "20dp"
-            cols: 4
+            size_hint_x: 0.2
+            cols: 2
 
-            MDIcon:
-                id: log1
-                theme_text_color: "Custom"
-                icon: ""
-                font_size: "24sp"
-                halign: "center"
+            AnchorLayout:
+                MDIcon:
+                    id: log1
+                    theme_text_color: "Custom"
+                    icon: "circle-slice-8"
+                    font_size: "24sp"
 
-            MDIcon:
-                id: log2
-                font_size: "24sp"
-                theme_text_color: "Custom"
-                icon: "circle-outline"
-                halign: "center"
+            AnchorLayout:
+                MDIcon:
+                    id: log2
+                    font_size: "24sp"
+                    theme_text_color: "Custom"
+                    icon: "circle-outline"
 
         Widget:
             size_hint: 1, 0.3
