@@ -22,6 +22,7 @@ from displays.information import MainInfo
 from displays.action import ActionScreen
 from displays.playerlog import PlayerLogScreen
 from kivy.clock import Clock
+from kivy.utils import get_color_from_hex
 import random
 import globals
 
@@ -174,10 +175,13 @@ class MainWindow(MDScreen):
                 num += 1
 
             # Reveal who's log it is.
-            self.ids.playerlog1.text = f"[color={globals.colordefs[globals.playerlist[globals.playerlogrev[0]]['color']]}][size=20sp][font=Icons]{md_icons['account']}[/font][/color] [font=H4]{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log[/size][/font]"
-            self.ids.playerlog2.text = f"[color={globals.colordefs[globals.playerlist[globals.playerlogrev[1]]['color']]}][size=20sp][font=Icons]{md_icons['account']}[/font][/color] [font=H4]{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log[/size][/font]"
+            globals.log1color = globals.colordefs[globals.playerlist[globals.playerlogrev[0]]['color']]
+            globals.log2color = globals.colordefs[globals.playerlist[globals.playerlogrev[1]]['color']]
 
-            self.ids.playerlog2.text_size = None, None
+            for num in range(1, 3):
+                self.ids[f'playerlog{num}'].text = f"[size=20sp][font=Icons]{md_icons['account']}[/font] [font=H4]{globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log[/size][/font]"
+                self.ids[f'playerlog{num}'].text_size = None, None
+                self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = get_color_from_hex(globals.colordefs[globals.playerlist[globals.playerlogrev[num - 1]]['color']])
 
             # Prepare log tracker
             self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.log1.icon = 'circle-slice-8'
