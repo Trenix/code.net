@@ -130,7 +130,8 @@ class MainWindow(MDScreen):
 
             # Alter displays
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]")
+            self.ids.mainpanel.switch_tab("file-lock", search_by="icon")
+
             self.settime(60) # 1 minute
             self.ids.roundregulator.icon = "stop"
 
@@ -154,13 +155,13 @@ class MainWindow(MDScreen):
             self.ids.mainscreenmanager.current = "actionscreen"
 
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]")
+            self.ids.mainpanel.switch_tab("file-code", search_by="icon")
             self.ids.roundregulator.icon = "square-rounded-outline"
 
 # Round 3
         else:
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
-            self.ids.mainpanel.switch_tab(f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 3[/font][/size]")
+            self.ids.mainpanel.switch_tab("file-account", search_by="icon")
             self.ids.roundregulator.icon = "square-rounded-outline"
 
             # Sets what players are provided logs, ais will not get logs.
@@ -175,11 +176,8 @@ class MainWindow(MDScreen):
                 num += 1
 
             # Reveal who's log it is.
-            globals.log1color = globals.colordefs[globals.playerlist[globals.playerlogrev[0]]['color']]
-            globals.log2color = globals.colordefs[globals.playerlist[globals.playerlogrev[1]]['color']]
-
             for num in range(1, 3):
-                self.ids[f'playerlog{num}'].text = f"[size=20sp][font=Icons]{md_icons['account']}[/font] [font=H4]{globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log[/size][/font]"
+                self.ids[f'playerlog{num}'].text = f"{globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log"
                 self.ids[f'playerlog{num}'].text_size = None, None
                 self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = get_color_from_hex(globals.colordefs[globals.playerlist[globals.playerlogrev[num - 1]]['color']])
 
@@ -218,8 +216,7 @@ class MainWindow(MDScreen):
         self.ids.roundregulator.icon = "play"
 
         # Set tab back to round 1
-        self.ids.mainpanel.switch_tab(
-    f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]")
+        self.ids.mainpanel.switch_tab("file-lock", search_by="icon")
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY

@@ -113,8 +113,9 @@ WindowManager:
                 tab_indicator_anim: True
 
                 Tab:
-                    title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 1[/font][/size]"
+                    title: "[font=Button]ROUND 1[/font]"
                     markup: True
+                    icon: "file-lock"
 
                     MDBoxLayout:
                         orientation: "vertical"
@@ -166,8 +167,9 @@ WindowManager:
                         Widget:
 
                 Tab:
-                    title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 2[/font][/size]"
+                    title: "[font=Button]ROUND 2[/font]"
                     markup: True
+                    icon: "file-code"
 
                     MDBoxLayout:
                         orientation: "vertical"
@@ -298,8 +300,9 @@ WindowManager:
                                 text: "At least one hacker may be among the following."
 
                 Tab:
-                    title: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size][size=15sp][font=Button] ROUND 3[/font][/size]"
+                    title: "[font=Button]ROUND 3[/font]"
                     markup: True
+                    icon: "file-account"
 
                     MDBoxLayout:
                         orientation: "vertical"
@@ -315,11 +318,12 @@ WindowManager:
                             size_hint_x: None
                             width: self.texture_size[0]
                             text_size: None, None
-                            text: f"[size=20sp][font=Icons]{md_icons['account']}[/font] [font=H4]Player Log[/font][/size]"
+                            text: "Player Log"
                             theme_text_color: "Custom"
-                            markup: True
+                            font_style: 'H6'
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
+                            markup: True
                             canvas.before:
                                 Color:
                                     group: '1'
@@ -364,9 +368,10 @@ WindowManager:
                             id:playerlog2
                             adaptive_height: True
                             size_hint_x: None
+                            font_style: 'H6'
                             width: self.texture_size[0]
                             text_size: None, None
-                            text: f"[size=20sp][font=Icons]{md_icons['account']}[/font] [font=H4]Player Log[/font][/size]"
+                            text: "Player Log"
                             theme_text_color: "Custom"
                             markup: True
                             text_color: C('#FFFFFF')
