@@ -115,7 +115,7 @@ WindowManager:
                 Tab:
                     title: "[font=Button]ROUND 1[/font]"
                     markup: True
-                    icon: "file-lock"
+                    icon: "archive-lock"
 
                     MDBoxLayout:
                         orientation: "vertical"
@@ -124,13 +124,24 @@ WindowManager:
 
                         Widget:
 
-                        MDFloatingLabel:
+                        MDLabel:
                             adaptive_height: True
-                            text: "[font=H4][size=20sp]Main Log[/size][/font]"
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text: f"[font=Icons]{md_icons['folder-lock']}[/font] Main Log"
                             theme_text_color: "Custom"
-                            markup: True
+                            font_style: 'H5'
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
+                            markup: True
+                            canvas.before:
+                                Color:
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.x - 8, self.y - 3
+                                    size: self.width + 16, self.height + 6
+                                    radius: [5]
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -154,7 +165,7 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 markup: True
-                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
 
                             MDLabel:
                                 text_color: app.theme_cls.primary_color
@@ -169,20 +180,33 @@ WindowManager:
                 Tab:
                     title: "[font=Button]ROUND 2[/font]"
                     markup: True
-                    icon: "file-code"
+                    icon: "archive"
 
                     MDBoxLayout:
                         orientation: "vertical"
                         padding: "8dp"
                         spacing: "8dp"
 
-                        MDFloatingLabel:
+                        MDLabel:
+                            id: logtitle1
                             adaptive_height: True
-                            text: "[font=H4][size=20sp]First Log[/size][/font]"
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text: f"[font=Icons]{md_icons['folder']}[/font] First Log"
                             theme_text_color: "Custom"
-                            markup: True
+                            font_style: 'H5'
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
+                            markup: True
+                            canvas.before:
+                                Color:
+                                    group: '1'
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.x - 8, self.y - 3
+                                    size: self.width + 16, self.height + 6
+                                    radius: [5]
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -206,7 +230,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum1
@@ -217,13 +241,26 @@ WindowManager:
                                 markup: True
                                 text: "At least one hacker may be among the following."
 
-                        MDFloatingLabel:
+                        MDLabel:
+                            id: logtitle2
                             adaptive_height: True
-                            text: "[font=H4][size=20sp]Second Log[/size][/font]"
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text: f"[font=Icons]{md_icons['folder']}[/font] Second Log"
                             theme_text_color: "Custom"
-                            markup: True
+                            font_style: 'H5'
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
+                            markup: True
+                            canvas.before:
+                                Color:
+                                    group: '2'
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.x - 8, self.y - 3
+                                    size: self.width + 16, self.height + 6
+                                    radius: [5]
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -247,7 +284,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum2
@@ -258,13 +295,26 @@ WindowManager:
                                 markup: True
                                 text: "At least one hacker may be among the following."
 
-                        MDFloatingLabel:
+                        MDLabel:
+                            id: logtitle3
                             adaptive_height: True
-                            text: "[font=H4][size=20sp]Third Log[/size][/font]"
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text: f"[font=Icons]{md_icons['folder']}[/font] Third Log"
                             theme_text_color: "Custom"
-                            markup: True
+                            font_style: 'H5'
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
+                            markup: True
+                            canvas.before:
+                                Color:
+                                    group: '3'
+                                    rgba: app.theme_cls.primary_color
+                                RoundedRectangle:
+                                    pos: self.x - 8, self.y - 3
+                                    size: self.width + 16, self.height + 6
+                                    radius: [5]
 
                         MDBoxLayout:
                             pos_hint: {"center_x":0.5, "y": 0}
@@ -288,7 +338,7 @@ WindowManager:
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
                                 halign: "center"
-                                text: f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
 
                             MDLabel:
                                 id: round2sum3
@@ -302,7 +352,7 @@ WindowManager:
                 Tab:
                     title: "[font=Button]ROUND 3[/font]"
                     markup: True
-                    icon: "file-account"
+                    icon: "archive-eye"
 
                     MDBoxLayout:
                         orientation: "vertical"
@@ -318,9 +368,9 @@ WindowManager:
                             size_hint_x: None
                             width: self.texture_size[0]
                             text_size: None, None
-                            text: "Player Log"
+                            text: f"[font=Icons]{md_icons['folder-eye']}[/font] Player Log"
                             theme_text_color: "Custom"
-                            font_style: 'H6'
+                            font_style: 'H5'
                             text_color: C('#FFFFFF')
                             pos_hint: {"center_x": 0.5}
                             markup: True
@@ -355,7 +405,7 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 markup: True
-                                text: f"[size=30sp][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['file-eye']}[/font] [font=Icons]{md_icons['file-eye']}[/font][/size]"
 
                             MDLabel:
                                 text_color: app.theme_cls.primary_color
@@ -368,10 +418,10 @@ WindowManager:
                             id:playerlog2
                             adaptive_height: True
                             size_hint_x: None
-                            font_style: 'H6'
+                            font_style: 'H5'
                             width: self.texture_size[0]
                             text_size: None, None
-                            text: "Player Log"
+                            text: f"[font=Icons]{md_icons['folder-eye']}[/font] Player Log"
                             theme_text_color: "Custom"
                             markup: True
                             text_color: C('#FFFFFF')
@@ -407,7 +457,7 @@ WindowManager:
                                 font_style: 'Subtitle2'
                                 halign: "center"
                                 markup: True
-                                text: f"[size=30sp][font=Icons]{md_icons['folder-key']}[/font] [font=Icons]{md_icons['folder-key']}[/font][/size]"
+                                text: f"[size=30sp][font=Icons]{md_icons['file-eye']}[/font] [font=Icons]{md_icons['file-eye']}[/font][/size]"
 
                             MDLabel:
                                 text_color: app.theme_cls.primary_color

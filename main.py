@@ -74,15 +74,20 @@ class MainWindow(MDScreen):
                 elif globals.loginfo[f"log {num + 1}"]["corrupted"] == False:
 
                     if random.random() < 0.85:
+                        # Upon Success
                         self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
 
                     else:
-                        self.ids[f"round2sub{num + 1}"].text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-                        self.ids[f"round2sum{num + 1}"].text = "[color=#c62828]The log has been corrupted![/color]"
+                        self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=30sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
+                        self.ids[f"round2sum{num + 1}"].text = f"[color={globals.colordefs['Red']}]The log has been corrupted![/color]"
+                        self.ids[f"logtitle{num + 1}"].text = f"[font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]}"
+                        self.ids[f"logtitle{num + 1}"].canvas.before.get_group(f'{num + 1}')[0].rgb = get_color_from_hex(globals.colordefs['Red'])
 
                 else:
-                    self.ids[f"round2sub{num + 1}"].text = f"[color=#c62828][size=30sp][font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/font] [font=Icons]{md_icons['folder-alert']}[/color][/font][/size]"
-                    self.ids[f"round2sum{num + 1}"].text = "[color=#c62828]The log has been corrupted![/color]"
+                    self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=30sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
+                    self.ids[f"round2sum{num + 1}"].text = f"[color={globals.colordefs['Red']}]The log has been corrupted![/color]"
+                    self.ids[f"logtitle{num + 1}"].text = f"[font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]}"
+                    self.ids[f"logtitle{num + 1}"].canvas.before.get_group(f'{num + 1}')[0].rgb = get_color_from_hex(globals.colordefs['Red'])
 
             self.settime(360)
             self.ids.roundregulator.icon = "stop"
@@ -130,7 +135,7 @@ class MainWindow(MDScreen):
 
             # Alter displays
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab("file-lock", search_by="icon")
+            self.ids.mainpanel.switch_tab("archive-lock", search_by="icon")
 
             self.settime(60) # 1 minute
             self.ids.roundregulator.icon = "stop"
@@ -155,13 +160,13 @@ class MainWindow(MDScreen):
             self.ids.mainscreenmanager.current = "actionscreen"
 
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
-            self.ids.mainpanel.switch_tab("file-code", search_by="icon")
+            self.ids.mainpanel.switch_tab("archive", search_by="icon")
             self.ids.roundregulator.icon = "square-rounded-outline"
 
 # Round 3
         else:
             self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
-            self.ids.mainpanel.switch_tab("file-account", search_by="icon")
+            self.ids.mainpanel.switch_tab("archive-eye", search_by="icon")
             self.ids.roundregulator.icon = "square-rounded-outline"
 
             # Sets what players are provided logs, ais will not get logs.
@@ -177,7 +182,7 @@ class MainWindow(MDScreen):
 
             # Reveal who's log it is.
             for num in range(1, 3):
-                self.ids[f'playerlog{num}'].text = f"{globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log"
+                self.ids[f'playerlog{num}'].text = f"[font=Icons]{md_icons['folder-eye']}[/font] {globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log"
                 self.ids[f'playerlog{num}'].text_size = None, None
                 self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = get_color_from_hex(globals.colordefs[globals.playerlist[globals.playerlogrev[num - 1]]['color']])
 
@@ -216,7 +221,7 @@ class MainWindow(MDScreen):
         self.ids.roundregulator.icon = "play"
 
         # Set tab back to round 1
-        self.ids.mainpanel.switch_tab("file-lock", search_by="icon")
+        self.ids.mainpanel.switch_tab("archive-lock", search_by="icon")
 
 class codenetApp(MDApp):
 #Global Variables Between KV and PY

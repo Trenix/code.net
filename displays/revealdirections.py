@@ -1,6 +1,7 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.icon_definitions import md_icons
 from main import IdentityDialog
+from kivy.utils import get_color_from_hex
 import globals
 
 class PlayerReveal(MDScreen):
@@ -10,9 +11,11 @@ class PlayerReveal(MDScreen):
 
         if globals.revealtracker <= globals.players:
             playercolor = globals.playerlist[f"player {globals.revealtracker}"]["color"]
+            tempdialog = IdentityDialog()
+            tempdialog.ids.identitycard.md_bg_color = get_color_from_hex(globals.colordefs[playercolor])
 
             if self.ids[f"ind{globals.revealtracker}"].icon == "circle-slice-8" and globals.playerlist[f"player {globals.revealtracker}"]["hacker"] == True and globals.revealtracker <= globals.players:
-                tempdialog = IdentityDialog()
+
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color=#c62828][font=Icons]{md_icons['shield-bug']}[/font][/color][/size] " + "Hacker"
                 tempdialog.ids.identitydes.text = "[u]Objective[/u]: Keep your alignment and it's members hidden. Work with your alignment to gain the trust of coders and have them distrust each other."
@@ -22,29 +25,22 @@ class PlayerReveal(MDScreen):
                     allycolor = globals.playerlist[ally]['color']
 
                     tempdialog.ids.haveallies.text = "[u]Ally[/u]: " + f"[size=22sp][color={globals.colordefs[allycolor]}][font=Icons]{md_icons['account-plus']}[/font][/color][/size] " + globals.playerlist[ally]["color"]
-                    tempdialog.open()
 
                 else:
                     ally = globals.playerlist[f"player {globals.revealtracker}"]["allies"]
                     allycolor1 = globals.playerlist[ally[0]]['color']
                     allycolor2 = globals.playerlist[ally[1]]['color']
+
                     tempdialog.ids.haveallies.text = "[u]Allies[/u]: " + f"[size=22sp][color={globals.colordefs[allycolor1]}][font=Icons]{md_icons['account-plus']}[/font][/color][/size] " + allycolor1 + ", " + f"[size=22sp][color={globals.colordefs[allycolor2]}][font=Icons]{md_icons['account-plus']}[/font][/color][/size] " + allycolor2
-                    tempdialog.open()
 
             elif self.ids[f"ind{globals.revealtracker}"].icon == "circle-slice-8" and globals.playerlist[f"player {globals.revealtracker}"]["hacker"] == False and globals.revealtracker <= globals.players:
-                tempdialog = IdentityDialog()
+
                 tempdialog.ids.identity.remove_widget(tempdialog.ids.haveallies)
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color=#1565c0][font=Icons]{md_icons['shield-lock']}[/font][/color][/size] " + "Coder"
+                tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Identify other coders and work together to discover the {globals.numbertoword[globals.amtbad]} hackers among the players."
 
-                if globals.amtbad == 2:
-                    amthackers = "two"
-
-                else:
-                    amthackers = "three"
-
-                tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Identify other coders and work together to discover the {amthackers} hackers among the players."
-                tempdialog.open()
+            tempdialog.open()
 
     def trackplayer(self):
 

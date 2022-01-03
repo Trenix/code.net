@@ -27,14 +27,14 @@ def createlog(playersonlog, amtofhackers, codeplayer):
     tempcolorlog.sort()
 
     if playersonlog == 4:
-        strtemplog = f"[color={globals.colordefs[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[3]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] "
+        strtemplog = f"[color={globals.colordefs[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
+                     f"[color={globals.colordefs[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
+                     f"[color={globals.colordefs[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
+                     f"[color={globals.colordefs[tempcolorlog[3]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] "
     else:
-        strtemplog = f"[color={globals.colordefs[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['folder-account']}[/font][/color] "
+        strtemplog = f"[color={globals.colordefs[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
+                     f"[color={globals.colordefs[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
+                     f"[color={globals.colordefs[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] "
 
     return strtemplog
 

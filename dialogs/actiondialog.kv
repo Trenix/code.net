@@ -1,8 +1,9 @@
 <ActionDialog>:
     auto_dismiss: False
-    size_hint: 0.9, 0.5
+    size_hint: 0.9, 0.6
 
     MDCard:
+        id: actioncard
         orientation: "vertical"
         spacing: "12dp"
         padding: "8dp"
@@ -12,6 +13,7 @@
 
         MDLabel:
             id: actiontitle
+            text: "Player Action"
             font_style: "H4"
             size_hint_y: None
             height: self.texture_size[1]
@@ -36,6 +38,15 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
+
+            MDLabel:
+                id: whatplayer
+                text: "[u]Player[/u]: "
+                text_color: C("FFFFFF")
+                font_style: "Subtitle1"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
 
             MDLabel:
                 id: whataction
