@@ -62,9 +62,8 @@ class ActionScreen(MDScreen):
 
         tempactiondialog = ActionDialog()
         nextplayeraction = globals.playerlist[globals.playeractionlist[globals.nextplayer]]["color"]
-        tempactiondialog.ids.actioncard.md_bg_color = get_color_from_hex(globals.colordefs[nextplayeraction])
-        # tempactiondialog.ids.actiontitle.text = f"{nextplayeraction}'s Action"
 
+        tempactiondialog.ids.actioncard.md_bg_color = get_color_from_hex(globals.colordefs[nextplayeraction])
         tempactiondialog.ids.whatplayer.text += f"[size=22sp][color={globals.colordefs[nextplayeraction]}][font=Icons]{md_icons['account']}[/font][/color][/size] {nextplayeraction}"
 
         # If action is hacker or coder action, they will get the correct icon.
@@ -110,7 +109,7 @@ class ActionScreen(MDScreen):
                     font_style="Button",
                     theme_text_color="Custom",
                     text=globals.logbuttonword[num],
-                    icon=f"numeric-{num}-box",
+                    icon="folder",
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
@@ -165,7 +164,7 @@ class ActionScreen(MDScreen):
                     font_style="Button",
                     theme_text_color="Custom",
                     text=globals.logbuttonword[num],
-                    icon=f"numeric-{num}-box",
+                    icon="folder",
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
@@ -188,7 +187,7 @@ class ActionScreen(MDScreen):
                     font_style="Button",
                     theme_text_color="Custom",
                     text=globals.logbuttonword[num],
-                    icon=f"numeric-{num}-box",
+                    icon="folder",
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
@@ -211,7 +210,7 @@ class ActionScreen(MDScreen):
                     font_style="Button",
                     theme_text_color="Custom",
                     text=globals.logbuttonword[num],
-                    icon=f"numeric-{num}-box",
+                    icon="folder",
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),

@@ -1,10 +1,11 @@
 <ConfirmDialog>:
     auto_dismiss: False
-    size_hint: 0.9, 0.25
+    size_hint: 0.5, 0.2
 
     MDCard:
         orientation: "vertical"
         padding: "8dp"
+        spacing: "12dp"
         md_bg_color: app.theme_cls.primary_color
         border_radius: "20dp"
         radius: ["15dp"]
@@ -19,9 +20,6 @@
 
         MDSeparator:
             color: C("FFFFFF")
-
-        Widget:
-            size_hint: 1, 0.2
 
         MDLabel:
             text: "This will reset the timer so you can begin the next round."
@@ -41,19 +39,19 @@
             MDRectangleFlatButton:
                 font_style: "Button"
                 theme_text_color: "Custom"
+                line_color: C("FFFFFF")
+                text_color: C("FFFFFF")
+                text: "No"
+                on_release:
+                    root.dismiss()
+
+            MDRectangleFlatButton:
+                font_style: "Button"
+                theme_text_color: "Custom"
                 md_bg_color: app.theme_cls.primary_dark
                 line_color: C("FFFFFF")
                 text_color: C("FFFFFF")
                 text: "Yes"
                 on_release:
                     app.root.get_screen('main').resettimer()
-                    root.dismiss()
-
-            MDRectangleFlatButton:
-                font_style: "Button"
-                theme_text_color: "Custom"
-                line_color: C("FFFFFF")
-                text_color: C("FFFFFF")
-                text: "No"
-                on_release:
                     root.dismiss()

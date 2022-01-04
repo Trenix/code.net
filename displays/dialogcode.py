@@ -1,5 +1,4 @@
 from kivymd.uix.dialog import MDDialog
-# from systems.generateplayerlog import createplayerlog
 import globals
 
 class ActionDialog(MDDialog):

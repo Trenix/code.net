@@ -2,6 +2,8 @@ from kivymd.uix.screen import MDScreen
 from displays.dialogcode import LogDialog
 from main import MDApp
 from systems.generateplayerlog import createplayerlog
+from kivymd.icon_definitions import md_icons
+from kivy.utils import get_color_from_hex
 import globals
 
 class PlayerLogScreen(MDScreen):
@@ -20,13 +22,13 @@ class PlayerLogScreen(MDScreen):
 
     def beginreveal(self):
         temppop = LogDialog()
-        temppop.ids.playerlogtitle.text = f"{globals.playerlist[globals.playerlogrev[globals.revealtracker - 1]]['color']}'s Log"
+        playercolor = globals.playerlist[globals.playerlogrev[globals.revealtracker - 1]]['color']
 
-        # Creates player log based on the title of the popup
-        if temppop.ids.playerlogtitle.text == f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log":
-            log = createplayerlog(globals.playerlogrev[0])
-        else:
-            log = createplayerlog(globals.playerlogrev[1])
+        temppop.ids.whatplayer.text += f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] {playercolor}"
+
+        # Create player log, set background color to player who owns log
+        temppop.ids.logcard.md_bg_color = get_color_from_hex(globals.colordefs[playercolor])
+        log = createplayerlog(globals.playerlogrev[globals.revealtracker - 1])
 
         temppop.ids.log1sub.text = log
         temppop.open()
