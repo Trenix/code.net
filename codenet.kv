@@ -62,15 +62,28 @@ WindowManager:
 
             MDBoxLayout:
                 orientation: "horizontal"
+                spacing: "4dp"
                 adaptive_height: True
 
-                MDLabel:
-                    id: alignmentidentifer
-                    text_color: C('FFFFFF')
+                MDIcon:
+                    id: hacker_identifer
+                    icon: "shield-bug"
+                    text_color: C(app.globals.colordefs['Red'])
                     theme_text_color: "Custom"
                     markup: True
                     halign: "left"
                     adaptive_height: True
+                    badge_bg_color: C('000000')
+
+                MDIcon:
+                    id: coder_identifer
+                    icon: "shield-lock"
+                    text_color: C(app.globals.colordefs['Blue'])
+                    theme_text_color: "Custom"
+                    markup: True
+                    halign: "left"
+                    adaptive_height: True
+                    badge_bg_color: C('000000')
 
                 MDLabel:
                     text_color: app.theme_cls.primary_color
@@ -80,13 +93,25 @@ WindowManager:
                     markup: True
                     halign: "center"
 
-                MDLabel:
-                    id: playeridentifer
+                MDIcon:
+                    id: ai_identifer
+                    icon: "account-circle"
                     halign: "right"
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
                     markup: True
                     adaptive_height: True
+                    badge_bg_color: C('000000')
+
+                MDIcon:
+                    id: player_identifer
+                    icon: "account-supervisor-circle"
+                    halign: "right"
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    markup: True
+                    adaptive_height: True
+                    badge_bg_color: C('000000')
 
         MDBoxLayout:
             size_hint_y: 2/5

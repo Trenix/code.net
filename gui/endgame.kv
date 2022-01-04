@@ -14,8 +14,7 @@
             title: "C0de.Net"
             right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
-        MDBoxLayout:
-            orientation: "vertical"
+        MDStackLayout:
             spacing: "8dp"
             padding: "8dp"
 
@@ -37,9 +36,9 @@
                 font_style: 'H5'
                 text: "Alignments"
 
-            MDGridLayout:
+            MDBoxLayout:
+                orientation: "vertical"
                 adaptive_height: True
-                cols: 1
                 canvas.before:
                     Color:
                         rgba: 51/255, 255/255, 51/255, 0.3
@@ -63,7 +62,7 @@
 
                 MDLabel:
                     id: coders
-                    md_bg_color: app.theme_cls.primary_dark
+#                    md_bg_color: app.theme_cls.primary_dark
                     adaptive_height: True
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
@@ -79,64 +78,22 @@
                 text_color: C('FFFFFF')
                 theme_text_color: "Custom"
                 font_style: 'H5'
-                text: "Point System"
+                text: "Actions"
 
-            MDLabel:
+            MDBoxLayout:
+                orientation: "vertical"
                 adaptive_height: True
-                text_color: C('FFFFFF')
-                theme_text_color: "Custom"
-                font_style: 'H6'
-                text: "Hacker"
-
-            MDLabel:
-                adaptive_height: True
-                text_color: app.theme_cls.primary_color
-                theme_text_color: "Custom"
-                font_style: 'Subtitle2'
-                text: f"[color=#FFFFFF]+[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all hackers, for each coder that determined a hacker innocent."
-                markup: True
-
-            MDLabel:
-                adaptive_height: True
-                text_color: app.theme_cls.primary_color
-                theme_text_color: "Custom"
-                font_style: 'Subtitle2'
-                text: f"[color=#FFFFFF]-[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for the hacker, for each hacker they have determined guilty."
-                markup: True
-
-            MDLabel:
-                adaptive_height: True
-                text_color: C('FFFFFF')
-                theme_text_color: "Custom"
-                font_style: 'H6'
-                text: "Coder"
-                markup: True
-
-            MDLabel:
-                adaptive_height: True
-                text_color: app.theme_cls.primary_color
-                theme_text_color: "Custom"
-                font_style: 'Subtitle2'
-                text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all coders, if majority of coders have determined a hacker as guilty."
-                markup: True
-
-            MDLabel:
-                adaptive_height: True
-                text_color: app.theme_cls.primary_color
-                theme_text_color: "Custom"
-                font_style: 'Subtitle2'
-                text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for each coder that determined a hacker as guilty."
-                markup: True
-
-            MDLabel:
-                adaptive_height: True
-                text_color: app.theme_cls.primary_color
-                theme_text_color: "Custom"
-                font_style: 'Subtitle2'
-                text: f"[color=#FFFFFF]-[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for each coder that determined a coder guilty and was part of the majority."
-                markup: True
-
-            Widget:
+                canvas.before:
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.3
+                    Line:
+                        width: 0.3
+                        rectangle: self.x, self.y, self.width, self.height
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.06
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
 
         MDBottomAppBar:
             MDToolbar:
