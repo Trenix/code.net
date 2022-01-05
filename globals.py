@@ -20,13 +20,13 @@ timer = 0
 lastscreen = None
 hackeractionlist = ["Hack Log", "Corrupt Log", "Hack Player"]
 coderactionlist = ["Code", "Analyze Log", "Analyze Player", "Backup Log"]
-actionicons = {"Hack Log": {'icon': 'folder-network', 'color': '#d32f2f'},
-               "Corrupt Log": {'icon': 'folder-cancel', 'color': '#d32f2f'},
-               "Hack Player": {'icon': 'account-network', 'color': '#d32f2f'},
-               "Code": {'icon': 'language-python', 'color': "#1976d2"},
-               "Analyze Log": {'icon': 'folder-search', 'color': "#1976d2"},
-               "Analyze Player": {'icon': 'account-search', 'color': "#1976d2"},
-                "Backup Log": {'icon': 'folder-download', 'color': "#1976d2"}}
+actionicons = {"Hack Log": {'icon': 'folder-network', 'color': colordefs['Red']},
+               "Corrupt Log": {'icon': 'folder-remove', 'color': colordefs['Red']},
+               "Hack Player": {'icon': 'account-network', 'color': colordefs['Red']},
+               "Code": {'icon': 'language-python', 'color': colordefs['Blue']},
+               "Analyze Log": {'icon': 'folder-search', 'color': colordefs['Blue']},
+               "Analyze Player": {'icon': 'account-search', 'color': colordefs['Blue']},
+                "Backup Log": {'icon': 'folder-download', 'color': colordefs['Blue']}}
 playeractions = {}
 loginfo = {}
 numbertoword = {1: 'one', 2: 'two', 3: 'three'}

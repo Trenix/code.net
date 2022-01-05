@@ -34,6 +34,8 @@ class ActionScreen(MDScreen):
 
         for player in templist:
             globals.playeractions[player] = {"Action": None}
+            globals.playeractions[player] = {"Target": None}
+            globals.playeractions[player] = {"TargetColor": None}
 
         # Set indicators to color for players that have an action.
         for x in range(4):

@@ -19,7 +19,7 @@ class EndGame(MDScreen):
             self.manager.get_screen("endgame").ids[f'action_{num}'].text =\
             f" [color={globals.colordefs[globals.playerlist[list(globals.playeractions)[num]]['color']]}]" \
             f"{globals.playerlist[list(globals.playeractions)[num]]['color']}[/color] " \
-            f"[color={globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['color']}][font=Icons]{md_icons[globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['icon']]}[/font][/color] "
+            f"[color={globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['color']}][font=Icons]{md_icons[globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['icon']]}[/font][/color] [color={globals.playeractions[list(globals.playeractions)[num]]['TargetColor']}]{globals.playeractions[list(globals.playeractions)[num]]['Target']}[/color]"
 
     def opendialog(self):
         RematchDialog().open()
