@@ -196,7 +196,7 @@ class MainWindow(MDScreen):
 
     def nextscreen(self):
 
-        EndGame.setalignments(self)
+        EndGame.setresults(self)
         self.manager.transition.direction = "left"
         self.manager.current = "endgame"
 

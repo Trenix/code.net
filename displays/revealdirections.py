@@ -17,7 +17,7 @@ class PlayerReveal(MDScreen):
             if self.ids[f"ind{globals.revealtracker}"].icon == "circle-slice-8" and globals.playerlist[f"player {globals.revealtracker}"]["hacker"] == True and globals.revealtracker <= globals.players:
 
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
-                tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color=#c62828][font=Icons]{md_icons['shield-bug']}[/font][/color][/size] " + "Hacker"
+                tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Red']}][font=Icons]{md_icons['shield-bug']}[/font][/color][/size] " + "Hacker"
                 tempdialog.ids.identitydes.text = "[u]Objective[/u]: Keep your alignment and it's members hidden. Work with your alignment to gain the trust of coders and have them distrust each other."
 
                 if globals.players <= 8:
@@ -37,7 +37,7 @@ class PlayerReveal(MDScreen):
 
                 tempdialog.ids.identity.remove_widget(tempdialog.ids.haveallies)
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
-                tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color=#1565c0][font=Icons]{md_icons['shield-lock']}[/font][/color][/size] " + "Coder"
+                tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Blue']}][font=Icons]{md_icons['shield-lock']}[/font][/color][/size] " + "Coder"
                 tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Identify other coders and work together to discover the {globals.numbertoword[globals.amtbad]} hackers among the players."
 
             tempdialog.open()
@@ -70,11 +70,10 @@ class PlayerReveal(MDScreen):
             self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 1, 1
 
         self.ids.revtool.right_action_items = []
-        self.ids.revtool.icon = "account-search"
+        self.ids.revtool.icon = "card-account-details"
         globals.revealtracker = 1
 
     def rematchreset(self):
-
         # Set up tracker for revealing
         for x in range(globals.players):
             self.ids[f"ind{x + 1}"].color = globals.colordefs[

@@ -74,6 +74,7 @@ WindowManager:
                     halign: "left"
                     adaptive_height: True
                     badge_bg_color: C('000000')
+                    badge_icon_color: C(app.globals.colordefs['Red'])
 
                 MDIcon:
                     id: coder_identifer
@@ -84,6 +85,7 @@ WindowManager:
                     halign: "left"
                     adaptive_height: True
                     badge_bg_color: C('000000')
+                    badge_icon_color: C(app.globals.colordefs['Blue'])
 
                 MDLabel:
                     text_color: app.theme_cls.primary_color
@@ -102,6 +104,7 @@ WindowManager:
                     markup: True
                     adaptive_height: True
                     badge_bg_color: C('000000')
+                    badge_icon_color: C('FFFFFF')
 
                 MDIcon:
                     id: player_identifer
@@ -112,6 +115,7 @@ WindowManager:
                     markup: True
                     adaptive_height: True
                     badge_bg_color: C('000000')
+                    badge_icon_color: app.theme_cls.primary_color
 
         MDBoxLayout:
             size_hint_y: 2/5

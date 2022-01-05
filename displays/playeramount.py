@@ -19,10 +19,10 @@ class PlayerWindow(MDScreen):
             globals.players = 4
             globals.aiamt = 1
 
-            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle"
-            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-3-circle"
-            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-1-circle"
-            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-4-circle"
+            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle-outline"
+            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-3-circle-outline"
+            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-1-circle-outline"
+            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-4-circle-outline"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -34,10 +34,10 @@ class PlayerWindow(MDScreen):
             globals.players = 5
             globals.aiamt = 1
 
-            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle"
-            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-4-circle"
-            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-1-circle"
-            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-5-circle"
+            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle-outline"
+            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-4-circle-outline"
+            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-1-circle-outline"
+            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-5-circle-outline"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -49,10 +49,10 @@ class PlayerWindow(MDScreen):
             globals.players = 6
             globals.aiamt = 0
 
-            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle"
-            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-4-circle"
-            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle"
-            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-6-circle"
+            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle-outline"
+            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-4-circle-outline"
+            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle-outline"
+            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-6-circle-outline"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -64,10 +64,10 @@ class PlayerWindow(MDScreen):
             globals.players = 7
             globals.aiamt = 0
 
-            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle"
-            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-5-circle"
-            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle"
-            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-7-circle"
+            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle-outline"
+            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-5-circle-outline"
+            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle-outline"
+            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-7-circle-outline"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -79,10 +79,10 @@ class PlayerWindow(MDScreen):
             globals.players = 8
             globals.aiamt = 0
 
-            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle"
-            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-6-circle"
-            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle"
-            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-8-circle"
+            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-2-circle-outline"
+            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-6-circle-outline"
+            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle-outline"
+            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-8-circle-outline"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 
@@ -94,10 +94,10 @@ class PlayerWindow(MDScreen):
             globals.players = 9
             globals.aiamt = 0
 
-            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-3-circle"
-            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-6-circle"
-            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle"
-            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-9-circle"
+            self.manager.get_screen("main").ids.hacker_identifer.badge_icon = "numeric-3-circle-outline"
+            self.manager.get_screen("main").ids.coder_identifer.badge_icon = "numeric-6-circle-outline"
+            self.manager.get_screen("main").ids.ai_identifer.badge_icon = "numeric-0-circle-outline"
+            self.manager.get_screen("main").ids.player_identifer.badge_icon = "numeric-9-circle-outline"
 
             self.manager.get_screen("colorselect").ids.remainder.text = f"Remainder: {globals.players}"
 

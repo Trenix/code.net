@@ -42,8 +42,8 @@ class ActionScreen(MDScreen):
         self.ids.mainscreenmanager.get_screen("actionscreen").ids.nextplayer.text = f"It's {globals.playerlist[list(globals.playeractions)[0]]['color']}'s turn."
 
         # prevent repetition and set actions for players
-        tempcoder = random.sample(list(globals.coderactionlist), 4)
-        temphacker = random.sample(list(globals.hackeractionlist), 3)
+        tempcoder = random.sample(globals.coderactionlist, 4)
+        temphacker = random.sample(globals.hackeractionlist, 3)
         tempcodertracker = 0
         temphackertracker = 0
 
@@ -56,26 +56,32 @@ class ActionScreen(MDScreen):
                 tempcodertracker += 1
 
         globals.nextplayer = 0
-        globals.playeractionlist = list(globals.playeractions)
 
     def beginaction(self):
 
         tempactiondialog = ActionDialog()
-        nextplayeraction = globals.playerlist[globals.playeractionlist[globals.nextplayer]]["color"]
+        playeractionlist = list(globals.playeractions)
+        nextplayeraction = globals.playerlist[playeractionlist[globals.nextplayer]]["color"]
 
         tempactiondialog.ids.actioncard.md_bg_color = get_color_from_hex(globals.colordefs[nextplayeraction])
         tempactiondialog.ids.whatplayer.text += f"[size=22sp][color={globals.colordefs[nextplayeraction]}][font=Icons]{md_icons['account']}[/font][/color][/size] {nextplayeraction}"
+        tempactiondialog.ids.whataction.text += f"{globals.playeractions[playeractionlist[globals.nextplayer]]['Action']}"
 
         # If action is hacker or coder action, they will get the correct icon.
-        if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] in globals.coderactionlist:
-            tempactiondialog.ids.whataction.text += f"[color={globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons['shield-lock']}[/font][/size][/color] {globals.playeractions[globals.playeractionlist[globals.nextplayer]]['Action']}"
+        if globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] in globals.coderactionlist:
+            tempactiondialog.ids.whaticon.text_color = get_color_from_hex(globals.colordefs['Blue'])
+            tempactiondialog.ids.whaticon.badge_icon = "shield-lock-outline"
+            tempactiondialog.ids.whaticon.badge_icon_color = get_color_from_hex(globals.colordefs['Blue'])
 
         else:
-            tempactiondialog.ids.whataction.text += f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['shield-bug']}[/font][/size][/color] {globals.playeractions[globals.playeractionlist[globals.nextplayer]]['Action']}"
+            tempactiondialog.ids.whaticon.text_color = get_color_from_hex(globals.colordefs['Red'])
+            tempactiondialog.ids.whaticon.badge_icon = "shield-bug-outline"
+            tempactiondialog.ids.whaticon.badge_icon_color = get_color_from_hex(globals.colordefs['Red'])
 
         # Every player must press a button to preform an action to prevent cheating.
-        if globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Code":
+        if globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Code":
 
+            tempactiondialog.ids.whaticon.icon = 'language-python'
             tempactiondialog.ids.actiondesc.text += "Select code to put your digital footprint on all the logs."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
@@ -96,8 +102,9 @@ class ActionScreen(MDScreen):
             tempactiondialog.ids.addbuttons.add_widget(templayout)
             templayout.add_widget(tempbutton)
 
-        elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Log":
+        elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Analyze Log":
 
+            tempactiondialog.ids.whaticon.icon = 'folder-search'
             tempactiondialog.ids.actiondesc.text += "Select a log to reveal exactly how many hackers are found within it during the time you have checked it."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
@@ -119,8 +126,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
-        elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
+        elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
 
+            tempactiondialog.ids.whaticon.icon = 'account-search'
             tempactiondialog.ids.actiondesc.text += "Select a player to check their alignment."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
@@ -129,7 +137,7 @@ class ActionScreen(MDScreen):
 
             # Cannot analyze AI.
             for player in globals.playerlist:
-                if player != "AI" and player != globals.playeractionlist[globals.nextplayer]:
+                if player != "AI" and player != playeractionlist[globals.nextplayer]:
                     templist.append(player)
 
             #----------------------
@@ -151,8 +159,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(tempbutton)
 
-        elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Backup Log":
+        elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Backup Log":
 
+            tempactiondialog.ids.whaticon.icon = 'folder-download'
             tempactiondialog.ids.actiondesc.text += "Select a log to prevent it from being corrupted."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
@@ -174,8 +183,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
-        elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Log":
+        elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Hack Log":
 
+            tempactiondialog.ids.whaticon.icon = 'folder-network'
             tempactiondialog.ids.actiondesc.text += "Select a log to replace the digital footprint of one hacker with a coder."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color] Low"
 
@@ -197,8 +207,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
-        elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Corrupt Log":
+        elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Corrupt Log":
 
+            tempactiondialog.ids.whaticon.icon = 'folder-remove'
             tempactiondialog.ids.actiondesc.text += "Select a log to attempt to corrupt it."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color] Low"
 
@@ -220,8 +231,9 @@ class ActionScreen(MDScreen):
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
-        elif globals.playeractions[globals.playeractionlist[globals.nextplayer]]["Action"] == "Hack Player":
+        elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Hack Player":
 
+            tempactiondialog.ids.whaticon.icon = 'account-network'
             tempactiondialog.ids.actiondesc.text += "Select a player to hack to reveal their action."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
@@ -263,7 +275,7 @@ class ActionScreen(MDScreen):
             self.ids[f'act{globals.nextplayer + 1}'].icon = "circle-outline"
             globals.nextplayer += 1
             self.ids[f'act{globals.nextplayer + 1}'].icon = "circle-slice-8"
-            self.ids.nextplayer.text = f"It's {globals.playerlist[globals.playeractionlist[globals.nextplayer]]['color']}'s turn."
+            self.ids.nextplayer.text = f"It's {globals.playerlist[list(globals.playeractions)[globals.nextplayer]]['color']}'s turn."
 
         else:
             self.ids.useaction.disabled = True

@@ -9,7 +9,7 @@ def codeaction(self, tempactiondialog, button):
     disablewidgets(tempactiondialog)
 
     for x in range(3):
-        globals.loginfo[f"log {x + 1}"]['code'] = globals.playeractionlist[globals.nextplayer]
+        globals.loginfo[f"log {x + 1}"]['code'] = list(globals.playeractions)[globals.nextplayer]
 
     tempactiondialog.ids.actionresult.text += f"Your digital footprint has been [color={globals.colordefs['Red']}]added[/color] to all the logs."
 

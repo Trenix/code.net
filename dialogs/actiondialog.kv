@@ -47,14 +47,37 @@
                 adaptive_height: True
                 markup: True
 
-            MDLabel:
-                id: whataction
-                text: "[u]Action[/u]: "
-                text_color: C("FFFFFF")
-                font_style: "Subtitle1"
-                theme_text_color: "Custom"
+            MDBoxLayout:
+                orientation: "horizontal"
                 adaptive_height: True
-                markup: True
+
+                MDLabel:
+                    text: "[u]Action[/u]: "
+                    text_color: C("FFFFFF")
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    markup: True
+                    halign: 'left'
+                    size_hint_x: None
+                    width: self.texture_size[0]
+                    text_size: None, None
+
+                MDIcon:
+                    text_color: C("FFFFFF")
+                    theme_text_color: "Custom"
+                    id: whaticon
+                    halign: 'left'
+#                    badge_bg_color: 0, 0, 0, 0
+                    badge_bg_color: C('#000000')
+
+                MDLabel:
+                    id: whataction
+                    text: " "
+                    halign: 'left'
+                    text_color: C("FFFFFF")
+                    font_style: "Subtitle1"
+                    theme_text_color: "Custom"
+                    markup: True
 
             MDLabel:
                 id: whatpriority
