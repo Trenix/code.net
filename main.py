@@ -69,13 +69,23 @@ class MainWindow(MDScreen):
 
                 if globals.loginfo[f"log {num + 1}"]["backedup"] == True:
 
-                    self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+                    log, logtext = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+
+                    self.ids[f"round2sub{num + 1}"].text = log
+                    self.ids[f"round2sub{num + 1}text"].text = logtext
+
+                    # self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
 
                 elif globals.loginfo[f"log {num + 1}"]["corrupted"] == False:
 
                     if random.random() < 0.85:
                         # Upon Success
-                        self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+                        log, logtext = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+
+                        self.ids[f"round2sub{num + 1}"].text = log
+                        self.ids[f"round2sub{num + 1}text"].text = logtext
+
+                        # self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
 
                     else:
                         self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=30sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
@@ -141,8 +151,9 @@ class MainWindow(MDScreen):
             self.ids.roundregulator.icon = "stop"
 
             # Reveal log
-            log = createlog(4, None, None)
+            log, logtext = createlog(4, None, None)
             self.ids.round1sub.text = log
+            self.ids.round1subtext.text = logtext
 
 # Round 2
         elif self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":

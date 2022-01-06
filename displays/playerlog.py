@@ -28,7 +28,8 @@ class PlayerLogScreen(MDScreen):
 
         # Create player log, set background color to player who owns log
         temppop.ids.logcard.md_bg_color = get_color_from_hex(globals.colordefs[playercolor])
-        log = createplayerlog(globals.playerlogrev[globals.revealtracker - 1])
+        log, logtext = createplayerlog(globals.playerlogrev[globals.revealtracker - 1])
 
         temppop.ids.log1sub.text = log
+        temppop.ids.log1subtext.text = logtext
         temppop.open()

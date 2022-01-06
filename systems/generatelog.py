@@ -26,17 +26,19 @@ def createlog(playersonlog, amtofhackers, codeplayer):
 
     tempcolorlog.sort()
 
-    if playersonlog == 4:
-        strtemplog = f"[color={globals.colordefs[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[3]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] "
-    else:
-        strtemplog = f"[color={globals.colordefs[tempcolorlog[0]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[1]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] " \
-                     f"[color={globals.colordefs[tempcolorlog[2]]}][size=30sp][font=Icons]{md_icons['file-account']}[/font][/color] "
+# Create icons and text for log.
+    strtemplog = ''
+    strtemplogtext = ''
 
-    return strtemplog
+    for num in range(playersonlog):
+        if num != playersonlog - 1:
+            strtemplog += f"[size=30sp][color={globals.colordefs[tempcolorlog[num]]}][font=Icons]{md_icons['file-account']}[/font][/color] [/size]"
+            strtemplogtext += f'{tempcolorlog[num]}, '
+        else:
+            strtemplog += f"[color={globals.colordefs[tempcolorlog[num]]}][size=30sp][font=Icons]{md_icons['file-account']}[/size][/font][/color]"
+            strtemplogtext += f'{tempcolorlog[num]}.'
+
+    return strtemplog, strtemplogtext
 
 def createhackeramt():
 
