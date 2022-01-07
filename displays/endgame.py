@@ -8,18 +8,26 @@ class EndGame(MDScreen):
     from systems.openinformation import openinfo
 
     def setresults(self):
-
+    # Adds icons for alignment reveal.
         for x in globals.hackerlist:
-            self.manager.get_screen("endgame").ids.hackers.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=25sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
+            self.manager.get_screen("endgame").ids.hackers.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=22sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
 
         for x in globals.coderlist:
-            self.manager.get_screen("endgame").ids.coders.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=25sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
+            self.manager.get_screen("endgame").ids.coders.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=22sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
 
+    # Adds text for alignment reveal
+        self.manager.get_screen("endgame").ids.hackers.text += " " + ", ".join(
+            map(lambda x: globals.playerlist[x]['color'], globals.hackerlist)) + "."
+
+        self.manager.get_screen("endgame").ids.coders.text += " " + ", ".join(
+            map(lambda x: globals.playerlist[x]['color'], globals.coderlist)) + "."
+
+    # Reveals actions
         for num in range(4):
             self.manager.get_screen("endgame").ids[f'action_{num}'].text =\
             f" [color={globals.colordefs[globals.playerlist[list(globals.playeractions)[num]]['color']]}]" \
             f"{globals.playerlist[list(globals.playeractions)[num]]['color']}[/color] " \
-            f"[color={globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['color']}][font=Icons]{md_icons[globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['icon']]}[/font][/color] [color={globals.playeractions[list(globals.playeractions)[num]]['TargetColor']}]{globals.playeractions[list(globals.playeractions)[num]]['Target']}[/color]"
+            f"[size=22][color={globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['color']}][font=Icons]{md_icons[globals.actionicons[globals.playeractions[list(globals.playeractions)[num]]['Action']]['icon']]}[/font][/color][/size] [color={globals.playeractions[list(globals.playeractions)[num]]['TargetColor']}]{globals.playeractions[list(globals.playeractions)[num]]['Target']}[/color]"
 
     def opendialog(self):
         RematchDialog().open()

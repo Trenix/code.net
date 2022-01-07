@@ -72,13 +72,9 @@ class ActionScreen(MDScreen):
         # If action is hacker or coder action, they will get the correct icon.
         if globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] in globals.coderactionlist:
             tempactiondialog.ids.whaticon.text_color = get_color_from_hex(globals.colordefs['Blue'])
-            tempactiondialog.ids.whaticon.badge_icon = "shield-lock-outline"
-            tempactiondialog.ids.whaticon.badge_icon_color = get_color_from_hex(globals.colordefs['Blue'])
 
         else:
             tempactiondialog.ids.whaticon.text_color = get_color_from_hex(globals.colordefs['Red'])
-            tempactiondialog.ids.whaticon.badge_icon = "shield-bug-outline"
-            tempactiondialog.ids.whaticon.badge_icon_color = get_color_from_hex(globals.colordefs['Red'])
 
         # Every player must press a button to preform an action to prevent cheating.
         if globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Code":
