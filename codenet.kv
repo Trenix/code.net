@@ -10,6 +10,7 @@
 #:include gui/load.kv
 #:include gui/colorselect.kv
 #:include gui/endgame.kv
+#:include gui/backgroundimage.kv
 #:import C kivy.utils.get_color_from_hex
 #:import SlideTransition kivy.uix.screenmanager.SlideTransition
 #:import SwapTransition kivy.uix.screenmanager.SwapTransition
@@ -31,11 +32,7 @@ WindowManager:
 <MainWindow>
     name: "main"
 
-    AnchorLayout:
-        Image:
-            size_hint: None, None
-            size: 1644, 3840
-            source: "images/defaultback.png"
+    Background:
 
     MDBoxLayout:
         orientation: "vertical"
