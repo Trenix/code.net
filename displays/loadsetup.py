@@ -4,7 +4,6 @@ from kivy.clock import Clock
 from kivymd.font_definitions import theme_font_styles
 # from kivymd.uix.menu import MDDropdownMenu
 # from kivymd.icon_definitions import md_icons
-import globals
 from main import MDApp
 
 class LoadingScreen(MDScreen):
