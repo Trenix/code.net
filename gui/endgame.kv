@@ -74,6 +74,36 @@
                 text_color: C('FFFFFF')
                 theme_text_color: "Custom"
                 font_style: 'H5'
+                text: "Target"
+
+            MDLabel:
+                id: thetarget
+                adaptive_height: True
+                text_color: C('FFFFFF')
+                theme_text_color: "Custom"
+                font_style: 'Body1'
+                text: f" [size=22sp][font=Icons]{md_icons['target-account']}[/font][/size] Target: "
+                markup: True
+                canvas.before:
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.3
+                    Line:
+                        width: 0.3
+                        rectangle: self.x, self.y, self.width, self.height
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.06
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDLabel:
+                adaptive_height: True
+                text_color: C('FFFFFF')
+                theme_text_color: "Custom"
+                font_style: 'H5'
                 text: "Actions"
 
             MDBoxLayout:

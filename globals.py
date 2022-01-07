@@ -8,6 +8,7 @@ popupWindow = None
 colortracker = 0
 notai = []
 hackerlist = []
+target = ''
 coderlist = []
 playerlogrev = []
 revealtracker = 1

@@ -9,11 +9,18 @@ class EndGame(MDScreen):
 
     def setresults(self):
     # Adds icons for alignment reveal.
-        for x in globals.hackerlist:
-            self.manager.get_screen("endgame").ids.hackers.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=22sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
+        self.manager.get_screen("endgame").ids.hackers.text += "".join(
+            map(lambda x:
+                f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=22sp][font=Icons]"
+                f"{md_icons['account']}[/font][/size][/color]", globals.hackerlist
+                )
+        )
 
-        for x in globals.coderlist:
-            self.manager.get_screen("endgame").ids.coders.text += f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=22sp][font=Icons]{md_icons['account']}[/font][/size][/color]"
+        self.manager.get_screen("endgame").ids.coders.text += "".join(
+            map(lambda x:
+                f"[color={globals.colordefs[globals.playerlist[x]['color']]}][size=22sp][font=Icons]{md_icons['account']}[/font][/size][/color]", globals.coderlist
+                )
+        )
 
     # Adds text for alignment reveal
         self.manager.get_screen("endgame").ids.hackers.text += " " + ", ".join(
@@ -21,6 +28,12 @@ class EndGame(MDScreen):
 
         self.manager.get_screen("endgame").ids.coders.text += " " + ", ".join(
             map(lambda x: globals.playerlist[x]['color'], globals.coderlist)) + "."
+
+    # Reavel target
+
+        self.manager.get_screen("endgame").ids.thetarget.text +=\
+            f"[size=22sp][color={globals.colordefs[globals.playerlist[globals.target[0]]['color']]}]" \
+            f"[font=Icons]{md_icons['account']}[/font][/color][/size] {globals.playerlist[globals.target[0]]['color']}"
 
     # Reveals actions
         for num in range(4):

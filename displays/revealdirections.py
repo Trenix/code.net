@@ -18,7 +18,8 @@ class PlayerReveal(MDScreen):
 
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Red']}][font=Icons]{md_icons['shield-bug']}[/font][/color][/size] " + "Hacker"
-                tempdialog.ids.identitydes.text = "[u]Objective[/u]: Keep your alignment and it's members hidden. Work with your alignment to gain the trust of coders and have them distrust each other."
+                tempdialog.ids.whattarget.text += f"[size=22sp][color={globals.colordefs[globals.playerlist[globals.target[0]]['color']]}][font=Icons]{md_icons['target-account']}[/font][/color][/size] {globals.playerlist[globals.target[0]]['color']}"
+                tempdialog.ids.identitydes.text = "[u]Objective[/u]: Keep your alignment and it's members hidden. Work with your alignment to gain the trust of coders and have them distrust each other. Gain extra points by having coders acuse the target as a hacker."
 
                 if globals.players <= 8:
                     ally = globals.playerlist[f"player {globals.revealtracker}"]["allies"]
@@ -36,6 +37,7 @@ class PlayerReveal(MDScreen):
             elif self.ids[f"ind{globals.revealtracker}"].icon == "circle-slice-8" and globals.playerlist[f"player {globals.revealtracker}"]["hacker"] == False and globals.revealtracker <= globals.players:
 
                 tempdialog.ids.identity.remove_widget(tempdialog.ids.haveallies)
+                tempdialog.ids.identity.remove_widget(tempdialog.ids.whattarget)
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Blue']}][font=Icons]{md_icons['shield-lock']}[/font][/color][/size] " + "Coder"
                 tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Identify other coders and work together to discover the {globals.numbertoword[globals.amtbad]} hackers among the players."
