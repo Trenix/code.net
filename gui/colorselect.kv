@@ -8,7 +8,7 @@
 
         MDToolbar:
             title: "C0de.Net"
-            right_action_items: [["information-outline", lambda x: root.openinfo()], ["refresh", lambda x: root.RefreshTracker()]]
+            right_action_items: [["refresh", lambda x: root.RefreshTracker()], ["information-outline", lambda x: root.openinfo()]]
 
         MDBoxLayout:
             orientation: "vertical"
@@ -61,6 +61,7 @@
                     font_style: "Button"
                     md_bg_color: C(app.globals.colordefs["Red"])
                     text: "Red"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but1)
@@ -71,6 +72,7 @@
                     id: but2
                     font_style: "Button"
                     text: "Pink"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but2)
@@ -81,6 +83,7 @@
                     id: but3
                     font_style: "Button"
                     text: "Purple"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but3)
@@ -91,6 +94,7 @@
                     id: but4
                     font_style: "Button"
                     text: "Blue"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but4)
@@ -101,6 +105,7 @@
                     id: but5
                     font_style: "Button"
                     text: "Green"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but5)
@@ -111,6 +116,7 @@
                     id: but6
                     font_style: "Button"
                     text: "Yellow"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but6)
@@ -121,6 +127,7 @@
                     id: but7
                     font_style: "Button"
                     text: "Orange"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but7)
@@ -131,6 +138,7 @@
                     id: but8
                     font_style: "Button"
                     text: "Brown"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but8)
@@ -141,6 +149,7 @@
                     id: but9
                     font_style: "Button"
                     text: "Grey"
+                    size_hint: 1, 1
                     rounded_button: False
                     on_release:
                         root.ColorSelect(but9)

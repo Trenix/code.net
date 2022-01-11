@@ -11,6 +11,9 @@ class LoadingScreen(MDScreen):
     def __init__(self, **kwargs):
         super(MDScreen, self).__init__(**kwargs)
 
+        # Future Use
+        # MDApp.get_running_app().theme_cls.material_style = "M3"
+
         #Add darker green
         MDApp.get_running_app().theme_cls.colors["Green"]["900"] = "#003300"
 

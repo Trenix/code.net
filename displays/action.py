@@ -79,7 +79,7 @@ class ActionScreen(MDScreen):
         # Every player must press a button to preform an action to prevent cheating.
         if globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Code":
 
-            tempactiondialog.ids.whaticon.icon = 'language-python'
+            tempactiondialog.ids.whaticon.icon = globals.actionicons['Code']['icon']
             tempactiondialog.ids.actiondesc.text += "Select code to put your digital footprint on all the logs."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
@@ -88,7 +88,7 @@ class ActionScreen(MDScreen):
                 font_style="Button",
                 theme_text_color="Custom",
                 text="Code",
-                icon="language-python",
+                icon=globals.actionicons['Code']['icon'],
                 line_color=get_color_from_hex("#FFFFFF"),
                 icon_color=get_color_from_hex("#FFFFFF"),
                 text_color=get_color_from_hex("#FFFFFF"),

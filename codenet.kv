@@ -1,4 +1,4 @@
-#:include gui/backgroundimage.kv
+#:include gui/builtwidgets.kv
 #:include gui/load.kv
 #:include gui/welcome.kv
 #:include gui/playeramount.kv
@@ -136,6 +136,8 @@ WindowManager:
                 text_color_normal: C('FFFFFF')
                 id: mainpanel
                 tab_hint_x: True
+                allow_stretch: True
+                lock_swiping: True
                 tab_indicator_anim: True
 
                 Tab:

@@ -117,7 +117,3 @@ class PlayerWindow(MDScreen):
             self.ids[f"butt{x + 1}"].state = "normal"
 
         self.playersetup()
-
-# Set grid for next screen
-        for x in range(9):
-            self.manager.get_screen("colorselect").ids[f"but{x + 1}"].size_hint = 1, 1

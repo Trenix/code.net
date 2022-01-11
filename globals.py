@@ -24,7 +24,7 @@ coderactionlist = ["Code", "Analyze Log", "Analyze Player", "Backup Log"]
 actionicons = {"Hack Log": {'icon': 'folder-network', 'color': colordefs['Red']},
                "Corrupt Log": {'icon': 'folder-remove', 'color': colordefs['Red']},
                "Hack Player": {'icon': 'account-network', 'color': colordefs['Red']},
-               "Code": {'icon': 'language-python', 'color': colordefs['Blue']},
+               "Code": {'icon': 'file-code', 'color': colordefs['Blue']},
                "Analyze Log": {'icon': 'folder-search', 'color': colordefs['Blue']},
                "Analyze Player": {'icon': 'account-search', 'color': colordefs['Blue']},
                 "Backup Log": {'icon': 'folder-download', 'color': colordefs['Blue']}}
