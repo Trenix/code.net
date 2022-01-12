@@ -5,7 +5,7 @@
         orientation: "vertical"
 
         MDToolbar:
-            title: f"[font=Icons]{md_icons['shield']}[/font] Alignments"
+            title: "Alignments"
             left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
@@ -33,7 +33,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "Players are split up into two different alignments, hackers and coders. You must identify and work with your own alignment to achieve maximum points. On the right side of the main screen there will be icons which will show you how many hackers and coders are present within the game."
+                    text: "Players are split up into two different alignments, hackers and coders. You must identify and work with your own alignment to achieve maximum points. On the left side of the main screen an indicator will reveal you how many hackers and coders are present within the game."
 
                 MDSeparator:
                     color: C("FFFFFF")
@@ -77,73 +77,235 @@
                             size: self.size
 
     # 4 Players
-
-                    MDLabel:
-                        halign: "center"
-                        text_color: C("FFFFFF")
-                        font_style: "Body2"
-                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 4 Players: [size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-3-circle']}[/color][/font]"
-                        theme_text_color: "Custom"
+                    MDBoxLayout:
                         adaptive_height: True
-                        markup: True
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 4 Players:"
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "shield-bug"
+                            text_color: C(app.globals.colordefs['Red'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Red'])
+
+                        MDIcon:
+                            icon: "shield-lock"
+                            text_color: C(app.globals.colordefs['Blue'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-3-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Blue'])
+
+                        Widget:
 
     # 5 Players
-
-                    MDLabel:
-                        halign: "center"
-                        text_color: C("FFFFFF")
-                        font_style: "Body2"
-                        theme_text_color: "Custom"
+                    MDBoxLayout:
                         adaptive_height: True
-                        markup: True
-                        md_bg_color: app.theme_cls.primary_dark
-                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 5 Players: [size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+                        spacing: "8dp"
 
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 5 Players:"
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "shield-bug"
+                            text_color: C(app.globals.colordefs['Red'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Red'])
+
+                        MDIcon:
+                            icon: "shield-lock"
+                            text_color: C(app.globals.colordefs['Blue'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-4-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Blue'])
+
+                        Widget:
     # 6 Players
 
-                    MDLabel:
-                        halign: "center"
-                        text_color: C("FFFFFF")
-                        font_style: "Body2"
-                        theme_text_color: "Custom"
+                    MDBoxLayout:
                         adaptive_height: True
-                        markup: True
-                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 6 Players: [size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-4-circle']}[/color][/font]"
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 6 Players:"
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "shield-bug"
+                            text_color: C(app.globals.colordefs['Red'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Red'])
+
+                        MDIcon:
+                            icon: "shield-lock"
+                            text_color: C(app.globals.colordefs['Blue'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-4-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Blue'])
+
+                        Widget:
 
     # 7 Players
 
-                    MDLabel:
-                        halign: "center"
-                        font_style: "Body2"
-                        theme_text_color: "Custom"
-                        text_color: C("FFFFFF")
+                    MDBoxLayout:
                         adaptive_height: True
-                        markup: True
-                        md_bg_color: app.theme_cls.primary_dark
-                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 7 Players: [size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-5-circle']}[/color][/font]"
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 7 Players:"
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "shield-bug"
+                            text_color: C(app.globals.colordefs['Red'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Red'])
+
+                        MDIcon:
+                            icon: "shield-lock"
+                            text_color: C(app.globals.colordefs['Blue'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-5-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Blue'])
+
+                        Widget:
 
     # 8 Players
 
-                    MDLabel:
-                        halign: "center"
-                        font_style: "Body2"
-                        theme_text_color: "Custom"
-                        text_color: C("FFFFFF")
+                    MDBoxLayout:
                         adaptive_height: True
-                        markup: True
-                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 8 Players: [size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-2-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 8 Players:"
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "shield-bug"
+                            text_color: C(app.globals.colordefs['Red'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Red'])
+
+                        MDIcon:
+                            icon: "shield-lock"
+                            text_color: C(app.globals.colordefs['Blue'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-6-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Blue'])
+
+                        Widget:
 
     # 9 Players
 
-                    MDLabel:
-                        halign: "center"
-                        font_style: "Body2"
-                        theme_text_color: "Custom"
-                        text_color: C("FFFFFF")
+                    MDBoxLayout:
                         adaptive_height: True
-                        markup: True
-                        md_bg_color: app.theme_cls.primary_dark
-                        text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 9 Players: [size=22sp][font=Icons][color=#c62828]{md_icons['shield-bug']}{md_icons['numeric-3-circle']}[/color][color=#1565c0]{md_icons['shield-lock']}{md_icons['numeric-6-circle']}[/color][/font]"
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['account-group']}[/font][/size] 9 Players:"
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "shield-bug"
+                            text_color: C(app.globals.colordefs['Red'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-3-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Red'])
+
+                        MDIcon:
+                            icon: "shield-lock"
+                            text_color: C(app.globals.colordefs['Blue'])
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-6-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: C(app.globals.colordefs['Blue'])
+
+                        Widget:
 
                 MDSeparator:
                     color: C("FFFFFF")
@@ -160,7 +322,8 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "Hackers always have an ally and are fully aware of who their ally is. Only when there are nine players, do hackers have a second ally. Their objective is to have as many coders as possible to trust them, while making coders distrust each other. Denial and deception is key to victory."
+                    text: f"Hackers always have an ally and are fully aware of who their ally is. Only when there are nine players will hackers have a second ally. Hacker's objective is to have as many coders as possible to trust them, while making coders distrust each other. They will also try and get coders to determine the [color=#FFFFFF][font=Icons][size=22]{md_icons['target-account']}[/size][/font][/color] as a hacker for additional points. Denial and deception is key to victory."
+                    markup: True
 
                 MDSeparator:
                     color: C("FFFFFF")
@@ -177,4 +340,5 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: "Coders must work together to figure out who the hackers are with the assistance of actions and logs. Unfortunately, these tools will never provide definite information. Therefore coders must be aware of deception and use process of elimination to make informed decisions."
+                    text: f"Coders must work together to figure out who the hackers are with the assistance of actions and logs. Coders get additional points by figuring out who among them is the [color=#FFFFFF][font=Icons][size=22]{md_icons['target-account']}[/size][/font][/color] and then determining them as a coder. The tools provided may not be always reliable, so use discretion. Coders must be aware of deception and use process of elimination to make informed decisions."
+                    markup: True

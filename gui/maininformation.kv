@@ -26,97 +26,108 @@
             PointsScreen:
 
         MDNavigationDrawer:
-            size_hint: 0.6, 1
-            padding: "8dp"
-            spacing: "8dp"
             id: nav_drawer
             md_bg_color: app.theme_cls.primary_color
 
-            ScrollView:
-                MDList:
-                    OneLineListItem:
-                        text: f"[size=26sp][font=Icons]{md_icons['information-outline']}[/font][/size] [size=19sp]Information[/size]"
-                        theme_text_color: "Custom"
-                        text_color: C('FFFFFF')
-                        on_release:
-                            nav_drawer.set_state("close")
+            MDNavigationDrawerMenu:
+                MDNavigationDrawerHeader:
+                    title: "Information"
+                    title_color: C('#FFFFFF')
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
 
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['book']}[/font][/size] Lore"
-                        theme_text_color: "Custom"
-                        markup: True
+                MDNavigationDrawerItem:
+                    icon: "book"
+                    text: "Lore"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Lore"
 
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Lore"
+                MDNavigationDrawerItem:
+                    icon: "shield"
+                    text: "Alignments"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Alignments"
 
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['shield']}[/font][/size] Alignments"
-                        theme_text_color: "Custom"
-                        markup: True
+                MDNavigationDrawerItem:
+                    icon: "account"
+                    text: "Players"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Players"
 
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Alignments"
+                MDNavigationDrawerItem:
+                    icon: "archive"
+                    text: "Rounds"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Rounds"
 
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['account']}[/font][/size] Players"
-                        theme_text_color: "Custom"
-                        markup: True
+                MDNavigationDrawerItem:
+                    icon: "language-python"
+                    text: "Actions"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Actions"
 
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Players"
+                MDNavigationDrawerItem:
+                    icon: "timer"
+                    text: "Timer"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Timer"
 
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['folder-search']}[/font][/size] Rounds"
-                        theme_text_color: "Custom"
-                        markup: True
+                MDNavigationDrawerItem:
+                    icon: "folder"
+                    text: "Logs"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Log"
 
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Rounds"
-
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['file-code']}[/font][/size] Actions"
-                        theme_text_color: "Custom"
-                        markup: True
-
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Actions"
-
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['timer']}[/font][/size] Timer"
-                        theme_text_color: "Custom"
-                        markup: True
-
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Timer"
-
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size] Logs"
-                        theme_text_color: "Custom"
-                        markup: True
-
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Log"
-
-                    OneLineListItem:
-                        text_color: C('FFFFFF')
-                        text: f"[size=22sp][font=Icons]{md_icons['numeric-9-plus-box']}[/font][/size] Points"
-                        theme_text_color: "Custom"
-                        markup: True
-
-                        on_release:
-                            nav_drawer.set_state("close")
-                            maininfoscreenmanager.current = "Points"
+                MDNavigationDrawerItem:
+                    icon: "numeric-9-plus-box"
+                    text: "Points"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Points"

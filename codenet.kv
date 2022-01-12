@@ -29,7 +29,7 @@ WindowManager:
     EndGame:
     MainInfo:
 
-<MainWindow>
+<MainWindow>:
     name: "main"
 
     Background:
@@ -67,8 +67,6 @@ WindowManager:
                     icon: "shield-bug"
                     text_color: C(app.globals.colordefs['Red'])
                     theme_text_color: "Custom"
-                    markup: True
-                    halign: "left"
                     adaptive_height: True
                     badge_bg_color: C('000000')
                     badge_icon_color: C(app.globals.colordefs['Red'])
@@ -78,8 +76,6 @@ WindowManager:
                     icon: "shield-lock"
                     text_color: C(app.globals.colordefs['Blue'])
                     theme_text_color: "Custom"
-                    markup: True
-                    halign: "left"
                     adaptive_height: True
                     badge_bg_color: C('000000')
                     badge_icon_color: C(app.globals.colordefs['Blue'])
@@ -95,10 +91,8 @@ WindowManager:
                 MDIcon:
                     id: ai_identifer
                     icon: "account-circle"
-                    halign: "right"
                     text_color: C('FFFFFF')
                     theme_text_color: "Custom"
-                    markup: True
                     adaptive_height: True
                     badge_bg_color: C('000000')
                     badge_icon_color: C('FFFFFF')
@@ -106,10 +100,8 @@ WindowManager:
                 MDIcon:
                     id: player_identifer
                     icon: "account-supervisor-circle"
-                    halign: "right"
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
-                    markup: True
                     adaptive_height: True
                     badge_bg_color: C('000000')
                     badge_icon_color: app.theme_cls.primary_color
@@ -199,7 +191,7 @@ WindowManager:
                                 adaptive_height: True
                                 id: round1subtext
                                 halign: 'center'
-                                text_color: app.theme_cls.primary_color
+                                text_color: C('#FFFFFF')
                                 adaptive_height: True
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
@@ -276,7 +268,7 @@ WindowManager:
                                 id: round2sub1text
                                 halign: 'center'
                                 text: " "
-                                text_color: app.theme_cls.primary_color
+                                text_color: C('#FFFFFF')
                                 adaptive_height: True
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
@@ -341,7 +333,7 @@ WindowManager:
                                 id: round2sub2text
                                 text: " "
                                 halign: 'center'
-                                text_color: app.theme_cls.primary_color
+                                text_color: C('#FFFFFF')
                                 adaptive_height: True
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
@@ -406,7 +398,7 @@ WindowManager:
                                 id: round2sub3text
                                 halign: 'center'
                                 text: " "
-                                text_color: app.theme_cls.primary_color
+                                text_color: C('#FFFFFF')
                                 adaptive_height: True
                                 theme_text_color: "Custom"
                                 font_style: 'Subtitle2'
