@@ -1,7 +1,7 @@
 #:include gui/informationscreens/LoreScreen.kv
 #:include gui/informationscreens/AlignmentsScreen.kv
 #:include gui/informationscreens/PlayersScreen.kv
-#:include gui/informationscreens/TimerScreen.kv
+#:include gui/informationscreens/NavigationScreen.kv
 #:include gui/informationscreens/ActionsScreen.kv
 #:include gui/informationscreens/LogsScreen.kv
 #:include gui/informationscreens/RoundsScreen.kv
@@ -19,9 +19,9 @@
             LoreScreen:
             AlignmentsScreen:
             PlayersScreen:
+            NavigationScreen:
             RoundsScreen:
             ActionsScreen:
-            TimerScreen:
             LogsScreen:
             PointsScreen:
 
@@ -47,6 +47,18 @@
                     on_release:
                         nav_drawer.set_state("close")
                         maininfoscreenmanager.current = "Lore"
+
+                MDNavigationDrawerItem:
+                    icon: "chevron-right-circle"
+                    text: "Navigation"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Navigation"
 
                 MDNavigationDrawerItem:
                     icon: "shield"
@@ -85,30 +97,6 @@
                         maininfoscreenmanager.current = "Rounds"
 
                 MDNavigationDrawerItem:
-                    icon: "language-python"
-                    text: "Actions"
-                    focus_color: app.theme_cls.primary_dark
-                    unfocus_color: app.theme_cls.primary_color
-                    text_color: C('#FFFFFF')
-                    icon_color: C('#FFFFFF')
-                    selected_color: C('#FFFFFF')
-                    on_release:
-                        nav_drawer.set_state("close")
-                        maininfoscreenmanager.current = "Actions"
-
-                MDNavigationDrawerItem:
-                    icon: "timer"
-                    text: "Timer"
-                    focus_color: app.theme_cls.primary_dark
-                    unfocus_color: app.theme_cls.primary_color
-                    text_color: C('#FFFFFF')
-                    icon_color: C('#FFFFFF')
-                    selected_color: C('#FFFFFF')
-                    on_release:
-                        nav_drawer.set_state("close")
-                        maininfoscreenmanager.current = "Timer"
-
-                MDNavigationDrawerItem:
                     icon: "folder"
                     text: "Logs"
                     focus_color: app.theme_cls.primary_dark
@@ -119,6 +107,18 @@
                     on_release:
                         nav_drawer.set_state("close")
                         maininfoscreenmanager.current = "Log"
+
+                MDNavigationDrawerItem:
+                    icon: "language-python"
+                    text: "Actions"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Actions"
 
                 MDNavigationDrawerItem:
                     icon: "numeric-9-plus-box"

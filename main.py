@@ -74,8 +74,6 @@ class MainWindow(MDScreen):
                     self.ids[f"round2sub{num + 1}"].text = log
                     self.ids[f"round2sub{num + 1}text"].text = logtext
 
-                    # self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
-
                 elif globals.loginfo[f"log {num + 1}"]["corrupted"] == False:
 
                     if random.random() < 0.85:
@@ -84,8 +82,6 @@ class MainWindow(MDScreen):
 
                         self.ids[f"round2sub{num + 1}"].text = log
                         self.ids[f"round2sub{num + 1}text"].text = logtext
-
-                        # self.ids[f"round2sub{num + 1}"].text = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
 
                     else:
                         self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=30sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"

@@ -1,0 +1,72 @@
+<NavigationScreen@MDScreen>:
+    name: "Navigation"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Navigation"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: "8dp"
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: "8dp"
+                padding: "8dp"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "At the bottom of the screen is your navigation bar. While using the app, please use this area to navigate between screens. The button in the bottom center of the screen is the main action button. Depending on what screen you are on, depends on what type of action and navigation is available to you."
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Screen Navigation"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: f"Depending on the screen, there are two [color=#FFFFFF][size=22sp][font=Icons]{md_icons['chevron-right']}[/font][/size][/color] facing different directions, located at the bottom. Each screen is unique and may or may not have both indicators present. This is because either you may not go back to the previous screen or that actions must be taken before continuing to the next screen."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Action Button"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: f"Whenever the action button is inactive, it will appear as a [color=#FFFFFF][size=22sp][font=Icons]{md_icons['square-rounded-outline']}[/font][/size][/color]. Throughout the course of the game, this button will change based on the screen. For example, during the reveal phase, it will appear as an [color=#FFFFFF][size=22sp][font=Icons]{md_icons['card-account-details']}[/font][/size][/color] which when pressed, will reveal a player's identity. It is also used to control rounds and complete phases."
+                    markup: True
