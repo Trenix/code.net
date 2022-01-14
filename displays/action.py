@@ -127,7 +127,7 @@ class ActionScreen(MDScreen):
         elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Analyze Player":
 
             tempactiondialog.ids.whaticon.icon = 'account-search'
-            tempactiondialog.ids.actiondesc.text += "Select a player to check their alignment."
+            tempactiondialog.ids.actiondesc.text += "Select a player to reveal their alignment."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
             #Create list that doesn't include player that is selecting.
@@ -208,7 +208,7 @@ class ActionScreen(MDScreen):
         elif globals.playeractions[playeractionlist[globals.nextplayer]]["Action"] == "Corrupt Log":
 
             tempactiondialog.ids.whaticon.icon = 'folder-remove'
-            tempactiondialog.ids.actiondesc.text += "Select a log to attempt to corrupt it."
+            tempactiondialog.ids.actiondesc.text += "Select a log in an attempt to corrupt it."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color] Low"
 
             logbuttons = dict()

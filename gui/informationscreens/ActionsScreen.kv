@@ -9,7 +9,261 @@
             left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
             right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
 
-        MDBoxLayout:
-            orientation: "vertical"
-            spacing: "8dp"
-            padding: "8dp"
+        ScrollView:
+            bar_width: "8dp"
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: "8dp"
+                padding: "8dp"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    markup: True
+                    text: "During the action phase, [color=#FFFFFF]four[/color] random players are provided actions based on their alignment. Players are unable to have the exact same action as another player. Not all actions are beneficial to the player that is preforming it. The AI is incapable of having an action."
+
+                MDSeparator:
+                    color: C("FFFFFF")
+    # Legend
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Legend"
+
+ # Priorities
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Priorities"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][color=#FFFFFF]: High[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C("FFFFFF")
+                    font_style: "Body2"
+                    text: f"[color={app.globals.colordefs['Yellow']}][size=22sp][font=Icons]{md_icons['chevron-double-up']}[/font][/size][/color]: Medium"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C("FFFFFF")
+                    font_style: "Body2"
+                    text: f"[color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color]: Low"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+# Hacker Actions
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Hacker Actions"
+# Hack Log
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Hack Log"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Hack Log']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] The hacker selects a log to replace the digital footprint of one hacker with a coder."
+                    markup: True
+# Corrupt Log
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Corrupt Log"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Corrupt Log']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['chevron-up']}[/font][/size][/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] The hacker selects a log in an attempt to corrupt it."
+                    markup: True
+# Hack Player
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Hack Player"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Hack Player']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] The hacker selects a player to hack to reveal their action."
+                    markup: True
+
+# Coder Actions
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Coder Actions"
+
+# Code
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Code"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Code']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] The coder puts their digital footprint on all the logs."
+                    markup: True
+
+# Analyze Log
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Analyze Log"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Analyze Log']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] The coder selects a log to reveal exactly how many hackers are found within it during the time they have checked it."
+                    markup: True
+
+# Analyze Player
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Analyze Player"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Analyze Player']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] The coder selects a player to reveal their alignment."
+                    markup: True
+
+# Backup Log
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'Body1'
+                    text: "Backup Log"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[color=#FFFFFF]Icon:[/color] [color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons[app.globals.actionicons['Backup Log']['icon']]}[/font][/size][/color] [color=#FFFFFF]|[/color] [color=#FFFFFF]Priority:[/color] [size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "[color=#FFFFFF]Description:[/color] Coder selects a log to prevent it from being corrupted."
+                    markup: True

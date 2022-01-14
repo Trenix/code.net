@@ -51,7 +51,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all hackers, if the majority determined the hacker's target, as a hacker."
+                    text: f"[color=#FFFFFF]+[/color][color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all hackers, if the majority determined the hacker's target, as a hacker."
                     markup: True
 
                 MDLabel:
@@ -59,7 +59,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for all hackers, for each coder that determined a hacker incorrectly, as a coder."
+                    text: f"[color=#FFFFFF]+[/color][color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for all hackers, for each coder that determined a hacker incorrectly, as a coder."
                     markup: True
 
                 MDLabel:
@@ -67,7 +67,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]-[/color][color=#c62828][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for the hacker, for each hacker they have determined correctly as a hacker and were not part of the majority."
+                    text: f"[color=#FFFFFF]-[/color][color={app.globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for the hacker, for each hacker they have determined correctly as a hacker and were not part of the majority."
                     markup: True
 
                 MDSeparator:
@@ -85,7 +85,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all coders, if the majority determined the hacker's target, as a coder."
+                    text: f"[color=#FFFFFF]+[/color][color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons['numeric-2-box']}[/font][/size][/color] [color=#FFFFFF]points[/color] for all coders, if the majority determined the hacker's target, as a coder."
                     markup: True
 
                 MDLabel:
@@ -93,7 +93,7 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]+[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for all coders, for each hacker they have determined correctly, as a hacker."
+                    text: f"[color=#FFFFFF]+[/color][color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for all coders, for each hacker they have determined correctly, as a hacker."
                     markup: True
 
                 MDLabel:
@@ -101,5 +101,5 @@
                     text_color: app.theme_cls.primary_color
                     theme_text_color: "Custom"
                     font_style: 'Body2'
-                    text: f"[color=#FFFFFF]-[/color][color=#1565c0][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for the coder, for each coder that they have determined as a hacker and were part of the majority."
+                    text: f"[color=#FFFFFF]-[/color][color={app.globals.colordefs['Blue']}][size=22sp][font=Icons]{md_icons['numeric-1-box']}[/font][/size][/color] [color=#FFFFFF]point[/color] for the coder, for each coder that they have determined as a hacker and were part of the majority."
                     markup: True
