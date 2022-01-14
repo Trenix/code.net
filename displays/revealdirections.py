@@ -66,20 +66,13 @@ class PlayerReveal(MDScreen):
 
         # Reset code for new game if it occurs.
         self.manager.get_screen("reveal").ids['ind1'].icon = "circle-slice-8"
+        self.manager.get_screen("reveal").ids.nextplayer.text = "It's " + globals.playerlist["player 1"][
+            "color"] + "'s turn!"
 
-        for x in range(globals.players + 1, 10):
+        for x in range(2, 10):
             self.manager.get_screen("reveal").ids[f"ind{x}"].icon = 'circle-outline'
             self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 1, 1
 
         self.ids.revtool.right_action_items = []
         self.ids.revtool.icon = "card-account-details"
         globals.revealtracker = 1
-
-    def rematchreset(self):
-        # Set up tracker for revealing
-        for x in range(globals.players):
-            self.ids[f"ind{x + 1}"].color = globals.colordefs[
-                globals.playerlist[f"player {x + 1}"]["color"]]
-
-        for x in range(globals.players + 1, 9 + 1):
-            self.ids[f"ind{x}"].icon = ''

@@ -88,5 +88,6 @@
             text_color: C("FFFFFF")
             text: "End Turn"
             on_release:
+                self.disabled = True
                 app.root.get_screen('reveal').trackplayer()
                 root.dismiss()

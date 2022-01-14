@@ -166,5 +166,6 @@
             text: "End Turn"
             disabled: True
             on_release:
+                self.disabled = True
                 app.root.get_screen('main').ids.mainscreenmanager.get_screen('actionscreen').actiontracker()
                 root.dismiss()

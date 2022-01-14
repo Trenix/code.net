@@ -53,5 +53,6 @@
                 text_color: C("FFFFFF")
                 text: "Yes"
                 on_release:
+                    self.disabled = True
                     app.root.get_screen('main').resettimer()
                     root.dismiss()

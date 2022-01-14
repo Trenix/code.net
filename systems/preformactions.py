@@ -4,7 +4,6 @@ def disablewidgets(tempactiondialog):
 
     tempactiondialog.ids.addbuttons.disabled = True
     tempactiondialog.ids.okaction.disabled = False
-    tempactiondialog.ids.disabled_color = 0, 0, 0, 1
 
 def codeaction(self, tempactiondialog, button):
     disablewidgets(tempactiondialog)

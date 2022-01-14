@@ -99,9 +99,6 @@ class MainWindow(MDScreen):
             self.ids.roundregulator.icon = "stop"
             self.ids.mainscreenmanager.current = "timescreen"
 
-            # Set back screen to what it was previously
-            self.ids.mainscreenmanager.get_screen('actionscreen').ids.useaction.disabled = False
-
         # Round 3 Check
         elif self.ids.roundregulator.icon == "check" and self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
             self.settime(300)
@@ -194,7 +191,6 @@ class MainWindow(MDScreen):
                 self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = get_color_from_hex(globals.colordefs[globals.playerlist[globals.playerlogrev[num - 1]]['color']])
 
             # Prepare log tracker
-            self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.log1.icon = 'circle-slice-8'
             globals.revealtracker = 1
             self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.nextplayer.text = f"It's {globals.playerlist[globals.playerlogrev[globals.revealtracker - 1]]['color']}'s turn."
 
@@ -207,20 +203,29 @@ class MainWindow(MDScreen):
         self.manager.transition.direction = "left"
         self.manager.current = "endgame"
 
-        # Reset folders
+        # Reset Phases
+        self.ids.mainscreenmanager.get_screen('actionscreen').ids.useaction.disabled = False
+        self.ids.mainscreenmanager.get_screen('actionscreen').ids.act1.icon = 'circle-slice-8'
+        self.ids.mainscreenmanager.get_screen('playerlogscreen').ids.reveallog.disabled = False
+        self.ids.mainscreenmanager.get_screen('playerlogscreen').ids.log1.icon = 'circle-slice-8'
+
+        # Reset Round 1 Logs
         self.ids.round1sub.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-        self.ids.round2sub1.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-        self.ids.round2sub2.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
-        self.ids.round2sub3.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round1subtext.text = " "
 
-        # Reset possible log corruption text
-        self.ids.round2sum1.text = "At least one hacker is among the following."
-        self.ids.round2sum2.text = "At least one hacker is among the following."
-        self.ids.round2sum3.text = "At least one hacker is among the following."
+        # Reset Round 2 Logs
+        for num in range(1, 4):
+            self.ids[f'round2sub{num}'].text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+            self.ids[f'round2sub{num}text'].text = " "
+            self.ids[f'round2sum{num}'].text = "At least one hacker is among the following."
+            self.ids[f'logtitle{num}'].canvas.before.get_group(f'{num}')[0].rgb = MDApp.get_running_app().theme_cls.primary_color
+            self.ids[f'logtitle{num}'].text = f"[font=Icons]{md_icons['folder']}[/font] {globals.logbuttonword[num]}"
 
-        # Reset player logs
-        self.ids.playerlog1.text = "[font=H4][size=20sp]Player Log[/size][/font]"
-        self.ids.playerlog2.text = "[font=H4][size=20sp]Player Log[/size][/font]"
+        # Reset Round 3 Logs
+        for num in range(1, 3):
+            self.ids[f'playerlog{num}'].text = f"[font=Icons]{md_icons['folder-eye']}[/font] Player Log"
+            self.ids[f'playerlog{num}'].text_size = None, None
+            self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = MDApp.get_running_app().theme_cls.primary_color
 
         # Reset round indicator and navigator
         self.ids.currentround.text = f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
