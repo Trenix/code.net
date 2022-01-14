@@ -69,10 +69,6 @@ class PlayerReveal(MDScreen):
         self.manager.get_screen("reveal").ids.nextplayer.text = "It's " + globals.playerlist["player 1"][
             "color"] + "'s turn!"
 
-        for x in range(2, 10):
-            self.manager.get_screen("reveal").ids[f"ind{x}"].icon = 'circle-outline'
-            self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 1, 1
-
         self.ids.revtool.right_action_items = []
         self.ids.revtool.icon = "card-account-details"
         globals.revealtracker = 1

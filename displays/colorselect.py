@@ -39,7 +39,12 @@ class ColorSelectScreen(MDScreen):
         #Setup tracker
         self.manager.get_screen("reveal").ids.setgrid.cols = globals.players
 
-        # Remove indicator icon
+        # Create indicator icons
+        for x in range(2, 10):
+            self.manager.get_screen("reveal").ids[f"ind{x}"].icon = 'circle-outline'
+            self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 1, 1
+
+        # Remove indicator icons
         for x in range(globals.players + 1, 10):
             self.manager.get_screen("reveal").ids[f"ind{x}"].icon = ''
             self.manager.get_screen("reveal").ids[f"ind{x}"].parent.size_hint = 0, 0

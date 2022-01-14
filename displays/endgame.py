@@ -3,12 +3,10 @@ from kivymd.icon_definitions import md_icons
 from displays.dialogcode import RematchDialog
 import globals
 
-
 class EndGame(MDScreen):
     from systems.openinformation import openinfo
 
     def setresults(self):
-        print(globals.playeractions)
     # Adds icons for alignment reveal.
         self.manager.get_screen("endgame").ids.hackers.text += "".join(
             map(lambda x:
