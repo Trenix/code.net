@@ -41,6 +41,7 @@
                 line_color: C("FFFFFF")
                 text_color: C("FFFFFF")
                 text: "New Game"
+                line_width: '1.01dp'
                 on_release:
                     self.disabled = True
                     app.root.transition.direction = "down"
@@ -56,6 +57,7 @@
                 line_color: C("FFFFFF")
                 text_color: C("FFFFFF")
                 text: "Rematch"
+                line_width: '1.01dp'
                 on_release:
                     self.disabled = True
                     app.root.get_screen('endgame').refresh()

@@ -42,6 +42,7 @@
                 line_color: C("FFFFFF")
                 text_color: C("FFFFFF")
                 text: "No"
+                line_width: '1.01dp'
                 on_release:
                     root.dismiss()
 
@@ -52,6 +53,7 @@
                 line_color: C("FFFFFF")
                 text_color: C("FFFFFF")
                 text: "Yes"
+                line_width: '1.01dp'
                 on_release:
                     self.disabled = True
                     app.root.get_screen('main').resettimer()

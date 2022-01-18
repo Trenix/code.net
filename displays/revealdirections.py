@@ -19,7 +19,7 @@ class PlayerReveal(MDScreen):
                 tempdialog.ids.whatcolor.text = "[u]Color[/u]: " + f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] " + playercolor
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Red']}][font=Icons]{md_icons['shield-bug']}[/font][/color][/size] " + "Hacker"
                 tempdialog.ids.whattarget.text += f"[size=22sp][color={globals.colordefs[globals.playerlist[globals.target[0]]['color']]}][font=Icons]{md_icons['target-account']}[/font][/color][/size] {globals.playerlist[globals.target[0]]['color']}"
-                tempdialog.ids.identitydes.text = "[u]Objective[/u]: Keep your alignment and it's members hidden. Work with your alignment to gain the trust of coders and have them distrust each other. Gain extra points by having coders acuse the target as a hacker."
+                tempdialog.ids.identitydes.text = "[u]Objective[/u]: Discreetly work with your alignment to turn coders against each other while defending your allies. Gain extra points by having coders accuse the target as a hacker."
 
                 if globals.players <= 8:
                     ally = globals.playerlist[f"player {globals.revealtracker}"]["allies"]

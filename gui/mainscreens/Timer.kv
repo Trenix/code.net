@@ -19,23 +19,25 @@
 
         MDLabel:
             id: timer
-            text: "[font=H4][size=40sp]00:00[/size][/font]"
+            text: "00:00"
             theme_text_color: "Custom"
-            markup: True
+            adaptive_height: True
+            size_hint_x: None
+            font_style: 'H3'
+            width: self.texture_size[0]
+            text_size: None, None
             text_color: C('#FFFFFF')
             pos_hint: {"center_x": 0.5}
-            halign: "center"
-            size_hint: 0.2, 0.4
             canvas.before:
                 Color:
                     rgba: 51/255, 255/255, 51/255, 0.3
                 Line:
-                    width: 1.3
-                    rectangle: self.x, self.y, self.width, self.height
+                    width: dp(1.3)
+                    rectangle: self.x - 5, self.y, self.width + 10, self.height
                 Color:
                     rgba: 51/255, 255/255, 51/255, 0.06
                 Rectangle:
-                    pos: self.pos
-                    size: self.size
+                    pos: self.x - 5, self.y
+                    size: self.width + 10, self.height
 
         Widget:

@@ -18,6 +18,8 @@
             pos_hint: {"center_x": 0.5}
 
         MDGridLayout:
+            size_hint: None, None
+            size: '216dp', '28dp'
             pos_hint: {"center_x": 0.5}
             canvas.before:
                 Color:
@@ -30,7 +32,6 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
-            size_hint: 0.3, 0.8
             cols: 4
 
             AnchorLayout:

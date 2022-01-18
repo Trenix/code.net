@@ -165,6 +165,7 @@
             text_color: C("FFFFFF")
             text: "End Turn"
             disabled: True
+            line_width: '1.01dp'
             on_release:
                 self.disabled = True
                 app.root.get_screen('main').ids.mainscreenmanager.get_screen('actionscreen').actiontracker()

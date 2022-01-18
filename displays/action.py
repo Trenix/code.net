@@ -92,6 +92,7 @@ class ActionScreen(MDScreen):
                 line_color=get_color_from_hex("#FFFFFF"),
                 icon_color=get_color_from_hex("#FFFFFF"),
                 text_color=get_color_from_hex("#FFFFFF"),
+                line_width='1.01dp',
 
                 # Below function includes an additional argument, being the button itself.
                 on_release=partial(self.codeaction, tempactiondialog)
@@ -118,6 +119,7 @@ class ActionScreen(MDScreen):
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
+                    line_width='1.01dp',
                     on_release=partial(self.analyzelog, tempactiondialog, num)
                 )
 
@@ -151,6 +153,7 @@ class ActionScreen(MDScreen):
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex(globals.colordefs[globals.playerlist[player]['color']]),
                     text_color=get_color_from_hex("#FFFFFF"),
+                    line_width='1.01dp',
                     on_release=partial(self.analyzeplayer, tempactiondialog, player)
                 )
 
@@ -175,6 +178,7 @@ class ActionScreen(MDScreen):
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
+                    line_width='1.01dp',
                     on_release=partial(self.backuplog, tempactiondialog, num)
                 )
 
@@ -199,6 +203,7 @@ class ActionScreen(MDScreen):
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
+                    line_width='1.01dp',
                     on_release=partial(self.hacklog, tempactiondialog, num)
                 )
 
@@ -223,6 +228,7 @@ class ActionScreen(MDScreen):
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex("#FFFFFF"),
                     text_color=get_color_from_hex("#FFFFFF"),
+                    line_width='1.01dp',
                     on_release=partial(self.corruptlog, tempactiondialog, num)
                 )
 
@@ -257,6 +263,7 @@ class ActionScreen(MDScreen):
                     line_color=get_color_from_hex("#FFFFFF"),
                     icon_color=get_color_from_hex(globals.colordefs[globals.playerlist[player]['color']]),
                     text_color=get_color_from_hex("#FFFFFF"),
+                    line_width='1.01dp',
 
                     # Below function includes an additional argument, being the button itself.
                     on_release=partial(self.hackplayer, tempactiondialog, player)
