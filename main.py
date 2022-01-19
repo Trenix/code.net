@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-from kivy.core.window import Window
+# from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
 from displays.revealdirections import *
@@ -26,10 +26,10 @@ from kivy.utils import get_color_from_hex
 import random
 import globals
 
-KIVY_DPI = 320
-KIVY_METRICS_DENSITY = 2
-
-Window.size = (720, 1280)
+# KIVY_DPI = 320
+# KIVY_METRICS_DENSITY = 2
+#
+# Window.size = (720, 1280)
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
