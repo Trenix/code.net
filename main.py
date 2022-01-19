@@ -1,5 +1,5 @@
 from kivymd.app import MDApp
-# from kivy.core.window import Window
+from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
 from displays.revealdirections import *
@@ -26,10 +26,10 @@ from kivy.utils import get_color_from_hex
 import random
 import globals
 
-# KIVY_DPI = 320
-# KIVY_METRICS_DENSITY = 2
-#
-# Window.size = (720, 1280)
+KIVY_DPI = 320
+KIVY_METRICS_DENSITY = 2
+
+Window.size = (720, 1280)
 
 class Tab(MDFloatLayout, MDTabsBase):
     pass
@@ -84,15 +84,15 @@ class MainWindow(MDScreen):
                         self.ids[f"round2sub{num + 1}text"].text = logtext
 
                     else:
-                        self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=30sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
+                        self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
                         self.ids[f"round2sum{num + 1}"].text = f"[color={globals.colordefs['Red']}]The log has been corrupted![/color]"
-                        self.ids[f"logtitle{num + 1}"].text = f"[font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]}"
+                        self.ids[f"logtitle{num + 1}"].text = f" [font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]} "
                         self.ids[f"logtitle{num + 1}"].canvas.before.get_group(f'{num + 1}')[0].rgb = get_color_from_hex(globals.colordefs['Red'])
 
                 else:
-                    self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=30sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
+                    self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
                     self.ids[f"round2sum{num + 1}"].text = f"[color={globals.colordefs['Red']}]The log has been corrupted![/color]"
-                    self.ids[f"logtitle{num + 1}"].text = f"[font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]}"
+                    self.ids[f"logtitle{num + 1}"].text = f" [font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]} "
                     self.ids[f"logtitle{num + 1}"].canvas.before.get_group(f'{num + 1}')[0].rgb = get_color_from_hex(globals.colordefs['Red'])
 
             self.settime(360)
@@ -212,20 +212,20 @@ class MainWindow(MDScreen):
         self.ids.mainscreenmanager.get_screen('playerlogscreen').ids.log1.icon = 'circle-slice-8'
 
         # Reset Round 1 Logs
-        self.ids.round1sub.text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+        self.ids.round1sub.text = f"[size=22sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
         self.ids.round1subtext.text = " "
 
         # Reset Round 2 Logs
         for num in range(1, 4):
-            self.ids[f'round2sub{num}'].text = f"[size=30sp][font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font] [font=Icons]{md_icons['folder']}[/font][/size]"
+            self.ids[f'round2sub{num}'].text = f"[size=22sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
             self.ids[f'round2sub{num}text'].text = " "
             self.ids[f'round2sum{num}'].text = "At least one hacker is among the following."
             self.ids[f'logtitle{num}'].canvas.before.get_group(f'{num}')[0].rgb = MDApp.get_running_app().theme_cls.primary_color
-            self.ids[f'logtitle{num}'].text = f"[font=Icons]{md_icons['folder']}[/font] {globals.logbuttonword[num]}"
+            self.ids[f'logtitle{num}'].text = f" [font=Icons]{md_icons['folder']}[/font] {globals.logbuttonword[num]} "
 
         # Reset Round 3 Logs
         for num in range(1, 3):
-            self.ids[f'playerlog{num}'].text = f"[font=Icons]{md_icons['folder-eye']}[/font] Player Log"
+            self.ids[f'playerlog{num}'].text = f" [font=Icons]{md_icons['folder-eye']}[/font] Player Log "
             self.ids[f'playerlog{num}'].text_size = None, None
             self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = MDApp.get_running_app().theme_cls.primary_color
 

@@ -133,9 +133,13 @@
         MDSeparator:
             color: C("FFFFFF")
 
-        MDBoxLayout:
-            padding: "8dp"
-            orientation: "vertical"
+        MDLabel:
+            id: actionresult
+            text_color: C("FFFFFF")
+            font_style: "Subtitle1"
+            theme_text_color: "Custom"
+            halign: "center"
+            markup: True
             canvas.before:
                 Color:
                     rgba: 0/255, 0/255, 0/255, 0.8
@@ -147,14 +151,6 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
-
-            MDLabel:
-                id: actionresult
-                text_color: C("FFFFFF")
-                font_style: "Subtitle1"
-                theme_text_color: "Custom"
-                halign: "center"
-                markup: True
 
         MDRectangleFlatButton:
             id: okaction
