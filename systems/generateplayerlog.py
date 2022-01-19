@@ -32,10 +32,10 @@ def createplayerlog(logplayer):
 
     for num in range(2):
         if num != 1:
-            strtemplog += f"[size=30sp][color={globals.colordefs[tempplayercolorlog[num]]}][font=Icons]{md_icons['file-account']}[/font][/color] [/size]"
+            strtemplog += f"[size=22sp][color={globals.colordefs[tempplayercolorlog[num]]}][font=Icons]{md_icons['file-account']}[/font][/color] [/size]"
             strtemplogtext += f'{tempplayercolorlog[num]}, '
         else:
-            strtemplog += f"[color={globals.colordefs[tempplayercolorlog[num]]}][size=30sp][font=Icons]{md_icons['file-account']}[/size][/font][/color]"
+            strtemplog += f"[color={globals.colordefs[tempplayercolorlog[num]]}][size=22sp][font=Icons]{md_icons['file-account']}[/size][/font][/color]"
             strtemplogtext += f'{tempplayercolorlog[num]}.'
 
     return strtemplog, strtemplogtext

@@ -32,10 +32,10 @@ def createlog(playersonlog, amtofhackers, codeplayer):
 
     for num in range(playersonlog):
         if num != playersonlog - 1:
-            strtemplog += f"[size=30sp][color={globals.colordefs[tempcolorlog[num]]}][font=Icons]{md_icons['file-account']}[/font][/color] [/size]"
+            strtemplog += f"[size=22sp][color={globals.colordefs[tempcolorlog[num]]}][font=Icons]{md_icons['file-account']}[/font][/color] [/size]"
             strtemplogtext += f'{tempcolorlog[num]}, '
         else:
-            strtemplog += f"[color={globals.colordefs[tempcolorlog[num]]}][size=30sp][font=Icons]{md_icons['file-account']}[/size][/font][/color]"
+            strtemplog += f"[color={globals.colordefs[tempcolorlog[num]]}][size=22sp][font=Icons]{md_icons['file-account']}[/size][/font][/color]"
             strtemplogtext += f'{tempcolorlog[num]}.'
 
     return strtemplog, strtemplogtext
