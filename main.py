@@ -14,7 +14,7 @@ from systems.generatelog import createhackeramt
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.tab import MDTabsBase
-from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.uix.boxlayout import MDBoxLayout
 from displays.dialogcode import IdentityDialog
 from displays.dialogcode import ConfirmDialog
 from displays.dialogcode import ActionDialog
@@ -31,7 +31,7 @@ KIVY_METRICS_DENSITY = 2
 
 Window.size = (720, 1280)
 
-class Tab(MDFloatLayout, MDTabsBase):
+class Tab(MDBoxLayout, MDTabsBase):
     pass
 
 # Add toggle to iconbuttons

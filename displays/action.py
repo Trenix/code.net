@@ -3,7 +3,8 @@ from displays.dialogcode import ActionDialog
 from kivymd.uix.button import MDRoundFlatIconButton
 from functools import partial
 from kivy.utils import get_color_from_hex
-from kivy.uix.anchorlayout import AnchorLayout
+from kivymd.uix.anchorlayout import MDAnchorLayout
+from kivymd.uix.boxlayout import MDBoxLayout
 from main import MDApp
 from kivymd.icon_definitions import md_icons
 import globals
@@ -66,7 +67,7 @@ class ActionScreen(MDScreen):
         nextplayeraction = globals.playerlist[playeractionlist[globals.nextplayer]]["color"]
 
         tempactiondialog.ids.actioncard.md_bg_color = get_color_from_hex(globals.colordefs[nextplayeraction])
-        tempactiondialog.ids.whatplayer.text += f"[size=22sp][color={globals.colordefs[nextplayeraction]}][font=Icons]{md_icons['account']}[/font][/color][/size] {nextplayeraction}"
+        tempactiondialog.ids.whatplayer.text = f"{nextplayeraction}'s Action"
         tempactiondialog.ids.whataction.text += f"{globals.playeractions[playeractionlist[globals.nextplayer]]['Action']}"
 
         # If action is hacker or coder action, they will get the correct icon.
@@ -83,7 +84,7 @@ class ActionScreen(MDScreen):
             tempactiondialog.ids.actiondesc.text += "Select code to put your digital footprint on all the logs."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
-            templayout = AnchorLayout()
+            templayout = MDAnchorLayout()
             tempbutton = MDRoundFlatIconButton(
                 font_style="Button",
                 theme_text_color="Custom",
@@ -98,6 +99,8 @@ class ActionScreen(MDScreen):
                 on_release=partial(self.codeaction, tempactiondialog)
             )
 
+            # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
+
             tempactiondialog.ids.addbuttons.add_widget(templayout)
             templayout.add_widget(tempbutton)
 
@@ -110,7 +113,7 @@ class ActionScreen(MDScreen):
             logbuttons = dict()
 
             for num in range(1, 4):
-                templayout = AnchorLayout()
+                templayout = MDAnchorLayout()
                 logbuttons[num] = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
@@ -122,6 +125,8 @@ class ActionScreen(MDScreen):
                     line_width='1.01dp',
                     on_release=partial(self.analyzelog, tempactiondialog, num)
                 )
+
+                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
@@ -144,7 +149,7 @@ class ActionScreen(MDScreen):
 
             for player in templist:
 
-                templayout = AnchorLayout()
+                templayout = MDAnchorLayout()
                 tempbutton = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
@@ -156,6 +161,8 @@ class ActionScreen(MDScreen):
                     line_width='1.01dp',
                     on_release=partial(self.analyzeplayer, tempactiondialog, player)
                 )
+
+                # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(tempbutton)
@@ -169,7 +176,7 @@ class ActionScreen(MDScreen):
             logbuttons = dict()
 
             for num in range(1, 4):
-                templayout = AnchorLayout()
+                templayout = MDAnchorLayout()
                 logbuttons[num] = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
@@ -181,6 +188,8 @@ class ActionScreen(MDScreen):
                     line_width='1.01dp',
                     on_release=partial(self.backuplog, tempactiondialog, num)
                 )
+
+                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
@@ -194,7 +203,7 @@ class ActionScreen(MDScreen):
             logbuttons = dict()
 
             for num in range(1, 4):
-                templayout = AnchorLayout()
+                templayout = MDAnchorLayout()
                 logbuttons[num] = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
@@ -206,6 +215,8 @@ class ActionScreen(MDScreen):
                     line_width='1.01dp',
                     on_release=partial(self.hacklog, tempactiondialog, num)
                 )
+
+                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
@@ -219,7 +230,7 @@ class ActionScreen(MDScreen):
             logbuttons = dict()
 
             for num in range(1, 4):
-                templayout = AnchorLayout()
+                templayout = MDAnchorLayout()
                 logbuttons[num] = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
@@ -232,6 +243,8 @@ class ActionScreen(MDScreen):
                     on_release=partial(self.corruptlog, tempactiondialog, num)
                 )
 
+                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
+
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
@@ -241,10 +254,9 @@ class ActionScreen(MDScreen):
             tempactiondialog.ids.actiondesc.text += "Select a player to hack to reveal their action."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
-            #Create list that doesn't include player that is selecting.
+            # Create list that includes players with actions, but not hackers
             templist = []
 
-            # Coder does not have an action, may in the future.
             for player in globals.coderlist:
 
                 if player != "AI":
@@ -254,7 +266,7 @@ class ActionScreen(MDScreen):
 
             for player in templist:
 
-                templayout = AnchorLayout()
+                templayout = MDAnchorLayout()
                 tempbutton = MDRoundFlatIconButton(
                     font_style="Button",
                     theme_text_color="Custom",
@@ -268,6 +280,8 @@ class ActionScreen(MDScreen):
                     # Below function includes an additional argument, being the button itself.
                     on_release=partial(self.hackplayer, tempactiondialog, player)
                 )
+
+                # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(tempbutton)

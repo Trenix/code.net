@@ -24,7 +24,7 @@ class PlayerLogScreen(MDScreen):
         temppop = LogDialog()
         playercolor = globals.playerlist[globals.playerlogrev[globals.revealtracker - 1]]['color']
 
-        temppop.ids.whatplayer.text += f"[size=22sp][color={globals.colordefs[playercolor]}][font=Icons]{md_icons['account']}[/font][/color][/size] {playercolor}"
+        temppop.ids.whatplayer.text = f"{playercolor}'s Log"
 
         # Create player log, set background color to player who owns log
         temppop.ids.logcard.md_bg_color = get_color_from_hex(globals.colordefs[playercolor])

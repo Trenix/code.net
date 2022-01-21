@@ -12,10 +12,9 @@
         radius: ["15dp"]
 
         MDLabel:
-            text: "Player Action"
-            font_style: "H4"
-            size_hint_y: None
-            height: self.texture_size[1]
+            id: whatplayer
+            font_style: "H5"
+            adaptive_height: True
             halign: "center"
             theme_text_color: "Custom"
             text_color: C("FFFFFF")
@@ -26,6 +25,7 @@
         MDStackLayout:
             padding: "8dp"
             spacing: "12dp"
+            adaptive_height: True
             canvas.before:
                 Color:
                     rgba: 0/255, 0/255, 0/255, 0.8
@@ -38,15 +38,6 @@
                     pos: self.pos
                     size: self.size
 
-            MDLabel:
-                id: whatplayer
-                text: "[u]Player[/u]: "
-                text_color: C("FFFFFF")
-                font_style: "Subtitle1"
-                theme_text_color: "Custom"
-                adaptive_height: True
-                markup: True
-
             MDBoxLayout:
                 orientation: "horizontal"
                 adaptive_height: True
@@ -54,17 +45,17 @@
                 MDLabel:
                     text: "[u]Action[/u]: "
                     text_color: C("FFFFFF")
-                    font_style: "Subtitle1"
+                    font_style: "Subtitle2"
                     theme_text_color: "Custom"
                     markup: True
                     halign: 'left'
-                    size_hint_x: None
-                    width: self.texture_size[0]
+                    adaptive_width: True
                     text_size: None, None
 
                 MDIcon:
                     text_color: C("FFFFFF")
                     theme_text_color: "Custom"
+                    adaptive_width: True
                     id: whaticon
                     halign: 'left'
 
@@ -73,7 +64,7 @@
                     text: " "
                     halign: 'left'
                     text_color: C("FFFFFF")
-                    font_style: "Subtitle1"
+                    font_style: "Subtitle2"
                     theme_text_color: "Custom"
                     markup: True
 
@@ -81,7 +72,7 @@
                 id: whatpriority
                 text: "[u]Priority[/u]: "
                 text_color: C("FFFFFF")
-                font_style: "Subtitle1"
+                font_style: "Subtitle2"
                 theme_text_color: "Custom"
                 adaptive_height: True
                 markup: True
@@ -90,7 +81,7 @@
                 id: actiondesc
                 text: "[u]Description[/u]: "
                 text_color: C("FFFFFF")
-                font_style: "Subtitle1"
+                font_style: "Subtitle2"
                 theme_text_color: "Custom"
                 adaptive_height: True
                 markup: True
@@ -99,7 +90,7 @@
             text: "Select"
             halign: "center"
             text_color: C("FFFFFF")
-            font_style: "H5"
+            font_style: "H6"
             theme_text_color: "Custom"
             adaptive_height: True
 
@@ -108,7 +99,9 @@
 
         MDGridLayout:
             id: addbuttons
-            cols: 4
+            cols: 3
+            row_default_height: '55dp'
+            row_force_default: True
             adaptive_height: True
             canvas.before:
                 Color:
@@ -127,7 +120,7 @@
             halign: "center"
             text: "Result"
             text_color: C("FFFFFF")
-            font_style: "H5"
+            font_style: "H6"
             theme_text_color: "Custom"
 
         MDSeparator:
@@ -136,7 +129,7 @@
         MDLabel:
             id: actionresult
             text_color: C("FFFFFF")
-            font_style: "Subtitle1"
+            font_style: "Subtitle2"
             theme_text_color: "Custom"
             halign: "center"
             markup: True
