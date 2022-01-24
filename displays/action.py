@@ -99,8 +99,6 @@ class ActionScreen(MDScreen):
                 on_release=partial(self.codeaction, tempactiondialog)
             )
 
-            # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
-
             tempactiondialog.ids.addbuttons.add_widget(templayout)
             templayout.add_widget(tempbutton)
 
@@ -126,8 +124,6 @@ class ActionScreen(MDScreen):
                     on_release=partial(self.analyzelog, tempactiondialog, num)
                 )
 
-                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
-
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
@@ -137,13 +133,10 @@ class ActionScreen(MDScreen):
             tempactiondialog.ids.actiondesc.text += "Select a player to reveal their alignment."
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
-            #Create list that doesn't include player that is selecting.
-            templist = []
-
-            # Cannot analyze AI.
-            for player in globals.playerlist:
-                if player != "AI" and player != playeractionlist[globals.nextplayer]:
-                    templist.append(player)
+            # Cannot analyze AI or yourself.
+            templist = list(filter(
+                lambda player: player != "AI" and player != playeractionlist[globals.nextplayer], globals.playerlist)
+            )
 
             #----------------------
 
@@ -161,8 +154,6 @@ class ActionScreen(MDScreen):
                     line_width='1.01dp',
                     on_release=partial(self.analyzeplayer, tempactiondialog, player)
                 )
-
-                # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(tempbutton)
@@ -189,8 +180,6 @@ class ActionScreen(MDScreen):
                     on_release=partial(self.backuplog, tempactiondialog, num)
                 )
 
-                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
-
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
@@ -215,8 +204,6 @@ class ActionScreen(MDScreen):
                     line_width='1.01dp',
                     on_release=partial(self.hacklog, tempactiondialog, num)
                 )
-
-                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
@@ -243,8 +230,6 @@ class ActionScreen(MDScreen):
                     on_release=partial(self.corruptlog, tempactiondialog, num)
                 )
 
-                # tempactiondialog.ids.addbuttons.add_widget(logbuttons[num])
-
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(logbuttons[num])
 
@@ -255,13 +240,9 @@ class ActionScreen(MDScreen):
             tempactiondialog.ids.whatpriority.text += f"[color={globals.colordefs['Green']}][size=22sp][font=Icons]{md_icons['chevron-triple-up']}[/font][/size][/color] High"
 
             # Create list that includes players with actions, but not hackers
-            templist = []
-
-            for player in globals.coderlist:
-
-                if player != "AI":
-                    templist.append(player)
-
+            templist = list(filter(
+                lambda player: player != "AI" and player != playeractionlist[globals.nextplayer], globals.playeractions)
+            )
             #----------------------
 
             for player in templist:
@@ -280,8 +261,6 @@ class ActionScreen(MDScreen):
                     # Below function includes an additional argument, being the button itself.
                     on_release=partial(self.hackplayer, tempactiondialog, player)
                 )
-
-                # tempactiondialog.ids.addbuttons.add_widget(tempbutton)
 
                 tempactiondialog.ids.addbuttons.add_widget(templayout)
                 templayout.add_widget(tempbutton)
