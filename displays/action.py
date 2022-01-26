@@ -85,9 +85,11 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][font=Icons]{md_icons[globals.actionicons['Code']['icon']]}[/font][/size][b][size=14sp] CODE[/b]",
+                    "text": f"[font=Icons]{md_icons[globals.actionicons['Code']['icon']]}[/font] [size=14sp]CODE[/size]",
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
+                    'adaptive_height': True,
                     "on_release": partial(self.codeaction, tempactiondialog)
                 }
             ]
@@ -102,9 +104,10 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size][b][size=14sp] " + globals.logbuttonword[num].upper() + "[/size][/b]",
+                    "text": f"[font=Icons]{md_icons['folder']}[/font] [size=14sp]" + globals.logbuttonword[num].upper() + "[/size]",
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
                     "on_release": partial(self.analyzelog, tempactiondialog, num)
                 } for num in range(1, 4)
             ]
@@ -124,9 +127,10 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][color={globals.colordefs[globals.playerlist[player]['color']]}][font=Icons]{md_icons['account']}[/font][/color][/size][b][size=14sp] " + globals.playerlist[player]['color'].upper() + '[/size][/b]',
+                    "text": f"[color={globals.colordefs[globals.playerlist[player]['color']]}][font=Icons]{md_icons['account']}[/font][/color] [size=14sp]" + globals.playerlist[player]['color'].upper() + '[/size]',
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
                     "on_release": partial(self.analyzeplayer, tempactiondialog, player)
                 } for player in templist
             ]
@@ -141,10 +145,11 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size][b][size=14sp] " +
-                            globals.logbuttonword[num].upper() + "[/size][/b]",
+                    "text": f"[font=Icons]{md_icons['folder']}[/font] [size=14sp]" +
+                            globals.logbuttonword[num].upper() + "[/size]",
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
                     "on_release": partial(self.backuplog, tempactiondialog, num)
                 } for num in range(1, 4)
             ]
@@ -159,10 +164,11 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size][b][size=14sp] " +
-                            globals.logbuttonword[num].upper() + "[/size][/b]",
+                    "text": f"[font=Icons]{md_icons['folder']}[/font] [size=14sp]" +
+                            globals.logbuttonword[num].upper() + "[/size]",
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
                     "on_release": partial(self.hacklog, tempactiondialog, num)
                 } for num in range(1, 4)
             ]
@@ -177,10 +183,11 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size][b][size=14sp] " +
-                            globals.logbuttonword[num].upper() + "[/size][/b]",
+                    "text": f"[font=Icons]{md_icons['folder']}[/font] [size=14sp]" +
+                            globals.logbuttonword[num].upper() + "[/size]",
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
                     "on_release": partial(self.corruptlog, tempactiondialog, num)
                 } for num in range(1, 4)
             ]
@@ -202,9 +209,10 @@ class ActionScreen(MDScreen):
                 {
                     'theme_text_color': 'Custom',
                     'text_color': get_color_from_hex("#FFFFFF"),
-                    "text": f"[size=22sp][color={globals.colordefs[globals.playerlist[player]['color']]}][font=Icons]{md_icons['account']}[/font][/color][/size][b][size=14sp] " + globals.playerlist[player]['color'].upper() + '[/size][/b]',
+                    "text": f"[color={globals.colordefs[globals.playerlist[player]['color']]}][font=Icons]{md_icons['account']}[/font][/color] [size=14sp]" + globals.playerlist[player]['color'].upper() + '[/size]',
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
+                    'line_width': '1.01dp',
                     "on_release": partial(self.hackplayer, tempactiondialog, player)
                 } for player in templist
             ]

@@ -188,7 +188,7 @@ class MainWindow(MDScreen):
 
             # Reveal who's log it is.
             for num in range(1, 3):
-                self.ids[f'playerlog{num}'].text = f"[font=Icons]{md_icons['folder-eye']}[/font] {globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log"
+                self.ids[f'playerlog{num}'].text = f" [font=Icons]{md_icons['folder-eye']}[/font] {globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log "
                 self.ids[f'playerlog{num}'].text_size = None, None
                 self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = get_color_from_hex(globals.colordefs[globals.playerlist[globals.playerlogrev[num - 1]]['color']])
 
