@@ -19,7 +19,8 @@ class PlayerReveal(MDScreen):
 
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Red']}][font=Icons]{md_icons['shield-bug']}[/font][/color][/size] " + "Hacker"
                 tempdialog.ids.whattarget.text += f"[size=22sp][color={globals.colordefs[globals.playerlist[globals.target[0]]['color']]}][font=Icons]{md_icons['target-account']}[/font][/color][/size] {globals.playerlist[globals.target[0]]['color']}"
-                tempdialog.ids.identitydes.text = "[u]Objective[/u]: Discreetly work with your alignment to have coders determine you and your allies as coders while having them determine other coders as hackers. Gain extra points by having the majority of coders determine the your target as a hacker."
+                tempdialog.ids.identitydes.text = "[u]Objective[/u]: Discreetly work with your alignment to have coders determine you and your allies as coders while having them determine other coders as hackers."
+                tempdialog.ids.side_objective.text = f"[u]Side Objective[/u]: Gain extra points by having the majority of coders determine the your target as a hacker."
 
                 if globals.players <= 8:
                     ally = globals.playerlist[f"player {globals.revealtracker}"]["allies"]
@@ -39,7 +40,8 @@ class PlayerReveal(MDScreen):
                 tempdialog.ids.identity.remove_widget(tempdialog.ids.haveallies)
                 tempdialog.ids.identity.remove_widget(tempdialog.ids.whattarget)
                 tempdialog.ids.arehacker.text = "[u]Alignment[/u]: " + f"[size=22sp][color={globals.colordefs['Blue']}][font=Icons]{md_icons['shield-lock']}[/font][/color][/size] " + "Coder"
-                tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Attempt to identify other coders and determine them as coders. Discover the {globals.numbertoword[globals.amtbad]} hackers among the players and determine them as hackers. Gain extra points by having the majority of coders determine the hacker's target as a coder."
+                tempdialog.ids.identitydes.text = f"[u]Objective[/u]: Attempt to identify other coders and determine them as coders. Discover the {globals.numbertoword[globals.amtbad]} hackers among the players and determine them as hackers."
+                tempdialog.ids.side_objective.text = f"[u]Side Objective[/u]: Gain extra points by having the majority of coders determine the hacker's target as a coder."
 
             tempdialog.open()
 
