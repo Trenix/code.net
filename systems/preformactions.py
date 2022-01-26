@@ -5,7 +5,7 @@ def disablewidgets(tempactiondialog):
     tempactiondialog.ids.addbuttons.disabled = True
     tempactiondialog.ids.okaction.disabled = False
 
-def codeaction(self, tempactiondialog, button):
+def codeaction(self, tempactiondialog):
     disablewidgets(tempactiondialog)
 
     globals.playeractions[list(globals.playeractions)[globals.nextplayer]]['Target'] = 'All Logs'
@@ -18,7 +18,7 @@ def codeaction(self, tempactiondialog, button):
 
 #------------------------------------------------------
 
-def analyzelog(self, tempactiondialog, lognumber, button):
+def analyzelog(self, tempactiondialog, lognumber):
 
     disablewidgets(tempactiondialog)
 
@@ -30,7 +30,7 @@ def analyzelog(self, tempactiondialog, lognumber, button):
     else:
         tempactiondialog.ids.actionresult.text += f"There are [color={globals.colordefs['Red']}]{globals.numbertoword[globals.loginfo[f'log {lognumber}']['hackers']]}[/color] hackers in the {globals.lognumberword[lognumber]} log."
 
-def analyzeplayer(self, tempactiondialog, player, button):
+def analyzeplayer(self, tempactiondialog, player):
 
     disablewidgets(tempactiondialog)
 
@@ -42,7 +42,7 @@ def analyzeplayer(self, tempactiondialog, player, button):
     else:
         tempactiondialog.ids.actionresult.text += f"[color={globals.colordefs[globals.playerlist[player]['color']]}]{globals.playerlist[player]['color']}[/color] is a [color={globals.colordefs['Blue']}]coder[/color]."
 
-def backuplog(self, tempactiondialog, lognumber, button):
+def backuplog(self, tempactiondialog, lognumber):
 
     disablewidgets(tempactiondialog)
 
@@ -52,7 +52,7 @@ def backuplog(self, tempactiondialog, lognumber, button):
     globals.loginfo[f"log {lognumber}"]['backedup'] = True
     tempactiondialog.ids.actionresult.text += f"A [color={globals.colordefs['Blue']}]backup[/color] was created for the {globals.lognumberword[lognumber]} log."
 
-def hacklog(self, tempactiondialog, lognumber, button):
+def hacklog(self, tempactiondialog, lognumber):
 
     disablewidgets(tempactiondialog)
 
@@ -62,7 +62,7 @@ def hacklog(self, tempactiondialog, lognumber, button):
     globals.loginfo[f"log {lognumber}"]['hacked'] = True
     tempactiondialog.ids.actionresult.text += f"You attempt to [color={globals.colordefs['Red']}]removed[/color] a hacker's digital footprint from the {globals.lognumberword[lognumber]} log."
 
-def corruptlog(self, tempactiondialog, lognumber, button):
+def corruptlog(self, tempactiondialog, lognumber):
 
     disablewidgets(tempactiondialog)
 
@@ -72,7 +72,7 @@ def corruptlog(self, tempactiondialog, lognumber, button):
     globals.loginfo[f"log {lognumber}"]['corrupted'] = True
     tempactiondialog.ids.actionresult.text += f"You attempt to [color={globals.colordefs['Red']}]corrupt[/color] the {globals.lognumberword[lognumber]} log."
 
-def hackplayer(self, tempactiondialog, player, button):
+def hackplayer(self, tempactiondialog, player):
 
     disablewidgets(tempactiondialog)
 

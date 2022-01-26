@@ -97,12 +97,13 @@
         MDSeparator:
             color: C("FFFFFF")
 
-        MDGridLayout:
+        RecycleView:
+            bar_width: "8dp"
+            bar_color: C('FFFFFF')
+            size_hint_y: None
+            height: dp(166)
             id: addbuttons
-            cols: 3
-            row_default_height: '55dp'
-            row_force_default: True
-            adaptive_height: True
+            viewclass: 'OneLineListItem'
             canvas.before:
                 Color:
                     rgba: 0/255, 0/255, 0/255, 0.8
@@ -114,6 +115,14 @@
                 Rectangle:
                     pos: self.pos
                     size: self.size
+
+            RecycleBoxLayout:
+                padding: dp(200), dp(8)
+                default_size: None, dp(50)
+                default_size_hint: 1, None
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'vertical'
 
         MDLabel:
             adaptive_height: True
