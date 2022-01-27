@@ -89,7 +89,6 @@ class ActionScreen(MDScreen):
                     "line_color": get_color_from_hex("#FFFFFF"),
                     'pos_hint': {'center_x': 0.5},
                     'line_width': '1.01dp',
-                    'adaptive_height': True,
                     "on_release": partial(self.codeaction, tempactiondialog)
                 }
             ]
