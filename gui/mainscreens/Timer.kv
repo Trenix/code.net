@@ -1,0 +1,40 @@
+<Timer@MDScreen>:
+    name: "timescreen"
+
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: "12dp"
+        padding: "12dp", "8dp"
+
+        MDFloatingLabel:
+            adaptive_height: True
+            text: "[font=H6][size=20sp]Timer[/size][/font]"
+            theme_text_color: "Custom"
+            markup: True
+            text_color: C('#FFFFFF')
+            pos_hint: {"center_x": 0.5}
+
+        MDLabel:
+            id: timer
+            text: "00:00"
+            theme_text_color: "Custom"
+            adaptive_height: True
+            size_hint_x: None
+            font_style: 'H3'
+            width: self.texture_size[0]
+            text_size: None, None
+            text_color: C('#FFFFFF')
+            pos_hint: {"center_x": 0.5}
+            canvas.before:
+                Color:
+                    rgba: 51/255, 255/255, 51/255, 0.3
+                Line:
+                    width: dp(1.2)
+                    rectangle: self.x - 10, self.y, self.width + 20, self.height
+                Color:
+                    rgba: 51/255, 255/255, 51/255, 0.06
+                Rectangle:
+                    pos: self.x - 10, self.y
+                    size: self.width + 20, self.height
+
+        Widget:

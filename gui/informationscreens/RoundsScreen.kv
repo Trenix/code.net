@@ -1,0 +1,299 @@
+<RoundsScreen@MDScreen>:
+    name: "Rounds"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Rounds"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: "8dp"
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: "8dp"
+                padding: "8dp"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "There are three rounds for each game. Depending on the round, depends on what kind and how many logs are provided. At any time you may review each round by using the tabs in the middle of the screen. Use this feature to see what logs are coming up next or to see what evidence was revealed previously."
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+    # Legend
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Legend"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['folder']}[/font][/size][color=#FFFFFF]: Log[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['file']}[/font][/size][color=#FFFFFF]: Digital Footprint[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['lock']}[/font][/size][color=#FFFFFF]: Protected Information[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['eye']}[/font][/size][color=#FFFFFF]: Exclusive Information[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDGridLayout:
+                    adaptive_height: True
+                    cols: 1
+                    canvas.before:
+                        Color:
+                            rgba: 51/255, 255/255, 51/255, 0.3
+                        Line:
+                            width: dp(0.3)
+                            rectangle: self.x, self.y, self.width, self.height
+                        Color:
+                            rgba: 51/255, 255/255, 51/255, 0.06
+                        Rectangle:
+                            pos: self.pos
+                            size: self.size
+
+    # Round 1
+                    MDBoxLayout:
+                        adaptive_height: True
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['archive-lock']}[/font][/size] Round 1: "
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "folder-lock"
+                            text_color: app.theme_cls.primary_color
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-1-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: app.theme_cls.primary_color
+
+                        MDIcon:
+                            icon: "file"
+                            text_color: app.theme_cls.primary_color
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-4-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: app.theme_cls.primary_color
+
+                        Widget:
+
+    # Round 2
+                    MDBoxLayout:
+                        adaptive_height: True
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['archive']}[/font][/size] Round 2: "
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "folder"
+                            text_color: app.theme_cls.primary_color
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-3-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: app.theme_cls.primary_color
+
+                        MDIcon:
+                            icon: "file"
+                            text_color: app.theme_cls.primary_color
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-3-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: app.theme_cls.primary_color
+
+                        Widget:
+
+    # Round 3
+                    MDBoxLayout:
+                        adaptive_height: True
+                        spacing: "8dp"
+
+                        Widget:
+
+                        MDLabel:
+                            size_hint_x: None
+                            width: self.texture_size[0]
+                            text_size: None, None
+                            text_color: C("FFFFFF")
+                            font_style: "Body2"
+                            text: f"[font=Icons][size=22sp]{md_icons['archive-eye']}[/font][/size] Round 3: "
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            markup: True
+
+                        MDIcon:
+                            icon: "folder-eye"
+                            text_color: app.theme_cls.primary_color
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: app.theme_cls.primary_color
+
+                        MDIcon:
+                            icon: "file"
+                            text_color: app.theme_cls.primary_color
+                            theme_text_color: "Custom"
+                            adaptive_height: True
+                            badge_icon: 'numeric-2-circle-outline'
+                            badge_bg_color: C('000000')
+                            badge_icon_color: app.theme_cls.primary_color
+
+                        Widget:
+
+    # Begin Round
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Round Control"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"In order to begin the next round, press the [color=#FFFFFF][size=22sp][font=Icons]{md_icons['play']}[/font][/size][/color] at the bottom of the main screen. It will only appear if the timer is not active and if you're not currently in an action phase. If a timer is active, you may press the [color=#FFFFFF][size=22sp][font=Icons]{md_icons['stop']}[/font][/size][/color] and agree to the prompt in order to end the turn prematurely. Before doing so, this must be agreed upon by the majority of the group. After an action phase, the device must be returned to the host so they can complete the phase by pressing the [color=#FFFFFF][size=22sp][font=Icons]{md_icons['check']}[/font][/size][/color]."
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Round Indicator"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"At the top of the main screen there are three [color=#FFFFFF][size=22sp][font=Icons]{md_icons['circle-outline']}[/font][/size][/color] which represent each round. When a round begins, an indicator becomes a [color=#FFFFFF][size=22sp][font=Icons]{md_icons['circle-slice-8']}[/font][/size][/color] to indicate what the current round is. The game ends once all three rounds have been completed. A [color=#FFFFFF][size=22sp][font=Icons]{md_icons['chevron-right']}[/font][/size][/color] will appear at the bottom right of the screen after the last round has been completed which will take you to the game summary once pressed."
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Round 1: Main Log"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"The first round provides one [color=#FFFFFF][size=22sp][font=Icons]{md_icons['folder-lock']}[/font][/size][/color]. This log is protect which means it is incapable of being corrupted or being tampered with. It will have four [color=#FFFFFF][size=22sp][font=Icons]{md_icons['file']}[/font][/size][/color] inside of it. The main log is the most reliable public log in the game. Therefore it should be used as a comparison with other evidence. There is [color=#FFFFFF]one[/color] minute set on the timer during this round."
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Round 2: Action Phase"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"The second round provides three [color=#FFFFFF][size=22sp][font=Icons]{md_icons['folder']}[/font][/size][/color]. Each log will have three [color=#FFFFFF][size=22sp][font=Icons]{md_icons['file']}[/font][/size][/color] inside of it. Before the timer begins, [color=#FFFFFF]four[/color] players at random will be chosen to perform an action. These actions can provide evidence but can also corrupt or tamper with the logs and digital footprints. There is [color=#FFFFFF]six[/color] minutes set on the timer during this round."
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Round 3: Player Log Phase"
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"The third round provides two [color=#FFFFFF][size=22sp][font=Icons]{md_icons['folder-eye']}[/font][/size][/color]. Each log will have two [color=#FFFFFF][size=22sp][font=Icons]{md_icons['file']}[/font][/size][/color] inside of it. Before the timer begins, [color=#FFFFFF]two[/color] players at random will be chosen to obtain an exclusive log. There is [color=#FFFFFF]five[/color] minutes set on the timer during this round."
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True

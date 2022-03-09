@@ -1,12 +1,23 @@
 import random
 import globals
+from kivymd.icon_definitions import md_icons
 
-def createplayerlog():
+def createplayerlog(logplayer):
 
-    if globals.players == 4 or globals.players == 5:
-        tempplayerlog = random.sample(list(globals.notai), 1) + random.sample(list(globals.hackerlist), 1)
+    tempplayerlog = []
+
+    temphackerlist = globals.hackerlist.copy()
+    tempcoderlist = globals.coderlist.copy()
+
+    if globals.playerlist[logplayer]['hacker'] == True:
+        temphackerlist.remove(logplayer)
     else:
-        tempplayerlog = random.sample(list(globals.coderlist), 1) + random.sample(list(globals.hackerlist), 1)
+        tempcoderlist.remove(logplayer)
+
+    newhackerlist = random.sample(list(temphackerlist), 1)
+    newcoderlist = random.sample(list(tempcoderlist), 1)
+
+    tempplayerlog.extend(newhackerlist + newcoderlist)
 
     tempplayercolorlog = []
 
@@ -15,6 +26,16 @@ def createplayerlog():
 
     tempplayercolorlog.sort()
 
-    strtempplayerlog = '[b]' + ', '.join(str(x) for x in tempplayercolorlog) + '[/b]'
+    # Create icons and text for log.
+    strtemplog = ''
+    strtemplogtext = ''
 
-    return strtempplayerlog
+    for num in range(2):
+        if num != 1:
+            strtemplog += f"[size=22sp][color={globals.colordefs[tempplayercolorlog[num]]}][font=Icons]{md_icons['file-account']}[/font][/color] [/size]"
+            strtemplogtext += f'{tempplayercolorlog[num]}, '
+        else:
+            strtemplog += f"[color={globals.colordefs[tempplayercolorlog[num]]}][size=22sp][font=Icons]{md_icons['file-account']}[/size][/font][/color]"
+            strtemplogtext += f'{tempplayercolorlog[num]}.'
+
+    return strtemplog, strtemplogtext

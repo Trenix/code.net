@@ -1,64 +1,126 @@
 <PlayerWindow>:
     name: "player"
 
-    GridLayout:
-        cols: 1
+    Background:
 
-        Label:
-            text: "How many players are playing?"
+    MDBoxLayout:
+        orientation: "vertical"
 
+        MDToolbar:
+            title: "C0de.Net"
+            right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
-        GridLayout:
-            spacing: 5
-            cols:3
-            size_hint: 1, 0.35
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
 
-            Button:
+            MDLabel:
+                adaptive_height: True
+                text_color: C("FFFFFF")
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text: "Player Amount"
                 halign: "center"
-                text: "4 Players\n(1 AI)"
-                on_release:
-                    root.fourp()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
 
-            Button:
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDLabel:
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle1'
+                text: "Please select the [color=#FFFFFF]amount[/color] of [color=#FFFFFF]players[/color] that are currently playing."
                 halign: "center"
-                text: "5 Players\n(1 AI)"
-                on_release:
-                    root.fivep()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
-            Button:
-                text: "6 Players"
-                on_release:
-                    root.sixp()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
-            Button:
-                text: "7 Players"
-                on_release:
-                    root.sevenp()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
-            Button
-                text: "8 Players"
-                on_release:
-                    root.eightp()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
-            Button
-                text: "9 Players"
-                on_release:
-                    root.ninep()
-                    app.root.current = "reveal"
-                    root.manager.transition.direction = "left"
+                markup: True
 
-        BoxLayout:
-            size_hint: 1, 0.3
+            MDBoxLayout:
+                size_hint: 1, 0.7
 
-        Button:
-            text: "Go Back"
-            size_hint: 1, 0.39
-            on_release:
-                app.root.current = "welcome"
-                root.manager.transition.direction = "right"
+            MDGridLayout:
+                cols: 2
+                spacing: "8dp"
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt1
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "4 players"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_press:
+                        root.selectcheck(butt1)
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt2
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "5 players"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_press:
+                        root.selectcheck(butt2)
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt3
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "6 players"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_press:
+                        root.selectcheck(butt3)
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt4
+                    font_style: 'Button'
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "7 Players"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_press:
+                        root.selectcheck(butt4)
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt5
+                    font_style: "Button"
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "8 Players"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_press:
+                        root.selectcheck(butt5)
+
+                MDFillRoundFlatIconButtonToggle:
+                    icon: "account-group"
+                    group: "player"
+                    id: butt6
+                    font_style: "Button"
+                    md_bg_color: app.theme_cls.primary_color
+                    text: "9 Players"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_press:
+                        root.selectcheck(butt6)
+
+        Widget:
+            size_hint: 1, 0.6
+
+        MDBottomAppBar:
+            MDToolbar:
+                id: bottomplayertoolbar
+                icon: "square-rounded-outline"
+                type: "bottom"
+                on_action_button: app.on_pause()
+                left_action_items: [["chevron-left", lambda x: root.previousscreen()]]

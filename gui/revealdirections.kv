@@ -1,19 +1,136 @@
-<PlayerReveal>
+<PlayerReveal>:
     name: "reveal"
 
-    FloatLayout:
+    Background:
 
-        Label:
-            id: whatplayer
-            text: "Pass the phone to Player 1."
-            pos_hint: {"center_x":0.5, "top":1}
-            text_size: self.size
-            halign: "center"
-            size_hint: 0.8, 0.39
+    MDBoxLayout:
+        orientation: "vertical"
 
-        Button:
-            id: endreveal
-            size_hint: 1, 0.19
-            text: "Reveal"
-            on_release:
-                root.reveal()
+        MDToolbar:
+            title: "C0de.Net"
+            right_action_items: [["information-outline", lambda x: root.openinfo()]]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
+
+            MDLabel:
+                adaptive_height: True
+                text_color: C("FFFFFF")
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text: "Reveal"
+                halign: "center"
+
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDLabel:
+                text: f"Follow the [color=#FFFFFF]tracker[/color] below and press the [color=#FFFFFF][font=Icons]{md_icons['card-account-details']}[/font][/color] at the [color=#FFFFFF]bottom[/color] when it's [color=#FFFFFF]your[/color] turn to reveal your [color=#FFFFFF]identity[/color]."
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle1'
+                halign: "center"
+                markup: True
+
+            MDGridLayout:
+                size_hint_y: None
+                height: '28dp'
+                id: setgrid
+                cols: 9
+                canvas.before:
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.3
+                    Line:
+                        width: dp(1.2)
+                        rectangle: self.x, self.y, self.width, self.height
+                    Color:
+                        rgba: 51/255, 255/255, 51/255, 0.06
+                    Rectangle:
+                        pos: self.pos
+                        size: self.size
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind1
+                        theme_text_color: "Custom"
+                        icon: "circle-slice-8"
+                        font_size: "24sp"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind2
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind3
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind4
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind5
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind6
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind7
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind8
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+                AnchorLayout:
+                    MDIcon:
+                        id: ind9
+                        font_size: "24sp"
+                        theme_text_color: "Custom"
+                        icon: "circle-outline"
+
+            Widget:
+                size_hint: 1, 0.1
+
+            MDLabel:
+                id: nextplayer
+                text_color: C("FFFFFF")
+                halign: "center"
+                theme_text_color: "Custom"
+                font_style: "Subtitle1"
+                adaptive_height: True
+
+        Widget:
+
+        MDBottomAppBar:
+            MDToolbar:
+                id: revtool
+                icon: "card-account-details"
+                type: "bottom"
+                on_action_button: root.reveal()

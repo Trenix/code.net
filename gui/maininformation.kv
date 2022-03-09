@@ -1,0 +1,133 @@
+#:include gui/informationscreens/LoreScreen.kv
+#:include gui/informationscreens/AlignmentsScreen.kv
+#:include gui/informationscreens/PlayersScreen.kv
+#:include gui/informationscreens/NavigationScreen.kv
+#:include gui/informationscreens/ActionsScreen.kv
+#:include gui/informationscreens/LogsScreen.kv
+#:include gui/informationscreens/RoundsScreen.kv
+#:include gui/informationscreens/PointsScreen.kv
+
+<MainInfo>:
+    name: "maininfo"
+
+    Background:
+
+    MDNavigationLayout:
+        ScreenManager:
+            id: maininfoscreenmanager
+
+            LoreScreen:
+            AlignmentsScreen:
+            PlayersScreen:
+            NavigationScreen:
+            RoundsScreen:
+            ActionsScreen:
+            LogsScreen:
+            PointsScreen:
+
+        MDNavigationDrawer:
+            id: nav_drawer
+            md_bg_color: app.theme_cls.primary_color
+
+            MDNavigationDrawerMenu:
+                MDNavigationDrawerHeader:
+                    title: "Information"
+                    title_color: C('#FFFFFF')
+                    spacing: "4dp"
+                    padding: "12dp", 0, 0, "56dp"
+
+                MDNavigationDrawerItem:
+                    icon: "book"
+                    text: "Lore"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Lore"
+
+                MDNavigationDrawerItem:
+                    icon: "chevron-right"
+                    text: "Navigation"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Navigation"
+
+                MDNavigationDrawerItem:
+                    icon: "shield"
+                    text: "Alignments"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Alignments"
+
+                MDNavigationDrawerItem:
+                    icon: "account"
+                    text: "Players"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Players"
+
+                MDNavigationDrawerItem:
+                    icon: "archive"
+                    text: "Rounds"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Rounds"
+
+                MDNavigationDrawerItem:
+                    icon: "folder"
+                    text: "Logs"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Log"
+
+                MDNavigationDrawerItem:
+                    icon: "language-python"
+                    text: "Actions"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Actions"
+
+                MDNavigationDrawerItem:
+                    icon: "numeric-9-plus-box"
+                    text: "Points"
+                    focus_color: app.theme_cls.primary_dark
+                    unfocus_color: app.theme_cls.primary_color
+                    text_color: C('#FFFFFF')
+                    icon_color: C('#FFFFFF')
+                    selected_color: C('#FFFFFF')
+                    on_release:
+                        nav_drawer.set_state("close")
+                        maininfoscreenmanager.current = "Points"

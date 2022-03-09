@@ -1,39 +1,54 @@
 <WelcomeWindow>:
     name: "welcome"
 
-    BoxLayout:
+    Background:
+
+    MDBoxLayout:
         orientation: "vertical"
-        BoxLayout:
+
+        MDToolbar:
+            title: "C0de.Net"
+            right_action_items: [["information-outline", lambda x: root.openinfo()]]
+
+        MDBoxLayout:
             orientation: "vertical"
-            padding: 30
+            spacing: "8dp"
+            padding: "8dp", "8dp", "8dp", "60dp"
 
-            Label:
-                bold: True
-                underline: True
-                font_size: 70
-                text: "Code.Net"
-                pos_hint: {"Center_x":0.5, "center_y":0.5}
-
-            Label:
-                text: "Welcome to a social card game that requires an App to play. The App is still in its Alpha phase therefore, you may experience lack of content, incomplete features, and bugs."
-                pos_hint: {"center_x":0.5, "top":1}
-                text_size: self.size
+            MDLabel:
+                adaptive_height: True
+                text_color: C("FFFFFF")
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text: "Welcome"
                 halign: "center"
-            BoxLayout:
 
-        BoxLayout:
-            orientation: "vertical"
+            MDSeparator:
+                color: C("FFFFFF")
 
-            Label:
-                text_size: self.size
+            MDLabel:
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle2'
+                text: "Welcome to [color=#FFFFFF]C0de.Net[/color], a [color=#FFFFFF]social deduction[/color] card game that [color=#FFFFFF]must[/color] be used with this [color=#FFFFFF]app[/color] to function properly. This App is still [color=#FFFFFF]under development[/color]; therefore, you may experience lack of [color=#FFFFFF]content[/color], incomplete [color=#FFFFFF]features[/color], and [color=#FFFFFF]bugs[/color]."
                 halign: "center"
-                text: "Created by Plague Products. All rights reserved."
-                pos_hint: {"center_x":0.5, "center_y":0.25}
+                markup: True
 
-            Button:
-                text: "New Game"
-                size_hint: 1, 0.61
-                pos_hint: {"center_x":0.5, "bottom":1}
-                on_release:
-                    app.root.current = "player"
-                    root.manager.transition.direction = "left"
+            Widget:
+
+            MDLabel:
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: "Caption"
+                halign: "center"
+                text: "Created by [color=#FFFFFF]Plague Products[/color]. All rights reserved."
+                markup: True
+                adaptive_height: True
+
+        MDBottomAppBar:
+            MDToolbar:
+                icon: "square-rounded-outline"
+                type: "bottom"
+                on_action_button: app.on_pause()
+                right_action_items: [["chevron-right", lambda x: root.nextscreen()]]

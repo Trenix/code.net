@@ -1,0 +1,134 @@
+<LogsScreen@MDScreen>:
+    name: "Log"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Logs"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: "8dp"
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: "8dp"
+                padding: "8dp"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+                    markup: True
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "In the beginning of each round, one or more logs are provided to the entire group. Depending on the round, will depend on how many and what type of log is provided. Not all logs provide definite information. Players consistently found on logs do not necessarily prove guilt."
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Legend"
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['file']}[/font][/size][color=#FFFFFF]: Digital Footprint[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: app.theme_cls.primary_color
+                    font_style: "Body2"
+                    text: f"[size=22sp][font=Icons]{md_icons['file-account']}[/font][/size][color=#FFFFFF]: Revealed Digital Footprint[/color]"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C('FFFFFF')
+                    font_style: "Body2"
+                    text: f"[size=22sp][color=#c62828][font=Icons]{md_icons['folder-alert']}[/font][/color][/size]: Corrupted Log"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDLabel:
+                    text_color: C('FFFFFF')
+                    font_style: "Body2"
+                    text: f"[size=22sp][color={app.globals.colordefs['Red']}][font=Icons]{md_icons['file-alert']}[/font][/color][/size]: Corrupted Digital Footprint"
+                    theme_text_color: "Custom"
+                    adaptive_height: True
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Evidence"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: f"Each [size=22sp][color=#FFFFFF][font=Icons]{md_icons['file']}[/font][/color][/size] is a player that is on the log. Once a log is revealed, the evidence will become [color=#FFFFFF][size=22sp][font=Icons]{md_icons['file-account']}[/font][/size][/color] and the color of the evidence will signify who it belongs to. It is possible for logs to be exactly the same. This is an intended and should be taken into consideration."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Corrupted Log"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: f"Only during the second round, may a log become corrupted. There is a [color=#FFFFFF]eighty five[/color] percent chance of a log failing when it is revealed. Hackers may also corrupt a log via an action. When a log becomes [size=22sp][color=#FFFFFF][font=Icons]{md_icons['folder-alert']}[/font][/color][/size], all digital footprints within the log become [size=22sp][color=#FFFFFF][font=Icons]{md_icons['file-alert']}[/font][/color][/size] and no further information is provided."
+                    markup: True
+
+                MDSeparator:
+                    color: C("FFFFFF")
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Player Log"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: f"Player logs are found on the third round. During the player log phase, [color=#FFFFFF]two[/color] players at random are selected to obtain and reveal an exclusive log. Only the owner of the log can upload and view its revealed contents. The player who owns the log will never be within their own log. Players cannot receive multiple player logs nor can an AI get a player log."
+                    markup: True

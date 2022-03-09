@@ -1,0 +1,50 @@
+<LoreScreen@MDScreen>:
+    name: "Lore"
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "Lore"
+            left_action_items: [["menu", lambda x: app.root.get_screen("maininfo").ids.nav_drawer.set_state("open")]]
+            right_action_items: [["close", lambda x: app.root.get_screen("maininfo").close()]]
+
+        ScrollView:
+            bar_width: "8dp"
+            bar_color: C('FFFFFF')
+
+            MDBoxLayout:
+                orientation: "vertical"
+                size_hint: None, None
+                height: self.minimum_height
+                size: (root.width, root.height)
+                spacing: "8dp"
+                padding: "8dp"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Introduction"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "It is 2090 and all systems have been digitalized. Unfortunately, this has led to breaches in security. With more than ninety percent of the workforce being programmers, crimes against public software have significantly increased, which have caused disruption for all societies. You are part of C0de.Net, a private government organization which is intended to sustain order over every network worldwide. C0de.Net is currently tasked with Project Sanctuary."
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: C('FFFFFF')
+                    theme_text_color: "Custom"
+                    font_style: 'H6'
+                    text: "Project Sanctuary"
+
+                MDLabel:
+                    adaptive_height: True
+                    text_color: app.theme_cls.primary_color
+                    theme_text_color: "Custom"
+                    font_style: 'Body2'
+                    text: "The purpose of Project Sanctuary is to get in the mind of hackers and coders so the organization is able to differentiate the two with the proper tools available to them. In doing so, Code.Net can continue to retain order across all networks. You will be given an alignment and to your best ability, you will attempt to accomplish your objective. Your performance will be scored and it is encouraged that your group will make multiple attempts in this process so we can choose the best candidate for the next task."

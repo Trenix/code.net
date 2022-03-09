@@ -1,149 +1,245 @@
-from kivy.app import App
-from kivy.properties import ObjectProperty, StringProperty
-from kivy.uix.popup import Popup
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.core.window import Window
-from screens.playerselect import *
-from screens.revealscreen import *
-from popups.poprev import *
-from systems.generatelog import *
-from systems.generateplayerlog import *
-from globals import *
+from kivymd.app import MDApp
+# from kivy.core.window import Window
+from kivymd.icon_definitions import md_icons
+from displays.playeramount import PlayerWindow
+from displays.revealdirections import *
+from displays.welcome import WelcomeWindow
+from kivymd.uix.screen import MDScreen
+from displays.loadsetup import LoadingScreen
+from displays.colorselect import ColorSelectScreen
+from displays.endgame import EndGame
+from systems.screenmanager import WindowManager
+from systems.generatelog import createlog
+from systems.generatelog import createhackeramt
+from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
+from kivymd.uix.button import MDFillRoundFlatIconButton
+from kivymd.uix.tab import MDTabsBase
+from kivymd.uix.boxlayout import MDBoxLayout
+from displays.dialogcode import IdentityDialog
+from displays.dialogcode import ConfirmDialog
+from displays.dialogcode import ActionDialog
+from displays.information import MainInfo
+from displays.action import ActionScreen
+from displays.playerlog import PlayerLogScreen
+from kivy.clock import Clock
+from kivy.utils import get_color_from_hex
 import random
+import globals
 
-class WelcomeWindow(Screen):
+# KIVY_DPI = 320
+# KIVY_METRICS_DENSITY = 2
+#
+# Window.size = (720, 1280)
+
+class Tab(MDBoxLayout, MDTabsBase):
     pass
 
-class MainWindow(Screen):
+# Add toggle to iconbuttons
+class MDFillRoundFlatIconButtonToggle(MDFillRoundFlatIconButton, MDToggleButton):
+    pass
 
-#Logs per each round.
+class MainWindow(MDScreen):
+    from systems.openinformation import openinfo
 
-    def r1l1(self):
-        self.ids.startround.disabled = False
-        self.ids.round1reveal.disabled = True
+    def resettimer(self):
 
-        if random.random() < 0.7:
+        self.ids.mainscreenmanager.get_screen("timescreen").ids.timer.text = "00:00"
+        globals.timer.cancel()
 
-            self.ids.round1sum.text = "At least one hacker is among the following."
-            log = createlog(4)
-            self.ids.round1sub.text = log + "."
-
-# May be used, sets players less on log rather than specific amount.
-#            templog = sorted(random.sample(list(globals.coderlist), ((globals.players + globals.aiamt) - tempamthacker) - playerslesslog) + random.sample(list(globals.hackerlist), tempamthacker))
-#            playerslesslog = 2
-#-----------------------------------------------
+        if self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
+            self.ids.roundregulator.icon = "square-rounded-outline"
+            self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
 
         else:
-            self.ids.round1sub.text = "[b]Log Retrieval Failed[/b]"
-            self.ids.round1sum.text = "Unfortunately, the log files have been corrupted."
+            self.ids.roundregulator.icon = "play"
 
-    def r2l1(self):
+    def mainactioncheck(self):
 
-        if self.ids.round2reveal2.disabled == True:
-            self.ids.startround.disabled = False
+        if self.ids.roundregulator.icon == "play":
+            self.nextround()
+        elif self.ids.roundregulator.icon == "stop":
+            ConfirmDialog().open()
+        elif self.ids.roundregulator.icon == "check" and self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]":
 
-        self.ids.round2reveal1.disabled = True
+            # Round 2 - Reveal All 3 Logs
+            for num in range(3):
 
-        if random.random() < 0.7:
+                if globals.loginfo[f"log {num + 1}"]["hacked"] == True:
+                    globals.loginfo[f"log {num + 1}"]["hackers"] = globals.loginfo[f"log {num + 1}"]["hackers"] - 1
 
-            self.ids.round2sum1.text = "At least one hacker is among the following."
-            log = createlog(3)
-            self.ids.round2sub1.text = log + "."
+                if globals.loginfo[f"log {num + 1}"]["backedup"] == True:
+
+                    log, logtext = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+
+                    self.ids[f"round2sub{num + 1}"].text = log
+                    self.ids[f"round2sub{num + 1}text"].text = logtext
+
+                elif globals.loginfo[f"log {num + 1}"]["corrupted"] == False:
+
+                    if random.random() < 0.85:
+                        # Upon Success
+                        log, logtext = createlog(3, globals.loginfo[f"log {num + 1}"]["hackers"], globals.loginfo[f"log {num + 1}"]["code"])
+
+                        self.ids[f"round2sub{num + 1}"].text = log
+                        self.ids[f"round2sub{num + 1}text"].text = logtext
+
+                    else:
+                        self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
+                        self.ids[f"round2sum{num + 1}"].text = f"[color={globals.colordefs['Red']}]The log has been corrupted![/color]"
+                        self.ids[f"logtitle{num + 1}"].text = f" [font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]} "
+                        self.ids[f"logtitle{num + 1}"].canvas.before.get_group(f'{num + 1}')[0].rgb = get_color_from_hex(globals.colordefs['Red'])
+
+                else:
+                    self.ids[f"round2sub{num + 1}"].text = f"[color={globals.colordefs['Red']}][size=22sp][font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/font] [font=Icons]{md_icons['file-alert']}[/color][/font][/size]"
+                    self.ids[f"round2sum{num + 1}"].text = f"[color={globals.colordefs['Red']}]The log has been corrupted![/color]"
+                    self.ids[f"logtitle{num + 1}"].text = f" [font=Icons]{md_icons['folder-alert']}[/font] {globals.logbuttonword[num + 1]} "
+                    self.ids[f"logtitle{num + 1}"].canvas.before.get_group(f'{num + 1}')[0].rgb = get_color_from_hex(globals.colordefs['Red'])
+
+            self.settime(360)
+            self.ids.roundregulator.icon = "stop"
+            self.ids.mainscreenmanager.current = "timescreen"
+
+        # Round 3 Check
+        elif self.ids.roundregulator.icon == "check" and self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]":
+            self.settime(300)
+            self.ids.roundregulator.icon = "stop"
+            self.ids.mainscreenmanager.current = "timescreen"
+
+# Configure timer
+    def settime(self, time):
+
+        globals.time = time
+        minutes, seconds = divmod(globals.time, 60)
+        self.ids.mainscreenmanager.get_screen("timescreen").ids.timer.text =\
+            "{:02}:{:02}".format(int(minutes), int(seconds))
+        globals.timer = Clock.schedule_interval(self.activatetime, 1)
+
+    def activatetime(self, dt):
+        if globals.time == 0:
+
+            globals.timer.cancel()
+
+        # Check if moving to the results screen
+            if self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]" and self.ids.roundregulator.icon == "stop":
+                self.ids.roundregulator.icon = "square-rounded-outline"
+                self.ids.roundregulator.right_action_items = [["chevron-right", lambda x: self.nextscreen()]]
+
+            elif self.ids.roundregulator.icon == "stop":
+                self.ids.roundregulator.icon = "play"
 
         else:
-            self.ids.round2sub1.text = "[b]Log Retrieval Failed[/b]"
-            self.ids.round2sum1.text = "Unfortunately, the log files have been corrupted."
-
-
-    def r2l2(self):
-
-        if self.ids.round2reveal1.disabled == True:
-            self.ids.startround.disabled = False
-
-        self.ids.round2reveal2.disabled = True
-
-        if random.random() < 0.7:
-
-            self.ids.round2sum2.text = "At least one hacker is among the following."
-            log = createlog(3)
-            self.ids.round2sub2.text = log + "."
-
-        else:
-            self.ids.round2sub2.text = "[b]Log Retrieval Failed[/b]"
-            self.ids.round2sum2.text = "Unfortunately, the log files have been corrupted."
-
-    def r3l1(self):
-        self.ids.round3reveal1.disabled = True
-
-        LogPopup.title = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-        log = createplayerlog()
-        temppop = LogPopup()
-        temppop.ids.log1sub.text = log + "."
-        temppop.open()
-
-    def r3l2(self):
-        self.ids.round3reveal2.disabled = True
-        LogPopup.title = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
-        log = createplayerlog()
-        temppop = LogPopup()
-        temppop.ids.log1sub.text = log + "."
-        temppop.open()
+            globals.time -= 1
+            minutes, seconds = divmod(globals.time, 60)
+            self.ids.mainscreenmanager.get_screen("timescreen").ids.timer.text =\
+                "{:02}:{:02}".format(int(minutes), int(seconds))
 
     def nextround(self):
 
 # Round 1
-        if self.ids.currentround.text == "[b]Current Round:[/b] 0":
-            self.ids.currentround.text = "[b]Current Round:[/b] 1"
-            self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_to(self.ids.tab1)
+        if self.ids.currentround.text == f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
 
+            # Alter displays
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+            self.ids.mainpanel.switch_tab("archive-lock", search_by="icon")
 
-#Tab displays activated
-            self.ids.round1reveal.disabled = False
-            self.ids.round1show.opacity = 1
+            self.settime(60) # 1 minute
+            self.ids.roundregulator.icon = "stop"
+
+            # Reveal log
+            log, logtext = createlog(4, None, None)
+            self.ids.round1sub.text = log
+            self.ids.round1subtext.text = logtext
 
 # Round 2
-        elif self.ids.currentround.text == "[b]Current Round:[/b] 1":
-            self.ids.currentround.text = "[b]Current Round:[/b] 2"
-            self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_to(self.ids.tab2)
+        elif self.ids.currentround.text == f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]":
 
-#Tab displays activated
-            self.ids.round2reveal1.disabled = False
-            self.ids.round2reveal2.disabled = False
-            self.ids.round2show.opacity = 1
+            # Set log information for actions
+            for x in range(1, 4):
+                globals.loginfo[f"log {x}"] = {"hackers": createhackeramt()}
+                globals.loginfo[f"log {x}"]['backedup'] = False
+                globals.loginfo[f"log {x}"]['corrupted'] = False
+                globals.loginfo[f"log {x}"]['hacked'] = False
+                globals.loginfo[f"log {x}"]['code'] = None
+
+            # Alter displays
+            ActionScreen.setactionplayers(self)
+            self.ids.mainscreenmanager.current = "actionscreen"
+
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color]{md_icons['circle-outline']}[/font][/size]"
+            self.ids.mainpanel.switch_tab("archive", search_by="icon")
+            self.ids.roundregulator.icon = "square-rounded-outline"
 
 # Round 3
         else:
-            self.ids.currentround.text = "[b]Current Round:[/b] 3"
-            self.ids.startround.disabled = True
-            self.ids.mainpanel.switch_to(self.ids.tab3)
+            self.ids.currentround.text = f"[color=#FFFFFF][size=30sp][font=Icons]{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}{md_icons['circle-slice-8']}[/color][/font][/size]"
+            self.ids.mainpanel.switch_tab("archive-eye", search_by="icon")
+            self.ids.roundregulator.icon = "square-rounded-outline"
 
-#Tab displays activated
-            self.ids.round3reveal1.disabled = False
-            self.ids.round3reveal2.disabled = False
-            self.ids.round3show.opacity = 1
+            # Sets what players are provided logs, ais will not get logs.
+            if globals.players <= 5:
+                globals.playerlogrev = random.sample(list(globals.notai), 2)
+            else:
+                globals.playerlogrev = random.sample(list(globals.playerlist), 2)
 
-        if globals.players < 5:
-            globals.playerlogrev = random.sample(list(globals.notai), 2)
-        else:
-            globals.playerlogrev = random.sample(list(globals.playerlist.keys()), 2)
+            num = 1
+            for player in globals.playerlogrev:
+                self.ids.mainscreenmanager.get_screen("playerlogscreen").ids[f'log{num}'].color = globals.colordefs[globals.playerlist[player]['color']]
+                num += 1
 
-        self.ids.round3reveal1.text = f"{globals.playerlist[globals.playerlogrev[0]]['color']}'s Log"
-        self.ids.round3reveal2.text = f"{globals.playerlist[globals.playerlogrev[1]]['color']}'s Log"
+            # Reveal who's log it is.
+            for num in range(1, 3):
+                self.ids[f'playerlog{num}'].text = f" [font=Icons]{md_icons['folder-eye']}[/font] {globals.playerlist[globals.playerlogrev[num - 1]]['color']}'s Log "
+                self.ids[f'playerlog{num}'].text_size = None, None
+                self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = get_color_from_hex(globals.colordefs[globals.playerlist[globals.playerlogrev[num - 1]]['color']])
 
-class LogPopup(Popup):
-    pass
+            # Prepare log tracker
+            globals.revealtracker = 1
+            self.ids.mainscreenmanager.get_screen("playerlogscreen").ids.nextplayer.text = f"It's {globals.playerlist[globals.playerlogrev[globals.revealtracker - 1]]['color']}'s turn."
 
-class WindowManager(ScreenManager):
-    pass
+            # Change main screen
+            self.ids.mainscreenmanager.current = "playerlogscreen"
 
-class codenetApp(App):
+    def nextscreen(self):
 
+        EndGame.setresults(self)
+        self.manager.transition.direction = "left"
+        self.manager.current = "endgame"
+
+        # Reset Phases
+        self.ids.mainscreenmanager.get_screen('actionscreen').ids.useaction.disabled = False
+        self.ids.mainscreenmanager.get_screen('actionscreen').ids.act1.icon = 'circle-slice-8'
+        self.ids.mainscreenmanager.get_screen('playerlogscreen').ids.reveallog.disabled = False
+        self.ids.mainscreenmanager.get_screen('playerlogscreen').ids.log1.icon = 'circle-slice-8'
+
+        # Reset Round 1 Logs
+        self.ids.round1sub.text = f"[size=22sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
+        self.ids.round1subtext.text = " "
+
+        # Reset Round 2 Logs
+        for num in range(1, 4):
+            self.ids[f'round2sub{num}'].text = f"[size=22sp][font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font] [font=Icons]{md_icons['file']}[/font][/size]"
+            self.ids[f'round2sub{num}text'].text = " "
+            self.ids[f'round2sum{num}'].text = "At least one hacker is among the following."
+            self.ids[f'logtitle{num}'].canvas.before.get_group(f'{num}')[0].rgb = MDApp.get_running_app().theme_cls.primary_color
+            self.ids[f'logtitle{num}'].text = f" [font=Icons]{md_icons['folder']}[/font] {globals.logbuttonword[num]} "
+
+        # Reset Round 3 Logs
+        for num in range(1, 3):
+            self.ids[f'playerlog{num}'].text = f" [font=Icons]{md_icons['folder-eye']}[/font] Player Log "
+            self.ids[f'playerlog{num}'].text_size = None, None
+            self.ids[f'playerlog{num}'].canvas.before.get_group(f'{num}')[0].rgb = MDApp.get_running_app().theme_cls.primary_color
+
+        # Reset round indicator and navigator
+        self.ids.currentround.text = f"[size=30sp][font=Icons]{md_icons['circle-outline']}{md_icons['circle-outline']}{md_icons['circle-outline']}[/font][/size]"
+        self.ids.roundregulator.right_action_items = []
+        self.ids.roundregulator.icon = "play"
+
+        # Set tab back to round 1
+        self.ids.mainpanel.switch_tab("archive-lock", search_by="icon")
+
+class codenetApp(MDApp):
 #Global Variables Between KV and PY
-
-    arehacker = StringProperty("")
-    buttonname = StringProperty("")
+    import globals
 
     def build(self):
         pass

@@ -1,0 +1,96 @@
+<IdentityDialog>:
+    auto_dismiss: False
+    size_hint: 0.9, 0.6
+
+    MDCard:
+        id: identitycard
+        orientation: "vertical"
+        spacing: "12dp"
+        padding: "8dp"
+        md_bg_color: app.theme_cls.primary_color
+        border_radius: "20dp"
+        radius: ["15dp"]
+
+        MDLabel:
+            id: idtitle
+            font_style: "H5"
+            adaptive_height: True
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: C("FFFFFF")
+
+        MDSeparator:
+            color: C("FFFFFF")
+
+        MDStackLayout:
+            id: identity
+            padding: "8dp"
+            spacing: "12dp"
+            canvas.before:
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.8
+                Line:
+                    width: dp(0.3)
+                    rectangle: self.x, self.y, self.width, self.height
+                Color:
+                    rgba: 0/255, 0/255, 0/255, 0.4
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+
+            MDLabel:
+                id: arehacker
+                text_color: C("FFFFFF")
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                id: haveallies
+                text_color: C("FFFFFF")
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                id: identitydes
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                text_color: C("FFFFFF")
+                adaptive_height: True
+                markup: True
+
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDLabel:
+                id: whattarget
+                text: "[u]Target[/u]: "
+                text_color: C("FFFFFF")
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                adaptive_height: True
+                markup: True
+
+            MDLabel:
+                id: side_objective
+                font_style: "Subtitle2"
+                theme_text_color: "Custom"
+                text_color: C("FFFFFF")
+                adaptive_height: True
+                markup: True
+
+        MDRectangleFlatButton:
+            font_style: "Button"
+            theme_text_color: "Custom"
+            pos_hint: {"center_x": 0.5, "center_y": 0.5}
+            line_color: C("FFFFFF")
+            text_color: C("FFFFFF")
+            text: "End Turn"
+            line_width: '1.01dp'
+            on_release:
+                self.disabled = True
+                app.root.get_screen('reveal').trackplayer()
+                root.dismiss()

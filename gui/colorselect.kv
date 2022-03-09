@@ -1,0 +1,166 @@
+<ColorSelectScreen>:
+    name: "colorselect"
+
+    Background:
+
+    MDBoxLayout:
+        orientation: "vertical"
+
+        MDToolbar:
+            title: "C0de.Net"
+            right_action_items: [["refresh", lambda x: root.RefreshTracker()], ["information-outline", lambda x: root.openinfo()]]
+
+        MDBoxLayout:
+            orientation: "vertical"
+            spacing: "8dp"
+            padding: "8dp"
+
+            MDLabel:
+                adaptive_height: True
+                text_color: C("FFFFFF")
+                theme_text_color: "Custom"
+                font_style: "H4"
+                text: "Color Select"
+                halign: "center"
+
+            MDSeparator:
+                color: C("FFFFFF")
+
+            MDLabel:
+                adaptive_height: True
+                text_color: app.theme_cls.primary_color
+                theme_text_color: "Custom"
+                font_style: 'Subtitle1'
+                text: "Select your [color=#FFFFFF]color[/color], then select the color of the [color=#FFFFFF]following[/color] player to the [color=#FFFFFF]left[/color] of you, continuing [color=#FFFFFF]clockwise[/color]."
+                halign: "center"
+                markup: True
+
+            Widget:
+                size_hint: 1, 0.31
+
+            MDLabel:
+                id: remainder
+                height: self.texture_size[1]
+                adaptive_height: True
+                text_color: C('FFFFFF')
+                theme_text_color: "Custom"
+                font_style: 'Subtitle2'
+                halign: "center"
+                markup: True
+
+            Widget:
+                size_hint: 1, 0.2
+
+            MDGridLayout:
+                cols: 3
+                spacing: "8dp"
+
+                MDFillRoundFlatIconButton:
+                    icon: "circle"
+                    id: but1
+                    font_style: "Button"
+                    md_bg_color: C(app.globals.colordefs["Red"])
+                    text: "Red"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but1)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Pink"])
+                    icon: "circle"
+                    id: but2
+                    font_style: "Button"
+                    text: "Pink"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but2)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Purple"])
+                    icon: "circle"
+                    id: but3
+                    font_style: "Button"
+                    text: "Purple"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but3)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Blue"])
+                    icon: "circle"
+                    id: but4
+                    font_style: "Button"
+                    text: "Blue"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but4)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Green"])
+                    icon: "circle"
+                    id: but5
+                    font_style: "Button"
+                    text: "Green"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but5)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Yellow"])
+                    icon: "circle"
+                    id: but6
+                    font_style: "Button"
+                    text: "Yellow"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but6)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Orange"])
+                    icon: "circle"
+                    id: but7
+                    font_style: "Button"
+                    text: "Orange"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but7)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Brown"])
+                    icon: "circle"
+                    id: but8
+                    font_style: "Button"
+                    text: "Brown"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but8)
+
+                MDFillRoundFlatIconButton:
+                    md_bg_color: C(app.globals.colordefs["Grey"])
+                    icon: "circle"
+                    id: but9
+                    font_style: "Button"
+                    text: "Grey"
+                    size_hint: 1, 1
+                    rounded_button: False
+                    on_release:
+                        root.ColorSelect(but9)
+
+        Widget:
+            size_hint: 1, 0.6
+
+        MDBottomAppBar:
+            MDToolbar:
+                id: colorbottomtoolbar
+                icon: "square-rounded-outline"
+                type: "bottom"
+                on_action_button: app.on_pause()
+                left_action_items: [["chevron-left", lambda x: root.previousscreen()]]

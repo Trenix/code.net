@@ -16,11 +16,10 @@ def playersetup(self):
         for num in range(globals.players):
             globals.playerlist[f"player {num+1}"]["computer"] = False
 
-# No computers on logs
+# Computers wont get player logs
         for x in range(globals.players):
             if globals.playerlist[f"player {x+1}"]["computer"] == False:
                 globals.notai.append(f"player {x+1}")
-
 
 # Randomly set players to be hacker and create hacker list
     globals.hackerlist = random.sample(list(globals.playerlist.keys()), globals.amtbad)
@@ -44,3 +43,9 @@ def playersetup(self):
         globals.playerlist[globals.hackerlist[0]]["allies"] = globals.hackerlist[1], globals.hackerlist[2]
         globals.playerlist[globals.hackerlist[1]]["allies"] = globals.hackerlist[0], globals.hackerlist[2]
         globals.playerlist[globals.hackerlist[2]]["allies"] = globals.hackerlist[0], globals.hackerlist[1]
+
+# Set target
+    globals.target = random.sample(globals.coderlist, 1)
+
+# Get color tracker ready
+    globals.colortracker = globals.players

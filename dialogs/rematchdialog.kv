@@ -1,0 +1,67 @@
+<RematchDialog>:
+    auto_dismiss: False
+    size_hint: 0.9, 0.3
+
+    MDCard:
+        orientation: "vertical"
+        padding: "8dp"
+        spacing: "12dp"
+        md_bg_color: app.theme_cls.primary_color
+        border_radius: "20dp"
+        radius: ["15dp"]
+
+        MDLabel:
+            text: "Play again?"
+            font_style: "H5"
+            size_hint_y: None
+            height: self.texture_size[1]
+            theme_text_color: "Custom"
+            text_color: C("FFFFFF")
+
+        MDSeparator:
+            color: C("FFFFFF")
+
+        MDLabel:
+            text: "Play a rematch with the same settings or start fresh with a new game."
+            text_color: C("FFFFFF")
+            font_style: "Subtitle2"
+            theme_text_color: "Custom"
+            size_hint_y: None
+            height: self.texture_size[1]
+
+        MDBoxLayout:
+            orientation: "horizontal"
+            spacing: "8dp"
+
+            Widget:
+
+            MDRectangleFlatButton:
+                font_style: "Button"
+                theme_text_color: "Custom"
+                line_color: C("FFFFFF")
+                text_color: C("FFFFFF")
+                text: "New Game"
+                line_width: '1.01dp'
+                on_release:
+                    self.disabled = True
+                    app.root.transition.direction = "down"
+                    app.root.current = "player"
+                    app.root.get_screen('endgame').refresh()
+                    root.newgame()
+                    root.dismiss()
+
+            MDRectangleFlatButton:
+                font_style: "Button"
+                theme_text_color: "Custom"
+                md_bg_color: app.theme_cls.primary_dark
+                line_color: C("FFFFFF")
+                text_color: C("FFFFFF")
+                text: "Rematch"
+                line_width: '1.01dp'
+                on_release:
+                    self.disabled = True
+                    app.root.get_screen('endgame').refresh()
+                    root.rematch()
+                    app.root.transition.direction = "down"
+                    app.root.current = "reveal"
+                    root.dismiss()
