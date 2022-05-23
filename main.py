@@ -1,23 +1,20 @@
 from kivymd.app import MDApp
-# from kivy.core.window import Window
+from kivy.core.window import Window
 from kivymd.icon_definitions import md_icons
 from displays.playeramount import PlayerWindow
-from displays.revealdirections import *
+from displays.revealdirections import PlayerReveal
 from displays.welcome import WelcomeWindow
 from kivymd.uix.screen import MDScreen
 from displays.loadsetup import LoadingScreen
 from displays.colorselect import ColorSelectScreen
 from displays.endgame import EndGame
 from systems.screenmanager import WindowManager
-from systems.generatelog import createlog
-from systems.generatelog import createhackeramt
+from systems.generatelog import createlog, createhackeramt
 from kivymd.uix.behaviors.toggle_behavior import MDToggleButton
 from kivymd.uix.button import MDFillRoundFlatIconButton
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.boxlayout import MDBoxLayout
-from displays.dialogcode import IdentityDialog
-from displays.dialogcode import ConfirmDialog
-from displays.dialogcode import ActionDialog
+from displays.dialogcode import IdentityDialog, ConfirmDialog, ActionDialog
 from displays.information import MainInfo
 from displays.action import ActionScreen
 from displays.playerlog import PlayerLogScreen
@@ -26,10 +23,10 @@ from kivy.utils import get_color_from_hex
 import random
 import globals
 
-# KIVY_DPI = 320
-# KIVY_METRICS_DENSITY = 2
-#
-# Window.size = (720, 1280)
+KIVY_DPI = 320
+KIVY_METRICS_DENSITY = 2
+
+Window.size = (720, 1280)
 
 class Tab(MDBoxLayout, MDTabsBase):
     pass

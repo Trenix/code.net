@@ -1,6 +1,6 @@
 from kivymd.uix.screen import MDScreen
 from kivymd.icon_definitions import md_icons
-from main import IdentityDialog
+from displays.dialogcode import IdentityDialog
 from kivy.utils import get_color_from_hex
 import globals
 

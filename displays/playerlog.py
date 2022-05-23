@@ -1,6 +1,6 @@
 from kivymd.uix.screen import MDScreen
 from displays.dialogcode import LogDialog
-from main import MDApp
+from kivymd.app import MDApp
 from systems.generateplayerlog import createplayerlog
 from kivymd.icon_definitions import md_icons
 from kivy.utils import get_color_from_hex

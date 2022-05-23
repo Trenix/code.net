@@ -2,7 +2,7 @@ from kivymd.uix.screen import MDScreen
 from kivy.core.text import LabelBase
 from kivy.clock import Clock
 from kivymd.font_definitions import theme_font_styles
-from main import MDApp
+from kivymd.app import MDApp
 
 class LoadingScreen(MDScreen):
 

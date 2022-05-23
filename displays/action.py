@@ -2,20 +2,14 @@ from kivymd.uix.screen import MDScreen
 from displays.dialogcode import ActionDialog
 from functools import partial
 from kivy.utils import get_color_from_hex
-from main import MDApp
+from kivymd.app import MDApp
 from kivymd.icon_definitions import md_icons
 import globals
 import random
 
 class ActionScreen(MDScreen):
-    from systems.preformactions import codeaction
-    from systems.preformactions import analyzelog
-    from systems.preformactions import disablewidgets
-    from systems.preformactions import analyzeplayer
-    from systems.preformactions import backuplog
-    from systems.preformactions import hacklog
-    from systems.preformactions import corruptlog
-    from systems.preformactions import hackplayer
+    from systems.preformactions import codeaction, analyzelog, disablewidgets, analyzeplayer, backuplog, hacklog, \
+        corruptlog, hackplayer
 
     def setactionplayers(self):
         # Collect players randomly that will have actions and then sort them
