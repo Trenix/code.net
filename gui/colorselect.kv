@@ -6,7 +6,7 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDToolbar:
+        MDTopAppBar:
             title: "C0de.Net"
             right_action_items: [["refresh", lambda x: root.RefreshTracker()], ["information-outline", lambda x: root.openinfo()]]
 
@@ -158,7 +158,7 @@
             size_hint: 1, 0.6
 
         MDBottomAppBar:
-            MDToolbar:
+            MDTopAppBar:
                 id: colorbottomtoolbar
                 icon: "square-rounded-outline"
                 type: "bottom"

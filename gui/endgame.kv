@@ -6,7 +6,7 @@
     MDBoxLayout:
         orientation: "vertical"
 
-        MDToolbar:
+        MDTopAppBar:
             title: "C0de.Net"
             right_action_items: [["information-outline", lambda x: root.openinfo()]]
 
@@ -173,7 +173,7 @@
                         app.root.get_screen('maininfo').ids.maininfoscreenmanager.current = "Points"
 
         MDBottomAppBar:
-            MDToolbar:
+            MDTopAppBar:
                 icon: "autorenew"
                 type: "bottom"
                 on_action_button: root.opendialog()
